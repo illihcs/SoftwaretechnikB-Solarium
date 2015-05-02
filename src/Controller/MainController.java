@@ -1,8 +1,7 @@
 package Controller;
 
-import View.Login;
-import View.Register;
-import sun.rmi.runtime.Log;
+import View.UserViews.Login;
+import View.UserViews.Register;
 
 import javax.swing.*;
 

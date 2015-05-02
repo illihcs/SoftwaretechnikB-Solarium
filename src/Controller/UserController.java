@@ -4,6 +4,7 @@ package Controller;
  * Created by Schillemans on 01.05.2015.
  */
 public class UserController {
+
     public void Login(String LoginMail, char[] Password) {
         //TODO: Anmeldung des Benutzers!
     }

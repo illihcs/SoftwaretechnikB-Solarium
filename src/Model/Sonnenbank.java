@@ -19,6 +19,6 @@ public class Sonnenbank implements ISonnenbank
 
     public void bearbeiteSonnenbank(String Kabine,  int Leistung,  LocalDateTime Wartungstermin){}
 
-    public void löscheSonnenbank(int ID){}
+    public void loescheSonnenbank(int ID){}
 
 }

@@ -18,7 +18,7 @@ public interface ISonnenbank {
 
      void bearbeiteSonnenbank(String Kabine,  int Leistung,  LocalDateTime Wartungstermin);
 
-     void löscheSonnenbank(int ID);
+     void loescheSonnenbank(int ID);
 
 
 

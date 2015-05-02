@@ -11,6 +11,6 @@ public interface ITermin {
 
     void TerminBearbeiten (LocalDate DateTime, LocalDate UhrzeitVon, LocalDate UhrzeitBis, int Sonnenbank, String KundenName);
 
-    void TerminLöschen(int ID) ;
+    void TerminLoeschen(int ID) ;
 
 }

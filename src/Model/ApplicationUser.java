@@ -1,7 +1,15 @@
 package Model;
 
-import java.sql.*;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.time.LocalDateTime;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
+
 
 /**
  * Created by Win7-Dev on 02.05.2015.
@@ -15,7 +23,7 @@ public class ApplicationUser implements IApplicationUser {
     String Email;
     String Passwort;
 
-    // JDBC driver name and database URL
+    // JDBC driver name and database URL   mysql-connector-java-5.1.35-bin.jar
     static final String JDBC_DRIVER = "com.mysql.jdbc.Driver";
     static final String DB_URL = "jdbc:mysql://localhost:3306/solardb";
 
@@ -32,34 +40,38 @@ public class ApplicationUser implements IApplicationUser {
 
     public   void erstelleUser( String Vorname, String Nachname, LocalDateTime Geburtstag, String Mail, String Passwort){
 
-        Connection conn = null;
-        Statement stmt = null;
 
-        try{
-            //STEP 2: Register JDBC driver
-           //  Class.forName("com.mysql.jdbc.Driver").newInstance();
 
-            //STEP 3: Open a connection
-            System.out.println("Connecting to a selected database...");
-            conn = DriverManager.getConnection(DB_URL, USER, PASS);
-            System.out.println("Connected database successfully...");
+        Connection con = null;
+        Statement st = null;
+        ResultSet rs = null;
 
-            //STEP 4: Execute a query
-            System.out.println("Creating statement...");
-            stmt = conn.createStatement();
-            String sql = "INSERT INTO  applicationuser (Vorname, Nachname, Geburtstrag, Email, Passwort) " +
-                         "Values('Vorname', 'Nachname', 'Geburtstrag', 'Email', 'Passwort')";
+        String url = "jdbc:mysql://localhost:3306/solardb";
+        String user = "root";
+        String password = "root";
 
-            stmt.executeUpdate(sql);
+        try {
+            con = DriverManager.getConnection(url, user, password);
+            st = con.createStatement();
+            rs = st.executeQuery("SELECT VERSION()");
 
-            conn.close();
+            if (rs.next()) {
+                System.out.println(rs.getString(1));
+            }
 
-        }catch(SQLException se){
+        } catch (SQLException ex) {
 
-        }
+
+
+        } finally {
+
+
+
+            }
+
     }
 
-    public void löscheUser(int ID){
+    public void loescheUser(int ID){
 
     }
 

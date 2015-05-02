@@ -23,7 +23,7 @@ public class Termin implements ITermin {
 
     }
 
-    public void TerminLöschen(int ID){
+    public void TerminLoeschen(int ID){
 
       }
 

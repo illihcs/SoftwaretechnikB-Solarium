@@ -18,7 +18,7 @@ public interface IApplicationUser {
 
     void erstelleUser( String Vorname, String Nachname, LocalDateTime Geburtstag, String Mail, String Passwort);
 
-     void löscheUser(int ID);
+     void loescheUser(int ID);
 
      void login( String Email, String Password);
 }

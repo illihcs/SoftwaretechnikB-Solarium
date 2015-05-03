@@ -3,7 +3,13 @@ package Model;
 
 import java.sql.*;
 import java.time.LocalDate;
+<<<<<<< HEAD
 import java.time.LocalTime;
+=======
+import java.time.LocalDateTime;
+import java.time.LocalTime;
+import java.util.LinkedList;
+>>>>>>> origin/master
 
 
 /**
@@ -13,9 +19,9 @@ public class Termin implements ITermin {
 
     int ID = 0;
     LocalDate Datum = null;
-    LocalDate UhrzeitVon = null;
-    LocalDate UhrzeitBis = null;
-    int Sonnenbank = 0;
+    LocalDateTime UhrzeitVon = null;
+    LocalDateTime UhrzeitBis = null;
+    String Sonnenbank = null;
     String Kunde;
 
     // mySQL Helpers
@@ -24,7 +30,11 @@ public class Termin implements ITermin {
 
 
 
+<<<<<<< HEAD
     public boolean TerminEintragen( LocalDate Datum, LocalTime UhrzeitVon,  LocalTime UhrzeitBis , String Sonnenbank, String KundenName) {
+=======
+    public boolean TerminEintragen( LocalDate Datum, LocalDateTime UhrzeitVon,  LocalDateTime UhrzeitBis , String Sonnenbank, String KundenName) {
+>>>>>>> origin/master
         try {
 
             // Setup SQl connection
@@ -52,7 +62,7 @@ public class Termin implements ITermin {
         }
     }
 
-    public boolean TerminBearbeiten (int ID, LocalDate DateTime, LocalDate  UhrzeitVon, LocalDate   UhrzeitBis, String Sonnenbank, String KundenName){
+    public boolean TerminBearbeiten (int ID, LocalDate DateTime, LocalDateTime  UhrzeitVon, LocalDateTime   UhrzeitBis, String Sonnenbank, String KundenName){
         try {
 
             // Setup SQl connection
@@ -106,4 +116,46 @@ public class Termin implements ITermin {
       }
 
 
+    public LinkedList<TerminObject> getAllTermin(){
+
+        try {
+
+            LinkedList<TerminObject> TerminObjectList = new LinkedList<TerminObject>();
+
+            // Setup SQl connection
+            con = DriverManager.getConnection(SqlConf.url, SqlConf.user, SqlConf.password);
+
+            // Define SQL Statement
+            String selectSQL = "SELECT * FROM termin";
+
+            // Fill SQL Statement
+            PreparedStatement preparedStatement = con.prepareStatement(selectSQL);
+            // preparedStatement.setString(1, EMail);
+
+            // execute insert SQL stetement
+            ResultSet rs = preparedStatement.executeQuery(selectSQL );
+
+            while (rs.next()) {
+
+
+                TerminObjectList.add(
+                        new TerminObject( rs.getInt("ID"),
+                                        rs.getDate("Datum").toLocalDate(),
+                                        rs.getTime("UhrzeitVon").toLocalTime(),
+                                        rs.getTime("UhrzeitBis").toLocalTime(),
+                                        rs.getString("Sonnenbank"),
+                                        rs.getString("Kunde") )
+                );
+
+            }
+
+            return TerminObjectList;
+
+        } catch (SQLException ex) {
+
+            throw new  RuntimeException(ex);
+        }
+
+
+    }
 }

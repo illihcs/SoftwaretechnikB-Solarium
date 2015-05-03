@@ -3,6 +3,8 @@ package Model;
 import java.sql.*;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.util.LinkedList;
+import java.util.List;
 
 
 /**
@@ -15,7 +17,7 @@ public class Sonnenbank implements ISonnenbank
 {
 
     int ID = 0;
-    int Kabine = 0;
+    String Kabine = null;
     String Leistung = null;
     LocalDateTime Wartungstermin = null;
 
@@ -79,6 +81,7 @@ public class Sonnenbank implements ISonnenbank
 
             throw new  RuntimeException(ex);
         }
+
     }
 
     public boolean loescheSonnenbank(int ID){
@@ -105,5 +108,46 @@ public class Sonnenbank implements ISonnenbank
             throw new  RuntimeException(ex);
         }
     }
+
+
+    public LinkedList<SonnenbankObject> getAllSonnenbank(){
+
+        try {
+
+            LinkedList<SonnenbankObject> SonnenbankObjectList = new LinkedList<SonnenbankObject>();
+
+            // Setup SQl connection
+            con = DriverManager.getConnection(SqlConf.url, SqlConf.user, SqlConf.password);
+
+            // Define SQL Statement
+            String selectSQL = "SELECT * FROM sonnenbank";
+
+            // Fill SQL Statement
+            PreparedStatement preparedStatement = con.prepareStatement(selectSQL);
+            // preparedStatement.setString(1, EMail);
+
+            // execute insert SQL stetement
+            ResultSet rs = preparedStatement.executeQuery(selectSQL );
+
+            while (rs.next()) {
+
+
+                SonnenbankObjectList.add(
+                        new SonnenbankObject( rs.getInt("ID"), rs.getString("Kabine"), rs.getString("Leistung"), rs.getDate("Wartungstermin").toLocalDate())
+                );
+
+            }
+
+            return SonnenbankObjectList;
+
+        } catch (SQLException ex) {
+
+            throw new  RuntimeException(ex);
+        }
+
+
+    }
+
+
 
 }

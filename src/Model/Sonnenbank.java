@@ -15,10 +15,16 @@ public class Sonnenbank implements ISonnenbank
     LocalDateTime Wartungstermin = null;
 
 
-   public void erstelleSonnenbank( String Kabine,  int Leistung,  LocalDateTime Wartungstermin){}
+   public void erstelleSonnenbank( String Kabine,  int Leistung,  LocalDateTime Wartungstermin){
+       //TODO: erstelle Sonnenbank
+   }
 
-    public void bearbeiteSonnenbank(String Kabine,  int Leistung,  LocalDateTime Wartungstermin){}
+    public void bearbeiteSonnenbank(String Kabine,  int Leistung,  LocalDateTime Wartungstermin){
+        //TODO: bearbeite Sonnenbank
+    }
 
-    public void loescheSonnenbank(int ID){}
+    public void loescheSonnenbank(int ID){
+        //TODO: loesche Sonnenbank
+    }
 
 }

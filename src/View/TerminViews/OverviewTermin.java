@@ -1,5 +1,6 @@
 package View.TerminViews;
 
+import Controller.TerminController;
 import Controller.UserController;
 import Model.ApplicationUser;
 import Model.ApplicationUserObject;
@@ -12,6 +13,9 @@ import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import java.awt.*;
 import java.awt.event.ActionEvent;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.LocalTime;
 import java.util.LinkedList;
 
 /**
@@ -91,6 +95,8 @@ public class OverviewTermin extends JFrame {
         String[] columnnames = new String[]{"Datum", "Uhrzeit Von", "Uhrzeit Bis", "Sonnenbank", "Kundenname"};
         dtm.setColumnIdentifiers(columnnames);
         TabelleTerminUebersicht.setModel(dtm);
+        TabelleTerminUebersicht.setCellSelectionEnabled(true);
+        TabelleTerminUebersicht.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
         mitteScrollPane.setViewportView(TabelleTerminUebersicht);
         mitte.add(mitteScrollPane);
         add(mitte, java.awt.BorderLayout.CENTER);
@@ -129,9 +135,27 @@ public class OverviewTermin extends JFrame {
         int eingabe = JOptionPane.showConfirmDialog(null, "Möchten Sie den ausgewählten Termin löschen?", "Löschen bestätigen", JOptionPane.YES_NO_CANCEL_OPTION);
         if (eingabe == 1)
         {
-            //TODO: Delete Button
-            //Get Element out of Table
-            //Delete the Element
+            int row = TabelleTerminUebersicht.getSelectedRow();
+            TerminObject to = new TerminObject(
+                    (int) TabelleTerminUebersicht.getModel().getValueAt(row, 0),
+                    LocalDate.parse( (String) TabelleTerminUebersicht.getModel().getValueAt(row, 1)),
+                    LocalTime.parse((String) TabelleTerminUebersicht.getModel().getValueAt(row, 2)),
+                    LocalTime.parse((String) TabelleTerminUebersicht.getModel().getValueAt(row, 3)),
+                    (String) TabelleTerminUebersicht.getModel().getValueAt(row, 4),
+                    (String) TabelleTerminUebersicht.getModel().getValueAt(row, 5));
+            TerminController controller = new TerminController();
+            if (controller.loescheTermin(to.getID())== true)
+            {
+                JOptionPane.showMessageDialog(null,
+                        "Löschen fertiggestellt!",
+                        "Löschen fertig!",
+                        JOptionPane.WARNING_MESSAGE);
+            }else{
+                JOptionPane.showMessageDialog(null,
+                        "Löschen fehlgeschlagen",
+                        "FEHLSCHLAG!!!",
+                        JOptionPane.WARNING_MESSAGE);
+            }
         }else{
             //Do nothing!
         }

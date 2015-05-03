@@ -21,7 +21,7 @@ public class TerminController {
         return TerminCreated;
     }
 
-    boolean bearbeiteTermin( int ID, LocalDate Datum, LocalDateTime UhrzeitVon, LocalDateTime UhrzeitBis, String Sonnenbank, String KundenName)
+    public boolean bearbeiteTermin( int ID, LocalDate Datum, LocalDateTime UhrzeitVon, LocalDateTime UhrzeitBis, String Sonnenbank, String KundenName)
     {
         Termin terminControler = new Termin();
         boolean TerminCreated =  terminControler.TerminBearbeiten(ID, Datum, UhrzeitVon, UhrzeitBis, Sonnenbank, KundenName);
@@ -29,7 +29,7 @@ public class TerminController {
         return TerminCreated;
     }
 
-    boolean loescheTermin(int ID)
+    public boolean loescheTermin(int ID)
     {
         Termin terminControler = new Termin();
         boolean TerminCreated =  terminControler.TerminLoeschen(ID);

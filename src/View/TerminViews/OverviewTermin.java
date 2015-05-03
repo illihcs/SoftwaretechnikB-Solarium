@@ -1,5 +1,10 @@
 package View.TerminViews;
 
+import Controller.UserController;
+import Model.ApplicationUser;
+import Model.ApplicationUserObject;
+import Model.Termin;
+import Model.TerminObject;
 import View.SonnenbankViews.OverviewSonnenbank;
 import View.UserViews.OverviewUser;
 
@@ -7,6 +12,7 @@ import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import java.awt.*;
 import java.awt.event.ActionEvent;
+import java.util.LinkedList;
 
 /**
  * Created by admin on 03.05.2015.
@@ -67,17 +73,24 @@ public class OverviewTermin extends JFrame {
         add(oben, BorderLayout.NORTH);
 
         mitte.setLayout(new GridLayout());
-        TabelleTerminUebersicht.setModel(new DefaultTableModel(
-                new Object[][]{
-                        {null, null, null, null, null},
-                        {null, null, null, null, null},
-                        {null, null, null, null, null},
-                        {null, null, null, null, null}
-                },
-                new String[]{
-                        "Datum", "Uhrzeit Von", "Uhrzeit Bis", "Sonnenbank", "Kundenname"
-                }
-        ));
+
+        DefaultTableModel dtm = new DefaultTableModel();
+        LinkedList<TerminObject> list = new Termin().getAllTermin();
+        for (TerminObject t : list)
+        {
+            Object[] o = new Object[6];
+            o[0] = t.getID();
+            o[1] = t.getDatum();
+            o[2] = t.getUhrzeitVon();
+            o[3] =t.getUhrzeitBis();
+            o[4] =t.getSonnenbank();
+            o[5] =t.getKunde();
+            dtm.addRow(o);
+        }
+
+        String[] columnnames = new String[]{"Datum", "Uhrzeit Von", "Uhrzeit Bis", "Sonnenbank", "Kundenname"};
+        dtm.setColumnIdentifiers(columnnames);
+        TabelleTerminUebersicht.setModel(dtm);
         mitteScrollPane.setViewportView(TabelleTerminUebersicht);
         mitte.add(mitteScrollPane);
         add(mitte, java.awt.BorderLayout.CENTER);
@@ -113,29 +126,39 @@ public class OverviewTermin extends JFrame {
     }// </editor-fold>
 
     private void ButtonDeleteTerminActionPerformed(ActionEvent evt) {
-        //TODO add your handling code here:
+        int eingabe = JOptionPane.showConfirmDialog(null, "Möchten Sie den ausgewählten Termin löschen?", "Löschen bestätigen", JOptionPane.YES_NO_CANCEL_OPTION);
+        if (eingabe == 1)
+        {
+            //TODO: Delete Button
+            //Get Element out of Table
+            //Delete the Element
+        }else{
+            //Do nothing!
+        }
     }
 
     private void ButtonEditTerminActionPerformed(ActionEvent evt) {
-        //TODO add your handling code here:
+        //TODO: EDIT BUtton
+        //getSelectedUser
+        //ApplicationUserObject user = new ApplicationUserObject(bla bla bla);
+        //EditTermin et = new EditTermin(user);
+        //et.setVisible(true);
+        //this.dispose();
     }
 
     private void ButtonCreateTerminActionPerformed(ActionEvent evt) {
-        //TODO add your handling code here:
         CreateTermin ct = new CreateTermin();
         ct.setVisible(true);
         this.dispose();
     }
 
     private void ButtonBenutzerUebersichtActionPerformed(ActionEvent evt) {
-        // TODO add your handling code here:
         OverviewUser ou = new OverviewUser();
         ou.setVisible(true);
         this.dispose();
     }
 
     private void ButtonSonnenbankUebersichtActionPerformed(ActionEvent evt) {
-        // TODO add your handling code here:
         OverviewSonnenbank os = new OverviewSonnenbank();
         os.setVisible(true);
         this.dispose();

@@ -3,13 +3,9 @@ package Model;
 
 import java.sql.*;
 import java.time.LocalDate;
-<<<<<<< HEAD
-import java.time.LocalTime;
-=======
 import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.util.LinkedList;
->>>>>>> origin/master
 
 
 /**
@@ -30,11 +26,7 @@ public class Termin implements ITermin {
 
 
 
-<<<<<<< HEAD
-    public boolean TerminEintragen( LocalDate Datum, LocalTime UhrzeitVon,  LocalTime UhrzeitBis , String Sonnenbank, String KundenName) {
-=======
     public boolean TerminEintragen( LocalDate Datum, LocalDateTime UhrzeitVon,  LocalDateTime UhrzeitBis , String Sonnenbank, String KundenName) {
->>>>>>> origin/master
         try {
 
             // Setup SQl connection

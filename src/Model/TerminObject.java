@@ -25,4 +25,31 @@ public class TerminObject {
         this.Kunde = Kunde;
 
     }
+
+
+    public int getID() {
+        return ID;
+    }
+
+    public LocalDate getDatum() {
+        return Datum;
+    }
+
+    public LocalTime getUhrzeitVon() {
+        return UhrzeitVon;
+    }
+
+    public LocalTime getUhrzeitBis() {
+        return UhrzeitBis;
+    }
+
+    public String getSonnenbank() {
+        return Sonnenbank;
+    }
+
+    public String getKunde() {
+        return Kunde;
+    }
+
 }
+

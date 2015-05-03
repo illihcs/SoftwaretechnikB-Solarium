@@ -16,8 +16,6 @@ import java.time.LocalDateTime;
 public class MainController {
     public static void main(String[] args)
     {
-
-
         Login Login = new Login();
         Login.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         Login.setSize(400, 200);

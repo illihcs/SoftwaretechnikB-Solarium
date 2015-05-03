@@ -8,6 +8,7 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.time.LocalTime;
 
 /**
@@ -95,8 +96,8 @@ public class CreateTermin extends JFrame implements ActionListener{
         if (button == ButtonSpeichern)
         {
             LocalDate datum = LocalDate.parse(TextFieldDatum.getText());
-            LocalTime von = LocalTime.parse(TextFieldUhrzeitVon.getText());
-            LocalTime bis = LocalTime.parse(TextFieldUhrzeitBis.getText());
+            LocalDateTime von = LocalDateTime.parse(TextFieldUhrzeitVon.getText());
+            LocalDateTime bis = LocalDateTime.parse(TextFieldUhrzeitBis.getText());
 
             if (ControllerTermin.erstelleTermin(datum, von, bis, TextFieldSonnenbank.getText(), TextFieldKunde.getText()) == true)
             {

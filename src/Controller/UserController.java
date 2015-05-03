@@ -40,4 +40,10 @@ public class UserController {
         return UserCreated;
 
     }
+
+    public boolean DeleteUser()
+    {
+        //TODO: Muss noch gemacht werden!!!
+        return false;
+    }
 }

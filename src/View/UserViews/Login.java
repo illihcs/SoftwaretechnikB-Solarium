@@ -53,10 +53,13 @@ public class Login extends JFrame implements ActionListener{
 
     @Override
     public void actionPerformed(ActionEvent e) {
+
         JButton button = (JButton) e.getSource();
+
         if (button.getText().equals("Login"))
         {
             UserController controller = new UserController();
+
             if(controller.Login(TextFieldEmail.getText(), TextFieldPassword.getPassword()) == true)
             {
                 OverviewTermin ot = new OverviewTermin();
@@ -67,6 +70,7 @@ public class Login extends JFrame implements ActionListener{
                 LabelFehler.setText("Deine E-Mail oder dein Passwort war ungültig! \nBitte versuche es erneut.");
             }
         }
+
         if (button.getText().equals("Close"))
         {
             this.dispose();

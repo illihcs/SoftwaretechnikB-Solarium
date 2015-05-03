@@ -19,7 +19,7 @@ public class MainController {
 
 
         // WORKAROUND::  DB connection test, should return DB version in the console as info
-        ApplicationUser test = new ApplicationUser("mkyong", "mkyong", LocalDate.now(), "mkyong", "mkyong");
+        ApplicationUser test = new ApplicationUser();
         test.erstelleUser("mkyong", "mkyong", LocalDate.now(), "mkyong", "mkyong");
 
         Login Login = new Login();

@@ -10,15 +10,24 @@ import java.time.LocalDate;
 public class UserController {
 
     public boolean Login(String LoginMail, char[] Password) {
-       //ApplicationUser user = new ApplicationUser();
-      //  String pass = new String(Password);
-     //   return user.login(LoginMail, pass);
-        return true;
+
+       ApplicationUser user = new ApplicationUser();
+       String pass = new String(Password);
+
+
+        Boolean AuthenticatedUser = user.login(LoginMail, pass);
+
+        return AuthenticatedUser;
+
     }
 
     public void Register(String Vorname, String Nachname, String Geburtstag, String Mail, char[] password) {
-        ApplicationUser user = new ApplicationUser(Vorname, Nachname, LocalDate.parse(Geburtstag), Mail, new String(password));
-        //TODO: Registrierung des Nutzers
+
+        ApplicationUser user = new ApplicationUser();
+        user.erstelleUser(Vorname, Nachname, LocalDate.parse(Geburtstag), Mail, new String(password));
+
+
+
     }
 
     public void BearbeiteUser(String Vorname, String Nachname, String Geburtstag, String Mail, char[] password){

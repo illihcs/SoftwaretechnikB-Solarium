@@ -21,18 +21,19 @@ public class ApplicationUser implements IApplicationUser {
     public static SqlConfig SqlConf = null;
     Connection con = null;
 
-    public ApplicationUser(String vorname, String nachname, LocalDate geburtstag, String mail, String password) {
 
-        Vorname = vorname;
+    // String vorname, String nachname, LocalDate geburtstag, String mail, String password
+
+    public ApplicationUser() {
+
+      /*  Vorname = vorname;
         Nachname = nachname;
         Geburtstag = geburtstag;
         Email = mail;
-        Passwort = password;
+        Passwort = password; */
 
         SqlConfig SqlConf = new SqlConfig();
     }
-
-
 
     public boolean  bearbeitenUserDaten(int ID,  String Vorname,  String Nachname , LocalDate Geburtstag,  String EMail,  String Passwort){
 
@@ -118,18 +119,18 @@ public class ApplicationUser implements IApplicationUser {
         }
     }
 
-    public boolean login(String EMail, String Password){
+    public boolean login(String LoginEMail, String LoginPassword){
         try {
 
             // Setup SQl connection
             con = DriverManager.getConnection(SqlConf.url, SqlConf.user, SqlConf.password);
 
             // Define SQL Statement
-            String selectSQL = "SELECT EMail, Passwort  FROM applicationuser WHERE EMail = ?";
+            String selectSQL = "SELECT * FROM applicationuser";
 
             // Fill SQL Statement
             PreparedStatement preparedStatement = con.prepareStatement(selectSQL);
-            preparedStatement.setString(1, EMail);
+           // preparedStatement.setString(1, EMail);
 
             // execute insert SQL stetement
             ResultSet rs = preparedStatement.executeQuery(selectSQL );
@@ -138,7 +139,7 @@ public class ApplicationUser implements IApplicationUser {
                 String DBEMail = rs.getString("EMail");
                 String DBPasswort = rs.getString("Passwort");
 
-                if ( Email == DBEMail &&  Password == DBPasswort ) return true;
+                if (new String(LoginEMail).equals(DBEMail) &&  new String(LoginPassword).equals(DBPasswort)) return true;
             }
 
             return false;

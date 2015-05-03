@@ -1,12 +1,7 @@
 package View.TerminViews;
 
-<<<<<<< HEAD
-=======
+
 import Controller.TerminController;
-import Controller.UserController;
-import Model.ApplicationUser;
-import Model.ApplicationUserObject;
->>>>>>> origin/master
 import Model.Termin;
 import Model.TerminObject;
 import View.SonnenbankViews.OverviewSonnenbank;
@@ -17,7 +12,6 @@ import javax.swing.table.DefaultTableModel;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.util.LinkedList;
 

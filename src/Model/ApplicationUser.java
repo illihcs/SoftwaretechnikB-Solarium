@@ -139,6 +139,7 @@ public class ApplicationUser implements IApplicationUser {
                 String DBEMail = rs.getString("EMail");
                 String DBPasswort = rs.getString("Passwort");
 
+                // Wenn GUI values und DB values übereinstimmen
                 if (new String(LoginEMail).equals(DBEMail) &&  new String(LoginPassword).equals(DBPasswort)) return true;
             }
 

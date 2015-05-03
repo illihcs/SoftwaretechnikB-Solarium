@@ -1,5 +1,9 @@
 package Controller;
 
+import Model.Sonnenbank;
+import Model.Termin;
+import com.sun.org.apache.xpath.internal.operations.Bool;
+
 import java.time.LocalDate;
 
 /**
@@ -7,18 +11,27 @@ import java.time.LocalDate;
  */
 public class SonnenbankController {
 
-    void erstelleSonnenbank(String Kabine, int Leistung, LocalDate Wartungstermin)
+    Boolean erstelleSonnenbank(String Kabine, String Leistung, LocalDate Wartungstermin)
     {
+        Sonnenbank sonnenControler = new Sonnenbank();
+        Boolean TerminCreated =  sonnenControler.erstelleSonnenbank(Kabine, Leistung, Wartungstermin);
 
+        return TerminCreated;
     }
 
-    void bearbeiteSonnenbank(String Kabine, int Leistung, LocalDate Wartungstermin)
+    Boolean bearbeiteSonnenbank(int ID, String Kabine,  String Leistung,  LocalDate Wartungstermin)
     {
+        Sonnenbank sonnenControler = new Sonnenbank();
+        Boolean TerminCreated =  sonnenControler.bearbeiteSonnenbank(ID, Kabine, Leistung, Wartungstermin);
 
+        return TerminCreated;
     }
 
-    void loescheSonnenbank(int ID)
+    Boolean loescheSonnenbank(int ID)
     {
+        Sonnenbank sonnenControler = new Sonnenbank();
+        Boolean TerminCreated =  sonnenControler.loescheSonnenbank(ID);
 
+        return TerminCreated;
     }
 }

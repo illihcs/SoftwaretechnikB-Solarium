@@ -23,7 +23,7 @@ public class Sonnenbank implements ISonnenbank
     public static SqlConfig SqlConf = null;
     Connection con = null;
 
-    Sonnenbank(){
+    public Sonnenbank(){
 
     }
 
@@ -55,6 +55,7 @@ public class Sonnenbank implements ISonnenbank
    }
 
     public boolean bearbeiteSonnenbank(int ID, String Kabine,  String Leistung,  LocalDate Wartungstermin){
+
         try {
 
             // Setup SQl connection

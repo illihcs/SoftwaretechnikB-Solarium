@@ -1,13 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="2845892d-f8d1-43a4-8212-6bce5ad31c63" name="Default" comment="SQL fix">
-      <change type="DELETED" beforePath="C:\Users\Win7-Dev\Documents\GitHub\SoftwaretechnikB-Solarium\out\production\Solarium\Model\SqlConfiguration.class" afterPath="" />
+    <list default="true" id="2845892d-f8d1-43a4-8212-6bce5ad31c63" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Solarium/Model/ApplicationUser.class" afterPath="$PROJECT_DIR$/out/production/Solarium/Model/ApplicationUser.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Solarium/Model/IApplicationUser.class" afterPath="$PROJECT_DIR$/out/production/Solarium/Model/IApplicationUser.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Solarium/Controller/MainController.class" afterPath="$PROJECT_DIR$/out/production/Solarium/Controller/MainController.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Solarium/Controller/UserController.class" afterPath="$PROJECT_DIR$/out/production/Solarium/Controller/UserController.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Model/ApplicationUser.java" afterPath="$PROJECT_DIR$/src/Model/ApplicationUser.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Model/ISonnenbank.java" afterPath="$PROJECT_DIR$/src/Model/ISonnenbank.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Model/ITermin.java" afterPath="$PROJECT_DIR$/src/Model/ITermin.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Model/Sonnenbank.java" afterPath="$PROJECT_DIR$/src/Model/Sonnenbank.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Model/Termin.java" afterPath="$PROJECT_DIR$/src/Model/Termin.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="Solarium.iws" />
@@ -54,24 +56,6 @@
         <option name="myItemType" value="com.intellij.database.view.DbNodeDescriptor" />
       </PATH_ELEMENT>
     </PATH>
-    <PATH>
-      <PATH_ELEMENT>
-        <option name="myItemId" />
-        <option name="myItemType" value="com.intellij.database.view.DbRootNodeDescriptor" />
-      </PATH_ELEMENT>
-      <PATH_ELEMENT>
-        <option name="myItemId" value="MySQL - solardb@localhost" />
-        <option name="myItemType" value="com.intellij.database.view.DbNodeDescriptor" />
-      </PATH_ELEMENT>
-      <PATH_ELEMENT>
-        <option name="myItemId" value="solardb" />
-        <option name="myItemType" value="com.intellij.database.view.DbNodeDescriptor" />
-      </PATH_ELEMENT>
-      <PATH_ELEMENT>
-        <option name="myItemId" value="applicationuser" />
-        <option name="myItemType" value="com.intellij.database.view.DbNodeDescriptor" />
-      </PATH_ELEMENT>
-    </PATH>
   </component>
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FavoritesManager">
@@ -115,32 +99,55 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="DBscript" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/DB/DBscript">
+      <file leaf-file-name="ISonnenbank.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Model/ISonnenbank.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <caret line="22" column="0" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="DBscript.sql" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/DB/DBscript.sql">
+      <file leaf-file-name="Sonnenbank.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Model/Sonnenbank.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-0.0">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="24" column="0" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="method#erstelleSonnenbank#0;class#Sonnenbank#0" expanded="false" />
+                <element signature="method#bearbeiteSonnenbank#0;class#Sonnenbank#0" expanded="false" />
+                <element signature="method#loescheSonnenbank#0;class#Sonnenbank#0" expanded="false" />
+                <marker date="1430662639625" expanded="true" signature="740:813" placeholder="INSERT INTO ..." />
+                <marker date="1430662639625" expanded="true" signature="1679:1758" placeholder="UPDATE appli..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ITermin.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Model/ITermin.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="9" column="77" selection-start-line="9" selection-start-column="68" selection-end-line="9" selection-end-column="77" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="SonnenbankController.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Controller/SonnenbankController.java">
+      <file leaf-file-name="Termin.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/Model/Termin.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
-              <folding />
+            <state vertical-scroll-proportion="1.388443">
+              <caret line="74" column="0" selection-start-line="74" selection-start-column="0" selection-end-line="74" selection-end-column="0" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="method#TerminEintragen#0;class#Termin#0" expanded="false" />
+                <element signature="method#TerminLoeschen#0;class#Termin#0" expanded="false" />
+                <marker date="1430662992525" expanded="true" signature="787:881" placeholder="INSERT INTO ..." />
+                <marker date="1430662992525" expanded="true" signature="1958:2063" placeholder="UPDATE termi..." />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -155,16 +162,13 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ApplicationUser.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="ApplicationUser.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Model/ApplicationUser.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.5714286">
-              <caret line="33" column="0" selection-start-line="33" selection-start-column="0" selection-end-line="33" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="62" column="9" selection-start-line="38" selection-start-column="8" selection-end-line="62" selection-end-column="9" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="method#bearbeitenUserDaten#0;class#ApplicationUser#0" expanded="false" />
-                <element signature="method#erstelleUser#0;class#ApplicationUser#0" expanded="false" />
-                <element signature="method#loescheUser#0;class#ApplicationUser#0" expanded="false" />
                 <element signature="method#login#0;class#ApplicationUser#0" expanded="false" />
                 <marker date="1430662170107" expanded="true" signature="1089:1196" placeholder="UPDATE appli..." />
                 <marker date="1430662170107" expanded="true" signature="1095:1181" placeholder="INSERT INTO ..." />
@@ -215,6 +219,10 @@
         <option value="$PROJECT_DIR$/src/Controller/UserController.java" />
         <option value="$PROJECT_DIR$/src/Model/SqlConfig.java" />
         <option value="$PROJECT_DIR$/src/Model/ApplicationUser.java" />
+        <option value="$PROJECT_DIR$/src/Model/ITermin.java" />
+        <option value="$PROJECT_DIR$/src/Model/Sonnenbank.java" />
+        <option value="$PROJECT_DIR$/src/Model/ISonnenbank.java" />
+        <option value="$PROJECT_DIR$/src/Model/Termin.java" />
       </list>
     </option>
   </component>
@@ -661,7 +669,7 @@
       <workItem from="1430653086974" duration="57000" />
       <workItem from="1430653674715" duration="468000" />
       <workItem from="1430655555687" duration="3395000" />
-      <workItem from="1430659375797" duration="2794000" />
+      <workItem from="1430659375797" duration="3637000" />
     </task>
     <task id="LOCAL-00001" summary="SQL fix">
       <created>1430661178008</created>
@@ -669,11 +677,17 @@
       <option name="project" value="LOCAL" />
       <updated>1430661178008</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Add SQL Update funktions to model">
+      <created>1430662201757</created>
+      <option name="number" value="00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1430662201757</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="14585000" />
+    <option name="totallyTimeSpent" value="15428000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -699,8 +713,8 @@
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32108107" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.17270789" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.120469086" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.13486141" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.14285715" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -728,11 +742,12 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="SQL fix" />
-    <option name="LAST_COMMIT_MESSAGE" value="SQL fix" />
+    <MESSAGE value="Add SQL Update funktions to model" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add SQL Update funktions to model" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="12" />
+      <option name="time" value="14" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -765,9 +780,6 @@
           <caret line="34" column="0" selection-start-line="34" selection-start-column="0" selection-end-line="34" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="method#bearbeitenUserDaten#0;class#ApplicationUser#0" expanded="false" />
-            <element signature="method#erstelleUser#0;class#ApplicationUser#0" expanded="false" />
-            <element signature="method#loescheUser#0;class#ApplicationUser#0" expanded="false" />
             <element signature="method#login#0;class#ApplicationUser#0" expanded="false" />
             <marker date="1430662170107" expanded="true" signature="1089:1196" placeholder="UPDATE appli..." />
             <marker date="1430662170107" expanded="true" signature="1095:1181" placeholder="INSERT INTO ..." />
@@ -1107,20 +1119,62 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Model/ApplicationUser.java">
+    <entry file="file://$PROJECT_DIR$/src/Model/ISonnenbank.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5714286">
-          <caret line="33" column="0" selection-start-line="33" selection-start-column="0" selection-end-line="33" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="22" column="0" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Model/Sonnenbank.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="24" column="0" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="method#bearbeitenUserDaten#0;class#ApplicationUser#0" expanded="false" />
-            <element signature="method#erstelleUser#0;class#ApplicationUser#0" expanded="false" />
-            <element signature="method#loescheUser#0;class#ApplicationUser#0" expanded="false" />
+            <element signature="method#erstelleSonnenbank#0;class#Sonnenbank#0" expanded="false" />
+            <element signature="method#bearbeiteSonnenbank#0;class#Sonnenbank#0" expanded="false" />
+            <element signature="method#loescheSonnenbank#0;class#Sonnenbank#0" expanded="false" />
+            <marker date="1430662639625" expanded="true" signature="740:813" placeholder="INSERT INTO ..." />
+            <marker date="1430662639625" expanded="true" signature="1679:1758" placeholder="UPDATE appli..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Model/ITermin.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="9" column="77" selection-start-line="9" selection-start-column="68" selection-end-line="9" selection-end-column="77" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Model/ApplicationUser.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="62" column="9" selection-start-line="38" selection-start-column="8" selection-end-line="62" selection-end-column="9" />
+          <folding>
+            <element signature="imports" expanded="true" />
             <element signature="method#login#0;class#ApplicationUser#0" expanded="false" />
             <marker date="1430662170107" expanded="true" signature="1089:1196" placeholder="UPDATE appli..." />
             <marker date="1430662170107" expanded="true" signature="1095:1181" placeholder="INSERT INTO ..." />
             <marker date="1430662170107" expanded="true" signature="2179:2275" placeholder="INSERT INTO ..." />
             <marker date="1430662170107" expanded="true" signature="3877:3937" placeholder="SELECT ID, F..applicationuser..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Model/Termin.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="1.388443">
+          <caret line="74" column="0" selection-start-line="74" selection-start-column="0" selection-end-line="74" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#TerminEintragen#0;class#Termin#0" expanded="false" />
+            <element signature="method#TerminLoeschen#0;class#Termin#0" expanded="false" />
+            <marker date="1430662992525" expanded="true" signature="787:881" placeholder="INSERT INTO ..." />
+            <marker date="1430662992525" expanded="true" signature="1958:2063" placeholder="UPDATE termi..." />
           </folding>
         </state>
       </provider>

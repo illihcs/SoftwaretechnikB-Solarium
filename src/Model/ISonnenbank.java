@@ -14,11 +14,11 @@ public interface ISonnenbank {
      LocalDateTime Wartungstermin = null;
 
 
-     void erstelleSonnenbank( String Kabine,  int Leistung,  LocalDateTime Wartungstermin);
+     boolean erstelleSonnenbank( String Kabine,  String Leistung,  LocalDate Wartungstermin);
 
-     void bearbeiteSonnenbank(String Kabine,  int Leistung,  LocalDateTime Wartungstermin);
+     boolean bearbeiteSonnenbank(int ID, String Kabine,  String Leistung,  LocalDate Wartungstermin);
 
-     void loescheSonnenbank(int ID);
+     boolean loescheSonnenbank(int ID);
 
 
 

@@ -7,10 +7,10 @@ import java.time.LocalDate;
  */
 public interface ITermin {
 
-    void TerminEintragen( LocalDate Datum, LocalDate UhrzeitVon,  LocalDate UhrzeitBis , int Sonnenbank, String KundenName);
+    boolean TerminEintragen(LocalDate Datum, LocalDate UhrzeitVon,  LocalDate UhrzeitBis , int Sonnenbank, String KundenName);
 
-    void TerminBearbeiten (LocalDate DateTime, LocalDate UhrzeitVon, LocalDate UhrzeitBis, int Sonnenbank, String KundenName);
+    boolean TerminBearbeiten (int ID, LocalDate DateTime, LocalDate UhrzeitVon, LocalDate UhrzeitBis, int Sonnenbank, String KundenName);
 
-    void TerminLoeschen(int ID) ;
+    boolean TerminLoeschen(int ID) ;
 
 }

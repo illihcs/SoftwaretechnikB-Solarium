@@ -20,7 +20,7 @@ public interface IApplicationUser {
 
      void loescheUser(int ID);
 
-     void login( String Email, String Password);
+     boolean login(String Email, String Password);
 }
 
 

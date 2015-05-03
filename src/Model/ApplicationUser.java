@@ -6,9 +6,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.time.LocalDateTime;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-
 
 
 /**
@@ -32,10 +29,7 @@ public class ApplicationUser implements IApplicationUser {
     static final String PASS = "root";
 
     public void  bearbeitenUserDaten( String Vorname,  String Nachname , LocalDateTime Geburtstag,  String Mail,  String Passwort){
-
-
-
-
+        //TODO: bearbeite UserDaten
     }
 
     public   void erstelleUser( String Vorname, String Nachname, LocalDateTime Geburtstag, String Mail, String Passwort){
@@ -72,11 +66,12 @@ public class ApplicationUser implements IApplicationUser {
     }
 
     public void loescheUser(int ID){
-
+        //TODO: lösche User
     }
 
-    public void login( String Email, String Password){
-
+    public boolean login(String Email, String Password){
+        //TODO: Login User --> muss aber boolean sein
+        return true;
     }
 
 

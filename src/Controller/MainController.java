@@ -2,7 +2,6 @@ package Controller;
 
 import Model.ApplicationUser;
 import View.UserViews.Login;
-import View.UserViews.Register;
 
 import javax.swing.*;
 
@@ -17,14 +16,9 @@ public class MainController {
         ApplicationUser test = new ApplicationUser();
         test.erstelleUser(null, null, null, null, null);
 
-
-
         Login Login = new Login();
         Login.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         Login.setSize(400, 200);
         Login.setVisible(true);
-        Register Register = new Register();
-        Register.setSize(1000, 750);
-        Register.setVisible(true);
     }
 }

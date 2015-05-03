@@ -16,15 +16,15 @@ public class Termin implements ITermin {
     String Kunde;
 
     public void TerminEintragen( LocalDate Datum, LocalDate UhrzeitVon,  LocalDate UhrzeitBis , int Sonnenbank, String KundenName) {
-
+        //TODO: eintragen Termin
     }
 
     public void TerminBearbeiten (LocalDate DateTime, LocalDate  UhrzeitVon,LocalDate   UhrzeitBis, int Sonnenbank, String KundenName){
-
+        //TODO: bearbeiten TErmin
     }
 
     public void TerminLoeschen(int ID){
-
+        //TODO: löschen Termin
       }
 
 

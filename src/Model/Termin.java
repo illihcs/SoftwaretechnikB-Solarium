@@ -24,7 +24,7 @@ public class Termin implements ITermin {
 
 
 
-    public boolean TerminEintragen( LocalDate Datum, LocalDate UhrzeitVon,  LocalDate UhrzeitBis , int Sonnenbank, String KundenName) {
+    public boolean TerminEintragen( LocalDate Datum, LocalDate UhrzeitVon,  LocalDate UhrzeitBis , String Sonnenbank, String KundenName) {
         try {
 
             // Setup SQl connection
@@ -38,7 +38,7 @@ public class Termin implements ITermin {
             preparedStatement.setDate(1, java.sql.Date.valueOf(Datum.toString()));
             preparedStatement.setDate(2, java.sql.Date.valueOf(UhrzeitVon.toString()));
             preparedStatement.setDate(3, java.sql.Date.valueOf(UhrzeitBis.toString()));
-            preparedStatement.setInt(4, Sonnenbank);
+            preparedStatement.setString(4, Sonnenbank);
             preparedStatement.setString(5, KundenName);
 
             // execute insert SQL stetement
@@ -52,7 +52,7 @@ public class Termin implements ITermin {
         }
     }
 
-    public boolean TerminBearbeiten (int ID, LocalDate DateTime, LocalDate  UhrzeitVon, LocalDate   UhrzeitBis, int Sonnenbank, String KundenName){
+    public boolean TerminBearbeiten (int ID, LocalDate DateTime, LocalDate  UhrzeitVon, LocalDate   UhrzeitBis, String Sonnenbank, String KundenName){
         try {
 
             // Setup SQl connection
@@ -66,7 +66,7 @@ public class Termin implements ITermin {
             preparedStatement.setDate(1, java.sql.Date.valueOf(DateTime.toString()));
             preparedStatement.setDate(2, java.sql.Date.valueOf(UhrzeitVon.toString()));
             preparedStatement.setDate(3, java.sql.Date.valueOf(UhrzeitBis.toString()));
-            preparedStatement.setInt(4, Sonnenbank);
+            preparedStatement.setString(4, Sonnenbank);
             preparedStatement.setString(5, KundenName);
             preparedStatement.setInt(6, ID);
 

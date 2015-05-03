@@ -1,8 +1,11 @@
 package Controller;
 
+import Model.ApplicationUser;
 import Model.Sonnenbank;
+import Model.Termin;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.time.LocalTime;
 
 /**
@@ -10,18 +13,27 @@ import java.time.LocalTime;
  */
 public class TerminController {
 
-    void erstelleTermin(LocalDate Datum, LocalTime UhrzeitVon, LocalTime UhrzeitBis, Sonnenbank Sonnenbank, String KundenName)
+    Boolean erstelleTermin(LocalDate Datum, LocalDate UhrzeitVon, LocalDate UhrzeitBis, String  Sonnenbank, String KundenName)
     {
-        //TODO: erstelleTermin in Controller
+        Termin terminControler = new Termin();
+        Boolean TerminCreated =  terminControler.TerminEintragen(Datum, UhrzeitVon, UhrzeitBis, Sonnenbank, KundenName);
+
+        return TerminCreated;
     }
 
-    void bearbeiteTermin(LocalDate Datum, LocalTime UhrzeitVon, LocalTime UhrzeitBis, Sonnenbank Sonnenbank, String KundenName)
+    Boolean bearbeiteTermin( int ID, LocalDate Datum, LocalDate UhrzeitVon, LocalDate UhrzeitBis, String Sonnenbank, String KundenName)
     {
-        //TODO: bearbeiteTermin in Controller
+        Termin terminControler = new Termin();
+        Boolean TerminCreated =  terminControler.TerminBearbeiten(ID, Datum, UhrzeitVon, UhrzeitBis, Sonnenbank, KundenName);
+
+        return TerminCreated;
     }
 
-    void loescheTermin(int ID)
+    Boolean loescheTermin(int ID)
     {
-        //TODO: löscheTermin in Controller
+        Termin terminControler = new Termin();
+        Boolean TerminCreated =  terminControler.TerminLoeschen(ID);
+
+        return TerminCreated;
     }
 }

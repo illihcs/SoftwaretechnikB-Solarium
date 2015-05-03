@@ -9,28 +9,35 @@ import java.time.LocalDate;
  */
 public class UserController {
 
+
+    // Diese Methode liefert true zurück wenn das Model in der DB ein passenden eintrag findet
     public boolean Login(String LoginMail, char[] Password) {
 
        ApplicationUser user = new ApplicationUser();
-       String pass = new String(Password);
 
+        Boolean UserAuthenticated = user.login(LoginMail, new String(Password));
 
-        Boolean AuthenticatedUser = user.login(LoginMail, pass);
-
-        return AuthenticatedUser;
+        return UserAuthenticated;
 
     }
 
-    public void Register(String Vorname, String Nachname, String Geburtstag, String Mail, char[] password) {
 
-        ApplicationUser user = new ApplicationUser();
-        user.erstelleUser(Vorname, Nachname, LocalDate.parse(Geburtstag), Mail, new String(password));
+    public Boolean Register(String Vorname, String Nachname, String Geburtstag, String Mail, char[] Password) {
 
+        // Außen vor lassen! erst wenn wichtige sachen fertig sind weiter implementieren
+        ApplicationUser userControler = new ApplicationUser();
+         userControler.erstelleUser(Vorname, Nachname, LocalDate.parse(Geburtstag), Mail, new String(Password));
 
-
+         return false;
     }
 
-    public void BearbeiteUser(String Vorname, String Nachname, String Geburtstag, String Mail, char[] password){
-        //TODO: Bearbeitung des Users --> im Prinzip wie Registrieren
+    // Diese Methode liefert true zurück wenn das Model in der DB ein Update durchführen konnte
+    public Boolean BearbeiteUser(int ID, String Vorname, String Nachname, LocalDate Geburtstag, String EMail, char[] Password){
+
+        ApplicationUser userControler = new ApplicationUser();
+        Boolean UserCreated =  userControler.bearbeitenUserDaten(ID, Vorname, Nachname, Geburtstag, EMail, new String(Password));
+
+        return UserCreated;
+
     }
 }

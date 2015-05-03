@@ -11,26 +11,26 @@ import java.time.LocalDate;
  */
 public class SonnenbankController {
 
-    Boolean erstelleSonnenbank(String Kabine, String Leistung, LocalDate Wartungstermin)
+    boolean erstelleSonnenbank(String Kabine, String Leistung, LocalDate Wartungstermin)
     {
         Sonnenbank sonnenControler = new Sonnenbank();
-        Boolean TerminCreated =  sonnenControler.erstelleSonnenbank(Kabine, Leistung, Wartungstermin);
+        boolean TerminCreated =  sonnenControler.erstelleSonnenbank(Kabine, Leistung, Wartungstermin);
 
         return TerminCreated;
     }
 
-    Boolean bearbeiteSonnenbank(int ID, String Kabine,  String Leistung,  LocalDate Wartungstermin)
+    boolean bearbeiteSonnenbank(int ID, String Kabine,  String Leistung,  LocalDate Wartungstermin)
     {
         Sonnenbank sonnenControler = new Sonnenbank();
-        Boolean TerminCreated =  sonnenControler.bearbeiteSonnenbank(ID, Kabine, Leistung, Wartungstermin);
+        boolean TerminCreated =  sonnenControler.bearbeiteSonnenbank(ID, Kabine, Leistung, Wartungstermin);
 
         return TerminCreated;
     }
 
-    Boolean loescheSonnenbank(int ID)
+    boolean loescheSonnenbank(int ID)
     {
         Sonnenbank sonnenControler = new Sonnenbank();
-        Boolean TerminCreated =  sonnenControler.loescheSonnenbank(ID);
+        boolean TerminCreated =  sonnenControler.loescheSonnenbank(ID);
 
         return TerminCreated;
     }

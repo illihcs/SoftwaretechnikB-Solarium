@@ -15,14 +15,14 @@ public class UserController {
 
        ApplicationUser user = new ApplicationUser();
 
-        Boolean UserAuthenticated = user.login(LoginMail, new String(Password));
+        boolean UserAuthenticated = user.login(LoginMail, new String(Password));
 
         return UserAuthenticated;
 
     }
 
 
-    public Boolean Register(String Vorname, String Nachname, String Geburtstag, String Mail, char[] Password) {
+    public boolean Register(String Vorname, String Nachname, String Geburtstag, String Mail, char[] Password) {
 
         // Außen vor lassen! erst wenn wichtige sachen fertig sind weiter implementieren
         ApplicationUser userControler = new ApplicationUser();
@@ -32,10 +32,10 @@ public class UserController {
     }
 
     // Diese Methode liefert true zurück wenn das Model in der DB ein Update durchführen konnte
-    public Boolean BearbeiteUser(int ID, String Vorname, String Nachname, LocalDate Geburtstag, String EMail, char[] Password){
+    public boolean BearbeiteUser(int ID, String Vorname, String Nachname, LocalDate Geburtstag, String EMail, char[] Password){
 
         ApplicationUser userControler = new ApplicationUser();
-        Boolean UserCreated =  userControler.bearbeitenUserDaten(ID, Vorname, Nachname, Geburtstag, EMail, new String(Password));
+        boolean UserCreated =  userControler.bearbeitenUserDaten(ID, Vorname, Nachname, Geburtstag, EMail, new String(Password));
 
         return UserCreated;
 

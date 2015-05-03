@@ -9,7 +9,7 @@ import java.time.LocalDateTime;
 public interface ISonnenbank {
 
      int ID = 0;
-     int Kabine = 0;
+     String Kabine = null;
      String Leistung = null;
      LocalDateTime Wartungstermin = null;
 

@@ -3,6 +3,7 @@ package Model;
 import java.sql.*;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.util.LinkedList;
 
 
 /**
@@ -152,6 +153,49 @@ public class ApplicationUser implements IApplicationUser {
 
     }
 
+    public LinkedList<ApplicationUserObject> getAllApplicationUser(){
+
+        try {
+
+            LinkedList<ApplicationUserObject> ApplicationUserObjectList = new LinkedList<ApplicationUserObject>();
+
+            // Setup SQl connection
+            con = DriverManager.getConnection(SqlConf.url, SqlConf.user, SqlConf.password);
+
+            // Define SQL Statement
+            String selectSQL = "SELECT * FROM applicationuser";
+
+            // Fill SQL Statement
+            PreparedStatement preparedStatement = con.prepareStatement(selectSQL);
+            // preparedStatement.setString(1, EMail);
+
+            // execute insert SQL stetement
+            ResultSet rs = preparedStatement.executeQuery(selectSQL );
+
+            while (rs.next()) {
+
+
+                ApplicationUserObjectList.add(
+                        new ApplicationUserObject( rs.getInt("ID"),
+                                                    rs.getString("Vorname"),
+                                                    rs.getString("Nachname"),
+                                                    rs.getDate("Geburtstag").toLocalDate(),
+                                                    rs.getString("EMail"),
+                                                    rs.getString("Passwort")
+                                                  )
+                );
+
+            }
+
+            return ApplicationUserObjectList;
+
+        } catch (SQLException ex) {
+
+            throw new  RuntimeException(ex);
+        }
+
+
+    }
 
 }
 

@@ -13,26 +13,26 @@ import java.time.LocalTime;
  */
 public class TerminController {
 
-    Boolean erstelleTermin(LocalDate Datum, LocalDate UhrzeitVon, LocalDate UhrzeitBis, String  Sonnenbank, String KundenName)
+    boolean erstelleTermin(LocalDate Datum, LocalDate UhrzeitVon, LocalDate UhrzeitBis, String  Sonnenbank, String KundenName)
     {
         Termin terminControler = new Termin();
-        Boolean TerminCreated =  terminControler.TerminEintragen(Datum, UhrzeitVon, UhrzeitBis, Sonnenbank, KundenName);
+        boolean TerminCreated =  terminControler.TerminEintragen(Datum, UhrzeitVon, UhrzeitBis, Sonnenbank, KundenName);
 
         return TerminCreated;
     }
 
-    Boolean bearbeiteTermin( int ID, LocalDate Datum, LocalDate UhrzeitVon, LocalDate UhrzeitBis, String Sonnenbank, String KundenName)
+    boolean bearbeiteTermin( int ID, LocalDate Datum, LocalDate UhrzeitVon, LocalDate UhrzeitBis, String Sonnenbank, String KundenName)
     {
         Termin terminControler = new Termin();
-        Boolean TerminCreated =  terminControler.TerminBearbeiten(ID, Datum, UhrzeitVon, UhrzeitBis, Sonnenbank, KundenName);
+        boolean TerminCreated =  terminControler.TerminBearbeiten(ID, Datum, UhrzeitVon, UhrzeitBis, Sonnenbank, KundenName);
 
         return TerminCreated;
     }
 
-    Boolean loescheTermin(int ID)
+    boolean loescheTermin(int ID)
     {
         Termin terminControler = new Termin();
-        Boolean TerminCreated =  terminControler.TerminLoeschen(ID);
+        boolean TerminCreated =  terminControler.TerminLoeschen(ID);
 
         return TerminCreated;
     }

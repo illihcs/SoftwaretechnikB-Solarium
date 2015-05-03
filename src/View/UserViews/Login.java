@@ -1,6 +1,7 @@
 package View.UserViews;
 
 import Controller.UserController;
+import Model.SQLTESTER;
 import View.TerminViews.OverviewTermin;
 
 import javax.swing.*;
@@ -22,6 +23,12 @@ public class Login extends JFrame implements ActionListener{
     public Login()
     {
         initComponents();
+
+        // Testen ob SQL abfragen funktionieren
+        SQLTESTER SQLTESTERobj = new SQLTESTER();
+
+
+
     }
 
     private void initComponents() {

@@ -18,10 +18,6 @@ public class MainController {
     {
 
 
-        // WORKAROUND::  DB connection test, should return DB version in the console as info
-        ApplicationUser test = new ApplicationUser();
-        test.erstelleUser("mkyong", "mkyong", LocalDate.now(), "mkyong", "mkyong");
-
         Login Login = new Login();
         Login.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         Login.setSize(400, 200);

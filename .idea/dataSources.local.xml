@@ -4,6 +4,11 @@
     <data-source name="MySQL - solardb@localhost" uuid="8e89d1cb-41dc-4c84-92c6-a0096bb07105">
       <secret-storage>master_key</secret-storage>
       <user-name>root</user-name>
+<<<<<<< HEAD
+      <schema-pattern>solardb.*</schema-pattern>
+      <default-schemas>solardb.*</default-schemas>
+=======
+>>>>>>> origin/master
     </data-source>
   </component>
 </project>

@@ -6,10 +6,6 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Solarium/Model/IApplicationUser.class" afterPath="$PROJECT_DIR$/out/production/Solarium/Model/IApplicationUser.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Solarium/Controller/MainController.class" afterPath="$PROJECT_DIR$/out/production/Solarium/Controller/MainController.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Solarium/Controller/UserController.class" afterPath="$PROJECT_DIR$/out/production/Solarium/Controller/UserController.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Model/ISonnenbank.java" afterPath="$PROJECT_DIR$/src/Model/ISonnenbank.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Model/ITermin.java" afterPath="$PROJECT_DIR$/src/Model/ITermin.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Model/Sonnenbank.java" afterPath="$PROJECT_DIR$/src/Model/Sonnenbank.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Model/Termin.java" afterPath="$PROJECT_DIR$/src/Model/Termin.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="Solarium.iws" />
@@ -669,7 +665,7 @@
       <workItem from="1430653086974" duration="57000" />
       <workItem from="1430653674715" duration="468000" />
       <workItem from="1430655555687" duration="3395000" />
-      <workItem from="1430659375797" duration="3637000" />
+      <workItem from="1430659375797" duration="3648000" />
     </task>
     <task id="LOCAL-00001" summary="SQL fix">
       <created>1430661178008</created>
@@ -683,11 +679,17 @@
       <option name="project" value="LOCAL" />
       <updated>1430662201757</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Add SQL Update funktions to model">
+      <created>1430663029189</created>
+      <option name="number" value="00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1430663029189</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="15428000" />
+    <option name="totallyTimeSpent" value="15439000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">

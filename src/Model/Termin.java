@@ -3,7 +3,7 @@ package Model;
 
 import java.sql.*;
 import java.time.LocalDate;
-import java.time.LocalDateTime;
+import java.time.LocalTime;
 
 
 /**
@@ -24,7 +24,7 @@ public class Termin implements ITermin {
 
 
 
-    public boolean TerminEintragen( LocalDate Datum, LocalDate UhrzeitVon,  LocalDate UhrzeitBis , String Sonnenbank, String KundenName) {
+    public boolean TerminEintragen( LocalDate Datum, LocalTime UhrzeitVon,  LocalTime UhrzeitBis , String Sonnenbank, String KundenName) {
         try {
 
             // Setup SQl connection

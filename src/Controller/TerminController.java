@@ -13,7 +13,7 @@ import java.time.LocalTime;
  */
 public class TerminController {
 
-    Boolean erstelleTermin(LocalDate Datum, LocalDate UhrzeitVon, LocalDate UhrzeitBis, String  Sonnenbank, String KundenName)
+    public boolean erstelleTermin(LocalDate Datum, LocalTime UhrzeitVon, LocalTime UhrzeitBis, String Sonnenbank, String KundenName)
     {
         Termin terminControler = new Termin();
         Boolean TerminCreated =  terminControler.TerminEintragen(Datum, UhrzeitVon, UhrzeitBis, Sonnenbank, KundenName);

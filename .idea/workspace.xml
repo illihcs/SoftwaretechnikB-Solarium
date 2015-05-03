@@ -2,17 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2845892d-f8d1-43a4-8212-6bce5ad31c63" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Model/ApplicationUser.java" afterPath="$PROJECT_DIR$/src/Model/ApplicationUser.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Model/ApplicationUserObject.java" afterPath="$PROJECT_DIR$/src/Model/ApplicationUserObject.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Model/ITermin.java" afterPath="$PROJECT_DIR$/src/Model/ITermin.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/View/TerminViews/OverviewTermin.java" afterPath="$PROJECT_DIR$/src/View/TerminViews/OverviewTermin.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Model/Sonnenbank.java" afterPath="$PROJECT_DIR$/src/Model/Sonnenbank.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Controller/SonnenbankController.java" afterPath="$PROJECT_DIR$/src/Controller/SonnenbankController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Model/SonnenbankObject.java" afterPath="$PROJECT_DIR$/src/Model/SonnenbankObject.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Model/Termin.java" afterPath="$PROJECT_DIR$/src/Model/Termin.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Controller/TerminController.java" afterPath="$PROJECT_DIR$/src/Controller/TerminController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Model/TerminObject.java" afterPath="$PROJECT_DIR$/src/Model/TerminObject.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Controller/UserController.java" afterPath="$PROJECT_DIR$/src/Controller/UserController.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="Solarium.iws" />
@@ -783,7 +772,7 @@
       <workItem from="1430677438446" duration="1465000" />
       <workItem from="1430679046656" duration="713000" />
       <workItem from="1430681487379" duration="308000" />
-      <workItem from="1430681828546" duration="4250000" />
+      <workItem from="1430681828546" duration="4293000" />
     </task>
     <task id="LOCAL-00001" summary="SQL fix">
       <created>1430661178008</created>
@@ -833,11 +822,17 @@
       <option name="project" value="LOCAL" />
       <updated>1430667797164</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="Added Geter + Setter, Controller to getAlldata">
+      <created>1430690703766</created>
+      <option name="number" value="00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1430690703766</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="32423000" />
+    <option name="totallyTimeSpent" value="32466000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -894,7 +889,8 @@
     <MESSAGE value="SQL fix" />
     <MESSAGE value="Add SQL Update funktions to model" />
     <MESSAGE value="Login funktioniert" />
-    <option name="LAST_COMMIT_MESSAGE" value="Login funktioniert" />
+    <MESSAGE value="Added Geter + Setter, Controller to getAlldata" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added Geter + Setter, Controller to getAlldata" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

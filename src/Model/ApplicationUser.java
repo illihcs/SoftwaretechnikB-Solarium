@@ -17,12 +17,12 @@ public class ApplicationUser implements IApplicationUser {
     String Email;
     String Passwort;
 
+    // mySQL Helpers
     public static SqlConfig SqlConf = null;
     Connection con = null;
-    Statement st = null;
-    ResultSet rs = null;
 
     public ApplicationUser(String vorname, String nachname, LocalDate geburtstag, String mail, String password) {
+
         Vorname = vorname;
         Nachname = nachname;
         Geburtstag = geburtstag;
@@ -34,32 +34,58 @@ public class ApplicationUser implements IApplicationUser {
 
 
 
-    public boolean  bearbeitenUserDaten(int ID,  String Vorname,  String Nachname , LocalDate Geburtstag,  String Mail,  String Passwort){
-        //TODO: bearbeite UserDaten
-        return  true;
-    }
-
-    public   boolean erstelleUser( String Vorname, String Nachname, LocalDate Geburtstag, String Mail, String Passwort){
+    public boolean  bearbeitenUserDaten(int ID,  String Vorname,  String Nachname , LocalDate Geburtstag,  String EMail,  String Passwort){
 
         try {
 
+            // Setup SQl connection
             con = DriverManager.getConnection(SqlConf.url, SqlConf.user, SqlConf.password);
 
-            String insertTableSQL = "INSERT INTO applicationuser ( Vorname, Nachname, Geburtstag, Email, Passwort) VALUES (?,?,?,?,?)";
+            // Define SQL Statement
+            String insertTableSQL = "UPDATE applicationuser SET Vorname = ?, Nachname =? , Geburtstag =?, Email =?, Passwort =?  WHERE EMail = ?";
 
+            // Fill SQL Statement
             PreparedStatement preparedStatement = con.prepareStatement(insertTableSQL);
-
-            preparedStatement.setString(1, "mkyong");
-            preparedStatement.setString(2, "mkyong");
-            preparedStatement.setDate(3, java.sql.Date.valueOf("2013-09-04"));
-            preparedStatement.setString(4, "mkyong");
-            preparedStatement.setString(5, "mkyong");
+            preparedStatement.setString(1, Vorname);
+            preparedStatement.setString(2, Nachname);
+            preparedStatement.setDate(3, java.sql.Date.valueOf(Geburtstag.toString()));
+            preparedStatement.setString(4, EMail);
+            preparedStatement.setString(5, Passwort);
 
             // execute insert SQL stetement
-            preparedStatement .executeUpdate();
+            preparedStatement.executeUpdate();
 
-          //  st = con.createStatement();
-            return  true;
+            return true;
+
+        } catch (SQLException ex) {
+
+            throw new  RuntimeException(ex);
+        }
+
+    }
+
+    public boolean erstelleUser( String Vorname, String Nachname, LocalDate Geburtstag, String EMail, String Passwort){
+
+        try {
+
+            // Setup SQl connection
+            con = DriverManager.getConnection(SqlConf.url, SqlConf.user, SqlConf.password);
+
+            // Define SQL Statement
+            String insertTableSQL = "INSERT INTO applicationuser ( Vorname, Nachname, Geburtstag, Email, Passwort) VALUES (?,?,?,?,?)";
+
+            // Fill SQL Statement
+            PreparedStatement preparedStatement = con.prepareStatement(insertTableSQL);
+            preparedStatement.setString(1, Vorname);
+            preparedStatement.setString(2, Nachname);
+            preparedStatement.setDate(3, java.sql.Date.valueOf(Geburtstag.toString()));
+            preparedStatement.setString(4, EMail);
+            preparedStatement.setString(5, Passwort);
+
+            // execute insert SQL stetement
+            preparedStatement.executeUpdate();
+
+            return true;
 
         } catch (SQLException ex) {
 
@@ -69,13 +95,59 @@ public class ApplicationUser implements IApplicationUser {
     }
 
     public boolean loescheUser(int ID){
-        //TODO: lösche User
-        return  true;
+        try {
+
+            // Setup SQl connection
+            con = DriverManager.getConnection(SqlConf.url, SqlConf.user, SqlConf.password);
+
+            // Define SQL Statement
+            String insertTableSQL = "DELE FROM applicationuser WHERE ID = ?";
+
+            // Fill SQL Statement
+            PreparedStatement preparedStatement = con.prepareStatement(insertTableSQL);
+            preparedStatement.setInt(1, ID);
+
+            // execute insert SQL stetement
+            preparedStatement.executeUpdate();
+
+            return true;
+
+        } catch (SQLException ex) {
+
+            throw new  RuntimeException(ex);
+        }
     }
 
-    public boolean login(String Email, String Password){
-        //TODO: Login User --> muss aber boolean sein
-        return true;
+    public boolean login(String EMail, String Password){
+        try {
+
+            // Setup SQl connection
+            con = DriverManager.getConnection(SqlConf.url, SqlConf.user, SqlConf.password);
+
+            // Define SQL Statement
+            String selectSQL = "SELECT EMail, Passwort  FROM applicationuser WHERE EMail = ?";
+
+            // Fill SQL Statement
+            PreparedStatement preparedStatement = con.prepareStatement(selectSQL);
+            preparedStatement.setString(1, EMail);
+
+            // execute insert SQL stetement
+            ResultSet rs = preparedStatement.executeQuery(selectSQL );
+
+            while (rs.next()) {
+                String DBEMail = rs.getString("EMail");
+                String DBPasswort = rs.getString("Passwort");
+
+                if ( Email == DBEMail &&  Password == DBPasswort ) return true;
+            }
+
+            return false;
+
+        } catch (SQLException ex) {
+
+            throw new  RuntimeException(ex);
+        }
+
     }
 
 

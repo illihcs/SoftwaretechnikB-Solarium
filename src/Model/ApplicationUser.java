@@ -1,10 +1,6 @@
 package Model;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 
@@ -21,17 +17,10 @@ public class ApplicationUser implements IApplicationUser {
     String Email;
     String Passwort;
 
-    // JDBC driver name and database URL   mysql-connector-java-5.1.35-bin.jar
-    static final String JDBC_DRIVER = "com.mysql.jdbc.Driver";
-    static final String DB_URL = "jdbc:mysql://localhost:3306/solardb";
-
-    //  Database credentials
-    static final String USER = "root";
-    static final String PASS = "root";
-
-    public ApplicationUser() {
-
-    }
+    public static SqlConfig SqlConf = null;
+    Connection con = null;
+    Statement st = null;
+    ResultSet rs = null;
 
     public ApplicationUser(String vorname, String nachname, LocalDate geburtstag, String mail, String password) {
         Vorname = vorname;
@@ -39,49 +28,49 @@ public class ApplicationUser implements IApplicationUser {
         Geburtstag = geburtstag;
         Email = mail;
         Passwort = password;
+
+        SqlConfig SqlConf = new SqlConfig();
     }
 
 
 
-    public void  bearbeitenUserDaten( String Vorname,  String Nachname , LocalDateTime Geburtstag,  String Mail,  String Passwort){
+    public boolean  bearbeitenUserDaten(int ID,  String Vorname,  String Nachname , LocalDate Geburtstag,  String Mail,  String Passwort){
         //TODO: bearbeite UserDaten
+        return  true;
     }
 
-    public   void erstelleUser( String Vorname, String Nachname, LocalDateTime Geburtstag, String Mail, String Passwort){
-
-
-
-        Connection con = null;
-        Statement st = null;
-        ResultSet rs = null;
-
-        String url = "jdbc:mysql://localhost:3306/solardb";
-        String user = "root";
-        String password = "root";
+    public   boolean erstelleUser( String Vorname, String Nachname, LocalDate Geburtstag, String Mail, String Passwort){
 
         try {
-            con = DriverManager.getConnection(url, user, password);
-            st = con.createStatement();
-            rs = st.executeQuery("SELECT VERSION()");
 
-            if (rs.next()) {
-                System.out.println(rs.getString(1));
-            }
+            con = DriverManager.getConnection(SqlConf.url, SqlConf.user, SqlConf.password);
+
+            String insertTableSQL = "INSERT INTO applicationuser ( Vorname, Nachname, Geburtstag, Email, Passwort) VALUES (?,?,?,?,?)";
+
+            PreparedStatement preparedStatement = con.prepareStatement(insertTableSQL);
+
+            preparedStatement.setString(1, "mkyong");
+            preparedStatement.setString(2, "mkyong");
+            preparedStatement.setDate(3, java.sql.Date.valueOf("2013-09-04"));
+            preparedStatement.setString(4, "mkyong");
+            preparedStatement.setString(5, "mkyong");
+
+            // execute insert SQL stetement
+            preparedStatement .executeUpdate();
+
+          //  st = con.createStatement();
+            return  true;
 
         } catch (SQLException ex) {
 
-
-
-        } finally {
-
-
-
+            throw new  RuntimeException(ex);
             }
 
     }
 
-    public void loescheUser(int ID){
+    public boolean loescheUser(int ID){
         //TODO: lösche User
+        return  true;
     }
 
     public boolean login(String Email, String Password){

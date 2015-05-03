@@ -10,9 +10,10 @@ import java.time.LocalDate;
 public class UserController {
 
     public boolean Login(String LoginMail, char[] Password) {
-        ApplicationUser user = new ApplicationUser();
-        String pass = new String(Password);
-        return user.login(LoginMail, pass);
+       //ApplicationUser user = new ApplicationUser();
+      //  String pass = new String(Password);
+     //   return user.login(LoginMail, pass);
+        return true;
     }
 
     public void Register(String Vorname, String Nachname, String Geburtstag, String Mail, char[] password) {

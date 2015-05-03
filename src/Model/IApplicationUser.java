@@ -1,5 +1,6 @@
 package Model;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 /**
@@ -14,11 +15,11 @@ public interface IApplicationUser {
     String Email = null;
     String Passwort = null;
 
-     void  bearbeitenUserDaten( String Vorname,  String Nachname , LocalDateTime Geburtstag,  String Mail,  String Passwort);
+    boolean  bearbeitenUserDaten(int ID,  String Vorname,  String Nachname , LocalDate Geburtstag,  String Mail,  String Passwort);
 
-    void erstelleUser( String Vorname, String Nachname, LocalDateTime Geburtstag, String Mail, String Passwort);
+    boolean erstelleUser( String Vorname, String Nachname, LocalDate Geburtstag, String Mail, String Passwort);
 
-     void loescheUser(int ID);
+    boolean loescheUser(int ID);
 
      boolean login(String Email, String Password);
 }

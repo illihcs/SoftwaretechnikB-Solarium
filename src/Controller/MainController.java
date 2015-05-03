@@ -6,6 +6,9 @@ import View.UserViews.Login;
 import View.UserViews.Register;
 
 import javax.swing.*;
+import java.time.DateTimeException;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 /**
  * Created by Schillemans on 01.05.2015.
@@ -14,9 +17,10 @@ public class MainController {
     public static void main(String[] args)
     {
 
+
         // WORKAROUND::  DB connection test, should return DB version in the console as info
-        ApplicationUser test = new ApplicationUser();
-        test.erstelleUser(null, null, null, null, null);
+        ApplicationUser test = new ApplicationUser("mkyong", "mkyong", LocalDate.now(), "mkyong", "mkyong");
+        test.erstelleUser("mkyong", "mkyong", LocalDate.now(), "mkyong", "mkyong");
 
         Login Login = new Login();
         Login.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);

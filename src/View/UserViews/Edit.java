@@ -57,6 +57,8 @@ public class Edit extends JFrame implements ActionListener {
         add(ButtonSpeichern);
         add(ButtonAbbrechen);
         setLayout(new GridLayout(6,2));
+        setSize(1000,800);
+        setTitle("Bearbeite Benutzer");
     }
 
 

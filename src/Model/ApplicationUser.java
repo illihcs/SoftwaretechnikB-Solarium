@@ -5,6 +5,7 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 
@@ -16,7 +17,7 @@ public class ApplicationUser implements IApplicationUser {
     int ID = 0;
     String  Vorname;
     String  Nachname;
-    LocalDateTime Geburtstag;
+    LocalDate Geburtstag;
     String Email;
     String Passwort;
 
@@ -27,6 +28,20 @@ public class ApplicationUser implements IApplicationUser {
     //  Database credentials
     static final String USER = "root";
     static final String PASS = "root";
+
+    public ApplicationUser() {
+
+    }
+
+    public ApplicationUser(String vorname, String nachname, LocalDate geburtstag, String mail, String password) {
+        Vorname = vorname;
+        Nachname = nachname;
+        Geburtstag = geburtstag;
+        Email = mail;
+        Passwort = password;
+    }
+
+
 
     public void  bearbeitenUserDaten( String Vorname,  String Nachname , LocalDateTime Geburtstag,  String Mail,  String Passwort){
         //TODO: bearbeite UserDaten

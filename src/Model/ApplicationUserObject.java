@@ -12,6 +12,16 @@ public class ApplicationUserObject {
     private String  Nachname;
     private LocalDate Geburtstag;
     private String Email;
+    private String Passwort;
+
+    public  ApplicationUserObject(int IDs,String  Vorname, String  Nachname, LocalDate Geburtstag, String Email, String Passwort ){
+        this.ID = ID;
+        this.Vorname = Vorname;
+        this.Nachname = Nachname;
+        this.Geburtstag = Geburtstag;
+        this.Email = Email;
+        this.Passwort = Passwort;
+    }
 
     public int getID() {
         return ID;
@@ -37,14 +47,27 @@ public class ApplicationUserObject {
         return Passwort;
     }
 
-    private String Passwort;
-
-    public  ApplicationUserObject(int IDs,String  Vorname, String  Nachname, LocalDate Geburtstag, String Email, String Passwort ){
+    public void setID(int ID) {
         this.ID = ID;
-        this.Vorname = Vorname;
-        this.Nachname = Nachname;
-        this.Geburtstag = Geburtstag;
-        this.Email = Email;
-        this.Passwort = Passwort;
+    }
+
+    public void setVorname(String vorname) {
+        Vorname = vorname;
+    }
+
+    public void setNachname(String nachname) {
+        Nachname = nachname;
+    }
+
+    public void setGeburtstag(LocalDate geburtstag) {
+        Geburtstag = geburtstag;
+    }
+
+    public void setEmail(String email) {
+        Email = email;
+    }
+
+    public void setPasswort(String passwort) {
+        Passwort = passwort;
     }
 }

@@ -1,10 +1,12 @@
 package Controller;
 
+import Model.ApplicationUser;
+import Model.ApplicationUserObject;
 import Model.Sonnenbank;
-import Model.Termin;
-import com.sun.org.apache.xpath.internal.operations.Bool;
+import Model.SonnenbankObject;
 
 import java.time.LocalDate;
+import java.util.LinkedList;
 
 /**
  * Created by admin on 03.05.2015.
@@ -34,4 +36,13 @@ public class SonnenbankController {
 
         return TerminCreated;
     }
+
+    public LinkedList<SonnenbankObject> getAllSonnenbanken(){
+
+        Sonnenbank SonnenbankControler = new Sonnenbank();
+        LinkedList<SonnenbankObject> AllSonnenbanken =   SonnenbankControler.getAllSonnenbank();
+
+        return AllSonnenbanken;
+    }
+
 }

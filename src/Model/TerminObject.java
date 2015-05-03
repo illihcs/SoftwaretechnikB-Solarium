@@ -8,12 +8,12 @@ import java.time.LocalTime;
  */
 public class TerminObject {
 
-    int ID = 0;
-    LocalDate Datum = null;
-    LocalTime UhrzeitVon = null;
-    LocalTime UhrzeitBis = null;
-    String Sonnenbank = null;
-    String Kunde;
+    private int ID = 0;
+    private LocalDate Datum = null;
+    private LocalTime UhrzeitVon = null;
+    private LocalTime UhrzeitBis = null;
+    private String Sonnenbank = null;
+    private String Kunde;
 
     public TerminObject(int ID, LocalDate Datum, LocalTime UhrzeitVon, LocalTime UhrzeitBis, String Sonnenbank, String Kunde){
 
@@ -23,9 +23,7 @@ public class TerminObject {
         this.UhrzeitBis = UhrzeitBis;
         this.Sonnenbank = Sonnenbank;
         this.Kunde = Kunde;
-
     }
-
 
     public int getID() {
         return ID;
@@ -51,5 +49,28 @@ public class TerminObject {
         return Kunde;
     }
 
+    public void setID(int ID) {
+        this.ID = ID;
+    }
+
+    public void setDatum(LocalDate datum) {
+        Datum = datum;
+    }
+
+    public void setUhrzeitVon(LocalTime uhrzeitVon) {
+        UhrzeitVon = uhrzeitVon;
+    }
+
+    public void setUhrzeitBis(LocalTime uhrzeitBis) {
+        UhrzeitBis = uhrzeitBis;
+    }
+
+    public void setSonnenbank(String sonnenbank) {
+        Sonnenbank = sonnenbank;
+    }
+
+    public void setKunde(String kunde) {
+        Kunde = kunde;
+    }
 }
 

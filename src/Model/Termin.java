@@ -1,10 +1,8 @@
 package Model;
 
-
 import java.sql.*;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
-import java.time.LocalTime;
 import java.util.LinkedList;
 
 
@@ -25,8 +23,7 @@ public class Termin implements ITermin {
     Connection con = null;
 
 
-
-    public boolean TerminEintragen( LocalDate Datum, LocalDateTime UhrzeitVon,  LocalDateTime UhrzeitBis , String Sonnenbank, String KundenName) {
+    public boolean TerminEintragen(LocalDate Datum, LocalDateTime UhrzeitVon,  LocalDateTime UhrzeitBis , String Sonnenbank, String KundenName) {
         try {
 
             // Setup SQl connection
@@ -105,8 +102,7 @@ public class Termin implements ITermin {
 
             throw new  RuntimeException(ex);
         }
-      }
-
+    }
 
     public LinkedList<TerminObject> getAllTermin(){
 
@@ -132,11 +128,11 @@ public class Termin implements ITermin {
 
                 TerminObjectList.add(
                         new TerminObject( rs.getInt("ID"),
-                                        rs.getDate("Datum").toLocalDate(),
-                                        rs.getTime("UhrzeitVon").toLocalTime(),
-                                        rs.getTime("UhrzeitBis").toLocalTime(),
-                                        rs.getString("Sonnenbank"),
-                                        rs.getString("Kunde") )
+                                rs.getDate("Datum").toLocalDate(),
+                                rs.getTime("UhrzeitVon").toLocalTime(),
+                                rs.getTime("UhrzeitBis").toLocalTime(),
+                                rs.getString("Sonnenbank"),
+                                rs.getString("Kunde") )
                 );
 
             }

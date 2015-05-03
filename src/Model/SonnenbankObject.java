@@ -8,10 +8,10 @@ import java.time.LocalDateTime;
  */
 public class SonnenbankObject {
 
-    int ID = 0;
-    String Kabine = null;
-    String Leistung = null;
-    LocalDate Wartungstermin = null;
+   private int ID = 0;
+    private String Kabine = null;
+    private String Leistung = null;
+    private LocalDate Wartungstermin = null;
 
     public SonnenbankObject(int ID, String Kabine, String Leistung, LocalDate Wartungstermin){
 
@@ -21,4 +21,35 @@ public class SonnenbankObject {
         this.Wartungstermin = Wartungstermin;
     }
 
+    public int getID() {
+        return ID;
+    }
+
+    public String getKabine() {
+        return Kabine;
+    }
+
+    public String getLeistung() {
+        return Leistung;
+    }
+
+    public LocalDate getWartungstermin() {
+        return Wartungstermin;
+    }
+
+    public void setID(int ID) {
+        this.ID = ID;
+    }
+
+    public void setKabine(String kabine) {
+        Kabine = kabine;
+    }
+
+    public void setLeistung(String leistung) {
+        Leistung = leistung;
+    }
+
+    public void setWartungstermin(LocalDate wartungstermin) {
+        Wartungstermin = wartungstermin;
+    }
 }

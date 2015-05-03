@@ -1,8 +1,10 @@
 package Controller;
 
 import Model.ApplicationUser;
+import Model.ApplicationUserObject;
 
 import java.time.LocalDate;
+import java.util.LinkedList;
 
 /**
  * Created by Schillemans on 01.05.2015.
@@ -20,7 +22,6 @@ public class UserController {
         return UserAuthenticated;
 
     }
-
 
     public boolean Register(String Vorname, String Nachname, String Geburtstag, String Mail, char[] Password) {
 
@@ -46,4 +47,13 @@ public class UserController {
         //TODO: Muss noch gemacht werden!!!
         return false;
     }
+
+    public LinkedList<ApplicationUserObject> getAllUser(){
+
+        ApplicationUser userControler = new ApplicationUser();
+        LinkedList<ApplicationUserObject> AllUser =   userControler.getAllApplicationUser();
+
+        return AllUser;
+    }
+
 }

@@ -1,8 +1,5 @@
 package View.TerminViews;
 
-import Controller.UserController;
-import Model.ApplicationUser;
-import Model.ApplicationUserObject;
 import Model.Termin;
 import Model.TerminObject;
 import View.SonnenbankViews.OverviewSonnenbank;
@@ -76,23 +73,32 @@ public class OverviewTermin extends JFrame {
 
         DefaultTableModel dtm = new DefaultTableModel();
         LinkedList<TerminObject> list = new Termin().getAllTermin();
+
+        String[] columnnames = new String[]{"Datum", "Uhrzeit Von", "Uhrzeit Bis", "Sonnenbank", "Kundenname"};
+        dtm.setColumnIdentifiers(columnnames);
+
         for (TerminObject t : list)
         {
-            Object[] o = new Object[6];
+
+            String[] socrates = { t.getID() + "", t.getDatum() + "", t.getUhrzeitVon() + "",  t.getUhrzeitBis() + "", t.getSonnenbank() + "", t.getKunde() + "" };
+            dtm.addRow(socrates);
+
+          /*  Object[] o = new Object[6];
             o[0] = t.getID();
             o[1] = t.getDatum();
             o[2] = t.getUhrzeitVon();
             o[3] =t.getUhrzeitBis();
             o[4] =t.getSonnenbank();
             o[5] =t.getKunde();
-            dtm.addRow(o);
+            dtm.addRow(o);*/
         }
 
-        String[] columnnames = new String[]{"Datum", "Uhrzeit Von", "Uhrzeit Bis", "Sonnenbank", "Kundenname"};
-        dtm.setColumnIdentifiers(columnnames);
+
+
         TabelleTerminUebersicht.setModel(dtm);
         mitteScrollPane.setViewportView(TabelleTerminUebersicht);
         mitte.add(mitteScrollPane);
+
         add(mitte, java.awt.BorderLayout.CENTER);
 
         ButtonCreateTermin.setText("Erstelle Termin");
@@ -101,6 +107,7 @@ public class OverviewTermin extends JFrame {
                 ButtonCreateTerminActionPerformed(evt);
             }
         });
+
         unten.add(ButtonCreateTermin);
 
         ButtonEditTermin.setText("Bearbeite Termin");
@@ -109,6 +116,7 @@ public class OverviewTermin extends JFrame {
                 ButtonEditTerminActionPerformed(evt);
             }
         });
+
         unten.add(ButtonEditTermin);
 
         ButtonDeleteTermin.setText("Lösche Termin");
@@ -117,6 +125,7 @@ public class OverviewTermin extends JFrame {
                 ButtonDeleteTerminActionPerformed(evt);
             }
         });
+
         unten.add(ButtonDeleteTermin);
 
         add(unten, BorderLayout.SOUTH);

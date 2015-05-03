@@ -12,6 +12,6 @@ public interface ITermin {
 
     boolean TerminBearbeiten (int ID, LocalDate DateTime, LocalDateTime UhrzeitVon, LocalDateTime UhrzeitBis, String Sonnenbank, String KundenName);
 
-    boolean TerminLoeschen(int ID) ;
+    boolean TerminLoeschen(int ID);
 
 }

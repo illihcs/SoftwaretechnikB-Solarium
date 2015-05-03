@@ -1,12 +1,11 @@
 package Controller;
 
-import Model.ApplicationUser;
-import Model.Sonnenbank;
 import Model.Termin;
+import Model.TerminObject;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
-import java.time.LocalTime;
+import java.util.LinkedList;
 
 /**
  * Created by admin on 03.05.2015.
@@ -36,4 +35,17 @@ public class TerminController {
 
         return TerminCreated;
     }
+
+
+    public LinkedList<TerminObject> getAllTermin(){
+
+        Termin terminControler = new Termin();
+        LinkedList<TerminObject> allTermine =  terminControler.getAllTermin();
+
+        return allTermine;
+    }
+
+
+
+
 }

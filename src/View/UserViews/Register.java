@@ -73,7 +73,7 @@ public class Register extends JFrame implements ActionListener {
         if (button == ButtonSpeichern)
         {
             UserController controller = new UserController();
-            controller.Register(TextFieldVorname.getText(), TextFieldNachname.getText(), TextFieldGeburtstag.getText(),TextFieldMail.getText(), TextFieldPassword.getPassword());
+            controller.registerApplicationUser(TextFieldVorname.getText(), TextFieldNachname.getText(), TextFieldGeburtstag.getText(), TextFieldMail.getText(), TextFieldPassword.getPassword());
         }
     }
 }

@@ -4,43 +4,31 @@ import java.sql.*;
 import java.time.LocalDate;
 import java.util.LinkedList;
 
-
-/**
- * Created by Win7-Dev on 02.05.2015.
- */
 public class ApplicationUser implements IApplicationUser {
 
-    int ID = 0;
-    String  Vorname;
-    String  Nachname;
-    LocalDate Geburtstag;
-    String Email;
-    String Passwort;
+    private int ID = 0;
+    private String Vorname;
+    private String Nachname;
+    private LocalDate Geburtstag;
+    private String Email;
+    private String Passwort;
 
-    // mySQL Helpers
-    public static SqlConfig SqlConf = null;
-    Connection con = null;
-
-
-    // String vorname, String nachname, LocalDate geburtstag, String mail, String password
+    // helper objects for operate with DB
+    SqlConfig SqlConf;
+    Connection con;
 
     public ApplicationUser() {
 
-      /*  Vorname = vorname;
-        Nachname = nachname;
-        Geburtstag = geburtstag;
-        Email = mail;
-        Passwort = password; */
-
-        SqlConfig SqlConf = new SqlConfig();
+        SqlConf = new SqlConfig();
     }
 
-    public boolean  bearbeitenUserDaten(int ID,  String Vorname,  String Nachname , LocalDate Geburtstag,  String EMail,  String Passwort){
+    // Edit application user datas in DB
+    public boolean editApplicationUser(int ID, String Vorname, String Nachname, LocalDate Geburtstag, String EMail, String Passwort) {
 
         try {
 
             // Setup SQl connection
-            con = DriverManager.getConnection(SqlConf.url, SqlConf.user, SqlConf.password);
+            con = DriverManager.getConnection(SqlConf.getUrl(), SqlConf.getUser(), SqlConf.getPassword());
 
             // Define SQL Statement
             String insertTableSQL = "UPDATE applicationuser SET Vorname = ?, Nachname =? , Geburtstag =?, Email =?, Passwort =?  WHERE EMail = ?";
@@ -60,17 +48,18 @@ public class ApplicationUser implements IApplicationUser {
 
         } catch (SQLException ex) {
 
-            throw new  RuntimeException(ex);
+            throw new RuntimeException(ex);
         }
 
     }
 
-    public boolean erstelleUser( String Vorname, String Nachname, LocalDate Geburtstag, String EMail, String Passwort){
+    // Creates a new application user in DB
+    public boolean createApplicationUser(String Vorname, String Nachname, LocalDate Geburtstag, String EMail, String Passwort) {
 
         try {
 
             // Setup SQl connection
-            con = DriverManager.getConnection(SqlConf.url, SqlConf.user, SqlConf.password);
+            con = DriverManager.getConnection(SqlConf.getUrl(), SqlConf.getUser(), SqlConf.getPassword());
 
             // Define SQL Statement
             String insertTableSQL = "INSERT INTO applicationuser ( Vorname, Nachname, Geburtstag, Email, Passwort) VALUES (?,?,?,?,?)";
@@ -90,16 +79,17 @@ public class ApplicationUser implements IApplicationUser {
 
         } catch (SQLException ex) {
 
-            throw new  RuntimeException(ex);
-            }
+            throw new RuntimeException(ex);
+        }
 
     }
 
-    public boolean loescheUser(int ID){
+    // delete an usere in the DB via a given ID
+    public boolean deleteApplicationUser(int ID) {
         try {
 
             // Setup SQl connection
-            con = DriverManager.getConnection(SqlConf.url, SqlConf.user, SqlConf.password);
+            con = DriverManager.getConnection(SqlConf.getUrl(), SqlConf.getUser(), SqlConf.getPassword());
 
             // Define SQL Statement
             String insertTableSQL = "DELETE FROM applicationuser WHERE ID = ?";
@@ -115,51 +105,16 @@ public class ApplicationUser implements IApplicationUser {
 
         } catch (SQLException ex) {
 
-            throw new  RuntimeException(ex);
+            throw new RuntimeException(ex);
         }
     }
 
-    public boolean login(String LoginEMail, String LoginPassword){
+    // Find and check usere credentials in DB
+    public boolean loginApplicationUser(String loginApplicationUserEMail, String loginApplicationUserPassword) {
         try {
 
             // Setup SQl connection
-            con = DriverManager.getConnection(SqlConf.url, SqlConf.user, SqlConf.password);
-
-            // Define SQL Statement
-            String selectSQL = "SELECT * FROM applicationuser";
-
-            // Fill SQL Statement
-            PreparedStatement preparedStatement = con.prepareStatement(selectSQL);
-           // preparedStatement.setString(1, EMail);
-
-            // execute insert SQL stetement
-            ResultSet rs = preparedStatement.executeQuery(selectSQL );
-
-            while (rs.next()) {
-                String DBEMail = rs.getString("EMail");
-                String DBPasswort = rs.getString("Passwort");
-
-                // Wenn GUI values und DB values übereinstimmen
-                if (new String(LoginEMail).equals(DBEMail) &&  new String(LoginPassword).equals(DBPasswort)) return true;
-            }
-
-            return false;
-
-        } catch (SQLException ex) {
-
-            throw new  RuntimeException(ex);
-        }
-
-    }
-
-    public LinkedList<ApplicationUserObject> getAllApplicationUser(){
-
-        try {
-
-            LinkedList<ApplicationUserObject> ApplicationUserObjectList = new LinkedList<ApplicationUserObject>();
-
-            // Setup SQl connection
-            con = DriverManager.getConnection(SqlConf.url, SqlConf.user, SqlConf.password);
+            con = DriverManager.getConnection(SqlConf.getUrl(), SqlConf.getUser(), SqlConf.getPassword());
 
             // Define SQL Statement
             String selectSQL = "SELECT * FROM applicationuser";
@@ -169,19 +124,59 @@ public class ApplicationUser implements IApplicationUser {
             // preparedStatement.setString(1, EMail);
 
             // execute insert SQL stetement
-            ResultSet rs = preparedStatement.executeQuery(selectSQL );
+            ResultSet rs = preparedStatement.executeQuery(selectSQL);
+
+            while (rs.next()) {
+                String DBEMail = rs.getString("EMail");
+                String DBPasswort = rs.getString("Passwort");
+
+                // Wenn GUI values und DB values übereinstimmen
+                if (new String(loginApplicationUserEMail).equals(DBEMail) && new String(loginApplicationUserPassword).equals(DBPasswort))
+                    return true;
+            }
+
+            return false;
+
+        } catch (SQLException ex) {
+
+            throw new RuntimeException(ex);
+        }
+
+    }
+
+    // Get all application User and store them
+    public LinkedList<ApplicationUserObject> getAllApplicationUser() {
+
+        try {
+
+            LinkedList<ApplicationUserObject> ApplicationUserObjectList = new LinkedList<ApplicationUserObject>();
+
+            // Setup SQl connection
+            con = DriverManager.getConnection(SqlConf.getUrl(), SqlConf.getUser(), SqlConf.getPassword());
+
+            // Define SQL Statement
+            String selectSQL = "SELECT * FROM applicationuser";
+
+            // Fill SQL Statement
+            PreparedStatement preparedStatement = con.prepareStatement(selectSQL);
+            // preparedStatement.setString(1, EMail);
+
+            // execute insert SQL stetement
+            ResultSet rs = preparedStatement.executeQuery(selectSQL);
 
             while (rs.next()) {
 
 
                 ApplicationUserObjectList.add(
-                        new ApplicationUserObject( rs.getInt("ID"),
-                                                    rs.getString("Vorname"),
-                                                    rs.getString("Nachname"),
-                                                    rs.getDate("Geburtstag").toLocalDate(),
-                                                    rs.getString("EMail"),
-                                                    rs.getString("Passwort")
-                                                  )
+                        new ApplicationUserObject(
+
+                                rs.getInt("ID"),
+                                rs.getString("Vorname"),
+                                rs.getString("Nachname"),
+                                rs.getDate("Geburtstag").toLocalDate(),
+                                rs.getString("EMail"),
+                                rs.getString("Passwort")
+                        )
                 );
 
             }
@@ -190,7 +185,7 @@ public class ApplicationUser implements IApplicationUser {
 
         } catch (SQLException ex) {
 
-            throw new  RuntimeException(ex);
+            throw new RuntimeException(ex);
         }
 
 

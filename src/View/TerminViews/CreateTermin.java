@@ -144,7 +144,7 @@ public class CreateTermin extends JFrame implements ActionListener{
 
     private void ButtonSpeichernActionPerformed(java.awt.event.ActionEvent evt) {
         TerminController controller = new TerminController();
-        if(controller.erstelleTermin(LocalDate.parse(TextFieldDatum.getText()), LocalDateTime.parse(TextFieldUhrzeitVon.getText()), LocalDateTime.parse(TextFieldUhrzeitBis.getText()), TextFieldSonnenbank.getText(), TextFieldKunde.getText()) == true)
+        if(controller.createTermin(LocalDate.parse(TextFieldDatum.getText()), LocalDateTime.parse(TextFieldUhrzeitVon.getText()), LocalDateTime.parse(TextFieldUhrzeitBis.getText()), TextFieldSonnenbank.getText(), TextFieldKunde.getText()) == true)
         {
             JOptionPane.showMessageDialog(null,
                     "Erstellen fertiggestellt!",
@@ -178,7 +178,7 @@ public class CreateTermin extends JFrame implements ActionListener{
             LocalDateTime von = LocalDateTime.parse(TextFieldUhrzeitVon.getText());
             LocalDateTime bis = LocalDateTime.parse(TextFieldUhrzeitBis.getText());
 
-            if (ControllerTermin.erstelleTermin(datum, von, bis, TextFieldSonnenbank.getText(), TextFieldKunde.getText()) == true)
+            if (ControllerTermin.createTermin(datum, von, bis, TextFieldSonnenbank.getText(), TextFieldKunde.getText()) == true)
             {
                 OverviewTermin ot = new OverviewTermin();
                 ot.setVisible(true);

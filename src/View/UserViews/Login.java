@@ -27,8 +27,6 @@ public class Login extends JFrame implements ActionListener{
         // Testen ob SQL abfragen funktionieren
         SQLTESTER SQLTESTERobj = new SQLTESTER();
 
-
-
     }
 
     private void initComponents() {
@@ -42,20 +40,20 @@ public class Login extends JFrame implements ActionListener{
         JLabel LabelPassword = new JLabel("Password:");
         TextFieldEmail = new JTextField();
         TextFieldPassword = new JPasswordField();
-        JButton ButtonLogin = new JButton("Login");
+        JButton ButtonloginApplicationUser = new JButton("loginApplicationUser");
         JButton ButtonClose = new JButton("Close");
         ButtonClose.addActionListener(this);
-        ButtonLogin.addActionListener(this);
+        ButtonloginApplicationUser.addActionListener(this);
         LabelFehler = new JLabel();
         mitte.add(LabelEMail);
         mitte.add(TextFieldEmail);
         mitte.add(LabelPassword);
         mitte.add(TextFieldPassword);
-        mitte.add(ButtonLogin);
+        mitte.add(ButtonloginApplicationUser);
         mitte.add(ButtonClose);
         mitte.setLayout(new GridLayout(3, 2));
         oben.add(LabelFehler);
-        setTitle("Login");
+        setTitle("loginApplicationUser");
     }
 
     @Override
@@ -63,11 +61,11 @@ public class Login extends JFrame implements ActionListener{
 
         JButton button = (JButton) e.getSource();
 
-        if (button.getText().equals("Login"))
+        if (button.getText().equals("loginApplicationUser"))
         {
             UserController controller = new UserController();
 
-            if(controller.Login(TextFieldEmail.getText(), TextFieldPassword.getPassword()) == true)
+            if(controller.loginApplicationUser(TextFieldEmail.getText(), TextFieldPassword.getPassword()) == true)
             {
                 OverviewTermin ot = new OverviewTermin();
                 ot.setVisible(true);

@@ -13,26 +13,26 @@ import java.util.LinkedList;
  */
 public class SonnenbankController {
 
-    boolean erstelleSonnenbank(String Kabine, String Leistung, LocalDate Wartungstermin)
+    boolean createSonnenbank(String Kabine, String Leistung, LocalDate Wartungstermin)
     {
         Sonnenbank sonnenControler = new Sonnenbank();
-        boolean TerminCreated =  sonnenControler.erstelleSonnenbank(Kabine, Leistung, Wartungstermin);
+        boolean TerminCreated =  sonnenControler.createSonnenbank(Kabine, Leistung, Wartungstermin);
 
         return TerminCreated;
     }
 
-    boolean bearbeiteSonnenbank(int ID, String Kabine,  String Leistung,  LocalDate Wartungstermin)
+    boolean editSonnenbank(int ID, String Kabine,  String Leistung,  LocalDate Wartungstermin)
     {
         Sonnenbank sonnenControler = new Sonnenbank();
-        boolean TerminCreated =  sonnenControler.bearbeiteSonnenbank(ID, Kabine, Leistung, Wartungstermin);
+        boolean TerminCreated =  sonnenControler.editSonnenbank(ID, Kabine, Leistung, Wartungstermin);
 
         return TerminCreated;
     }
 
-    boolean loescheSonnenbank(int ID)
+    boolean deleteSunbed(int ID)
     {
         Sonnenbank sonnenControler = new Sonnenbank();
-        boolean TerminCreated =  sonnenControler.loescheSonnenbank(ID);
+        boolean TerminCreated =  sonnenControler.deleteSunbed(ID);
 
         return TerminCreated;
     }

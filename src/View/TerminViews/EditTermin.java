@@ -134,7 +134,7 @@ public class EditTermin extends JFrame {
 
     private void ButtonSpeichernActionPerformed(java.awt.event.ActionEvent evt) {
         TerminController controller = new TerminController();
-        if(controller.bearbeiteTermin(to.getID(), LocalDate.parse(TextFieldDatum.getText()), LocalDateTime.parse(TextFieldUhrzeitVon.getText()), LocalDateTime.parse(TextFieldUhrzeitBis.getText()), TextFieldSonnenbank.getText(), TextFieldKunde.getText()) == true)
+        if(controller.editTermin(to.getID(), LocalDate.parse(TextFieldDatum.getText()), LocalDateTime.parse(TextFieldUhrzeitVon.getText()), LocalDateTime.parse(TextFieldUhrzeitBis.getText()), TextFieldSonnenbank.getText(), TextFieldKunde.getText()) == true)
         {
             JOptionPane.showMessageDialog(null,
                     "Bearbeiten fertiggestellt!",

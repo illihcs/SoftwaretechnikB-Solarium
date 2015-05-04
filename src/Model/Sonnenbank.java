@@ -11,29 +11,30 @@ import java.util.LinkedList;
  */
 
 
+public class Sonnenbank implements ISonnenbank {
 
-public class Sonnenbank implements ISonnenbank
-{
+    private int ID;
+    private String Kabine;
+    private String Leistung;
+    private LocalDateTime Wartungstermin;
 
-    int ID = 0;
-    String Kabine = null;
-    String Leistung = null;
-    LocalDateTime Wartungstermin = null;
+    // helper objects for operate with DB
+    private SqlConfig SqlConf;
+    private Connection con;
 
-    // mySQL Helpers
-    public static SqlConfig SqlConf = null;
-    Connection con = null;
+    public Sonnenbank() {
 
-    public Sonnenbank(){
+        SqlConf = new SqlConfig();
 
     }
 
-    public boolean erstelleSonnenbank( String Kabine,  String  Leistung,  LocalDate Wartungstermin){
+    // create a sonnenbank in the DB
+    public boolean createSonnenbank(String Kabine, String Leistung, LocalDate Wartungstermin) {
 
         try {
 
             // Setup SQl connection
-            con = DriverManager.getConnection(SqlConf.url, SqlConf.user, SqlConf.password);
+            con = DriverManager.getConnection(SqlConf.getUrl(), SqlConf.getUser(), SqlConf.getPassword());
 
             // Define SQL Statement
             String insertTableSQL = "INSERT INTO sonnenbank ( Kabine, Leistung, Wartungstermin) VALUES (?,?,?)";
@@ -51,16 +52,17 @@ public class Sonnenbank implements ISonnenbank
 
         } catch (SQLException ex) {
 
-            throw new  RuntimeException(ex);
+            throw new RuntimeException(ex);
         }
-   }
+    }
 
-    public boolean bearbeiteSonnenbank(int ID, String Kabine,  String Leistung,  LocalDate Wartungstermin){
+    // edit a sonnenbank in the DB via a given ID
+    public boolean editSonnenbank(int ID, String Kabine, String Leistung, LocalDate Wartungstermin) {
 
         try {
 
             // Setup SQl connection
-            con = DriverManager.getConnection(SqlConf.url, SqlConf.user, SqlConf.password);
+            con = DriverManager.getConnection(SqlConf.getUrl(), SqlConf.getUser(), SqlConf.getPassword());
 
             // Define SQL Statement
             String insertTableSQL = "UPDATE sonnenbank SET Kabine = ?, Leistung =? , Wartungstermin =?  WHERE ID = ?";
@@ -78,17 +80,18 @@ public class Sonnenbank implements ISonnenbank
 
         } catch (SQLException ex) {
 
-            throw new  RuntimeException(ex);
+            throw new RuntimeException(ex);
         }
 
     }
 
-    public boolean loescheSonnenbank(int ID){
+    // delete an sonnenbank in the DB via a given ID
+    public boolean deleteSunbed(int ID) {
 
         try {
 
             // Setup SQl connection
-            con = DriverManager.getConnection(SqlConf.url, SqlConf.user, SqlConf.password);
+            con = DriverManager.getConnection(SqlConf.getUrl(), SqlConf.getUser(), SqlConf.getPassword());
 
             // Define SQL Statement
             String insertTableSQL = "DELE FROM sonnenbank WHERE ID = ?";
@@ -104,19 +107,19 @@ public class Sonnenbank implements ISonnenbank
 
         } catch (SQLException ex) {
 
-            throw new  RuntimeException(ex);
+            throw new RuntimeException(ex);
         }
     }
 
-
-    public LinkedList<SonnenbankObject> getAllSonnenbank(){
+    // Get all sonnenbanken and store them
+    public LinkedList<SonnenbankObject> getAllSonnenbank() {
 
         try {
 
             LinkedList<SonnenbankObject> SonnenbankObjectList = new LinkedList<SonnenbankObject>();
 
             // Setup SQl connection
-            con = DriverManager.getConnection(SqlConf.url, SqlConf.user, SqlConf.password);
+            con = DriverManager.getConnection(SqlConf.getUrl(), SqlConf.getUser(), SqlConf.getPassword());
 
             // Define SQL Statement
             String selectSQL = "SELECT * FROM sonnenbank";
@@ -126,13 +129,13 @@ public class Sonnenbank implements ISonnenbank
             // preparedStatement.setString(1, EMail);
 
             // execute insert SQL stetement
-            ResultSet rs = preparedStatement.executeQuery(selectSQL );
+            ResultSet rs = preparedStatement.executeQuery(selectSQL);
 
             while (rs.next()) {
 
 
                 SonnenbankObjectList.add(
-                        new SonnenbankObject( rs.getInt("ID"), rs.getString("Kabine"), rs.getString("Leistung"), rs.getDate("Wartungstermin").toLocalDate())
+                        new SonnenbankObject(rs.getInt("ID"), rs.getString("Kabine"), rs.getString("Leistung"), rs.getDate("Wartungstermin").toLocalDate())
                 );
 
             }
@@ -141,12 +144,11 @@ public class Sonnenbank implements ISonnenbank
 
         } catch (SQLException ex) {
 
-            throw new  RuntimeException(ex);
+            throw new RuntimeException(ex);
         }
 
 
     }
-
 
 
 }

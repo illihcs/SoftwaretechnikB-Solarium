@@ -137,7 +137,7 @@ public class Edit extends JFrame {
 
     private void ButtonSpeichernActionPerformed(java.awt.event.ActionEvent evt) {
         UserController controller = new UserController();
-        if(controller.BearbeiteUser(to.getID(), TextFieldDatum.getText(), TextFieldUhrzeitVon.getText(), LocalDate.parse(TextFieldUhrzeitBis.getText()), TextFieldSonnenbank.getText(), TextFieldKunde.getText().toCharArray()) == true)
+        if(controller.editApplicationUser(to.getID(), TextFieldDatum.getText(), TextFieldUhrzeitVon.getText(), LocalDate.parse(TextFieldUhrzeitBis.getText()), TextFieldSonnenbank.getText(), TextFieldKunde.getText().toCharArray()) == true)
         {
             JOptionPane.showMessageDialog(null,
                     "Bearbeiten fertiggestellt!",

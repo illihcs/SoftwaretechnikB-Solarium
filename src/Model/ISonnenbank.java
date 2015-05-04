@@ -8,19 +8,17 @@ import java.time.LocalDateTime;
  */
 public interface ISonnenbank {
 
-     int ID = 0;
-     String Kabine = null;
-     String Leistung = null;
-     LocalDateTime Wartungstermin = null;
+    int ID = 0;
+    String Kabine = null;
+    String Leistung = null;
+    LocalDateTime Wartungstermin = null;
 
 
-     boolean erstelleSonnenbank( String Kabine,  String Leistung,  LocalDate Wartungstermin);
+    boolean createSonnenbank(String Kabine, String Leistung, LocalDate Wartungstermin);
 
-     boolean bearbeiteSonnenbank(int ID, String Kabine,  String Leistung,  LocalDate Wartungstermin);
+    boolean editSonnenbank(int ID, String Kabine, String Leistung, LocalDate Wartungstermin);
 
-     boolean loescheSonnenbank(int ID);
-
-
+    boolean deleteSunbed(int ID);
 
 
 }

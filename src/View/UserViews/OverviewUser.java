@@ -56,9 +56,9 @@ public class OverviewUser extends JFrame{
         ButtonDeleteTermin = new JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setTitle("Benutzer Übersicht");
+        setTitle("Benutzer Ãœbersicht");
 
-        ButtonTerminUebersicht.setText("Wechsele zur Terminübersicht");
+        ButtonTerminUebersicht.setText("Wechsele zur TerminÃœbersicht");
         ButtonTerminUebersicht.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ButtonTerminUebersichtActionPerformed(evt);
@@ -66,7 +66,7 @@ public class OverviewUser extends JFrame{
         });
         oben.add(ButtonTerminUebersicht);
 
-        ButtonSonnenbankUebersicht.setText("Wechsele zur Sonnenbankübersicht");
+        ButtonSonnenbankUebersicht.setText("Wechsele zur SonnenbankÃœbersicht");
         ButtonSonnenbankUebersicht.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ButtonSonnenbankUebersichtActionPerformed(evt);
@@ -100,7 +100,7 @@ public class OverviewUser extends JFrame{
 
         add(mitte, java.awt.BorderLayout.CENTER);
 
-        ButtonCreateTermin.setText("Registeriere User");
+        ButtonCreateTermin.setText("registerApplicationUseriere User");
         ButtonCreateTermin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ButtonCreateTerminActionPerformed(evt);
@@ -118,7 +118,7 @@ public class OverviewUser extends JFrame{
 
         unten.add(ButtonEditTermin);
 
-        ButtonDeleteTermin.setText("Lösche User");
+        ButtonDeleteTermin.setText("LÃ¶sche User");
         ButtonDeleteTermin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ButtonDeleteTerminActionPerformed(evt);
@@ -134,23 +134,18 @@ public class OverviewUser extends JFrame{
     }// </editor-fold>
 
     private void ButtonDeleteTerminActionPerformed(ActionEvent evt) {
-        int eingabe = JOptionPane.showConfirmDialog(null, "Möchten Sie den ausgewählten User löschen?", "Löschen bestätigen", JOptionPane.YES_NO_CANCEL_OPTION);
+
+        int eingabe = JOptionPane.showConfirmDialog(null, "MÃ¶chten Sie den ausgewÃ¤hlten User lÃ¶schen?", "LÃ¶schen bestÃ¤tigen", JOptionPane.YES_NO_CANCEL_OPTION);
         if (eingabe == 0) // Clicked Ja
         {
             int row = TabelleTerminUebersicht.getSelectedRow();
-            /*TerminObject to = new TerminObject(
-                    (int) TabelleTerminUebersicht.getModel().getValueAt(row, 0),
-                    LocalDate.parse( (String) TabelleTerminUebersicht.getModel().getValueAt(row, 1)),
-                    LocalTime.parse((String) TabelleTerminUebersicht.getModel().getValueAt(row, 2)),
-                    LocalTime.parse((String) TabelleTerminUebersicht.getModel().getValueAt(row, 3)),
-                    (String) TabelleTerminUebersicht.getModel().getValueAt(row, 4),
-                    (String) TabelleTerminUebersicht.getModel().getValueAt(row, 5));*/
+
             UserController controller = new UserController();
-            if (controller.DeleteUser(Integer.parseInt((String)TabelleTerminUebersicht.getModel().getValueAt(row, 0)))== true)
+            if (controller.deleteApplicationUser(Integer.parseInt((String)TabelleTerminUebersicht.getModel().getValueAt(row, 0)))== true)
             {
                 JOptionPane.showMessageDialog(null,
-                        "Löschen fertiggestellt!",
-                        "Löschen fertig!",
+                        "LÃ¤schen fertiggestellt!",
+                        "LÃ¤schen fertig!",
                         JOptionPane.WARNING_MESSAGE);
 
                 DefaultTableModel d = new DefaultTableModel();
@@ -169,7 +164,7 @@ public class OverviewUser extends JFrame{
                 TabelleTerminUebersicht.repaint();
             }else{
                 JOptionPane.showMessageDialog(null,
-                        "Löschen fehlgeschlagen",
+                        "LÃ¶schen fehlgeschlagen",
                         "FEHLSCHLAG!!!",
                         JOptionPane.WARNING_MESSAGE);
             }
@@ -179,6 +174,7 @@ public class OverviewUser extends JFrame{
     }
 
     private void ButtonEditTerminActionPerformed(ActionEvent evt) {
+
         //TODO: EDIT BUtton
         int row = TabelleTerminUebersicht.getSelectedRow();
         ApplicationUserObject to = new ApplicationUserObject(

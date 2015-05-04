@@ -5,29 +5,30 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.LinkedList;
 
-
-/**
- * Created by Win7-Dev on 02.05.2015.
- */
 public class Termin implements ITermin {
 
-    int ID = 0;
-    LocalDate Datum = null;
-    LocalDateTime UhrzeitVon = null;
-    LocalDateTime UhrzeitBis = null;
-    String Sonnenbank = null;
+    int ID;
+    LocalDate Datum;
+    LocalDateTime UhrzeitVon;
+    LocalDateTime UhrzeitBis;
+    String Sonnenbank;
     String Kunde;
 
-    // mySQL Helpers
-    public static SqlConfig SqlConf = null;
-    Connection con = null;
+    // helper objects for operate with DB
+    SqlConfig SqlConf;
+    Connection con;
 
+    public Termin() {
 
-    public boolean TerminEintragen(LocalDate Datum, LocalDateTime UhrzeitVon,  LocalDateTime UhrzeitBis , String Sonnenbank, String KundenName) {
+        SqlConf = new SqlConfig();
+    }
+
+    // create an termin in the DB
+    public boolean createTermin(LocalDate Datum, LocalDateTime UhrzeitVon, LocalDateTime UhrzeitBis, String Sonnenbank, String KundenName) {
         try {
 
             // Setup SQl connection
-            con = DriverManager.getConnection(SqlConf.url, SqlConf.user, SqlConf.password);
+            con = DriverManager.getConnection(SqlConf.getUrl(), SqlConf.getUser(), SqlConf.getPassword());
 
             // Define SQL Statement
             String insertTableSQL = "INSERT INTO termin ( Datum, Uhrzeitvon, UhrzeitBis, Sonnenbank, KundenName) VALUES (?,?,?,?,?)";
@@ -47,15 +48,16 @@ public class Termin implements ITermin {
 
         } catch (SQLException ex) {
 
-            throw new  RuntimeException(ex);
+            throw new RuntimeException(ex);
         }
     }
 
-    public boolean TerminBearbeiten (int ID, LocalDate DateTime, LocalDateTime  UhrzeitVon, LocalDateTime   UhrzeitBis, String Sonnenbank, String KundenName){
+    // edit an termin in the DB via a given ID
+    public boolean editTermin(int ID, LocalDate DateTime, LocalDateTime UhrzeitVon, LocalDateTime UhrzeitBis, String Sonnenbank, String KundenName) {
         try {
 
             // Setup SQl connection
-            con = DriverManager.getConnection(SqlConf.url, SqlConf.user, SqlConf.password);
+            con = DriverManager.getConnection(SqlConf.getUrl(), SqlConf.getUser(), SqlConf.getPassword());
 
             // Define SQL Statement
             String insertTableSQL = "UPDATE termin SET DateTime = ?, UhrzeitVon =? , UhrzeitBis =?, Sonnenbank =?, KundenName =?  WHERE ID = ?";
@@ -76,15 +78,16 @@ public class Termin implements ITermin {
 
         } catch (SQLException ex) {
 
-            throw new  RuntimeException(ex);
+            throw new RuntimeException(ex);
         }
     }
 
-    public boolean TerminLoeschen(int ID){
+    // delete an termin in the DB via a given ID
+    public boolean deleteTermin(int ID) {
         try {
 
             // Setup SQl connection
-            con = DriverManager.getConnection(SqlConf.url, SqlConf.user, SqlConf.password);
+            con = DriverManager.getConnection(SqlConf.getUrl(), SqlConf.getUser(), SqlConf.getPassword());
 
             // Define SQL Statement
             String insertTableSQL = "DELETE FROM termin WHERE ID = ?";
@@ -100,18 +103,19 @@ public class Termin implements ITermin {
 
         } catch (SQLException ex) {
 
-            throw new  RuntimeException(ex);
+            throw new RuntimeException(ex);
         }
     }
 
-    public LinkedList<TerminObject> getAllTermin(){
+    // Get all termins and store them
+    public LinkedList<TerminObject> getAllTermin() {
 
         try {
 
             LinkedList<TerminObject> TerminObjectList = new LinkedList<TerminObject>();
 
             // Setup SQl connection
-            con = DriverManager.getConnection(SqlConf.url, SqlConf.user, SqlConf.password);
+            con = DriverManager.getConnection(SqlConf.getUrl(), SqlConf.getUser(), SqlConf.getPassword());
 
             // Define SQL Statement
             String selectSQL = "SELECT * FROM termin";
@@ -121,18 +125,18 @@ public class Termin implements ITermin {
             // preparedStatement.setString(1, EMail);
 
             // execute insert SQL stetement
-            ResultSet rs = preparedStatement.executeQuery(selectSQL );
+            ResultSet rs = preparedStatement.executeQuery(selectSQL);
 
             while (rs.next()) {
 
 
                 TerminObjectList.add(
-                        new TerminObject( rs.getInt("ID"),
+                        new TerminObject(rs.getInt("ID"),
                                 rs.getDate("Datum").toLocalDate(),
                                 rs.getTime("UhrzeitVon").toLocalTime(),
                                 rs.getTime("UhrzeitBis").toLocalTime(),
                                 rs.getString("Sonnenbank"),
-                                rs.getString("Kunde") )
+                                rs.getString("Kunde"))
                 );
 
             }
@@ -141,7 +145,7 @@ public class Termin implements ITermin {
 
         } catch (SQLException ex) {
 
-            throw new  RuntimeException(ex);
+            throw new RuntimeException(ex);
         }
 
 

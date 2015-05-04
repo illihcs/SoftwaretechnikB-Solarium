@@ -87,14 +87,6 @@ public class OverviewTermin extends JFrame {
             String[] row = { t.getID() + "", t.getDatum() + "", t.getUhrzeitVon() + "",  t.getUhrzeitBis() + "", t.getSonnenbank() + "", t.getKunde() + "" };
             dtm.addRow(row);
 
-          /*  Object[] o = new Object[6];
-            o[0] = t.getID();
-            o[1] = t.getDatum();
-            o[2] = t.getUhrzeitVon();
-            o[3] =t.getUhrzeitBis();
-            o[4] =t.getSonnenbank();
-            o[5] =t.getKunde();
-            dtm.addRow(o);*/
         }
 
 
@@ -153,7 +145,7 @@ public class OverviewTermin extends JFrame {
                     (String) TabelleTerminUebersicht.getModel().getValueAt(row, 4),
                     (String) TabelleTerminUebersicht.getModel().getValueAt(row, 5));*/
             TerminController controller = new TerminController();
-            if (controller.loescheTermin(Integer.parseInt((String)TabelleTerminUebersicht.getModel().getValueAt(row, 0)))== true)
+            if (controller.deleteTermin(Integer.parseInt((String)TabelleTerminUebersicht.getModel().getValueAt(row, 0)))== true)
             {
                 JOptionPane.showMessageDialog(null,
                         "Löschen fertiggestellt!",

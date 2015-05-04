@@ -9,19 +9,19 @@ import java.time.LocalDateTime;
 public interface IApplicationUser {
 
     int ID = 0;
-    String  Vorname = null;
-    String  Nachname = null;
+    String Vorname = null;
+    String Nachname = null;
     LocalDateTime Geburtstag = null;
     String Email = null;
     String Passwort = null;
 
-    boolean  bearbeitenUserDaten(int ID,  String Vorname,  String Nachname , LocalDate Geburtstag,  String Mail,  String Passwort);
+    boolean editApplicationUser(int ID, String Vorname, String Nachname, LocalDate Geburtstag, String Mail, String Passwort);
 
-    boolean erstelleUser( String Vorname, String Nachname, LocalDate Geburtstag, String Mail, String Passwort);
+    boolean createApplicationUser(String Vorname, String Nachname, LocalDate Geburtstag, String Mail, String Passwort);
 
-    boolean loescheUser(int ID);
+    boolean deleteApplicationUser(int ID);
 
-     boolean login(String Email, String Password);
+    boolean loginApplicationUser(String Email, String Password);
 }
 
 

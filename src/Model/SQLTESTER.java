@@ -7,18 +7,18 @@ import java.util.LinkedList;
  */
 public class SQLTESTER {
 
-   public SQLTESTER(){
+    public SQLTESTER() {
 
         ApplicationUser aa = new ApplicationUser();
         Termin bb = new Termin();
-       Sonnenbank cc = new Sonnenbank();
+        Sonnenbank cc = new Sonnenbank();
 
-        LinkedList<ApplicationUserObject> obj1  =  aa.getAllApplicationUser();
-        LinkedList<TerminObject> obj2  =  bb.getAllTermin();
-        LinkedList<SonnenbankObject> obj3  =  cc.getAllSonnenbank();
+        LinkedList<ApplicationUserObject> obj1 = aa.getAllApplicationUser();
+        LinkedList<TerminObject> obj2 = bb.getAllTermin();
+        LinkedList<SonnenbankObject> obj3 = cc.getAllSonnenbank();
 
 
-       int a = 0;
+        int a = 0;
     }
 
 

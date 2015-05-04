@@ -87,7 +87,7 @@ public class Termin implements ITermin {
             con = DriverManager.getConnection(SqlConf.url, SqlConf.user, SqlConf.password);
 
             // Define SQL Statement
-            String insertTableSQL = "DELE FROM termin WHERE ID = ?";
+            String insertTableSQL = "DELETE FROM termin WHERE ID = ?";
 
             // Fill SQL Statement
             PreparedStatement preparedStatement = con.prepareStatement(insertTableSQL);

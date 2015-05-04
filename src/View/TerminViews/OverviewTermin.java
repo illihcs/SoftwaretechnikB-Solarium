@@ -76,16 +76,16 @@ public class OverviewTermin extends JFrame {
         mitte.setLayout(new GridLayout());
 
         DefaultTableModel dtm = new DefaultTableModel();
-        LinkedList<TerminObject> list = new Termin().getAllTermin();
+        LinkedList<TerminObject> list = new TerminController().getAllTermin();
 
-        String[] columnnames = new String[]{"Datum", "Uhrzeit Von", "Uhrzeit Bis", "Sonnenbank", "Kundenname"};
+        String[] columnnames = new String[]{"ID", "Datum", "Uhrzeit Von", "Uhrzeit Bis", "Sonnenbank", "Kundenname"};
         dtm.setColumnIdentifiers(columnnames);
 
         for (TerminObject t : list)
         {
 
-            String[] socrates = { t.getID() + "", t.getDatum() + "", t.getUhrzeitVon() + "",  t.getUhrzeitBis() + "", t.getSonnenbank() + "", t.getKunde() + "" };
-            dtm.addRow(socrates);
+            String[] row = { t.getID() + "", t.getDatum() + "", t.getUhrzeitVon() + "",  t.getUhrzeitBis() + "", t.getSonnenbank() + "", t.getKunde() + "" };
+            dtm.addRow(row);
 
           /*  Object[] o = new Object[6];
             o[0] = t.getID();
@@ -142,23 +142,38 @@ public class OverviewTermin extends JFrame {
 
     private void ButtonDeleteTerminActionPerformed(ActionEvent evt) {
         int eingabe = JOptionPane.showConfirmDialog(null, "Möchten Sie den ausgewählten Termin löschen?", "Löschen bestätigen", JOptionPane.YES_NO_CANCEL_OPTION);
-        if (eingabe == 1)
+        if (eingabe == 0) // Clicked Ja
         {
             int row = TabelleTerminUebersicht.getSelectedRow();
-            TerminObject to = new TerminObject(
+            /*TerminObject to = new TerminObject(
                     (int) TabelleTerminUebersicht.getModel().getValueAt(row, 0),
                     LocalDate.parse( (String) TabelleTerminUebersicht.getModel().getValueAt(row, 1)),
                     LocalTime.parse((String) TabelleTerminUebersicht.getModel().getValueAt(row, 2)),
                     LocalTime.parse((String) TabelleTerminUebersicht.getModel().getValueAt(row, 3)),
                     (String) TabelleTerminUebersicht.getModel().getValueAt(row, 4),
-                    (String) TabelleTerminUebersicht.getModel().getValueAt(row, 5));
+                    (String) TabelleTerminUebersicht.getModel().getValueAt(row, 5));*/
             TerminController controller = new TerminController();
-            if (controller.loescheTermin(to.getID())== true)
+            if (controller.loescheTermin(Integer.parseInt((String)TabelleTerminUebersicht.getModel().getValueAt(row, 0)))== true)
             {
                 JOptionPane.showMessageDialog(null,
                         "Löschen fertiggestellt!",
                         "Löschen fertig!",
                         JOptionPane.WARNING_MESSAGE);
+
+                DefaultTableModel d = new DefaultTableModel();
+                LinkedList<TerminObject> list = new TerminController().getAllTermin();
+
+                String[] columnnames = new String[]{"ID", "Datum", "Uhrzeit Von", "Uhrzeit Bis", "Sonnenbank", "Kundenname"};
+                d.setColumnIdentifiers(columnnames);
+
+                for (TerminObject t : list) {
+
+                    String[] r = {t.getID() + "", t.getDatum() + "", t.getUhrzeitVon() + "", t.getUhrzeitBis() + "", t.getSonnenbank() + "", t.getKunde() + ""};
+                    d.addRow(r);
+                }
+
+                TabelleTerminUebersicht.setModel(d);
+                TabelleTerminUebersicht.repaint();
             }else{
                 JOptionPane.showMessageDialog(null,
                         "Löschen fehlgeschlagen",
@@ -172,11 +187,17 @@ public class OverviewTermin extends JFrame {
 
     private void ButtonEditTerminActionPerformed(ActionEvent evt) {
         //TODO: EDIT BUtton
-        //getSelectedUser
-        //ApplicationUserObject user = new ApplicationUserObject(bla bla bla);
-        //EditTermin et = new EditTermin(user);
-        //et.setVisible(true);
-        //this.dispose();
+        int row = TabelleTerminUebersicht.getSelectedRow();
+        TerminObject to = new TerminObject(
+                Integer.parseInt((String)TabelleTerminUebersicht.getModel().getValueAt(row, 0)),
+                    LocalDate.parse( (String) TabelleTerminUebersicht.getModel().getValueAt(row, 1)),
+                    LocalTime.parse((String) TabelleTerminUebersicht.getModel().getValueAt(row, 2)),
+                    LocalTime.parse((String) TabelleTerminUebersicht.getModel().getValueAt(row, 3)),
+                    (String) TabelleTerminUebersicht.getModel().getValueAt(row, 4),
+                    (String) TabelleTerminUebersicht.getModel().getValueAt(row, 5));
+        EditTermin et = new EditTermin(to);
+        et.setVisible(true);
+        this.dispose();
     }
 
     private void ButtonCreateTerminActionPerformed(ActionEvent evt) {

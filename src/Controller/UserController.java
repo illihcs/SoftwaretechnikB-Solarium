@@ -42,10 +42,9 @@ public class UserController {
 
     }
 
-    public boolean DeleteUser()
+    public boolean DeleteUser(int i)
     {
-        //TODO: Muss noch gemacht werden!!!
-        return false;
+        return new ApplicationUser().loescheUser(i);
     }
 
     public LinkedList<ApplicationUserObject> getAllUser(){

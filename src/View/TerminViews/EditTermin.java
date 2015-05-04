@@ -1,20 +1,26 @@
 package View.TerminViews;
 
+import Controller.TerminController;
 import Model.TerminObject;
 
 import javax.swing.*;
 import java.awt.*;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.LocalTime;
 
 /**
  * Created by admin on 03.05.2015.
  */
 public class EditTermin extends JFrame {
+    TerminObject to;
+
     public EditTermin(TerminObject termin) {
         initComponents(termin);
     }
 
     private void initComponents(TerminObject t) {
-
+        to = t;
         oben = new javax.swing.JPanel();
         ButtonZurueckZurUebersicht = new javax.swing.JButton();
         mitte = new javax.swing.JPanel();
@@ -34,6 +40,7 @@ public class EditTermin extends JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Termin Übersicht");
+        setSize(800,500);
 
         oben.setLayout(new CardLayout());
         ButtonZurueckZurUebersicht.setText("Zurück zur Übersicht");
@@ -120,15 +127,30 @@ public class EditTermin extends JFrame {
     }
 
     private void ButtonZurueckZurUebersichtActionPerformed(java.awt.event.ActionEvent evt) {
-        // TODO add your handling code here:
+        OverviewTermin ot = new OverviewTermin();
+        ot.setVisible(true);
+        this.dispose();
     }
 
     private void ButtonSpeichernActionPerformed(java.awt.event.ActionEvent evt) {
-        // TODO add your handling code here:
+        TerminController controller = new TerminController();
+        if(controller.bearbeiteTermin(to.getID(), LocalDate.parse(TextFieldDatum.getText()), LocalDateTime.parse(TextFieldUhrzeitVon.getText()), LocalDateTime.parse(TextFieldUhrzeitBis.getText()), TextFieldSonnenbank.getText(), TextFieldKunde.getText()) == true)
+        {
+            JOptionPane.showMessageDialog(null,
+                    "Bearbeiten fertiggestellt!",
+                    "Bearbeiten fertig!",
+                    JOptionPane.WARNING_MESSAGE);
+        }
     }
 
     private void ButtonAbbrechenActionPerformed(java.awt.event.ActionEvent evt) {
-        // TODO add your handling code here:
+        int eingabe = JOptionPane.showConfirmDialog(null, "Möchten Sie wirklich abbrechen?", "Abbrechen", JOptionPane.YES_NO_OPTION);
+        if (eingabe == 0)
+        {
+            OverviewTermin ot = new OverviewTermin();
+            ot.setVisible(true);
+            this.dispose();
+        }
     }
 
     // Variables declaration - do not modify                     

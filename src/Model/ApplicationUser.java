@@ -102,7 +102,7 @@ public class ApplicationUser implements IApplicationUser {
             con = DriverManager.getConnection(SqlConf.url, SqlConf.user, SqlConf.password);
 
             // Define SQL Statement
-            String insertTableSQL = "DELE FROM applicationuser WHERE ID = ?";
+            String insertTableSQL = "DELETE FROM applicationuser WHERE ID = ?";
 
             // Fill SQL Statement
             PreparedStatement preparedStatement = con.prepareStatement(insertTableSQL);

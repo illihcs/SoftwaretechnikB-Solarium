@@ -16,9 +16,9 @@ public class Login extends JFrame implements ActionListener{
 
     JTextField TextFieldEmail;
     JPasswordField TextFieldPassword;
-    JPanel oben;
-    JPanel mitte;
-    JLabel LabelFehler;
+    JPanel top;
+    JPanel center;
+    JLabel LabelFailure;
 
     public Login()
     {
@@ -31,29 +31,29 @@ public class Login extends JFrame implements ActionListener{
 
     private void initComponents() {
         setLayout(new BorderLayout());
-        oben = new JPanel();
-        mitte = new JPanel();
-        add(oben, BorderLayout.NORTH);
-        add(mitte, BorderLayout.CENTER);
+        top = new JPanel();
+        center = new JPanel();
+        add(top, BorderLayout.NORTH);
+        add(center, BorderLayout.CENTER);
 
         JLabel LabelEMail = new JLabel("E-Mail:");
-        JLabel LabelPassword = new JLabel("Password:");
+        JLabel LabelPassword = new JLabel("Passwort:");
         TextFieldEmail = new JTextField();
         TextFieldPassword = new JPasswordField();
-        JButton ButtonloginApplicationUser = new JButton("loginApplicationUser");
+        JButton ButtonloginApplicationUser = new JButton("Login");
         JButton ButtonClose = new JButton("Close");
         ButtonClose.addActionListener(this);
         ButtonloginApplicationUser.addActionListener(this);
-        LabelFehler = new JLabel();
-        mitte.add(LabelEMail);
-        mitte.add(TextFieldEmail);
-        mitte.add(LabelPassword);
-        mitte.add(TextFieldPassword);
-        mitte.add(ButtonloginApplicationUser);
-        mitte.add(ButtonClose);
-        mitte.setLayout(new GridLayout(3, 2));
-        oben.add(LabelFehler);
-        setTitle("loginApplicationUser");
+        LabelFailure = new JLabel();
+        center.add(LabelEMail);
+        center.add(TextFieldEmail);
+        center.add(LabelPassword);
+        center.add(TextFieldPassword);
+        center.add(ButtonloginApplicationUser);
+        center.add(ButtonClose);
+        center.setLayout(new GridLayout(3, 2));
+        top.add(LabelFailure);
+        setTitle("Login");
     }
 
     @Override
@@ -61,7 +61,7 @@ public class Login extends JFrame implements ActionListener{
 
         JButton button = (JButton) e.getSource();
 
-        if (button.getText().equals("loginApplicationUser"))
+        if (button.getText().equals("Login"))
         {
             UserController controller = new UserController();
 
@@ -71,8 +71,9 @@ public class Login extends JFrame implements ActionListener{
                 ot.setVisible(true);
                 this.dispose();
             }else{
-                LabelFehler.setSize(this.getWidth(), 50);
-                LabelFehler.setText("Deine E-Mail oder dein Passwort war ungültig! \nBitte versuche es erneut.");
+                LabelFailure.setSize(this.getWidth(), 50);
+                LabelFailure.setForeground(Color.RED);
+                LabelFailure.setText("Deine E-Mail oder dein Passwort war ungültig! \nBitte versuche es erneut.");
             }
         }
 

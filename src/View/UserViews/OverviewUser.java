@@ -1,20 +1,16 @@
 package View.UserViews;
 
-import Controller.TerminController;
 import Controller.UserController;
 import Model.ApplicationUserObject;
-import Model.TerminObject;
 import View.SonnenbankViews.OverviewSonnenbank;
-import View.TerminViews.CreateTermin;
-import View.TerminViews.EditTermin;
 import View.TerminViews.OverviewTermin;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import java.awt.*;
 import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.time.LocalDate;
-import java.time.LocalTime;
 import java.util.LinkedList;
 
 /**
@@ -23,16 +19,16 @@ import java.util.LinkedList;
 public class OverviewUser extends JFrame{
 
     // Variables declaration - do not modify
-    private JButton ButtonTerminUebersicht;
-    private JButton ButtonSonnenbankUebersicht;
-    private JButton ButtonCreateTermin;
-    private JButton ButtonEditTermin;
-    private JButton ButtonDeleteTermin;
-    private JPanel oben;
-    private JPanel mitte;
-    private JPanel unten;
-    private JScrollPane mitteScrollPane;
-    private JTable TabelleTerminUebersicht;
+    private JButton ButtonOverviewAppointment;
+    private JButton ButtonOverviewSunbed;
+    private JButton ButtonCreateAppointment;
+    private JButton ButtonEditAppointment;
+    private JButton ButtonDeleteAppointment;
+    private JPanel top;
+    private JPanel center;
+    private JPanel bottom;
+    private JScrollPane centerScrollPane;
+    private JTable TableOverviewAppointment;
     // End of variables declaration
 
     /**
@@ -44,38 +40,40 @@ public class OverviewUser extends JFrame{
 
     private void initComponents() {
 
-        oben = new JPanel();
-        ButtonTerminUebersicht = new JButton();
-        ButtonSonnenbankUebersicht = new JButton();
-        mitte = new JPanel();
-        mitteScrollPane = new JScrollPane();
-        TabelleTerminUebersicht = new JTable();
-        unten = new JPanel();
-        ButtonCreateTermin = new JButton();
-        ButtonEditTermin = new JButton();
-        ButtonDeleteTermin = new JButton();
+        top = new JPanel();
+        ButtonOverviewAppointment = new JButton();
+        ButtonOverviewSunbed = new JButton();
+
+        center = new JPanel();
+        centerScrollPane = new JScrollPane();
+        TableOverviewAppointment = new JTable();
+
+        bottom = new JPanel();
+        ButtonCreateAppointment = new JButton();
+        ButtonEditAppointment = new JButton();
+        ButtonDeleteAppointment = new JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Benutzer Übersicht");
 
-        ButtonTerminUebersicht.setText("Wechsele zur TerminÜbersicht");
-        ButtonTerminUebersicht.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ButtonTerminUebersichtActionPerformed(evt);
+        ButtonOverviewAppointment.setText("Wechsele zur TerminÜbersicht");
+        ButtonOverviewAppointment.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent evt) {
+                ButtonOverviewAppointmentActionPerformed(evt);
             }
         });
-        oben.add(ButtonTerminUebersicht);
+        top.add(ButtonOverviewAppointment);
 
-        ButtonSonnenbankUebersicht.setText("Wechsele zur SonnenbankÜbersicht");
-        ButtonSonnenbankUebersicht.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ButtonSonnenbankUebersichtActionPerformed(evt);
+        ButtonOverviewSunbed.setText("Wechsele zur SonnenbankÜbersicht");
+        ButtonOverviewSunbed.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent evt) {
+                ButtonOverviewSunbedActionPerformed(evt);
             }
         });
-        oben.add(ButtonSonnenbankUebersicht);
-        add(oben, BorderLayout.NORTH);
+        top.add(ButtonOverviewSunbed);
+        add(top, BorderLayout.NORTH);
 
-        mitte.setLayout(new GridLayout());
+        center.setLayout(new GridLayout());
 
         DefaultTableModel dtm = new DefaultTableModel();
         LinkedList<ApplicationUserObject> list = new UserController().getAllUser();
@@ -92,56 +90,55 @@ public class OverviewUser extends JFrame{
         dtm.setColumnIdentifiers(columnnames);
 
 
-        TabelleTerminUebersicht.setModel(dtm);
-        TabelleTerminUebersicht.setCellSelectionEnabled(true);
-        TabelleTerminUebersicht.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
-        mitteScrollPane.setViewportView(TabelleTerminUebersicht);
-        mitte.add(mitteScrollPane);
+        TableOverviewAppointment.setModel(dtm);
+        TableOverviewAppointment.setCellSelectionEnabled(true);
+        TableOverviewAppointment.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+        centerScrollPane.setViewportView(TableOverviewAppointment);
+        center.add(centerScrollPane);
 
-        add(mitte, java.awt.BorderLayout.CENTER);
+        add(center, java.awt.BorderLayout.CENTER);
 
-        ButtonCreateTermin.setText("registerApplicationUseriere User");
-        ButtonCreateTermin.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ButtonCreateTerminActionPerformed(evt);
+        ButtonCreateAppointment.setText("Registriere Benutzer");
+        ButtonCreateAppointment.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent evt) {
+                ButtonCreateAppointmentActionPerformed(evt);
             }
         });
 
-        unten.add(ButtonCreateTermin);
+        bottom.add(ButtonCreateAppointment);
 
-        ButtonEditTermin.setText("Bearbeite User");
-        ButtonEditTermin.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ButtonEditTerminActionPerformed(evt);
+        ButtonEditAppointment.setText("Bearbeite User");
+        ButtonEditAppointment.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent evt) {
+                ButtonEditAppointmentActionPerformed(evt);
             }
         });
 
-        unten.add(ButtonEditTermin);
+        bottom.add(ButtonEditAppointment);
 
-        ButtonDeleteTermin.setText("Lösche User");
-        ButtonDeleteTermin.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ButtonDeleteTerminActionPerformed(evt);
+        ButtonDeleteAppointment.setText("Lösche User");
+        ButtonDeleteAppointment.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent evt) {
+                ButtonDeleteAppointmentActionPerformed(evt);
             }
         });
 
-        unten.add(ButtonDeleteTermin);
+        bottom.add(ButtonDeleteAppointment);
 
-        add(unten, BorderLayout.SOUTH);
-
-        pack();
+        add(bottom, BorderLayout.SOUTH);
+        setSize(800,500);
         setLocationRelativeTo(null);
     }// </editor-fold>
 
-    private void ButtonDeleteTerminActionPerformed(ActionEvent evt) {
+    private void ButtonDeleteAppointmentActionPerformed(ActionEvent evt) {
 
         int eingabe = JOptionPane.showConfirmDialog(null, "Möchten Sie den ausgewählten User löschen?", "Löschen bestätigen", JOptionPane.YES_NO_CANCEL_OPTION);
         if (eingabe == 0) // Clicked Ja
         {
-            int row = TabelleTerminUebersicht.getSelectedRow();
+            int row = TableOverviewAppointment.getSelectedRow();
 
             UserController controller = new UserController();
-            if (controller.deleteApplicationUser(Integer.parseInt((String)TabelleTerminUebersicht.getModel().getValueAt(row, 0)))== true)
+            if (controller.deleteApplicationUser(Integer.parseInt((String)TableOverviewAppointment.getModel().getValueAt(row, 0)))== true)
             {
                 JOptionPane.showMessageDialog(null,
                         "Läschen fertiggestellt!",
@@ -160,8 +157,8 @@ public class OverviewUser extends JFrame{
                     d.addRow(r);
                 }
 
-                TabelleTerminUebersicht.setModel(d);
-                TabelleTerminUebersicht.repaint();
+                TableOverviewAppointment.setModel(d);
+                TableOverviewAppointment.repaint();
             }else{
                 JOptionPane.showMessageDialog(null,
                         "Löschen fehlgeschlagen",
@@ -173,35 +170,33 @@ public class OverviewUser extends JFrame{
         }
     }
 
-    private void ButtonEditTerminActionPerformed(ActionEvent evt) {
-
-        //TODO: EDIT BUtton
-        int row = TabelleTerminUebersicht.getSelectedRow();
+    private void ButtonEditAppointmentActionPerformed(ActionEvent evt) {
+        int row = TableOverviewAppointment.getSelectedRow();
         ApplicationUserObject to = new ApplicationUserObject(
-                Integer.parseInt((String)TabelleTerminUebersicht.getModel().getValueAt(row, 0)),
-                (String) TabelleTerminUebersicht.getModel().getValueAt(row, 1),
-                (String) TabelleTerminUebersicht.getModel().getValueAt(row, 2),
-                LocalDate.parse((String) TabelleTerminUebersicht.getModel().getValueAt(row, 3)),
-                (String) TabelleTerminUebersicht.getModel().getValueAt(row, 4),
-                (String) TabelleTerminUebersicht.getModel().getValueAt(row, 5));
+                Integer.parseInt((String)TableOverviewAppointment.getModel().getValueAt(row, 0)),
+                (String) TableOverviewAppointment.getModel().getValueAt(row, 1),
+                (String) TableOverviewAppointment.getModel().getValueAt(row, 2),
+                LocalDate.parse((String) TableOverviewAppointment.getModel().getValueAt(row, 3)),
+                (String) TableOverviewAppointment.getModel().getValueAt(row, 4),
+                (String) TableOverviewAppointment.getModel().getValueAt(row, 5));
         Edit et = new Edit(to);
         et.setVisible(true);
         this.dispose();
     }
 
-    private void ButtonCreateTerminActionPerformed(ActionEvent evt) {
+    private void ButtonCreateAppointmentActionPerformed(ActionEvent evt) {
         Register ct = new Register();
         ct.setVisible(true);
         this.dispose();
     }
 
-    private void ButtonTerminUebersichtActionPerformed(ActionEvent evt) {
+    private void ButtonOverviewAppointmentActionPerformed(ActionEvent evt) {
         OverviewTermin ou = new OverviewTermin();
         ou.setVisible(true);
         this.dispose();
     }
 
-    private void ButtonSonnenbankUebersichtActionPerformed(ActionEvent evt) {
+    private void ButtonOverviewSunbedActionPerformed(ActionEvent evt) {
         OverviewSonnenbank os = new OverviewSonnenbank();
         os.setVisible(true);
         this.dispose();

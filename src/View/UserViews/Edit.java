@@ -1,178 +1,190 @@
 package View.UserViews;
 
-import Controller.TerminController;
 import Controller.UserController;
 import Model.ApplicationUserObject;
-import Model.TerminObject;
-import View.TerminViews.OverviewTermin;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.time.LocalTime;
 
 /**
  * Created by admin on 03.05.2015.
  */
 public class Edit extends JFrame {
-    ApplicationUserObject to;
+    ApplicationUserObject userObject;
 
     public Edit(ApplicationUserObject user) {
         initComponents(user);
     }
 
-    private void initComponents(ApplicationUserObject u) {
-        to = u;
-        oben = new javax.swing.JPanel();
-        ButtonZurueckZurUebersicht = new javax.swing.JButton();
-        mitte = new javax.swing.JPanel();
-        LabelDatum = new javax.swing.JLabel();
-        TextFieldDatum = new javax.swing.JTextField();
-        LabelUhrzeitVon = new javax.swing.JLabel();
-        TextFieldUhrzeitVon = new javax.swing.JTextField();
-        LabelUhrzeitBis = new javax.swing.JLabel();
-        TextFieldUhrzeitBis = new javax.swing.JTextField();
-        LabelSonnenbank = new javax.swing.JLabel();
-        TextFieldSonnenbank = new javax.swing.JTextField();
-        LabelKunde = new javax.swing.JLabel();
-        TextFieldKunde = new javax.swing.JTextField();
-        unten = new javax.swing.JPanel();
-        ButtonSpeichern = new javax.swing.JButton();
-        ButtonAbbrechen = new javax.swing.JButton();
+    private void initComponents(ApplicationUserObject user) {
+        userObject = user;
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setTitle("User Übersicht");
+        top = new JPanel();
+        center = new JPanel();
+        bottom = new JPanel();
+
+        ButtonBackToUserOverview = new JButton();
+       
+        LabelGivenname = new JLabel();
+        TextFieldGivenname = new JTextField();
+        LabelSurname = new JLabel();
+        TextFieldSurname = new JTextField();
+        LabelBirthday = new JLabel();
+        TextFieldBirthday = new JTextField();
+        LabelMail = new JLabel();
+        TextFieldMail = new JTextField();
+        LabelPassword = new JLabel();
+        TextFieldPassword = new JTextField();
+        ButtonSave = new JButton();
+        ButtonAbort = new JButton();
+
+        setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+        setTitle("Benutzer Übersicht");
         setSize(800, 500);
 
-        oben.setLayout(new CardLayout());
-        ButtonZurueckZurUebersicht.setText("Zurück zur Übersicht");
-        ButtonZurueckZurUebersicht.setHorizontalAlignment(SwingConstants.LEFT);
-        ButtonZurueckZurUebersicht.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ButtonZurueckZurUebersichtActionPerformed(evt);
-            }
-        });
-        oben.add(ButtonZurueckZurUebersicht);
-        add(oben, BorderLayout.NORTH);
+        //init top
+        top.setLayout(new CardLayout());
 
-        mitte.setLayout(new GridLayout(0, 2));
-
-        LabelDatum.setText("Vorname:");
-        mitte.add(LabelDatum);
-
-        TextFieldDatum.setText(u.getVorname());
-        mitte.add(TextFieldDatum);
-
-        LabelUhrzeitVon.setText("Nachname:");
-        mitte.add(LabelUhrzeitVon);
-
-        TextFieldUhrzeitVon.setText(u.getNachname());
-        mitte.add(TextFieldUhrzeitVon);
-
-        LabelUhrzeitBis.setText("Geburstag:");
-        mitte.add(LabelUhrzeitBis);
-
-        TextFieldUhrzeitBis.setText(u.getGeburtstag().toString());
-        mitte.add(TextFieldUhrzeitBis);
-
-        LabelSonnenbank.setText("E-Mail:");
-        mitte.add(LabelSonnenbank);
-
-        TextFieldSonnenbank.setText(u.getEmail());
-        mitte.add(TextFieldSonnenbank);
-
-        LabelKunde.setText("Passwort:");
-        mitte.add(LabelKunde);
-
-        TextFieldKunde.setText(u.getPasswort());
-        mitte.add(TextFieldKunde);
-
-        add(mitte, java.awt.BorderLayout.CENTER);
-
-
-        ButtonSpeichern.setText("Speichern");
-        ButtonSpeichern.setHorizontalTextPosition(javax.swing.SwingConstants.LEADING);
-        ButtonSpeichern.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ButtonSpeichernActionPerformed(evt);
+        ButtonBackToUserOverview.setText("Zurück zur Übersicht");
+        ButtonBackToUserOverview.setHorizontalAlignment(SwingConstants.LEFT);
+        ButtonBackToUserOverview.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent evt) {
+                ButtonBackToUserOverviewActionPerformed(evt);
             }
         });
 
-        ButtonAbbrechen.setText("Abbrechen");
-        ButtonAbbrechen.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ButtonAbbrechenActionPerformed(evt);
+        top.add(ButtonBackToUserOverview);
+        add(top, BorderLayout.NORTH);
+        //init top end
+
+        //init center
+        center.setLayout(new GridLayout(0, 2));
+
+        LabelGivenname.setText("Vorname:");
+        center.add(LabelGivenname);
+        TextFieldGivenname.setText(user.getVorname());
+        center.add(TextFieldGivenname);
+
+        LabelSurname.setText("Nachname:");
+        center.add(LabelSurname);
+        TextFieldSurname.setText(user.getNachname());
+        center.add(TextFieldSurname);
+
+        LabelBirthday.setText("Geburstag:");
+        center.add(LabelBirthday);
+        TextFieldBirthday.setText(user.getGeburtstag().toString());
+        center.add(TextFieldBirthday);
+
+        LabelMail.setText("E-Mail:");
+        center.add(LabelMail);
+        TextFieldMail.setText(user.getEmail());
+        center.add(TextFieldMail);
+
+        LabelPassword.setText("Passwort:");
+        center.add(LabelPassword);
+        TextFieldPassword.setText(user.getPasswort());
+        center.add(TextFieldPassword);
+
+        add(center, BorderLayout.CENTER);
+        //init center end
+
+        //init bottom
+        ButtonSave.setText("Speichern");
+        ButtonSave.setHorizontalTextPosition(SwingConstants.LEADING);
+        ButtonSave.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent evt) {
+                ButtonSaveActionPerformed(evt);
             }
         });
 
-        GroupLayout untenLayout = new GroupLayout(unten);
-        unten.setLayout(untenLayout);
-        untenLayout.setHorizontalGroup(
-                untenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(untenLayout.createSequentialGroup()
+        ButtonAbort.setText("Abbrechen");
+        ButtonAbort.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent evt) {
+                ButtonAbortActionPerformed(evt);
+            }
+        });
+
+        //copied out of Internet
+        GroupLayout bottomLayout = new GroupLayout(bottom);
+        bottom.setLayout(bottomLayout);
+        bottomLayout.setHorizontalGroup(
+                bottomLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
+                        .addGroup(bottomLayout.createSequentialGroup()
                                 .addContainerGap(316, Short.MAX_VALUE)
-                                .addComponent(ButtonSpeichern)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(ButtonAbbrechen))
+                                .addComponent(ButtonSave)
+                                .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(ButtonAbort))
         );
-        untenLayout.setVerticalGroup(
-                untenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(untenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(ButtonSpeichern, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(ButtonAbbrechen, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
+        bottomLayout.setVerticalGroup(
+                bottomLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
+                        .addGroup(bottomLayout.createParallelGroup(GroupLayout.Alignment.BASELINE)
+                                .addComponent(ButtonSave, GroupLayout.PREFERRED_SIZE, 33, GroupLayout.PREFERRED_SIZE)
+                                .addComponent(ButtonAbort, GroupLayout.PREFERRED_SIZE, 33, GroupLayout.PREFERRED_SIZE))
         );
 
-        add(unten, BorderLayout.SOUTH);
-
+        add(bottom, BorderLayout.SOUTH);
+        //init bottom end
 
         setLocationRelativeTo(null);
     }
 
-    private void ButtonZurueckZurUebersichtActionPerformed(java.awt.event.ActionEvent evt) {
-        OverviewUser ot = new OverviewUser();
-        ot.setVisible(true);
+    private void ButtonBackToUserOverviewActionPerformed(java.awt.event.ActionEvent evt) {
+        OverviewUser overviewUser = new OverviewUser();
+        overviewUser.setVisible(true);
         this.dispose();
     }
 
-    private void ButtonSpeichernActionPerformed(java.awt.event.ActionEvent evt) {
+    private void ButtonSaveActionPerformed(java.awt.event.ActionEvent evt) {
         UserController controller = new UserController();
-        if(controller.editApplicationUser(to.getID(), TextFieldDatum.getText(), TextFieldUhrzeitVon.getText(), LocalDate.parse(TextFieldUhrzeitBis.getText()), TextFieldSonnenbank.getText(), TextFieldKunde.getText().toCharArray()) == true)
+        if(controller.editApplicationUser(userObject.getID(), TextFieldGivenname.getText(), TextFieldSurname.getText(), LocalDate.parse(TextFieldBirthday.getText()), TextFieldMail.getText(), TextFieldPassword.getText().toCharArray()) == true)
         {
             JOptionPane.showMessageDialog(null,
                     "Bearbeiten fertiggestellt!",
                     "Bearbeiten fertig!",
                     JOptionPane.WARNING_MESSAGE);
+            OverviewUser overviewUser = new OverviewUser();
+            overviewUser.setVisible(true);
+            this.dispose();
+        }
+        else
+        {
+            JOptionPane.showMessageDialog(null,
+                    "Registrierung fehlgeschlagen!",
+                    "Registrierung Fehler!",
+                    JOptionPane.WARNING_MESSAGE);
         }
     }
 
-    private void ButtonAbbrechenActionPerformed(java.awt.event.ActionEvent evt) {
+    private void ButtonAbortActionPerformed(java.awt.event.ActionEvent evt) {
         int eingabe = JOptionPane.showConfirmDialog(null, "Möchten Sie wirklich abbrechen?", "Abbrechen", JOptionPane.YES_NO_OPTION);
         if (eingabe == 0)
         {
-            OverviewUser ot = new OverviewUser();
-            ot.setVisible(true);
+            OverviewUser overviewUser = new OverviewUser();
+            overviewUser.setVisible(true);
             this.dispose();
         }
     }
 
     // Variables declaration - do not modify                     
-    private JButton ButtonZurueckZurUebersicht;
-    private JButton ButtonSpeichern;
-    private JButton ButtonAbbrechen;
-    private JLabel LabelDatum;
-    private JLabel LabelUhrzeitVon;
-    private JLabel LabelUhrzeitBis;
-    private JLabel LabelSonnenbank;
-    private JLabel LabelKunde;
-    private JPanel oben;
-    private JPanel mitte;
-    private JPanel unten;
-    private JTextField TextFieldDatum;
-    private JTextField TextFieldUhrzeitVon;
-    private JTextField TextFieldUhrzeitBis;
-    private JTextField TextFieldSonnenbank;
-    private JTextField TextFieldKunde;
+    private JButton ButtonBackToUserOverview;
+    private JButton ButtonSave;
+    private JButton ButtonAbort;
+    private JLabel LabelGivenname;
+    private JLabel LabelSurname;
+    private JLabel LabelBirthday;
+    private JLabel LabelMail;
+    private JLabel LabelPassword;
+    private JPanel top;
+    private JPanel center;
+    private JPanel bottom;
+    private JTextField TextFieldGivenname;
+    private JTextField TextFieldSurname;
+    private JTextField TextFieldBirthday;
+    private JTextField TextFieldMail;
+    private JTextField TextFieldPassword;
     // End of variables declaration                   
 }
 

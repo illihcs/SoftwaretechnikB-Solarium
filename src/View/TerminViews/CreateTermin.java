@@ -3,45 +3,43 @@ package View.TerminViews;
 import Controller.TerminController;
 
 import javax.swing.*;
-import javax.xml.soap.Text;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
-import java.time.LocalTime;
 
 /**
  * Created by admin on 03.05.2015.
  */
-public class CreateTermin extends JFrame implements ActionListener{
+public class CreateTermin extends JFrame{
 
     //Panels for Title and Create
-    JPanel oben;
-    JPanel mitte;
-    JPanel unten;
+    JPanel top;
+    JPanel center;
+    JPanel bottom;
 
     //Compnents
-    JButton ButtonSpeichern;
-    JButton ButtonAbbrechen;
+    JButton ButtonSave;
+    JButton ButtonAbort;
     JLabel LabelTitle;
-    JLabel LabelFehlermeldung;
-    JLabel LabelDatum;
-    JLabel LabelUhrzeitVon;
-    JLabel LabelUhrzeitBis;
-    JLabel LabelSonnenbank;
-    JLabel LabelKunde;
-    JTextField TextFieldDatum;
-    JTextField TextFieldUhrzeitVon;
-    JTextField TextFieldUhrzeitBis;
-    JTextField TextFieldSonnenbank;
-    JTextField TextFieldKunde;
+    JLabel LabelFailure;
+    JLabel LabelDate;
+    JLabel LabelTimeFrom;
+    JLabel LabelTimeUntil;
+    JLabel LabelSunbed;
+    JLabel LabelClient;
+    JTextField TextFieldDate;
+    JTextField TextFieldTimeFrom;
+    JTextField TextFieldTimeUntil;
+    JTextField TextFieldSunbed;
+    JTextField TextFieldClient;
+    JButton ButtonBackToAppointmentOverview;
 
     //Controller initialized
     TerminController ControllerTermin = new TerminController();
 
-    public CreateTermin()
-    {
+    public CreateTermin() {
         initComponents();
     }
 
@@ -50,107 +48,105 @@ public class CreateTermin extends JFrame implements ActionListener{
         //ControllerTermin = new TerminController();
 
         //create Components
-        oben = new JPanel();
-        mitte = new JPanel();
-        unten = new JPanel();
-        ButtonSpeichern = new JButton("Speichern");
-        ButtonAbbrechen = new JButton("Abbrechen");
+        top = new JPanel();
+        center = new JPanel();
+        bottom = new JPanel();
+        ButtonSave = new JButton("Speichern");
+        ButtonAbort = new JButton("Abbrechen");
         LabelTitle = new JLabel("Bitte tragen Sie die Termininformationen ein, um den Termin zu erstellen.");
-        LabelFehlermeldung = new JLabel();
-        LabelDatum = new JLabel("Datum:");
-        LabelUhrzeitVon = new JLabel("Uhrzeit Von:");
-        LabelUhrzeitBis = new JLabel("Uhrezit Bis:");
-        LabelSonnenbank = new JLabel("Sonnenbank:");
-        LabelKunde = new JLabel("Kundenname:");
-        TextFieldDatum = new JTextField();
-        TextFieldUhrzeitVon = new JTextField();
-        TextFieldUhrzeitBis = new JTextField();
-        TextFieldSonnenbank = new JTextField();
-        TextFieldKunde = new JTextField();
+        LabelFailure = new JLabel();
+        LabelDate = new JLabel("Datum:");
+        LabelTimeFrom = new JLabel("Uhrzeit Von:");
+        LabelTimeUntil = new JLabel("Uhrezit Bis:");
+        LabelSunbed = new JLabel("Sonnenbank:");
+        LabelClient = new JLabel("Kundenname:");
+        TextFieldDate = new JTextField();
+        TextFieldTimeFrom = new JTextField();
+        TextFieldTimeUntil = new JTextField();
+        TextFieldSunbed = new JTextField();
+        TextFieldClient = new JTextField();
+        ButtonBackToAppointmentOverview = new JButton("Zurück zur Terminübersicht");
 
         //add Components
         setLayout(new BorderLayout());
-        add(oben, BorderLayout.NORTH);
-        add(mitte, BorderLayout.CENTER);
+        add(top, BorderLayout.NORTH);
+        add(center, BorderLayout.CENTER);
 
-        oben.add(LabelTitle);
+        top.add(ButtonBackToAppointmentOverview);
 
-        mitte.setLayout(new GridLayout(0, 2));
+        center.setLayout(new GridLayout(0, 2));
 
-        LabelDatum.setText("LabelDatum");
-        mitte.add(LabelDatum);
+        LabelDate.setText("Datum:");
+        center.add(LabelDate);
+        center.add(TextFieldDate);
 
-        mitte.add(TextFieldDatum);
+        LabelTimeFrom.setText("Uhrzeit Von:");
+        center.add(LabelTimeFrom);
+        center.add(TextFieldTimeFrom);
 
-        LabelUhrzeitVon.setText("LabelUhrzeitVon");
-        mitte.add(LabelUhrzeitVon);
+        LabelTimeUntil.setText("Uhrzeit Bis:");
+        center.add(LabelTimeUntil);
+        center.add(TextFieldTimeUntil);
 
-        mitte.add(TextFieldUhrzeitVon);
+        LabelSunbed.setText("Sonnenbank:");
+        center.add(LabelSunbed);
+        center.add(TextFieldSunbed);
 
-        LabelUhrzeitBis.setText("LabelUhrzeitBis");
-        mitte.add(LabelUhrzeitBis);
-
-        mitte.add(TextFieldUhrzeitBis);
-
-        LabelSonnenbank.setText("LabelSonnenbank");
-        mitte.add(LabelSonnenbank);
-
-        mitte.add(TextFieldSonnenbank);
-
-        LabelKunde.setText("LabelKunde");
-        mitte.add(LabelKunde);
-
-        mitte.add(TextFieldKunde);
+        LabelClient.setText("Kunde:");
+        center.add(LabelClient);
+        center.add(TextFieldClient);
 
 
-        ButtonSpeichern.setText("Speichern");
-        ButtonSpeichern.setHorizontalTextPosition(javax.swing.SwingConstants.LEADING);
-        ButtonSpeichern.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ButtonSpeichernActionPerformed(evt);
+        ButtonSave.setText("Speichern");
+        ButtonSave.setHorizontalTextPosition(SwingConstants.LEADING);
+        ButtonSave.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent evt) {
+                ButtonSaveActionPerformed(evt);
             }
         });
 
-        ButtonAbbrechen.setText("Abbrechen");
-        ButtonAbbrechen.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ButtonAbbrechenActionPerformed(evt);
+        ButtonAbort.setText("Abbrechen");
+        ButtonAbort.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent evt) {
+                ButtonAbortActionPerformed(evt);
             }
         });
 
-        GroupLayout untenLayout = new GroupLayout(unten);
-        unten.setLayout(untenLayout);
-        untenLayout.setHorizontalGroup(
-                untenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(untenLayout.createSequentialGroup()
+        GroupLayout bottomLayout = new GroupLayout(bottom);
+        bottom.setLayout(bottomLayout);
+        bottomLayout.setHorizontalGroup(
+                bottomLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
+                        .addGroup(bottomLayout.createSequentialGroup()
                                 .addContainerGap(316, Short.MAX_VALUE)
-                                .addComponent(ButtonSpeichern)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(ButtonAbbrechen))
+                                .addComponent(ButtonSave)
+                                .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(ButtonAbort))
         );
-        untenLayout.setVerticalGroup(
-                untenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(untenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(ButtonSpeichern, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(ButtonAbbrechen, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
+        bottomLayout.setVerticalGroup(
+                bottomLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
+                        .addGroup(bottomLayout.createParallelGroup(GroupLayout.Alignment.BASELINE)
+                                .addComponent(ButtonSave, GroupLayout.PREFERRED_SIZE, 33, GroupLayout.PREFERRED_SIZE)
+                                .addComponent(ButtonAbort, GroupLayout.PREFERRED_SIZE, 33, GroupLayout.PREFERRED_SIZE))
         );
 
-        add(unten, BorderLayout.SOUTH);
-        //unten.add(LabelFehlermeldung);
-        setSize(800,500);
+        add(bottom, BorderLayout.SOUTH);
+        //bottom.add(LabelFailure);
+        setSize(800, 500);
         setLocationRelativeTo(null);
-
+        setTitle("Tragen Sie die Termindaten für die Terminerstellung ein.");
     }
 
-    private void ButtonSpeichernActionPerformed(java.awt.event.ActionEvent evt) {
+    private void ButtonSaveActionPerformed(java.awt.event.ActionEvent evt) {
         TerminController controller = new TerminController();
-        if(controller.createTermin(LocalDate.parse(TextFieldDatum.getText()), LocalDateTime.parse(TextFieldUhrzeitVon.getText()), LocalDateTime.parse(TextFieldUhrzeitBis.getText()), TextFieldSonnenbank.getText(), TextFieldKunde.getText()) == true)
-        {
+        if (controller.createTermin(LocalDate.parse(TextFieldDate.getText()), LocalDateTime.parse(TextFieldTimeFrom.getText()), LocalDateTime.parse(TextFieldTimeUntil.getText()), TextFieldSunbed.getText(), TextFieldClient.getText()) == true) {
             JOptionPane.showMessageDialog(null,
                     "Erstellen fertiggestellt!",
                     "Erstellen fertig!",
                     JOptionPane.WARNING_MESSAGE);
-        }else{
+            OverviewTermin overviewTermin = new OverviewTermin();
+            overviewTermin.setVisible(true);
+            this.dispose();
+        } else {
             JOptionPane.showMessageDialog(null,
                     "Ersetllen fehlgeschlagen!",
                     "Fehlgeschlagen",
@@ -158,10 +154,9 @@ public class CreateTermin extends JFrame implements ActionListener{
         }
     }
 
-    private void ButtonAbbrechenActionPerformed(java.awt.event.ActionEvent evt) {
+    private void ButtonAbortActionPerformed(java.awt.event.ActionEvent evt) {
         int eingabe = JOptionPane.showConfirmDialog(null, "Möchten Sie wirklich abbrechen?", "Abbrechen", JOptionPane.YES_NO_OPTION);
-        if (eingabe == 0)
-        {
+        if (eingabe == 0) {
             OverviewTermin ot = new OverviewTermin();
             ot.setVisible(true);
             this.dispose();
@@ -169,27 +164,4 @@ public class CreateTermin extends JFrame implements ActionListener{
     }
 
 
-    @Override
-    public void actionPerformed(ActionEvent e) {
-        JButton button = (JButton) e.getSource();
-        if (button == ButtonSpeichern)
-        {
-            LocalDate datum = LocalDate.parse(TextFieldDatum.getText());
-            LocalDateTime von = LocalDateTime.parse(TextFieldUhrzeitVon.getText());
-            LocalDateTime bis = LocalDateTime.parse(TextFieldUhrzeitBis.getText());
-
-            if (ControllerTermin.createTermin(datum, von, bis, TextFieldSonnenbank.getText(), TextFieldKunde.getText()) == true)
-            {
-                OverviewTermin ot = new OverviewTermin();
-                ot.setVisible(true);
-                this.dispose();
-            }else
-            {
-                LabelFehlermeldung.setText("Bei Ihren Eingaben ist ein Fehler aufgetreten!");
-                LabelFehlermeldung.setForeground(Color.red);
-            }
-        }
-        if (button == ButtonAbbrechen)
-            this.dispose();
-    }
 }

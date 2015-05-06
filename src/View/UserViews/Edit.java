@@ -42,7 +42,7 @@ public class Edit extends JFrame {
         ButtonAbort = new JButton();
 
         setDefaultCloseOperation(DISPOSE_ON_CLOSE);
-        setTitle("Benutzer Übersicht");
+        setTitle("Bearbeiten Sie die zu ändernden Werte.");
         setSize(800, 500);
 
         //init top

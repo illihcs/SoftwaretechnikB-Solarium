@@ -21,14 +21,14 @@ public class OverviewUser extends JFrame{
     // Variables declaration - do not modify
     private JButton ButtonOverviewAppointment;
     private JButton ButtonOverviewSunbed;
-    private JButton ButtonCreateAppointment;
-    private JButton ButtonEditAppointment;
-    private JButton ButtonDeleteAppointment;
+    private JButton ButtonCreateUser;
+    private JButton ButtonEditUser;
+    private JButton ButtonDeleteUser;
     private JPanel top;
     private JPanel center;
     private JPanel bottom;
     private JScrollPane centerScrollPane;
-    private JTable TableOverviewAppointment;
+    private JTable TableOverviewUser;
     // End of variables declaration
 
     /**
@@ -46,12 +46,12 @@ public class OverviewUser extends JFrame{
 
         center = new JPanel();
         centerScrollPane = new JScrollPane();
-        TableOverviewAppointment = new JTable();
+        TableOverviewUser = new JTable();
 
         bottom = new JPanel();
-        ButtonCreateAppointment = new JButton();
-        ButtonEditAppointment = new JButton();
-        ButtonDeleteAppointment = new JButton();
+        ButtonCreateUser = new JButton();
+        ButtonEditUser = new JButton();
+        ButtonDeleteUser = new JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Benutzer Übersicht");
@@ -90,55 +90,55 @@ public class OverviewUser extends JFrame{
         dtm.setColumnIdentifiers(columnnames);
 
 
-        TableOverviewAppointment.setModel(dtm);
-        TableOverviewAppointment.setCellSelectionEnabled(true);
-        TableOverviewAppointment.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
-        centerScrollPane.setViewportView(TableOverviewAppointment);
+        TableOverviewUser.setModel(dtm);
+        TableOverviewUser.setCellSelectionEnabled(true);
+        TableOverviewUser.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+        centerScrollPane.setViewportView(TableOverviewUser);
         center.add(centerScrollPane);
 
         add(center, java.awt.BorderLayout.CENTER);
 
-        ButtonCreateAppointment.setText("Registriere Benutzer");
-        ButtonCreateAppointment.addActionListener(new ActionListener() {
+        ButtonCreateUser.setText("Registriere Benutzer");
+        ButtonCreateUser.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent evt) {
-                ButtonCreateAppointmentActionPerformed(evt);
+                ButtonCreateUserActionPerformed(evt);
             }
         });
 
-        bottom.add(ButtonCreateAppointment);
+        bottom.add(ButtonCreateUser);
 
-        ButtonEditAppointment.setText("Bearbeite User");
-        ButtonEditAppointment.addActionListener(new ActionListener() {
+        ButtonEditUser.setText("Bearbeite User");
+        ButtonEditUser.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent evt) {
-                ButtonEditAppointmentActionPerformed(evt);
+                ButtonEditUserActionPerformed(evt);
             }
         });
 
-        bottom.add(ButtonEditAppointment);
+        bottom.add(ButtonEditUser);
 
-        ButtonDeleteAppointment.setText("Lösche User");
-        ButtonDeleteAppointment.addActionListener(new ActionListener() {
+        ButtonDeleteUser.setText("Lösche User");
+        ButtonDeleteUser.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent evt) {
-                ButtonDeleteAppointmentActionPerformed(evt);
+                ButtonDeleteUserActionPerformed(evt);
             }
         });
 
-        bottom.add(ButtonDeleteAppointment);
+        bottom.add(ButtonDeleteUser);
 
         add(bottom, BorderLayout.SOUTH);
         setSize(800,500);
         setLocationRelativeTo(null);
     }// </editor-fold>
 
-    private void ButtonDeleteAppointmentActionPerformed(ActionEvent evt) {
+    private void ButtonDeleteUserActionPerformed(ActionEvent evt) {
 
         int eingabe = JOptionPane.showConfirmDialog(null, "Möchten Sie den ausgewählten User löschen?", "Löschen bestätigen", JOptionPane.YES_NO_CANCEL_OPTION);
         if (eingabe == 0) // Clicked Ja
         {
-            int row = TableOverviewAppointment.getSelectedRow();
+            int row = TableOverviewUser.getSelectedRow();
 
             UserController controller = new UserController();
-            if (controller.deleteApplicationUser(Integer.parseInt((String)TableOverviewAppointment.getModel().getValueAt(row, 0)))== true)
+            if (controller.deleteApplicationUser(Integer.parseInt((String)TableOverviewUser.getModel().getValueAt(row, 0)))== true)
             {
                 JOptionPane.showMessageDialog(null,
                         "Läschen fertiggestellt!",
@@ -157,8 +157,8 @@ public class OverviewUser extends JFrame{
                     d.addRow(r);
                 }
 
-                TableOverviewAppointment.setModel(d);
-                TableOverviewAppointment.repaint();
+                TableOverviewUser.setModel(d);
+                TableOverviewUser.repaint();
             }else{
                 JOptionPane.showMessageDialog(null,
                         "Löschen fehlgeschlagen",
@@ -170,21 +170,21 @@ public class OverviewUser extends JFrame{
         }
     }
 
-    private void ButtonEditAppointmentActionPerformed(ActionEvent evt) {
-        int row = TableOverviewAppointment.getSelectedRow();
+    private void ButtonEditUserActionPerformed(ActionEvent evt) {
+        int row = TableOverviewUser.getSelectedRow();
         ApplicationUserObject to = new ApplicationUserObject(
-                Integer.parseInt((String)TableOverviewAppointment.getModel().getValueAt(row, 0)),
-                (String) TableOverviewAppointment.getModel().getValueAt(row, 1),
-                (String) TableOverviewAppointment.getModel().getValueAt(row, 2),
-                LocalDate.parse((String) TableOverviewAppointment.getModel().getValueAt(row, 3)),
-                (String) TableOverviewAppointment.getModel().getValueAt(row, 4),
-                (String) TableOverviewAppointment.getModel().getValueAt(row, 5));
+                Integer.parseInt((String)TableOverviewUser.getModel().getValueAt(row, 0)),
+                (String) TableOverviewUser.getModel().getValueAt(row, 1),
+                (String) TableOverviewUser.getModel().getValueAt(row, 2),
+                LocalDate.parse((String) TableOverviewUser.getModel().getValueAt(row, 3)),
+                (String) TableOverviewUser.getModel().getValueAt(row, 4),
+                (String) TableOverviewUser.getModel().getValueAt(row, 5));
         Edit et = new Edit(to);
         et.setVisible(true);
         this.dispose();
     }
 
-    private void ButtonCreateAppointmentActionPerformed(ActionEvent evt) {
+    private void ButtonCreateUserActionPerformed(ActionEvent evt) {
         Register ct = new Register();
         ct.setVisible(true);
         this.dispose();

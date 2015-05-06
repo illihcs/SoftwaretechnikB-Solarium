@@ -37,7 +37,7 @@ public class Register extends JFrame {
         ButtonAbort = new JButton();
 
         setDefaultCloseOperation(DISPOSE_ON_CLOSE);
-        setTitle("Benutzer Übersicht");
+        setTitle("Bitte tragen Sie die Benutzerinformationen zur Registrierung ein.");
         setSize(800, 500);
 
         //init top

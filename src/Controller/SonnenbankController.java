@@ -13,7 +13,7 @@ import java.util.LinkedList;
  */
 public class SonnenbankController {
 
-    boolean createSonnenbank(String Kabine, String Leistung, LocalDate Wartungstermin)
+    public boolean createSonnenbank(String Kabine, String Leistung, LocalDate Wartungstermin)
     {
         Sonnenbank sonnenControler = new Sonnenbank();
         boolean TerminCreated =  sonnenControler.createSonnenbank(Kabine, Leistung, Wartungstermin);
@@ -21,7 +21,7 @@ public class SonnenbankController {
         return TerminCreated;
     }
 
-    boolean editSonnenbank(int ID, String Kabine,  String Leistung,  LocalDate Wartungstermin)
+    public boolean editSonnenbank(int ID, String Kabine,  String Leistung,  LocalDate Wartungstermin)
     {
         Sonnenbank sonnenControler = new Sonnenbank();
         boolean TerminCreated =  sonnenControler.editSonnenbank(ID, Kabine, Leistung, Wartungstermin);
@@ -29,7 +29,7 @@ public class SonnenbankController {
         return TerminCreated;
     }
 
-    boolean deleteSunbed(int ID)
+    public boolean deleteSunbed(int ID)
     {
         Sonnenbank sonnenControler = new Sonnenbank();
         boolean TerminCreated =  sonnenControler.deleteSunbed(ID);

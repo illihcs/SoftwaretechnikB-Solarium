@@ -72,7 +72,7 @@ public class Sonnenbank implements ISonnenbank {
             preparedStatement.setString(1, Kabine);
             preparedStatement.setString(2, Leistung);
             preparedStatement.setDate(3, java.sql.Date.valueOf(Wartungstermin.toString()));
-
+            preparedStatement.setInt(4, ID);
             // execute insert SQL stetement
             preparedStatement.executeUpdate();
 
@@ -94,7 +94,7 @@ public class Sonnenbank implements ISonnenbank {
             con = DriverManager.getConnection(SqlConf.getUrl(), SqlConf.getUser(), SqlConf.getPassword());
 
             // Define SQL Statement
-            String insertTableSQL = "DELE FROM sonnenbank WHERE ID = ?";
+            String insertTableSQL = "DELETE FROM sonnenbank WHERE ID = ?";
 
             // Fill SQL Statement
             PreparedStatement preparedStatement = con.prepareStatement(insertTableSQL);

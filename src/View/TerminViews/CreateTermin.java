@@ -6,8 +6,10 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.rmi.registry.LocateRegistry;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.LocalTime;
 
 /**
  * Created by admin on 03.05.2015.
@@ -138,20 +140,38 @@ public class CreateTermin extends JFrame{
 
     private void ButtonSaveActionPerformed(java.awt.event.ActionEvent evt) {
         TerminController controller = new TerminController();
-        if (controller.createTermin(LocalDate.parse(TextFieldDate.getText()), LocalDateTime.parse(TextFieldTimeFrom.getText()), LocalDateTime.parse(TextFieldTimeUntil.getText()), TextFieldSunbed.getText(), TextFieldClient.getText()) == true) {
+        try
+        {
+            LocalDate date = LocalDate.parse(TextFieldDate.getText());
+            LocalTime from = LocalTime.parse(TextFieldTimeFrom.getText());
+            LocalTime until = LocalTime.parse(TextFieldTimeUntil.getText());
+
+            LocalDateTime dtfrom   = LocalDateTime.of(date.getYear(), date.getMonth(), date.getDayOfMonth(), from.getHour(), from.getMinute());
+            LocalDateTime dtuntil  = LocalDateTime.of(date.getYear(), date.getMonth(), date.getDayOfMonth(), until.getHour(), until.getMinute());
+
+
+            if (controller.createTermin(date, dtfrom, dtuntil, TextFieldSunbed.getText(), TextFieldClient.getText()) == true) {
+                JOptionPane.showMessageDialog(null,
+                        "Erstellen fertiggestellt!",
+                        "Erstellen fertig!",
+                        JOptionPane.WARNING_MESSAGE);
+                OverviewTermin overviewTermin = new OverviewTermin();
+                overviewTermin.setVisible(true);
+                this.dispose();
+            } else {
+                JOptionPane.showMessageDialog(null,
+                        "Ersetllen fehlgeschlagen!\n\nMögliche Fehler: \nFormat Datum: yyyy-MM-dd\nFormat Zeit: hh:mm",
+                        "Fehlgeschlagen",
+                        JOptionPane.WARNING_MESSAGE);
+            }
+        }catch (Exception e)
+        {
             JOptionPane.showMessageDialog(null,
-                    "Erstellen fertiggestellt!",
-                    "Erstellen fertig!",
-                    JOptionPane.WARNING_MESSAGE);
-            OverviewTermin overviewTermin = new OverviewTermin();
-            overviewTermin.setVisible(true);
-            this.dispose();
-        } else {
-            JOptionPane.showMessageDialog(null,
-                    "Ersetllen fehlgeschlagen!",
+                    "Ersetllen fehlgeschlagen!\n\nMögliche Fehler: \nFormat Datum: yyyy-MM-dd\nFormat Zeit: hh:mm",
                     "Fehlgeschlagen",
                     JOptionPane.WARNING_MESSAGE);
         }
+
     }
 
     private void ButtonAbortActionPerformed(java.awt.event.ActionEvent evt) {

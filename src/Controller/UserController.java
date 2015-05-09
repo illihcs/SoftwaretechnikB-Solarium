@@ -27,9 +27,11 @@ public class UserController {
 
         // Außen vor lassen! erst wenn wichtige sachen fertig sind weiter implementieren
         ApplicationUser userControler = new ApplicationUser();
-        userControler.createApplicationUser(Vorname, Nachname, LocalDate.parse(Geburtstag), Mail, new String(Password));
-
-        return false;
+        try{
+            return userControler.createApplicationUser(Vorname, Nachname, LocalDate.parse(Geburtstag), Mail, new String(Password));
+        }catch(Exception e){
+            return false;
+        }
     }
 
     // Diese Methode liefert true zurück wenn das Model in der DB ein Update durchführen konnte

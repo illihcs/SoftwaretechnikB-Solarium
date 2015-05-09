@@ -113,18 +113,27 @@ public class EditSonnenbank extends JFrame{
 
     private void ButtonSaveActionPerformed(java.awt.event.ActionEvent evt) {
         SonnenbankController controller = new SonnenbankController();
-        if (controller.editSonnenbank(sonnenbankObject.getID(), TextFieldCabin.getText(), TextFieldPower.getText(), LocalDate.parse(TextFieldServiceAppointment.getText())) == true) {
+        try{
+            if (controller.editSonnenbank(sonnenbankObject.getID(),TextFieldCabin.getText(), TextFieldPower.getText(), LocalDate.parse(TextFieldServiceAppointment.getText())) == true) {
+                JOptionPane.showMessageDialog(null,
+                        "Bearbeiten fertiggestellt!",
+                        "Bearbeiten fertig!",
+                        JOptionPane.WARNING_MESSAGE);
+                OverviewSonnenbank overviewSonnenbank = new OverviewSonnenbank();
+                overviewSonnenbank.setVisible(true);
+                this.dispose();
+            } else {
+                JOptionPane.showMessageDialog(null,
+                        "Bearbeiten fehlgeschlagen! \nEin Feld wurde falsch eingegeben:\n\nFormat Datum:yyyy-MM-dd",
+                        "Fehlgeschlagen",
+                        JOptionPane.WARNING_MESSAGE);
+            }
+        }
+        catch (Exception e)
+        {
             JOptionPane.showMessageDialog(null,
-                    "Bearbeiten fertiggestellt!",
-                    "Bearbeiten fertig!",
-                    JOptionPane.WARNING_MESSAGE);
-            OverviewSonnenbank overviewSonnenbank = new OverviewSonnenbank();
-            overviewSonnenbank.setVisible(true);
-            this.dispose();
-        } else {
-            JOptionPane.showMessageDialog(null,
-                    "Bearbeiten fehlgeschlagen!",
-                    "Fehlgeschlagen",
+                    "Bearbeiten fehlgeschlagen! \nEin Feld wurde falsch eingegeben:\n\nFormat Datum:yyyy-MM-dd",
+                    "Bearbeiten Fehlgeschlagen",
                     JOptionPane.WARNING_MESSAGE);
         }
     }

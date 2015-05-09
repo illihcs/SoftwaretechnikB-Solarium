@@ -147,7 +147,7 @@ public class Register extends JFrame {
         else
         {
             JOptionPane.showMessageDialog(null,
-                    "Registrierung fehlgeschlagen!",
+                    "Registrierung fehlgeschlagen!\n\nMöglicher Fehler: Datumsformat: yyyy-MM-dd",
                     "Registrierung Fehler!",
                     JOptionPane.WARNING_MESSAGE);
         }

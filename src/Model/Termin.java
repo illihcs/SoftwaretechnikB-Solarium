@@ -36,8 +36,12 @@ public class Termin implements ITermin {
             // Fill SQL Statement
             PreparedStatement preparedStatement = con.prepareStatement(insertTableSQL);
             preparedStatement.setDate(1, java.sql.Date.valueOf(Datum.toString()));
-            preparedStatement.setDate(2, java.sql.Date.valueOf(UhrzeitVon.toString()));
-            preparedStatement.setDate(3, java.sql.Date.valueOf(UhrzeitBis.toString()));
+            String from = UhrzeitVon.toString();
+            from = from.replace('T', ' ');
+            String until = UhrzeitVon.toString();
+            until = until.replace('T', ' ');
+            preparedStatement.setDate(2, java.sql.Date.valueOf(from));
+            preparedStatement.setDate(3, java.sql.Date.valueOf(until));
             preparedStatement.setString(4, Sonnenbank);
             preparedStatement.setString(5, KundenName);
 

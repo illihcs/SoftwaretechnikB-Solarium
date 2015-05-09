@@ -139,23 +139,30 @@ public class Edit extends JFrame {
 
     private void ButtonSaveActionPerformed(java.awt.event.ActionEvent evt) {
         UserController controller = new UserController();
-        if(controller.editApplicationUser(userObject.getID(), TextFieldGivenname.getText(), TextFieldSurname.getText(), LocalDate.parse(TextFieldBirthday.getText()), TextFieldMail.getText(), TextFieldPassword.getText().toCharArray()) == true)
-        {
-            JOptionPane.showMessageDialog(null,
-                    "Bearbeiten fertiggestellt!",
-                    "Bearbeiten fertig!",
-                    JOptionPane.WARNING_MESSAGE);
-            OverviewUser overviewUser = new OverviewUser();
-            overviewUser.setVisible(true);
-            this.dispose();
+        try {
+
+            if (controller.editApplicationUser(userObject.getID(), TextFieldGivenname.getText(), TextFieldSurname.getText(), LocalDate.parse(TextFieldBirthday.getText()), TextFieldMail.getText(), TextFieldPassword.getText().toCharArray()) == true) {
+                JOptionPane.showMessageDialog(null,
+                        "Bearbeiten fertiggestellt!",
+                        "Bearbeiten fertig!",
+                        JOptionPane.WARNING_MESSAGE);
+                OverviewUser overviewUser = new OverviewUser();
+                overviewUser.setVisible(true);
+                this.dispose();
+            } else {
+                JOptionPane.showMessageDialog(null,
+                        "Bearbeiten fehlgeschlagen!",
+                        "Bearbeiten Fehler!",
+                        JOptionPane.WARNING_MESSAGE);
+            }
         }
-        else
-        {
-            JOptionPane.showMessageDialog(null,
-                    "Registrierung fehlgeschlagen!",
-                    "Registrierung Fehler!",
-                    JOptionPane.WARNING_MESSAGE);
-        }
+            catch(Exception e)
+            {
+                JOptionPane.showMessageDialog(null,
+                        "Bearbeiten fehlgeschlagen!",
+                        "Bearbeiten Fehler!",
+                        JOptionPane.WARNING_MESSAGE);
+            }
     }
 
     private void ButtonAbortActionPerformed(java.awt.event.ActionEvent evt) {

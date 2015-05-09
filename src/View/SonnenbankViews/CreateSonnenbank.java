@@ -109,7 +109,6 @@ public class CreateSonnenbank extends JFrame{
     private void ButtonSaveActionPerformed(java.awt.event.ActionEvent evt) {
         SonnenbankController controller = new SonnenbankController();
         try{
-
         if (controller.createSonnenbank(TextFieldCabin.getText(), TextFieldPower.getText(), LocalDate.parse(TextFieldServiceAppointment.getText())) == true) {
             JOptionPane.showMessageDialog(null,
                     "Erstellen fertiggestellt!",

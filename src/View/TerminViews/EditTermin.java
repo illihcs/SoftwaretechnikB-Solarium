@@ -9,6 +9,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.LocalTime;
 
 /**
  * Created by admin on 03.05.2015.
@@ -139,21 +140,39 @@ public class EditTermin extends JFrame{
     }
 
     private void ButtonSaveActionPerformed(ActionEvent evt) {
+        try{
+
         TerminController controller = new TerminController();
-        if (controller.createTermin(LocalDate.parse(TextFieldDate.getText()), LocalDateTime.parse(TextFieldTimeFrom.getText()), LocalDateTime.parse(TextFieldTimeUntil.getText()), TextFieldSunbed.getText(), TextFieldClient.getText()) == true) {
+        LocalDate date = LocalDate.parse(TextFieldDate.getText());
+        LocalTime from = LocalTime.parse(TextFieldTimeFrom.getText());
+        LocalTime until = LocalTime.parse(TextFieldTimeUntil.getText());
+
+        LocalDateTime dtfrom   = LocalDateTime.of(date.getYear(), date.getMonth(), date.getDayOfMonth(), from.getHour(), from.getMinute());
+        LocalDateTime dtuntil  = LocalDateTime.of(date.getYear(), date.getMonth(), date.getDayOfMonth(), until.getHour(), until.getMinute());
+
+
+        if (controller.createTermin(date, dtfrom, dtuntil, TextFieldSunbed.getText(), TextFieldClient.getText()) == true) {
             JOptionPane.showMessageDialog(null,
-                    "Erstellen fertiggestellt!",
-                    "Erstellen fertig!",
+                    "Bearbeiten fertiggestellt!",
+                    "Bearbeiten fertig!",
                     JOptionPane.WARNING_MESSAGE);
             OverviewTermin overviewTermin = new OverviewTermin();
             overviewTermin.setVisible(true);
             this.dispose();
         } else {
             JOptionPane.showMessageDialog(null,
-                    "Ersetllen fehlgeschlagen!",
+                    "Bearbeiten fehlgeschlagen!\n\nMögliche Fehler: \nFormat Datum: yyyy-MM-dd\nFormat Zeit: hh:mm",
                     "Fehlgeschlagen",
                     JOptionPane.WARNING_MESSAGE);
         }
+    }catch (Exception e)
+    {
+        JOptionPane.showMessageDialog(null,
+                "Bearbeiten fehlgeschlagen!\n\nMögliche Fehler: \nFormat Datum: yyyy-MM-dd\nFormat Zeit: hh:mm",
+                "Fehlgeschlagen",
+                JOptionPane.WARNING_MESSAGE);
+    }
+        
     }
 
     private void ButtonAbortActionPerformed(ActionEvent evt) {

@@ -2,32 +2,41 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2845892d-f8d1-43a4-8212-6bce5ad31c63" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Solarium/View/TerminViews/CreateTermin$1.class" afterPath="$PROJECT_DIR$/out/production/Solarium/View/TerminViews/CreateTermin$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Solarium/View/TerminViews/CreateTermin$2.class" afterPath="$PROJECT_DIR$/out/production/Solarium/View/TerminViews/CreateTermin$2.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Solarium/View/TerminViews/CreateTermin.class" afterPath="$PROJECT_DIR$/out/production/Solarium/View/TerminViews/CreateTermin.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Solarium/View/TerminViews/EditTermin$1.class" afterPath="$PROJECT_DIR$/out/production/Solarium/View/TerminViews/EditTermin$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Solarium/View/TerminViews/EditTermin$2.class" afterPath="$PROJECT_DIR$/out/production/Solarium/View/TerminViews/EditTermin$2.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Solarium/View/TerminViews/EditTermin.class" afterPath="$PROJECT_DIR$/out/production/Solarium/View/TerminViews/EditTermin.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Solarium/Controller/TerminController.class" afterPath="$PROJECT_DIR$/out/production/Solarium/Controller/TerminController.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Solarium/Model/ApplicationUser.class" afterPath="$PROJECT_DIR$/out/production/Solarium/Model/ApplicationUser.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Solarium/View/SonnenbankViews/CreateSonnenbank$1.class" afterPath="$PROJECT_DIR$/out/production/Solarium/View/SonnenbankViews/CreateSonnenbank$1.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Solarium/View/SonnenbankViews/CreateSonnenbank$2.class" afterPath="$PROJECT_DIR$/out/production/Solarium/View/SonnenbankViews/CreateSonnenbank$2.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Solarium/View/SonnenbankViews/CreateSonnenbank.class" afterPath="$PROJECT_DIR$/out/production/Solarium/View/SonnenbankViews/CreateSonnenbank.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Solarium/View/UserViews/Edit$1.class" afterPath="$PROJECT_DIR$/out/production/Solarium/View/UserViews/Edit$1.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Solarium/View/UserViews/Edit$2.class" afterPath="$PROJECT_DIR$/out/production/Solarium/View/UserViews/Edit$2.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Solarium/View/UserViews/Edit$3.class" afterPath="$PROJECT_DIR$/out/production/Solarium/View/UserViews/Edit$3.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Solarium/View/UserViews/Edit.class" afterPath="$PROJECT_DIR$/out/production/Solarium/View/UserViews/Edit.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Solarium/View/SonnenbankViews/EditSonnenbank$1.class" afterPath="$PROJECT_DIR$/out/production/Solarium/View/SonnenbankViews/EditSonnenbank$1.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Solarium/View/SonnenbankViews/EditSonnenbank$2.class" afterPath="$PROJECT_DIR$/out/production/Solarium/View/SonnenbankViews/EditSonnenbank$2.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Solarium/View/SonnenbankViews/EditSonnenbank.class" afterPath="$PROJECT_DIR$/out/production/Solarium/View/SonnenbankViews/EditSonnenbank.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Solarium/Model/ITermin.class" afterPath="$PROJECT_DIR$/out/production/Solarium/Model/ITermin.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Solarium/View/UserViews/Login.class" afterPath="$PROJECT_DIR$/out/production/Solarium/View/UserViews/Login.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Solarium/View/SonnenbankViews/OverviewSonnenbank$1.class" afterPath="$PROJECT_DIR$/out/production/Solarium/View/SonnenbankViews/OverviewSonnenbank$1.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Solarium/View/SonnenbankViews/OverviewSonnenbank$2.class" afterPath="$PROJECT_DIR$/out/production/Solarium/View/SonnenbankViews/OverviewSonnenbank$2.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Solarium/View/SonnenbankViews/OverviewSonnenbank.class" afterPath="$PROJECT_DIR$/out/production/Solarium/View/SonnenbankViews/OverviewSonnenbank.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Solarium/View/TerminViews/OverviewTermin$3.class" afterPath="$PROJECT_DIR$/out/production/Solarium/View/TerminViews/OverviewTermin$3.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Solarium/View/TerminViews/OverviewTermin$4.class" afterPath="$PROJECT_DIR$/out/production/Solarium/View/TerminViews/OverviewTermin$4.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Solarium/View/TerminViews/OverviewTermin$5.class" afterPath="$PROJECT_DIR$/out/production/Solarium/View/TerminViews/OverviewTermin$5.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Solarium/View/TerminViews/OverviewTermin.class" afterPath="$PROJECT_DIR$/out/production/Solarium/View/TerminViews/OverviewTermin.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Solarium/View/UserViews/OverviewUser$1.class" afterPath="$PROJECT_DIR$/out/production/Solarium/View/UserViews/OverviewUser$1.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Solarium/View/UserViews/OverviewUser$2.class" afterPath="$PROJECT_DIR$/out/production/Solarium/View/UserViews/OverviewUser$2.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Solarium/View/UserViews/OverviewUser$3.class" afterPath="$PROJECT_DIR$/out/production/Solarium/View/UserViews/OverviewUser$3.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Solarium/View/UserViews/OverviewUser$4.class" afterPath="$PROJECT_DIR$/out/production/Solarium/View/UserViews/OverviewUser$4.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Solarium/View/UserViews/OverviewUser$5.class" afterPath="$PROJECT_DIR$/out/production/Solarium/View/UserViews/OverviewUser$5.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Solarium/View/UserViews/OverviewUser.class" afterPath="$PROJECT_DIR$/out/production/Solarium/View/UserViews/OverviewUser.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Solarium/View/UserViews/Register$1.class" afterPath="$PROJECT_DIR$/out/production/Solarium/View/UserViews/Register$1.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Solarium/View/UserViews/Register$2.class" afterPath="$PROJECT_DIR$/out/production/Solarium/View/UserViews/Register$2.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Solarium/View/UserViews/Register$3.class" afterPath="$PROJECT_DIR$/out/production/Solarium/View/UserViews/Register$3.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Solarium/View/UserViews/Register.class" afterPath="$PROJECT_DIR$/out/production/Solarium/View/UserViews/Register.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Solarium/Model/Termin.class" afterPath="$PROJECT_DIR$/out/production/Solarium/Model/Termin.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Solarium/Controller/UserController.class" afterPath="$PROJECT_DIR$/out/production/Solarium/Controller/UserController.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/dataSources.ids" afterPath="$PROJECT_DIR$/.idea/dataSources.ids" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Model/ApplicationUser.java" afterPath="$PROJECT_DIR$/src/Model/ApplicationUser.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/View/SonnenbankViews/CreateSonnenbank.java" afterPath="$PROJECT_DIR$/src/View/SonnenbankViews/CreateSonnenbank.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/View/TerminViews/CreateTermin.java" afterPath="$PROJECT_DIR$/src/View/TerminViews/CreateTermin.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/View/UserViews/Edit.java" afterPath="$PROJECT_DIR$/src/View/UserViews/Edit.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/View/SonnenbankViews/EditSonnenbank.java" afterPath="$PROJECT_DIR$/src/View/SonnenbankViews/EditSonnenbank.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/View/TerminViews/EditTermin.java" afterPath="$PROJECT_DIR$/src/View/TerminViews/EditTermin.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Model/ITermin.java" afterPath="$PROJECT_DIR$/src/Model/ITermin.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/View/UserViews/Login.java" afterPath="$PROJECT_DIR$/src/View/UserViews/Login.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/View/SonnenbankViews/OverviewSonnenbank.java" afterPath="$PROJECT_DIR$/src/View/SonnenbankViews/OverviewSonnenbank.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/View/TerminViews/OverviewTermin.java" afterPath="$PROJECT_DIR$/src/View/TerminViews/OverviewTermin.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/View/UserViews/OverviewUser.java" afterPath="$PROJECT_DIR$/src/View/UserViews/OverviewUser.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/View/UserViews/Register.java" afterPath="$PROJECT_DIR$/src/View/UserViews/Register.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Solarium.iml" afterPath="$PROJECT_DIR$/Solarium.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Model/Termin.java" afterPath="$PROJECT_DIR$/src/Model/Termin.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Controller/TerminController.java" afterPath="$PROJECT_DIR$/src/Controller/TerminController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Controller/UserController.java" afterPath="$PROJECT_DIR$/src/Controller/UserController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/DB/DBscript.sql" afterPath="$PROJECT_DIR$/DB/DBscript.sql" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/dataSources.xml" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="Solarium.iws" />
@@ -65,60 +74,6 @@
         <option name="myItemType" value="com.intellij.database.view.DbNodeDescriptor" />
       </PATH_ELEMENT>
     </PATH>
-    <PATH>
-      <PATH_ELEMENT>
-        <option name="myItemId" />
-        <option name="myItemType" value="com.intellij.database.view.DbRootNodeDescriptor" />
-      </PATH_ELEMENT>
-      <PATH_ELEMENT>
-        <option name="myItemId" value="MySQL - solardb@localhost" />
-        <option name="myItemType" value="com.intellij.database.view.DbNodeDescriptor" />
-      </PATH_ELEMENT>
-      <PATH_ELEMENT>
-        <option name="myItemId" value="solardb" />
-        <option name="myItemType" value="com.intellij.database.view.DbNodeDescriptor" />
-      </PATH_ELEMENT>
-      <PATH_ELEMENT>
-        <option name="myItemId" value="termin" />
-        <option name="myItemType" value="com.intellij.database.view.DbNodeDescriptor" />
-      </PATH_ELEMENT>
-    </PATH>
-    <PATH>
-      <PATH_ELEMENT>
-        <option name="myItemId" />
-        <option name="myItemType" value="com.intellij.database.view.DbRootNodeDescriptor" />
-      </PATH_ELEMENT>
-      <PATH_ELEMENT>
-        <option name="myItemId" value="MySQL - solardb@localhost" />
-        <option name="myItemType" value="com.intellij.database.view.DbNodeDescriptor" />
-      </PATH_ELEMENT>
-      <PATH_ELEMENT>
-        <option name="myItemId" value="solardb" />
-        <option name="myItemType" value="com.intellij.database.view.DbNodeDescriptor" />
-      </PATH_ELEMENT>
-      <PATH_ELEMENT>
-        <option name="myItemId" value="sonnenbank" />
-        <option name="myItemType" value="com.intellij.database.view.DbNodeDescriptor" />
-      </PATH_ELEMENT>
-    </PATH>
-    <PATH>
-      <PATH_ELEMENT>
-        <option name="myItemId" />
-        <option name="myItemType" value="com.intellij.database.view.DbRootNodeDescriptor" />
-      </PATH_ELEMENT>
-      <PATH_ELEMENT>
-        <option name="myItemId" value="MySQL - solardb@localhost" />
-        <option name="myItemType" value="com.intellij.database.view.DbNodeDescriptor" />
-      </PATH_ELEMENT>
-      <PATH_ELEMENT>
-        <option name="myItemId" value="solardb" />
-        <option name="myItemType" value="com.intellij.database.view.DbNodeDescriptor" />
-      </PATH_ELEMENT>
-      <PATH_ELEMENT>
-        <option name="myItemId" value="applicationuser" />
-        <option name="myItemType" value="com.intellij.database.view.DbNodeDescriptor" />
-      </PATH_ELEMENT>
-    </PATH>
   </component>
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FavoritesManager">
@@ -126,22 +81,6 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="CreateTermin.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/View/TerminViews/CreateTermin.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-20.310345">
-              <caret line="187" column="0" selection-start-line="187" selection-start-column="0" selection-end-line="187" selection-end-column="0" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="method#initComponents#0;class#CreateTermin#0" expanded="false" />
-                <element signature="e#3128#3281#0" expanded="true" />
-                <element signature="e#3280#3281#0" expanded="true" />
-                <element signature="method#ButtonAbortActionPerformed#0;class#CreateTermin#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="EditTermin.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/View/TerminViews/EditTermin.java">
           <provider selected="true" editor-type-id="text-editor">
@@ -239,15 +178,25 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="EditSonnenbank.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="EditSonnenbank.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/View/SonnenbankViews/EditSonnenbank.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.43234324">
-              <caret line="122" column="0" selection-start-line="122" selection-start-column="0" selection-end-line="122" selection-end-column="0" />
+            <state vertical-scroll-proportion="-6.413793">
+              <caret line="118" column="36" selection-start-line="118" selection-start-column="36" selection-end-line="118" selection-end-column="36" />
               <folding>
                 <element signature="e#2489#2643#0" expanded="true" />
                 <element signature="e#2642#2643#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="DBscript.sql" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/DB/DBscript.sql">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.9377049">
+              <caret line="121" column="0" selection-start-line="121" selection-start-column="0" selection-end-line="121" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -300,6 +249,7 @@
         <option value="$PROJECT_DIR$/src/View/TerminViews/OverviewTermin.java" />
         <option value="$PROJECT_DIR$/src/View/UserViews/Register.java" />
         <option value="$PROJECT_DIR$/src/View/SonnenbankViews/EditSonnenbank.java" />
+        <option value="$PROJECT_DIR$/DB/DBscript.sql" />
       </list>
     </option>
   </component>
@@ -472,6 +422,20 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="Controller" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Solarium" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="SoftwaretechnikB-Solarium" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="DB" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -817,7 +781,7 @@
       <workItem from="1431076554682" duration="1568000" />
       <workItem from="1431170436886" duration="4511000" />
       <workItem from="1431177617732" duration="1806000" />
-      <workItem from="1431179458472" duration="18849000" />
+      <workItem from="1431179458472" duration="19717000" />
     </task>
     <task id="LOCAL-00001" summary="SQL fix">
       <created>1430661178008</created>
@@ -867,11 +831,17 @@
       <option name="project" value="LOCAL" />
       <updated>1430667797164</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="implement all missing stuff">
+      <created>1431199175833</created>
+      <option name="number" value="00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1431199175833</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="79020000" />
+    <option name="totallyTimeSpent" value="79888000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -890,7 +860,7 @@
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32987553" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32864866" sideWeight="0.4355263" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.28324324" sideWeight="0.37894738" order="11" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.28324324" sideWeight="0.379622" order="11" side_tool="true" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32942432" sideWeight="0.4962162" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32876712" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
@@ -899,12 +869,12 @@
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.18976545" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.16151386" sideWeight="0.4918919" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.16151386" sideWeight="0.4918919" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.4962162" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.28324324" sideWeight="0.6210526" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.28324324" sideWeight="0.62037796" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -929,7 +899,8 @@
     <MESSAGE value="SQL fix" />
     <MESSAGE value="Add SQL Update funktions to model" />
     <MESSAGE value="Login funktioniert" />
-    <option name="LAST_COMMIT_MESSAGE" value="Login funktioniert" />
+    <MESSAGE value="implement all missing stuff" />
+    <option name="LAST_COMMIT_MESSAGE" value="implement all missing stuff" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1157,13 +1128,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="14" column="22" selection-start-line="14" selection-start-column="22" selection-end-line="14" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/DB/DBscript.sql">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5657238">
-          <caret line="20" column="46" selection-start-line="20" selection-start-column="46" selection-end-line="20" selection-end-column="46" />
         </state>
       </provider>
     </entry>
@@ -1417,12 +1381,20 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/View/SonnenbankViews/EditSonnenbank.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.43234324">
-          <caret line="122" column="0" selection-start-line="122" selection-start-column="0" selection-end-line="122" selection-end-column="0" />
+        <state vertical-scroll-proportion="-6.413793">
+          <caret line="118" column="36" selection-start-line="118" selection-start-column="36" selection-end-line="118" selection-end-column="36" />
           <folding>
             <element signature="e#2489#2643#0" expanded="true" />
             <element signature="e#2642#2643#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/DB/DBscript.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.9377049">
+          <caret line="121" column="0" selection-start-line="121" selection-start-column="0" selection-end-line="121" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>

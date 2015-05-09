@@ -33,7 +33,7 @@ CREATE TABLE `applicationuser` (
   `Passwort` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`ID`),
   UNIQUE KEY `ID_UNIQUE` (`ID`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -42,7 +42,7 @@ CREATE TABLE `applicationuser` (
 
 LOCK TABLES `applicationuser` WRITE;
 /*!40000 ALTER TABLE `applicationuser` DISABLE KEYS */;
-INSERT INTO `applicationuser` VALUES (1,'Peter','Müller','1987-05-09','test@gmx.de','Peter'),(2,'Johan','Maier','1926-07-03','ABC@gmx.de','Johan'),(3,'Lisa','Schmitz','1962-08-02','Mail@live.com','Lisa');
+INSERT INTO `applicationuser` VALUES (1,'Peter','Müller','1987-05-09','peter@gmx.de','peter'),(6,'Lisa','Maier','1987-08-08','lisa@gmx.de','lisa'),(7,'Sarah','Johnes','1988-09-15','sarah@gmx.de','sarah');
 /*!40000 ALTER TABLE `applicationuser` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -59,7 +59,7 @@ CREATE TABLE `sonnenbank` (
   `Leistung` varchar(45) DEFAULT NULL,
   `Wartungstermin` date DEFAULT NULL,
   PRIMARY KEY (`ID`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -68,7 +68,7 @@ CREATE TABLE `sonnenbank` (
 
 LOCK TABLES `sonnenbank` WRITE;
 /*!40000 ALTER TABLE `sonnenbank` DISABLE KEYS */;
-INSERT INTO `sonnenbank` VALUES (1,'09','2500 W','2015-08-15'),(2,'05','1000 W','2015-06-03'),(3,'03','3200 W','2015-04-09'),(4,'02','1950 W','2015-07-08');
+INSERT INTO `sonnenbank` VALUES (1,'09','2500 W','2015-08-15'),(2,'04','1750 W','2015-06-03'),(3,'03','3200 W','2015-04-09');
 /*!40000 ALTER TABLE `sonnenbank` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -82,13 +82,13 @@ DROP TABLE IF EXISTS `termin`;
 CREATE TABLE `termin` (
   `ID` int(11) NOT NULL AUTO_INCREMENT,
   `Datum` date DEFAULT NULL,
-  `Uhrzeitvon` datetime DEFAULT NULL,
-  `UhrzeitBis` datetime DEFAULT NULL,
+  `Uhrzeitvon` time DEFAULT NULL,
+  `UhrzeitBis` time DEFAULT NULL,
   `Sonnenbank` varchar(45) DEFAULT NULL,
   `Kunde` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`ID`),
   UNIQUE KEY `ID_UNIQUE` (`ID`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -97,7 +97,7 @@ CREATE TABLE `termin` (
 
 LOCK TABLES `termin` WRITE;
 /*!40000 ALTER TABLE `termin` DISABLE KEYS */;
-INSERT INTO `termin` VALUES (1,'2015-06-03','2015-06-03 15:12:00','2015-06-03 16:13:00','03','1'),(2,'2015-05-04','2015-06-03 13:08:00','2015-06-03 14:02:00','09','2'),(3,'2015-04-02','2015-04-02 15:47:00','2015-04-02 16:47:00','08','3');
+INSERT INTO `termin` VALUES (1,'2015-05-16','12:18:00','13:29:15','09','1'),(4,'2012-12-12','16:45:00','17:00:00','04','2'),(7,'2015-06-16','12:15:00','15:45:30','03','3');
 /*!40000 ALTER TABLE `termin` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -118,4 +118,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2015-05-02 17:02:54
+-- Dump completed on 2015-05-09 21:32:32

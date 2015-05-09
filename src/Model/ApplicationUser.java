@@ -40,6 +40,7 @@ public class ApplicationUser implements IApplicationUser {
             preparedStatement.setDate(3, java.sql.Date.valueOf(Geburtstag.toString()));
             preparedStatement.setString(4, EMail);
             preparedStatement.setString(5, Passwort);
+            preparedStatement.setString(6, EMail);
 
             // execute insert SQL stetement
             preparedStatement.executeUpdate();

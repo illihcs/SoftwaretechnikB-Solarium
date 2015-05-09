@@ -6,6 +6,8 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 
 /**
  * Created by admin on 03.05.2015.
@@ -15,6 +17,26 @@ public class Register extends JFrame {
     public Register() {
         initComponents();
     }
+
+    // Variables declaration - do not modify
+    private JButton ButtonBackToUserOverview;
+    private JButton ButtonSave;
+    private JButton ButtonAbort;
+    private JLabel LabelGivenname;
+    private JLabel LabelSurname;
+    private JLabel LabelBirthday;
+    private JLabel LabelMail;
+    private JLabel LabelPassword;
+    private JPanel top;
+    private JPanel center;
+    private JPanel bottom;
+    private JTextField TextFieldGivenname;
+    private JTextField TextFieldSurname;
+    private JTextField TextFieldBirthday;
+    private JTextField TextFieldMail;
+    private JTextField TextFieldPassword;
+    // End of variables declaration
+
 
     private void initComponents() {
         top = new JPanel();
@@ -133,53 +155,48 @@ public class Register extends JFrame {
     }
 
     private void ButtonSaveActionPerformed(java.awt.event.ActionEvent evt) {
-        UserController controller = new UserController();
-        if(controller.registerApplicationUser(TextFieldGivenname.getText(), TextFieldSurname.getText(), TextFieldBirthday.getText(), TextFieldMail.getText(), TextFieldPassword.getText().toCharArray()) == true)
-        {
-            JOptionPane.showMessageDialog(null,
-                    "Registrieren fertiggestellt!",
-                    "Registrieren fertig!",
-                    JOptionPane.WARNING_MESSAGE);
-            OverviewUser overviewUser = new OverviewUser();
-            overviewUser.setVisible(true);
-            this.dispose();
+
+        try {
+
+            UserController controller = new UserController();
+
+            // Define the 'Date' format to parse
+            DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern("dd.MM.yyyy");
+
+            String Surname = TextFieldSurname.getText();
+            String Givenname = TextFieldGivenname.getText();
+            LocalDate Birthday = LocalDate.parse(TextFieldBirthday.getText(), dateFormatter);
+            String Mail = TextFieldMail.getText();
+            char[] Password = TextFieldPassword.getText().toCharArray();
+
+            boolean applicationUserRegistered = controller.registerApplicationUser(Surname, Givenname, Birthday, Mail, Password);
+
+            if (applicationUserRegistered) {
+
+                JOptionPane.showMessageDialog(null, "Registrieren fertiggestellt!", "Registrieren fertig!", JOptionPane.INFORMATION_MESSAGE);
+
+                OverviewUser overviewUser = new OverviewUser();
+                overviewUser.setVisible(true);
+
+                this.dispose();
+            }
+
+        } catch (Exception ex) {
+
+            JOptionPane.showMessageDialog(null, ex.getMessage(), "Ersetllen Fehlgeschlagen", JOptionPane.WARNING_MESSAGE);
+
         }
-        else
-        {
-            JOptionPane.showMessageDialog(null,
-                    "Registrierung fehlgeschlagen!\n\nMöglicher Fehler: Datumsformat: yyyy-MM-dd",
-                    "Registrierung Fehler!",
-                    JOptionPane.WARNING_MESSAGE);
-        }
+
     }
 
     private void ButtonAbortActionPerformed(java.awt.event.ActionEvent evt) {
         int eingabe = JOptionPane.showConfirmDialog(null, "Möchten Sie wirklich abbrechen?", "Abbrechen", JOptionPane.YES_NO_OPTION);
-        if (eingabe == 0)
-        {
+        if (eingabe == 0) {
             OverviewUser overviewUser = new OverviewUser();
             overviewUser.setVisible(true);
             this.dispose();
         }
     }
 
-    // Variables declaration - do not modify                     
-    private JButton ButtonBackToUserOverview;
-    private JButton ButtonSave;
-    private JButton ButtonAbort;
-    private JLabel LabelGivenname;
-    private JLabel LabelSurname;
-    private JLabel LabelBirthday;
-    private JLabel LabelMail;
-    private JLabel LabelPassword;
-    private JPanel top;
-    private JPanel center;
-    private JPanel bottom;
-    private JTextField TextFieldGivenname;
-    private JTextField TextFieldSurname;
-    private JTextField TextFieldBirthday;
-    private JTextField TextFieldMail;
-    private JTextField TextFieldPassword;
-    // End of variables declaration                   
 }
 

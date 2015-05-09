@@ -5,22 +5,21 @@ import Model.TerminObject;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.LocalTime;
 import java.util.LinkedList;
 
-/**
- * Created by admin on 03.05.2015.
- */
+
 public class TerminController {
 
-    public boolean createTermin(LocalDate Datum, LocalDateTime UhrzeitVon, LocalDateTime UhrzeitBis, String Sonnenbank, String KundenName)
+    public boolean createTermin(LocalDate Datum, LocalTime UhrzeitVon, LocalTime UhrzeitBis, String Sonnenbank, String KundenName)
     {
-        Termin terminControler = new Termin();
-        boolean TerminCreated =  terminControler.createTermin(Datum, UhrzeitVon, UhrzeitBis, Sonnenbank, KundenName);
+        Termin terminModel = new Termin();
+        boolean TerminCreated =  terminModel.createTermin(Datum, UhrzeitVon, UhrzeitBis, Sonnenbank, KundenName);
 
         return TerminCreated;
     }
 
-    public boolean editTermin( int ID, LocalDate Datum, LocalDateTime UhrzeitVon, LocalDateTime UhrzeitBis, String Sonnenbank, String KundenName)
+    public boolean editTermin( int ID, LocalDate Datum, LocalTime UhrzeitVon, LocalTime UhrzeitBis, String Sonnenbank, String KundenName)
     {
         Termin terminControler = new Termin();
         boolean TerminCreated =  terminControler.editTermin(ID, Datum, UhrzeitVon, UhrzeitBis, Sonnenbank, KundenName);

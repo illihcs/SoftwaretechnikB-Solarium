@@ -4,6 +4,7 @@ import Model.ApplicationUser;
 import Model.ApplicationUserObject;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.LinkedList;
 
 /**
@@ -23,15 +24,13 @@ public class UserController {
 
     }
 
-    public boolean registerApplicationUser(String Vorname, String Nachname, String Geburtstag, String Mail, char[] Password) {
+    public boolean registerApplicationUser(String Vorname, String Nachname, LocalDate Geburtstag, String Mail, char[] Password) {
 
         // Außen vor lassen! erst wenn wichtige sachen fertig sind weiter implementieren
         ApplicationUser userControler = new ApplicationUser();
-        try{
-            return userControler.createApplicationUser(Vorname, Nachname, LocalDate.parse(Geburtstag), Mail, new String(Password));
-        }catch(Exception e){
-            return false;
-        }
+
+        return userControler.createApplicationUser(Vorname, Nachname, Geburtstag, Mail, new String(Password));
+
     }
 
     // Diese Methode liefert true zurück wenn das Model in der DB ein Update durchführen konnte

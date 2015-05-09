@@ -10,11 +10,12 @@ import java.awt.event.ActionListener;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
 
 /**
  * Created by admin on 03.05.2015.
  */
-public class EditTermin extends JFrame{
+public class EditTermin extends JFrame {
     TerminObject terminObject;
 
     //Panels for Title and Create
@@ -47,7 +48,9 @@ public class EditTermin extends JFrame{
     }
 
     private void initComponents(TerminObject to) {
-        terminObject=to;
+
+        terminObject = to;
+
         //create Controller
         //ControllerTermin = new TerminController();
 
@@ -140,39 +143,44 @@ public class EditTermin extends JFrame{
     }
 
     private void ButtonSaveActionPerformed(ActionEvent evt) {
-        try{
 
-        TerminController controller = new TerminController();
-        LocalDate date = LocalDate.parse(TextFieldDate.getText());
-        LocalTime from = LocalTime.parse(TextFieldTimeFrom.getText());
-        LocalTime until = LocalTime.parse(TextFieldTimeUntil.getText());
+        try {
 
-        LocalDateTime dtfrom   = LocalDateTime.of(date.getYear(), date.getMonth(), date.getDayOfMonth(), from.getHour(), from.getMinute());
-        LocalDateTime dtuntil  = LocalDateTime.of(date.getYear(), date.getMonth(), date.getDayOfMonth(), until.getHour(), until.getMinute());
+            TerminController controller = new TerminController();
 
+            // Define the 'Date' format to parse
+            DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+            // Define the 'Date' format to parse
+            DateTimeFormatter timeFormatter = DateTimeFormatter.ofPattern("HH:mm:ss");
 
-        if (controller.createTermin(date, dtfrom, dtuntil, TextFieldSunbed.getText(), TextFieldClient.getText()) == true) {
-            JOptionPane.showMessageDialog(null,
-                    "Bearbeiten fertiggestellt!",
-                    "Bearbeiten fertig!",
-                    JOptionPane.WARNING_MESSAGE);
-            OverviewTermin overviewTermin = new OverviewTermin();
-            overviewTermin.setVisible(true);
-            this.dispose();
-        } else {
-            JOptionPane.showMessageDialog(null,
-                    "Bearbeiten fehlgeschlagen!\n\nMögliche Fehler: \nFormat Datum: yyyy-MM-dd\nFormat Zeit: hh:mm",
-                    "Fehlgeschlagen",
-                    JOptionPane.WARNING_MESSAGE);
+            // Get and save userInputs
+            LocalDate terminDate = LocalDate.parse(TextFieldDate.getText(), dateFormatter);
+            LocalTime terminFrom = LocalTime.parse(TextFieldTimeFrom.getText(), timeFormatter);
+            LocalTime terminUntil = LocalTime.parse(TextFieldTimeFrom.getText(), timeFormatter);
+            String Sunbed = TextFieldSunbed.getText();
+            String Client = TextFieldClient.getText();
+
+            // Execute changes
+            boolean termninEdit = controller.editTermin(terminObject.getID(), terminDate, terminFrom, terminUntil, Sunbed, Client);
+
+            if (termninEdit) {
+
+                // Display modalbox that termin was editing successfull
+                JOptionPane.showMessageDialog(null, "Bearbeiten fertiggestellt!", "Bearbeiten fertig!", JOptionPane.INFORMATION_MESSAGE);
+
+                OverviewTermin overviewTermin = new OverviewTermin();
+                overviewTermin.setVisible(true);
+                this.dispose();
+
+            } else {
+
+                throw new RuntimeException("Bearbeitung fehlgeschlagen! \n  Ein Feld wurde falsch eingegeben:\n Format Datum:yyyy-MM-dd");
+            }
+
+        } catch (Exception ex) {
+            JOptionPane.showMessageDialog(null, ex.getMessage(), "Ersetllen Fehlgeschlagen", JOptionPane.WARNING_MESSAGE);
         }
-    }catch (Exception e)
-    {
-        JOptionPane.showMessageDialog(null,
-                "Bearbeiten fehlgeschlagen!\n\nMögliche Fehler: \nFormat Datum: yyyy-MM-dd\nFormat Zeit: hh:mm",
-                "Fehlgeschlagen",
-                JOptionPane.WARNING_MESSAGE);
-    }
-        
+
     }
 
     private void ButtonAbortActionPerformed(ActionEvent evt) {

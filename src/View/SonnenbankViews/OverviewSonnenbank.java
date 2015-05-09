@@ -8,6 +8,7 @@ import View.UserViews.OverviewUser;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.tree.ExpandVetoException;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -80,9 +81,8 @@ public class OverviewSonnenbank extends JFrame {
         String[] columnnames = new String[]{"ID", "Kabine", "Leistung", "Wartungstermin"};
         dtm.setColumnIdentifiers(columnnames);
 
-        for (SonnenbankObject so : list)
-        {
-            String[] row = { so.getID() + "", so.getKabine() + "", so.getLeistung() + "",  so.getWartungstermin() + "" };
+        for (SonnenbankObject so : list) {
+            String[] row = {so.getID() + "", so.getKabine() + "", so.getLeistung() + "", so.getWartungstermin() + ""};
             dtm.addRow(row);
         }
 
@@ -125,55 +125,74 @@ public class OverviewSonnenbank extends JFrame {
 
         setSize(800, 500);
         setLocationRelativeTo(null);
-    }// </editor-fold>
-
-    private void ButtonDeleteSunbedActionPerformed(ActionEvent evt) {
-        int eingabe = JOptionPane.showConfirmDialog(null, "Möchten Sie die ausgewählte Sonnenbank löschen?", "Löschen bestätigen", JOptionPane.YES_NO_CANCEL_OPTION);
-        if (eingabe == 0) // Clicked Ja
-        {
-            int row = TableOverviewSunbed.getSelectedRow();
-            SonnenbankController controller = new SonnenbankController();
-            if (controller.deleteSunbed(Integer.parseInt((String) TableOverviewSunbed.getModel().getValueAt(row, 0)))== true)
-            {
-                JOptionPane.showMessageDialog(null,
-                        "Löschen fertiggestellt!",
-                        "Löschen fertig!",
-                        JOptionPane.WARNING_MESSAGE);
-
-                DefaultTableModel d = new DefaultTableModel();
-                LinkedList<SonnenbankObject> list = new SonnenbankController().getAllSonnenbanken();
-
-                String[] columnnames = new String[]{"ID", "Kabine", "Leistung", "Wartungstermin"};
-                d.setColumnIdentifiers(columnnames);
-
-                for (SonnenbankObject so : list) {
-
-                    String[] r = {so.getID() + "", so.getKabine() + "", so.getLeistung() + "", so.getWartungstermin() + ""};
-                    d.addRow(r);
-                }
-
-                TableOverviewSunbed.setModel(d);
-                TableOverviewSunbed.repaint();
-            }else{
-                JOptionPane.showMessageDialog(null,
-                        "Löschen fehlgeschlagen",
-                        "FEHLSCHLAG!!!",
-                        JOptionPane.WARNING_MESSAGE);
-            }
-        }else{
-            //Do nothing!
-        }
     }
 
+    private void ButtonDeleteSunbedActionPerformed(ActionEvent evt) {
+
+        try {
+
+            int row = TableOverviewSunbed.getSelectedRow();
+            // If user has no row selected break!
+            if (row == -1) throw new RuntimeException("Bitte zuerst eine Zeile auswählen!");
+
+            int eingabe = JOptionPane.showConfirmDialog(null, "Möchten Sie die ausgewählte Sonnenbank löschen?", "Löschen bestätigen", JOptionPane.YES_NO_CANCEL_OPTION);
+
+            // User clicked yes
+            if (eingabe == 0) {
+
+                SonnenbankController controller = new SonnenbankController();
+
+                boolean sunbedDeleted = controller.deleteSunbed(Integer.parseInt((String) TableOverviewSunbed.getModel().getValueAt(row, 0)));
+
+                if (sunbedDeleted) {
+                    JOptionPane.showMessageDialog(null,
+                            "Löschen fertiggestellt!",
+                            "Löschen fertig!",
+                            JOptionPane.INFORMATION_MESSAGE);
+
+                    DefaultTableModel d = new DefaultTableModel();
+                    LinkedList<SonnenbankObject> list = new SonnenbankController().getAllSonnenbanken();
+
+                    String[] columnnames = new String[]{"ID", "Kabine", "Leistung", "Wartungstermin"};
+                    d.setColumnIdentifiers(columnnames);
+
+                    for (SonnenbankObject so : list) {
+
+                        String[] r = {so.getID() + "", so.getKabine() + "", so.getLeistung() + "", so.getWartungstermin() + ""};
+                        d.addRow(r);
+                    }
+
+                    TableOverviewSunbed.setModel(d);
+                    TableOverviewSunbed.repaint();
+
+                } else {
+
+                    throw new RuntimeException("Eintrag konnte nicht gelöscht werden!");
+                }
+            }
+
+        } catch (Exception ex) {
+
+            JOptionPane.showMessageDialog(null, ex.getMessage(), "Löschen Fehlgeschlagen", JOptionPane.WARNING_MESSAGE);
+        }
+
+    }
+
+
     private void ButtonEditSunbedActionPerformed(ActionEvent evt) {
+
         int row = TableOverviewSunbed.getSelectedRow();
+
         SonnenbankObject sonnenbankObject = new SonnenbankObject(
-                Integer.parseInt((String)TableOverviewSunbed.getModel().getValueAt(row, 0)),
+                Integer.parseInt((String) TableOverviewSunbed.getModel().getValueAt(row, 0)),
                 (String) TableOverviewSunbed.getModel().getValueAt(row, 1),
                 (String) TableOverviewSunbed.getModel().getValueAt(row, 2),
                 LocalDate.parse((String) TableOverviewSunbed.getModel().getValueAt(row, 3)));
+
         EditSonnenbank editSonnenbank = new EditSonnenbank(sonnenbankObject);
+
         editSonnenbank.setVisible(true);
+
         this.dispose();
     }
 

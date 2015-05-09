@@ -8,11 +8,12 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 
 /**
  * Created by admin on 03.05.2015.
  */
-public class EditSonnenbank extends JFrame{
+public class EditSonnenbank extends JFrame {
 
     //Panels for Title and Create
     JPanel top;
@@ -87,6 +88,13 @@ public class EditSonnenbank extends JFrame{
             }
         });
 
+        ButtonBackToSunbedOverview.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent evt) {
+                ButtonAbortActionPerformed(evt);
+            }
+        });
+
+
         GroupLayout bottomLayout = new GroupLayout(bottom);
         bottom.setLayout(bottomLayout);
         bottomLayout.setHorizontalGroup(
@@ -105,36 +113,48 @@ public class EditSonnenbank extends JFrame{
         );
 
         add(bottom, BorderLayout.SOUTH);
+
         //bottom.add(LabelFailure);
         setSize(800, 500);
         setLocationRelativeTo(null);
+
         setTitle("Bearbeiten Sie die zu ändernden Werte der Sonnenbank.");
     }
 
     private void ButtonSaveActionPerformed(java.awt.event.ActionEvent evt) {
-        SonnenbankController controller = new SonnenbankController();
-        try{
-            if (controller.editSonnenbank(sonnenbankObject.getID(),TextFieldCabin.getText(), TextFieldPower.getText(), LocalDate.parse(TextFieldServiceAppointment.getText())) == true) {
+
+        try {
+
+            SonnenbankController controller = new SonnenbankController();
+
+            // Define the 'Date' format to parse
+            DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+
+            // Get and save userInputs
+            String Cabin = TextFieldCabin.getText();
+            String Power = TextFieldPower.getText();
+            LocalDate ServiceAppointment = LocalDate.parse(TextFieldServiceAppointment.getText(), dateFormatter);
+
+            // Execute changes
+            boolean sonnenbankEdited = controller.editSonnenbank(sonnenbankObject.getID(), Cabin, Power, ServiceAppointment);
+
+            if (sonnenbankEdited) {
                 JOptionPane.showMessageDialog(null,
                         "Bearbeiten fertiggestellt!",
                         "Bearbeiten fertig!",
-                        JOptionPane.WARNING_MESSAGE);
+                        JOptionPane.INFORMATION_MESSAGE);
+
                 OverviewSonnenbank overviewSonnenbank = new OverviewSonnenbank();
                 overviewSonnenbank.setVisible(true);
+
                 this.dispose();
+
             } else {
-                JOptionPane.showMessageDialog(null,
-                        "Bearbeiten fehlgeschlagen! \nEin Feld wurde falsch eingegeben:\n\nFormat Datum:yyyy-MM-dd",
-                        "Fehlgeschlagen",
-                        JOptionPane.WARNING_MESSAGE);
+                throw new RuntimeException("Bearbeiten fehlgeschlagen! \n  Ein Feld wurde falsch eingegeben:\n Format Datum:yyyy-MM-dd");
             }
-        }
-        catch (Exception e)
-        {
-            JOptionPane.showMessageDialog(null,
-                    "Bearbeiten fehlgeschlagen! \nEin Feld wurde falsch eingegeben:\n\nFormat Datum:yyyy-MM-dd",
-                    "Bearbeiten Fehlgeschlagen",
-                    JOptionPane.WARNING_MESSAGE);
+
+        } catch (Exception ex) {
+            JOptionPane.showMessageDialog(null, ex.getMessage(), "Bearbeiten Fehlgeschlagen", JOptionPane.WARNING_MESSAGE);
         }
     }
 

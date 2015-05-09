@@ -7,11 +7,13 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.util.Date;
 
 /**
  * Created by admin on 03.05.2015.
  */
-public class CreateSonnenbank extends JFrame{
+public class CreateSonnenbank extends JFrame {
 
     //Panels for Title and Create
     JPanel top;
@@ -82,6 +84,12 @@ public class CreateSonnenbank extends JFrame{
             }
         });
 
+        ButtonBackToSunbedOverview.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent evt) {
+                ButtonAbortActionPerformed(evt);
+            }
+        });
+
         GroupLayout bottomLayout = new GroupLayout(bottom);
         bottom.setLayout(bottomLayout);
         bottomLayout.setHorizontalGroup(
@@ -92,6 +100,7 @@ public class CreateSonnenbank extends JFrame{
                                 .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(ButtonAbort))
         );
+
         bottomLayout.setVerticalGroup(
                 bottomLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
                         .addGroup(bottomLayout.createParallelGroup(GroupLayout.Alignment.BASELINE)
@@ -100,42 +109,55 @@ public class CreateSonnenbank extends JFrame{
         );
 
         add(bottom, BorderLayout.SOUTH);
+
         //bottom.add(LabelFailure);
         setSize(800, 500);
         setLocationRelativeTo(null);
         setTitle("Tragen Sie die Sonnenbankdaten für die Terminerstellung ein.");
     }
 
+    // Creates with user given inputs a new sunbad
     private void ButtonSaveActionPerformed(java.awt.event.ActionEvent evt) {
-        SonnenbankController controller = new SonnenbankController();
-        try{
-        if (controller.createSonnenbank(TextFieldCabin.getText(), TextFieldPower.getText(), LocalDate.parse(TextFieldServiceAppointment.getText())) == true) {
-            JOptionPane.showMessageDialog(null,
-                    "Erstellen fertiggestellt!",
-                    "Erstellen fertig!",
-                    JOptionPane.WARNING_MESSAGE);
-            OverviewSonnenbank overviewSonnenbank = new OverviewSonnenbank();
-            overviewSonnenbank.setVisible(true);
-            this.dispose();
-        } else {
-            JOptionPane.showMessageDialog(null,
-                    "Ersetllen fehlgeschlagen!",
-                    "Fehlgeschlagen",
-                    JOptionPane.WARNING_MESSAGE);
+
+        try {
+
+            SonnenbankController controller = new SonnenbankController();
+
+            // Define the 'Date' format to parse
+            DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern("dd.MM.yyyy");
+
+            // Get and save userInputs
+            String Cabin = TextFieldCabin.getText();
+            String Power = TextFieldPower.getText();
+            LocalDate ServiceAppointment = LocalDate.parse(TextFieldServiceAppointment.getText(), dateFormatter);
+
+            boolean sonnenbankCreated = controller.createSonnenbank(Cabin, Power, ServiceAppointment);
+
+            if (sonnenbankCreated) {
+
+                JOptionPane.showMessageDialog(null, "Erstellen fertiggestellt!", "Erstellen fertig!", JOptionPane.INFORMATION_MESSAGE);
+                OverviewSonnenbank overviewSonnenbank = new OverviewSonnenbank();
+                overviewSonnenbank.setVisible(true);
+
+                this.dispose();
+
+            } else {
+
+                throw new RuntimeException("Erstellung fehlgeschlagen! \n  Ein Feld wurde falsch eingegeben:\n Format Datum:yyyy-MM-dd");
+            }
+
+        } catch (Exception ex) {
+            JOptionPane.showMessageDialog(null, ex.getMessage(), "Erstellunng fehlgeschlagen", JOptionPane.WARNING_MESSAGE);
         }
-        }
-catch (Exception e)
-{
-    JOptionPane.showMessageDialog(null,
-            "Ersetllen fehlgeschlagen! \nEin Feld wurde falsch eingegeben:\n\nFormat Datum:yyyy-MM-dd",
-            "Erstellen Fehlgeschlagen",
-            JOptionPane.WARNING_MESSAGE);
-}
     }
 
+    // abort new sunbad task
     private void ButtonAbortActionPerformed(java.awt.event.ActionEvent evt) {
+
         int eingabe = JOptionPane.showConfirmDialog(null, "Möchten Sie wirklich abbrechen?", "Abbrechen", JOptionPane.YES_NO_OPTION);
+
         if (eingabe == 0) {
+
             OverviewSonnenbank overviewSonnenbank = new OverviewSonnenbank();
             overviewSonnenbank.setVisible(true);
             this.dispose();

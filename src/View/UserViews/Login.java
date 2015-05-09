@@ -1,7 +1,6 @@
 package View.UserViews;
 
 import Controller.UserController;
-import Model.SQLTESTER;
 import View.TerminViews.OverviewTermin;
 
 import javax.swing.*;
@@ -12,7 +11,7 @@ import java.awt.event.ActionListener;
 /**
  * Created by Schillemans on 01.05.2015.
  */
-public class Login extends JFrame implements ActionListener{
+public class Login extends JFrame implements ActionListener {
 
     JTextField TextFieldEmail;
     JPasswordField TextFieldPassword;
@@ -20,12 +19,8 @@ public class Login extends JFrame implements ActionListener{
     JPanel center;
     JLabel LabelFailure;
 
-    public Login()
-    {
+    public Login() {
         initComponents();
-
-        // Testen ob SQL abfragen funktionieren
-        SQLTESTER SQLTESTERobj = new SQLTESTER();
 
     }
 
@@ -56,29 +51,47 @@ public class Login extends JFrame implements ActionListener{
         setTitle("Login");
     }
 
-    @Override
+
     public void actionPerformed(ActionEvent e) {
 
         JButton button = (JButton) e.getSource();
+        if (button.getText().equals("Login")) {
 
-        if (button.getText().equals("Login"))
-        {
-            UserController controller = new UserController();
+            try {
 
-            if(controller.loginApplicationUser(TextFieldEmail.getText(), TextFieldPassword.getPassword()) == true)
-            {
-                OverviewTermin ot = new OverviewTermin();
-                ot.setVisible(true);
-                this.dispose();
-            }else{
+                String Email = TextFieldEmail.getText();
+                String Password = String.valueOf(TextFieldPassword.getPassword());
+
+
+                if (Email.isEmpty()) throw new RuntimeException("Bitte eine Email angeben!");
+                if (Password.isEmpty()) throw new RuntimeException("Bitte eine Passwort angeben!");
+
+                UserController controller = new UserController();
+
+                boolean applicationUserLogedin = controller.loginApplicationUser(TextFieldEmail.getText(), TextFieldPassword.getPassword());
+
+                if (applicationUserLogedin) {
+                    OverviewTermin ot = new OverviewTermin();
+                    ot.setVisible(true);
+                    this.dispose();
+
+                } else {
+
+                    throw new RuntimeException("Login nicht möglich");
+
+                }
+
+
+            } catch (Exception ex) {
+
                 LabelFailure.setSize(this.getWidth(), 50);
                 LabelFailure.setForeground(Color.RED);
-                LabelFailure.setText("Deine E-Mail oder dein Passwort war ungültig! \nBitte versuche es erneut.");
+                LabelFailure.setText(ex.getMessage());
+
             }
         }
 
-        if (button.getText().equals("Close"))
-        {
+        if (button.getText().equals("Close")) {
             this.dispose();
         }
     }

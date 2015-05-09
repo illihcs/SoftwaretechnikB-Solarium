@@ -82,10 +82,9 @@ public class OverviewTermin extends JFrame {
         String[] columnnames = new String[]{"ID", "Datum", "Uhrzeit Von", "Uhrzeit Bis", "Sonnenbank", "Kundenname"};
         dtm.setColumnIdentifiers(columnnames);
 
-        for (TerminObject t : list)
-        {
+        for (TerminObject t : list) {
 
-            String[] row = { t.getID() + "", t.getDatum() + "", t.getUhrzeitVon() + "",  t.getUhrzeitBis() + "", t.getSonnenbank() + "", t.getKunde() + "" };
+            String[] row = {t.getID() + "", t.getDatum() + "", t.getUhrzeitVon() + "", t.getUhrzeitBis() + "", t.getSonnenbank() + "", t.getKunde() + ""};
             dtm.addRow(row);
 
         }
@@ -127,65 +126,76 @@ public class OverviewTermin extends JFrame {
 
         add(bottom, BorderLayout.SOUTH);
 
-        setSize(800,500);
+        setSize(800, 500);
         setLocationRelativeTo(null);
     }// </editor-fold>
 
     private void ButtonDeleteAppointmentActionPerformed(ActionEvent evt) {
-        int eingabe = JOptionPane.showConfirmDialog(null, "Möchten Sie den ausgewählten Termin löschen?", "Löschen bestätigen", JOptionPane.YES_NO_CANCEL_OPTION);
-        if (eingabe == 0) // Clicked Ja
-        {
+
+        try {
+
             int row = TableOverviewAppointment.getSelectedRow();
-            /*TerminObject to = new TerminObject(
-                    (int) TableOverviewAppointment.getModel().getValueAt(row, 0),
-                    LocalDate.parse( (String) TableOverviewAppointment.getModel().getValueAt(row, 1)),
-                    LocalTime.parse((String) TableOverviewAppointment.getModel().getValueAt(row, 2)),
-                    LocalTime.parse((String) TableOverviewAppointment.getModel().getValueAt(row, 3)),
-                    (String) TableOverviewAppointment.getModel().getValueAt(row, 4),
-                    (String) TableOverviewAppointment.getModel().getValueAt(row, 5));*/
-            TerminController controller = new TerminController();
-            if (controller.deleteTermin(Integer.parseInt((String) TableOverviewAppointment.getModel().getValueAt(row, 0)))== true)
-            {
-                JOptionPane.showMessageDialog(null,
-                        "Löschen fertiggestellt!",
-                        "Löschen fertig!",
-                        JOptionPane.WARNING_MESSAGE);
+            // If user has no row selected break!
+            if (row == -1) throw new RuntimeException("Bitte zuerst eine Zeile auswählen!");
 
-                DefaultTableModel d = new DefaultTableModel();
-                LinkedList<TerminObject> list = new TerminController().getAllTermin();
+            int eingabe = JOptionPane.showConfirmDialog(null, "Möchten Sie den ausgewählten Termin löschen?", "Löschen bestätigen", JOptionPane.YES_NO_CANCEL_OPTION);
 
-                String[] columnnames = new String[]{"ID", "Datum", "Uhrzeit Von", "Uhrzeit Bis", "Sonnenbank", "Kundenname"};
-                d.setColumnIdentifiers(columnnames);
+            // Clicked yes
+            if (eingabe == 0) {
 
-                for (TerminObject t : list) {
+                TerminController controller = new TerminController();
 
-                    String[] r = {t.getID() + "", t.getDatum() + "", t.getUhrzeitVon() + "", t.getUhrzeitBis() + "", t.getSonnenbank() + "", t.getKunde() + ""};
-                    d.addRow(r);
+                boolean terminDeleted = controller.deleteTermin(Integer.parseInt((String) TableOverviewAppointment.getModel().getValueAt(row, 0)));
+
+
+                if (terminDeleted) {
+                    JOptionPane.showMessageDialog(null,
+                            "Löschen fertiggestellt!",
+                            "Löschen fertig!",
+                            JOptionPane.INFORMATION_MESSAGE);
+
+                    DefaultTableModel d = new DefaultTableModel();
+                    LinkedList<TerminObject> list = new TerminController().getAllTermin();
+
+                    String[] columnnames = new String[]{"ID", "Datum", "Uhrzeit Von", "Uhrzeit Bis", "Sonnenbank", "Kundenname"};
+                    d.setColumnIdentifiers(columnnames);
+
+                    for (TerminObject t : list) {
+
+                        String[] r = {t.getID() + "", t.getDatum() + "", t.getUhrzeitVon() + "", t.getUhrzeitBis() + "", t.getSonnenbank() + "", t.getKunde() + ""};
+                        d.addRow(r);
+                    }
+
+                    TableOverviewAppointment.setModel(d);
+                    TableOverviewAppointment.repaint();
+                } else {
+
+                    throw new RuntimeException("Eintrag konnte nicht gelöscht werden!");
+
                 }
-
-                TableOverviewAppointment.setModel(d);
-                TableOverviewAppointment.repaint();
-            }else{
-                JOptionPane.showMessageDialog(null,
-                        "Löschen fehlgeschlagen",
-                        "FEHLSCHLAG!!!",
-                        JOptionPane.WARNING_MESSAGE);
             }
-        }else{
-            //Do nothing!
+
+        } catch (Exception ex) {
+
+            JOptionPane.showMessageDialog(null, ex.getMessage(), "Löschen Fehlgeschlagen", JOptionPane.WARNING_MESSAGE);
+
         }
     }
 
     private void ButtonEditAppointmentActionPerformed(ActionEvent evt) {
+
         int row = TableOverviewAppointment.getSelectedRow();
+
         TerminObject to = new TerminObject(
-                Integer.parseInt((String)TableOverviewAppointment.getModel().getValueAt(row, 0)),
-                    LocalDate.parse( (String) TableOverviewAppointment.getModel().getValueAt(row, 1)),
-                    LocalTime.parse((String) TableOverviewAppointment.getModel().getValueAt(row, 2)),
-                    LocalTime.parse((String) TableOverviewAppointment.getModel().getValueAt(row, 3)),
-                    (String) TableOverviewAppointment.getModel().getValueAt(row, 4),
-                    (String) TableOverviewAppointment.getModel().getValueAt(row, 5));
+                Integer.parseInt((String) TableOverviewAppointment.getModel().getValueAt(row, 0)),
+                LocalDate.parse((String) TableOverviewAppointment.getModel().getValueAt(row, 1)),
+                LocalTime.parse((String) TableOverviewAppointment.getModel().getValueAt(row, 2)),
+                LocalTime.parse((String) TableOverviewAppointment.getModel().getValueAt(row, 3)),
+                (String) TableOverviewAppointment.getModel().getValueAt(row, 4),
+                (String) TableOverviewAppointment.getModel().getValueAt(row, 5));
+
         EditTermin et = new EditTermin(to);
+
         et.setVisible(true);
         this.dispose();
     }

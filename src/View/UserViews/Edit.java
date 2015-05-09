@@ -8,12 +8,31 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 
 /**
  * Created by admin on 03.05.2015.
  */
 public class Edit extends JFrame {
+
     ApplicationUserObject userObject;
+    // Variables declaration - do not modify
+    private JButton ButtonBackToUserOverview;
+    private JButton ButtonSave;
+    private JButton ButtonAbort;
+    private JLabel LabelGivenname;
+    private JLabel LabelSurname;
+    private JLabel LabelBirthday;
+    private JLabel LabelMail;
+    private JLabel LabelPassword;
+    private JPanel top;
+    private JPanel center;
+    private JPanel bottom;
+    private JTextField TextFieldGivenname;
+    private JTextField TextFieldSurname;
+    private JTextField TextFieldBirthday;
+    private JTextField TextFieldMail;
+    private JTextField TextFieldPassword;
 
     public Edit(ApplicationUserObject user) {
         initComponents(user);
@@ -27,7 +46,7 @@ public class Edit extends JFrame {
         bottom = new JPanel();
 
         ButtonBackToUserOverview = new JButton();
-       
+
         LabelGivenname = new JLabel();
         TextFieldGivenname = new JTextField();
         LabelSurname = new JLabel();
@@ -138,60 +157,47 @@ public class Edit extends JFrame {
     }
 
     private void ButtonSaveActionPerformed(java.awt.event.ActionEvent evt) {
+
         UserController controller = new UserController();
+
         try {
 
-            if (controller.editApplicationUser(userObject.getID(), TextFieldGivenname.getText(), TextFieldSurname.getText(), LocalDate.parse(TextFieldBirthday.getText()), TextFieldMail.getText(), TextFieldPassword.getText().toCharArray()) == true) {
-                JOptionPane.showMessageDialog(null,
-                        "Bearbeiten fertiggestellt!",
-                        "Bearbeiten fertig!",
-                        JOptionPane.WARNING_MESSAGE);
+            // Define the 'Date' format to parse
+            DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+
+            int UserId = userObject.getID();
+            String Givenname = TextFieldGivenname.getText();
+            String Surname = TextFieldSurname.getText();
+            LocalDate Birthday = LocalDate.parse(TextFieldBirthday.getText(), dateFormatter);
+            String Mail = TextFieldMail.getText();
+            char[] Password = TextFieldPassword.getText().toCharArray();
+
+            boolean ApplicationUserEdited = controller.editApplicationUser(UserId, Givenname, Surname, Birthday, Mail, Password);
+
+            if (ApplicationUserEdited) {
+
+                JOptionPane.showMessageDialog(null, "Bearbeiten fertiggestellt!", "Bearbeiten fertig!", JOptionPane.INFORMATION_MESSAGE);
                 OverviewUser overviewUser = new OverviewUser();
                 overviewUser.setVisible(true);
+
                 this.dispose();
-            } else {
-                JOptionPane.showMessageDialog(null,
-                        "Bearbeiten fehlgeschlagen!",
-                        "Bearbeiten Fehler!",
-                        JOptionPane.WARNING_MESSAGE);
             }
+
+        } catch (Exception ex) {
+
+            JOptionPane.showMessageDialog(null, ex.getMessage(), "Ersetllen Fehlgeschlagen", JOptionPane.WARNING_MESSAGE);
         }
-            catch(Exception e)
-            {
-                JOptionPane.showMessageDialog(null,
-                        "Bearbeiten fehlgeschlagen!",
-                        "Bearbeiten Fehler!",
-                        JOptionPane.WARNING_MESSAGE);
-            }
     }
 
     private void ButtonAbortActionPerformed(java.awt.event.ActionEvent evt) {
         int eingabe = JOptionPane.showConfirmDialog(null, "Möchten Sie wirklich abbrechen?", "Abbrechen", JOptionPane.YES_NO_OPTION);
-        if (eingabe == 0)
-        {
+        if (eingabe == 0) {
             OverviewUser overviewUser = new OverviewUser();
             overviewUser.setVisible(true);
             this.dispose();
         }
     }
 
-    // Variables declaration - do not modify                     
-    private JButton ButtonBackToUserOverview;
-    private JButton ButtonSave;
-    private JButton ButtonAbort;
-    private JLabel LabelGivenname;
-    private JLabel LabelSurname;
-    private JLabel LabelBirthday;
-    private JLabel LabelMail;
-    private JLabel LabelPassword;
-    private JPanel top;
-    private JPanel center;
-    private JPanel bottom;
-    private JTextField TextFieldGivenname;
-    private JTextField TextFieldSurname;
-    private JTextField TextFieldBirthday;
-    private JTextField TextFieldMail;
-    private JTextField TextFieldPassword;
-    // End of variables declaration                   
+
 }
 

@@ -10,6 +10,7 @@ import java.rmi.registry.LocateRegistry;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
 
 /**
  * Created by admin on 03.05.2015.
@@ -67,7 +68,7 @@ public class CreateTermin extends JFrame{
         TextFieldTimeUntil = new JTextField();
         TextFieldSunbed = new JTextField();
         TextFieldClient = new JTextField();
-        ButtonBackToAppointmentOverview = new JButton("Zurück zur Terminübersicht");
+        ButtonBackToAppointmentOverview = new JButton("ZurÃ¼ck zur TerminÃ¼bersicht");
 
         //add Components
         setLayout(new BorderLayout());
@@ -114,6 +115,13 @@ public class CreateTermin extends JFrame{
             }
         });
 
+        ButtonBackToAppointmentOverview.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent evt) {
+                ButtonAbortActionPerformed(evt);
+            }
+        });
+
+
         GroupLayout bottomLayout = new GroupLayout(bottom);
         bottom.setLayout(bottomLayout);
         bottomLayout.setHorizontalGroup(
@@ -135,53 +143,61 @@ public class CreateTermin extends JFrame{
         //bottom.add(LabelFailure);
         setSize(800, 500);
         setLocationRelativeTo(null);
-        setTitle("Tragen Sie die Termindaten für die Terminerstellung ein.");
+        setTitle("Tragen Sie die Termindaten fÃ¼r die Terminerstellung ein.");
     }
 
+    // Create a new termin
     private void ButtonSaveActionPerformed(java.awt.event.ActionEvent evt) {
-        TerminController controller = new TerminController();
+
         try
         {
-            LocalDate date = LocalDate.parse(TextFieldDate.getText());
-            LocalTime from = LocalTime.parse(TextFieldTimeFrom.getText());
-            LocalTime until = LocalTime.parse(TextFieldTimeUntil.getText());
 
-            LocalDateTime dtfrom   = LocalDateTime.of(date.getYear(), date.getMonth(), date.getDayOfMonth(), from.getHour(), from.getMinute());
-            LocalDateTime dtuntil  = LocalDateTime.of(date.getYear(), date.getMonth(), date.getDayOfMonth(), until.getHour(), until.getMinute());
+            TerminController controller = new TerminController();
 
+            // Define the 'Date' format to parse
+            DateTimeFormatter dateFormatter =   DateTimeFormatter.ofPattern("dd.MM.yyyy");
+            // Define the 'Date' format to parse
+            DateTimeFormatter timeFormatter =   DateTimeFormatter.ofPattern("HH:mm:ss");
 
-            if (controller.createTermin(date, dtfrom, dtuntil, TextFieldSunbed.getText(), TextFieldClient.getText()) == true) {
-                JOptionPane.showMessageDialog(null,
-                        "Erstellen fertiggestellt!",
-                        "Erstellen fertig!",
-                        JOptionPane.WARNING_MESSAGE);
+            LocalDate terminDate = LocalDate.parse(TextFieldDate.getText(), dateFormatter);
+            LocalTime terminFrom = LocalTime.parse(TextFieldTimeFrom.getText(), timeFormatter);
+           LocalTime terminUntil = LocalTime.parse(TextFieldTimeUntil.getText(), timeFormatter);
+
+            String Sunbed = TextFieldSunbed.getText();
+            String Client =TextFieldClient.getText();
+
+           boolean termninCreated =  controller.createTermin(terminDate, terminFrom, terminUntil, Sunbed, Client);
+
+            if (termninCreated) {
+
+                JOptionPane.showMessageDialog(null,  "Erstellen fertiggestellt!", "Erstellen fertig!", JOptionPane.INFORMATION_MESSAGE);
                 OverviewTermin overviewTermin = new OverviewTermin();
                 overviewTermin.setVisible(true);
                 this.dispose();
+
             } else {
-                JOptionPane.showMessageDialog(null,
-                        "Ersetllen fehlgeschlagen!\n\nMögliche Fehler: \nFormat Datum: yyyy-MM-dd\nFormat Zeit: hh:mm",
-                        "Fehlgeschlagen",
-                        JOptionPane.WARNING_MESSAGE);
+
+                throw  new RuntimeException("Ersetllen fehlgeschlagen! \n  Ein Feld wurde falsch eingegeben:\n Format Datum:yyyy-MM-dd");
             }
-        }catch (Exception e)
-        {
-            JOptionPane.showMessageDialog(null,
-                    "Ersetllen fehlgeschlagen!\n\nMögliche Fehler: \nFormat Datum: yyyy-MM-dd\nFormat Zeit: hh:mm",
-                    "Fehlgeschlagen",
-                    JOptionPane.WARNING_MESSAGE);
+
+        }catch (Exception ex)  {
+
+            JOptionPane.showMessageDialog(null, ex.getMessage(), "Ersetllen Fehlgeschlagen",  JOptionPane.WARNING_MESSAGE);
+
         }
 
     }
 
+    // abort createTermin with modalbox warning
     private void ButtonAbortActionPerformed(java.awt.event.ActionEvent evt) {
-        int eingabe = JOptionPane.showConfirmDialog(null, "Möchten Sie wirklich abbrechen?", "Abbrechen", JOptionPane.YES_NO_OPTION);
-        if (eingabe == 0) {
+
+        int inputValue = JOptionPane.showConfirmDialog(null, "MÃ¶chten Sie wirklich abbrechen?", "Abbrechen", JOptionPane.YES_NO_OPTION);
+
+        if (inputValue == 0) {
             OverviewTermin ot = new OverviewTermin();
             ot.setVisible(true);
             this.dispose();
         }
     }
-
 
 }

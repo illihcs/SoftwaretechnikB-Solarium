@@ -16,7 +16,7 @@ import java.util.LinkedList;
 /**
  * Created by admin on 03.05.2015.
  */
-public class OverviewUser extends JFrame{
+public class OverviewUser extends JFrame {
 
     // Variables declaration - do not modify
     private JButton ButtonOverviewAppointment;
@@ -29,11 +29,7 @@ public class OverviewUser extends JFrame{
     private JPanel bottom;
     private JScrollPane centerScrollPane;
     private JTable TableOverviewUser;
-    // End of variables declaration
 
-    /**
-     * Creates new form NewJFrame
-     */
     public OverviewUser() {
         initComponents();
     }
@@ -54,9 +50,9 @@ public class OverviewUser extends JFrame{
         ButtonDeleteUser = new JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setTitle("Benutzer Übersicht");
+        setTitle("Benutzer übersicht");
 
-        ButtonOverviewAppointment.setText("Wechsele zur TerminÜbersicht");
+        ButtonOverviewAppointment.setText("Wechsele zur Terminübersicht");
         ButtonOverviewAppointment.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent evt) {
                 ButtonOverviewAppointmentActionPerformed(evt);
@@ -64,7 +60,7 @@ public class OverviewUser extends JFrame{
         });
         top.add(ButtonOverviewAppointment);
 
-        ButtonOverviewSunbed.setText("Wechsele zur SonnenbankÜbersicht");
+        ButtonOverviewSunbed.setText("Wechsele zur Sonnenbankübersicht");
         ButtonOverviewSunbed.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent evt) {
                 ButtonOverviewSunbedActionPerformed(evt);
@@ -79,7 +75,7 @@ public class OverviewUser extends JFrame{
         LinkedList<ApplicationUserObject> list = new UserController().getAllUser();
 
 
-        String[] columnnames = new String[]{"ID", "Vorname", "Nachname","Geburtstag", "E-Mail", "Passwort"};
+        String[] columnnames = new String[]{"ID", "Vorname", "Nachname", "Geburtstag", "E-Mail", "Passwort"};
         dtm.setColumnIdentifiers(columnnames);
 
         for (ApplicationUserObject u : list) {
@@ -126,54 +122,60 @@ public class OverviewUser extends JFrame{
         bottom.add(ButtonDeleteUser);
 
         add(bottom, BorderLayout.SOUTH);
-        setSize(800,500);
+        setSize(800, 500);
         setLocationRelativeTo(null);
-    }// </editor-fold>
+    }
 
     private void ButtonDeleteUserActionPerformed(ActionEvent evt) {
 
-        int eingabe = JOptionPane.showConfirmDialog(null, "Möchten Sie den ausgewählten User löschen?", "Löschen bestätigen", JOptionPane.YES_NO_CANCEL_OPTION);
-        if (eingabe == 0) // Clicked Ja
-        {
+        try {
+
             int row = TableOverviewUser.getSelectedRow();
+            // If user has no row selected break!
+            if (row == -1) throw new RuntimeException("Bitte zuerst eine Zeile auswählen!");
 
-            UserController controller = new UserController();
-            if (controller.deleteApplicationUser(Integer.parseInt((String)TableOverviewUser.getModel().getValueAt(row, 0)))== true)
+            int eingabe = JOptionPane.showConfirmDialog(null, "Möchten Sie den ausgewählten User löschen?", "Löschen bestätigen", JOptionPane.YES_NO_CANCEL_OPTION);
+
+            if (eingabe == 0) // Clicked yes
             {
-                JOptionPane.showMessageDialog(null,
-                        "Läschen fertiggestellt!",
-                        "Läschen fertig!",
-                        JOptionPane.WARNING_MESSAGE);
+                UserController controller = new UserController();
 
-                DefaultTableModel d = new DefaultTableModel();
-                LinkedList<ApplicationUserObject> list = new UserController().getAllUser();
+                boolean applicationUserDeleted = controller.deleteApplicationUser(Integer.parseInt((String) TableOverviewUser.getModel().getValueAt(row, 0)));
 
-                String[] columnnames = new String[]{"ID", "Vorname", "Nachname","Geburtstag", "E-Mail", "Passwort"};
-                d.setColumnIdentifiers(columnnames);
+                if (applicationUserDeleted) {
 
-                for (ApplicationUserObject u : list) {
+                    JOptionPane.showMessageDialog(null, "Löschen fertiggestellt!", "Löschen fertig!", JOptionPane.INFORMATION_MESSAGE);
 
-                    String[] r = {u.getID() + "", u.getVorname() + "", u.getNachname() + "", u.getGeburtstag() + "", u.getEmail() + "", u.getPasswort() + ""};
-                    d.addRow(r);
+                    DefaultTableModel d = new DefaultTableModel();
+                    LinkedList<ApplicationUserObject> list = new UserController().getAllUser();
+
+                    // Define Table cols
+                    String[] columnnames = new String[]{"ID", "Vorname", "Nachname", "Geburtstag", "E-Mail", "Passwort"};
+                    d.setColumnIdentifiers(columnnames);
+
+
+                    // fill table with rows
+                    for (ApplicationUserObject u : list) {
+                        String[] r = {u.getID() + "", u.getVorname() + "", u.getNachname() + "", u.getGeburtstag() + "", u.getEmail() + "", u.getPasswort() + ""};
+                        d.addRow(r);
+                    }
+
+                    TableOverviewUser.setModel(d);
+                    TableOverviewUser.repaint();
+
                 }
-
-                TableOverviewUser.setModel(d);
-                TableOverviewUser.repaint();
-            }else{
-                JOptionPane.showMessageDialog(null,
-                        "Löschen fehlgeschlagen",
-                        "FEHLSCHLAG!!!",
-                        JOptionPane.WARNING_MESSAGE);
             }
-        }else{
-            //Do nothing!
+
+        } catch (Exception ex) {
+
+            JOptionPane.showMessageDialog(null, ex.getMessage(), "Löschen Fehlgeschlagen", JOptionPane.WARNING_MESSAGE);
         }
     }
 
     private void ButtonEditUserActionPerformed(ActionEvent evt) {
         int row = TableOverviewUser.getSelectedRow();
         ApplicationUserObject to = new ApplicationUserObject(
-                Integer.parseInt((String)TableOverviewUser.getModel().getValueAt(row, 0)),
+                Integer.parseInt((String) TableOverviewUser.getModel().getValueAt(row, 0)),
                 (String) TableOverviewUser.getModel().getValueAt(row, 1),
                 (String) TableOverviewUser.getModel().getValueAt(row, 2),
                 LocalDate.parse((String) TableOverviewUser.getModel().getValueAt(row, 3)),

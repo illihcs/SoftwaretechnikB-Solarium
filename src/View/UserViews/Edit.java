@@ -7,6 +7,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.SQLException;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
@@ -71,7 +72,11 @@ public class Edit extends JFrame {
         ButtonBackToUserOverview.setHorizontalAlignment(SwingConstants.LEFT);
         ButtonBackToUserOverview.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent evt) {
-                ButtonBackToUserOverviewActionPerformed(evt);
+                try {
+                    ButtonBackToUserOverviewActionPerformed(evt);
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
             }
         });
 
@@ -122,7 +127,11 @@ public class Edit extends JFrame {
         ButtonAbort.setText("Abbrechen");
         ButtonAbort.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent evt) {
-                ButtonAbortActionPerformed(evt);
+                try {
+                    ButtonAbortActionPerformed(evt);
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
             }
         });
 
@@ -150,7 +159,7 @@ public class Edit extends JFrame {
         setLocationRelativeTo(null);
     }
 
-    private void ButtonBackToUserOverviewActionPerformed(java.awt.event.ActionEvent evt) {
+    private void ButtonBackToUserOverviewActionPerformed(java.awt.event.ActionEvent evt) throws SQLException {
         OverviewUser overviewUser = new OverviewUser();
         overviewUser.setVisible(true);
         this.dispose();
@@ -189,7 +198,7 @@ public class Edit extends JFrame {
         }
     }
 
-    private void ButtonAbortActionPerformed(java.awt.event.ActionEvent evt) {
+    private void ButtonAbortActionPerformed(java.awt.event.ActionEvent evt) throws SQLException {
         int eingabe = JOptionPane.showConfirmDialog(null, "Möchten Sie wirklich abbrechen?", "Abbrechen", JOptionPane.YES_NO_OPTION);
         if (eingabe == 0) {
             OverviewUser overviewUser = new OverviewUser();

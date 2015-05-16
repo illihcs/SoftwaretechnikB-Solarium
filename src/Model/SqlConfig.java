@@ -1,43 +1,50 @@
 package Model;
 
-/**
- * Created by Win7-Dev on 03.05.2015.
- */
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+
+
 public class SqlConfig {
 
-    public String url = null;
-    public String user = null;
-    public String password = null;
+    private static String user = null;
+    private static String password = null;
+    private static SqlConfig instance = null;
+    private static String url = null;
+    private static Connection con = null;
 
-    public SqlConfig() {
+    public static String getUser() {
+        return user;
+    }
+    public static String getPassword() {
+        return password;
+    }
+    public static String getUrl() {
+        return url;
+    }
+    public static Connection getCon() {
+        return con;
+    }
+
+
+
+
+    private SqlConfig() throws SQLException {
 
         url = "jdbc:mysql://localhost:3306/solardb";
         user = "root";
         password = "root";
+        con =  DriverManager.getConnection(getUrl(), getUser(), getPassword());
 
     }
 
-    public String getUrl() {
-        return url;
+    public static SqlConfig getInstance () throws SQLException {
+
+        if (SqlConfig.instance == null) {
+            SqlConfig.instance = new SqlConfig ();
+        }
+
+        return SqlConfig.instance;
     }
 
-    public void setUrl(String url) {
-        this.url = url;
-    }
-
-    public String getUser() {
-        return user;
-    }
-
-    public void setUser(String user) {
-        this.user = user;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
 }

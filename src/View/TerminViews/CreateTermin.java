@@ -7,6 +7,7 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.rmi.registry.LocateRegistry;
+import java.sql.SQLException;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
@@ -111,13 +112,21 @@ public class CreateTermin extends JFrame{
         ButtonAbort.setText("Abbrechen");
         ButtonAbort.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent evt) {
-                ButtonAbortActionPerformed(evt);
+                try {
+                    ButtonAbortActionPerformed(evt);
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
             }
         });
 
         ButtonBackToAppointmentOverview.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent evt) {
-                ButtonAbortActionPerformed(evt);
+                try {
+                    ButtonAbortActionPerformed(evt);
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
             }
         });
 
@@ -189,7 +198,7 @@ public class CreateTermin extends JFrame{
     }
 
     // abort createTermin with modalbox warning
-    private void ButtonAbortActionPerformed(java.awt.event.ActionEvent evt) {
+    private void ButtonAbortActionPerformed(java.awt.event.ActionEvent evt) throws SQLException {
 
         int inputValue = JOptionPane.showConfirmDialog(null, "Möchten Sie wirklich abbrechen?", "Abbrechen", JOptionPane.YES_NO_OPTION);
 

@@ -4,6 +4,7 @@ import java.sql.*;
 import java.time.LocalDate;
 import java.util.LinkedList;
 
+
 public class ApplicationUser implements IApplicationUser {
 
     private int ID = 0;
@@ -14,12 +15,15 @@ public class ApplicationUser implements IApplicationUser {
     private String Passwort;
 
     // helper objects for operate with DB
-    SqlConfig SqlConf;
-    Connection con;
+     Connection con = null;
+    SqlConfig SqlConfigObj;
 
-    public ApplicationUser() {
+    public ApplicationUser() throws SQLException {
 
-        SqlConf = new SqlConfig();
+        SqlConfigObj =  SqlConfig.getInstance();
+
+
+
     }
 
     // Edit application user datas in DB
@@ -28,13 +32,13 @@ public class ApplicationUser implements IApplicationUser {
         try {
 
             // Setup SQl connection
-            con = DriverManager.getConnection(SqlConf.getUrl(), SqlConf.getUser(), SqlConf.getPassword());
+            con = SqlConfig.getCon();
 
             // Define SQL Statement
             String insertTableSQL = "UPDATE applicationuser SET Vorname = ?, Nachname =? , Geburtstag =?, Email =?, Passwort =?  WHERE EMail = ?";
 
             // Fill SQL Statement
-            PreparedStatement preparedStatement = con.prepareStatement(insertTableSQL);
+           PreparedStatement preparedStatement = con.prepareStatement(insertTableSQL);
             preparedStatement.setString(1, Vorname);
             preparedStatement.setString(2, Nachname);
             preparedStatement.setDate(3, java.sql.Date.valueOf(Geburtstag.toString()));
@@ -60,7 +64,7 @@ public class ApplicationUser implements IApplicationUser {
         try {
 
             // Setup SQl connection
-            con = DriverManager.getConnection(SqlConf.getUrl(), SqlConf.getUser(), SqlConf.getPassword());
+            con = SqlConfig.getCon();
 
             // Define SQL Statement
             String insertTableSQL = "INSERT INTO applicationuser ( Vorname, Nachname, Geburtstag, Email, Passwort) VALUES (?,?,?,?,?)";
@@ -90,7 +94,7 @@ public class ApplicationUser implements IApplicationUser {
         try {
 
             // Setup SQl connection
-            con = DriverManager.getConnection(SqlConf.getUrl(), SqlConf.getUser(), SqlConf.getPassword());
+            con = SqlConfig.getCon();
 
             // Define SQL Statement
             String insertTableSQL = "DELETE FROM applicationuser WHERE ID = ?";
@@ -115,7 +119,7 @@ public class ApplicationUser implements IApplicationUser {
         try {
 
             // Setup SQl connection
-            con = DriverManager.getConnection(SqlConf.getUrl(), SqlConf.getUser(), SqlConf.getPassword());
+            con = SqlConfig.getCon();
 
             // Define SQL Statement
             String selectSQL = "SELECT * FROM applicationuser";
@@ -153,7 +157,7 @@ public class ApplicationUser implements IApplicationUser {
             LinkedList<ApplicationUserObject> ApplicationUserObjectList = new LinkedList<ApplicationUserObject>();
 
             // Setup SQl connection
-            con = DriverManager.getConnection(SqlConf.getUrl(), SqlConf.getUser(), SqlConf.getPassword());
+            con = SqlConfig.getCon();
 
             // Define SQL Statement
             String selectSQL = "SELECT * FROM applicationuser";

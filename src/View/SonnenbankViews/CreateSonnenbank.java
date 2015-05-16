@@ -6,6 +6,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.SQLException;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.Date;
@@ -80,13 +81,21 @@ public class CreateSonnenbank extends JFrame {
         ButtonAbort.setText("Abbrechen");
         ButtonAbort.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent evt) {
-                ButtonAbortActionPerformed(evt);
+                try {
+                    ButtonAbortActionPerformed(evt);
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
             }
         });
 
         ButtonBackToSunbedOverview.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent evt) {
-                ButtonAbortActionPerformed(evt);
+                try {
+                    ButtonAbortActionPerformed(evt);
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
             }
         });
 
@@ -152,7 +161,7 @@ public class CreateSonnenbank extends JFrame {
     }
 
     // abort new sunbad task
-    private void ButtonAbortActionPerformed(java.awt.event.ActionEvent evt) {
+    private void ButtonAbortActionPerformed(java.awt.event.ActionEvent evt) throws SQLException {
 
         int eingabe = JOptionPane.showConfirmDialog(null, "Möchten Sie wirklich abbrechen?", "Abbrechen", JOptionPane.YES_NO_OPTION);
 

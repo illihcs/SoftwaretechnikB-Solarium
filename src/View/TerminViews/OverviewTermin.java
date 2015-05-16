@@ -12,6 +12,7 @@ import javax.swing.table.DefaultTableModel;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.SQLException;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.LinkedList;
@@ -37,11 +38,11 @@ public class OverviewTermin extends JFrame {
     /**
      * Creates new form NewJFrame
      */
-    public OverviewTermin() {
+    public OverviewTermin() throws SQLException {
         initComponents();
     }
 
-    private void initComponents() {
+    private void initComponents() throws SQLException {
 
         top = new JPanel();
         ButtonOverviewUser = new JButton();
@@ -62,7 +63,11 @@ public class OverviewTermin extends JFrame {
         ButtonOverviewUser.setText("Wechsele zur Benutzerübersicht");
         ButtonOverviewUser.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent evt) {
-                ButtonOverviewUserActionPerformed(evt);
+                try {
+                    ButtonOverviewUserActionPerformed(evt);
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
             }
         });
         top.add(ButtonOverviewUser);
@@ -70,7 +75,11 @@ public class OverviewTermin extends JFrame {
         ButtonOverviewSunbed.setText("Wechsele zur Sonnenbankübersicht");
         ButtonOverviewSunbed.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent evt) {
-                ButtonOverviewSunbedActionPerformed(evt);
+                try {
+                    ButtonOverviewSunbedActionPerformed(evt);
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
             }
         });
         top.add(ButtonOverviewSunbed);
@@ -206,13 +215,13 @@ public class OverviewTermin extends JFrame {
         this.dispose();
     }
 
-    private void ButtonOverviewUserActionPerformed(ActionEvent evt) {
+    private void ButtonOverviewUserActionPerformed(ActionEvent evt) throws SQLException {
         OverviewUser ou = new OverviewUser();
         ou.setVisible(true);
         this.dispose();
     }
 
-    private void ButtonOverviewSunbedActionPerformed(ActionEvent evt) {
+    private void ButtonOverviewSunbedActionPerformed(ActionEvent evt) throws SQLException {
         OverviewSonnenbank os = new OverviewSonnenbank();
         os.setVisible(true);
         this.dispose();

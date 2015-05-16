@@ -1,5 +1,6 @@
 package Controller;
 
+import Model.SqlConfig;
 import View.UserViews.Login;
 
 import javax.swing.*;
@@ -15,5 +16,10 @@ public class MainController {
         loginApplicationUser.setSize(500, 200);
         loginApplicationUser.setVisible(true);
         loginApplicationUser.setLocationRelativeTo(null);
+
+
+
+
+
     }
 }

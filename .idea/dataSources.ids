@@ -8,7 +8,6 @@
     <case-sensitivity plain-identifiers="lower" quoted-identifiers="lower"/>
     <schema name="" catalog="information_schema"/>
     <schema name="" catalog="mysql"/>
-    <schema name="" catalog="new_schema"/>
     <schema name="" catalog="performance_schema"/>
     <schema name="" catalog="solardb"/>
     <schema name="" catalog="test"/>

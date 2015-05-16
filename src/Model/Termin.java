@@ -20,14 +20,14 @@ public class Termin implements ITermin {
     String Kunde;
 
     // helper objects for operate with DB
-    SqlConfig SqlConf;
+    SqlConfig SqlConfigObj;
     Connection con;
 
     Date currentDate;
 
-    public Termin() {
+    public Termin() throws SQLException {
 
-        SqlConf = new SqlConfig();
+        SqlConfigObj =  SqlConfig.getInstance();
         currentDate = new Date();
     }
 
@@ -37,7 +37,7 @@ public class Termin implements ITermin {
         try {
 
             // Setup SQl connection
-            con = DriverManager.getConnection(SqlConf.getUrl(), SqlConf.getUser(), SqlConf.getPassword());
+            con = SqlConfig.getCon();
 
             // Define SQL Statement
             String insertTableSQL = "INSERT INTO termin ( Datum, Uhrzeitvon, UhrzeitBis, Sonnenbank, Kunde) VALUES (?,?,?,?,?)";
@@ -66,7 +66,7 @@ public class Termin implements ITermin {
         try {
 
             // Setup SQl connection
-            con = DriverManager.getConnection(SqlConf.getUrl(), SqlConf.getUser(), SqlConf.getPassword());
+            con = SqlConfig.getCon();
 
             // Define SQL Statement
             String insertTableSQL = "UPDATE termin SET Datum = ?, UhrzeitVon =? , UhrzeitBis =?, Sonnenbank =?, Kunde =?  WHERE ID = ?";
@@ -96,7 +96,7 @@ public class Termin implements ITermin {
         try {
 
             // Setup SQl connection
-            con = DriverManager.getConnection(SqlConf.getUrl(), SqlConf.getUser(), SqlConf.getPassword());
+            con = SqlConfig.getCon();
 
             // Define SQL Statement
             String insertTableSQL = "DELETE FROM termin WHERE ID = ?";
@@ -124,7 +124,7 @@ public class Termin implements ITermin {
             LinkedList<TerminObject> TerminObjectList = new LinkedList<TerminObject>();
 
             // Setup SQl connection
-            con = DriverManager.getConnection(SqlConf.getUrl(), SqlConf.getUser(), SqlConf.getPassword());
+            con = SqlConfig.getCon();
 
             // Define SQL Statement
             String selectSQL = "SELECT * FROM termin";

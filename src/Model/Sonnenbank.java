@@ -19,12 +19,12 @@ public class Sonnenbank implements ISonnenbank {
     private LocalDateTime Wartungstermin;
 
     // helper objects for operate with DB
-    private SqlConfig SqlConf;
+    SqlConfig SqlConfigObj;
     private Connection con;
 
-    public Sonnenbank() {
+    public Sonnenbank() throws SQLException {
 
-        SqlConf = new SqlConfig();
+        SqlConfigObj =  SqlConfig.getInstance();
 
     }
 
@@ -34,7 +34,7 @@ public class Sonnenbank implements ISonnenbank {
         try {
 
             // Setup SQl connection
-            con = DriverManager.getConnection(SqlConf.getUrl(), SqlConf.getUser(), SqlConf.getPassword());
+            con = SqlConfig.getCon();
 
             // Define SQL Statement
             String insertTableSQL = "INSERT INTO sonnenbank ( Kabine, Leistung, Wartungstermin) VALUES (?,?,?)";
@@ -62,7 +62,7 @@ public class Sonnenbank implements ISonnenbank {
         try {
 
             // Setup SQl connection
-            con = DriverManager.getConnection(SqlConf.getUrl(), SqlConf.getUser(), SqlConf.getPassword());
+            con = SqlConfig.getCon();
 
             // Define SQL Statement
             String insertTableSQL = "UPDATE sonnenbank SET Kabine = ?, Leistung =? , Wartungstermin =?  WHERE ID = ?";
@@ -91,7 +91,8 @@ public class Sonnenbank implements ISonnenbank {
         try {
 
             // Setup SQl connection
-            con = DriverManager.getConnection(SqlConf.getUrl(), SqlConf.getUser(), SqlConf.getPassword());
+            con = SqlConfig.getCon();
+
 
             // Define SQL Statement
             String insertTableSQL = "DELETE FROM sonnenbank WHERE ID = ?";
@@ -119,7 +120,7 @@ public class Sonnenbank implements ISonnenbank {
             LinkedList<SonnenbankObject> SonnenbankObjectList = new LinkedList<SonnenbankObject>();
 
             // Setup SQl connection
-            con = DriverManager.getConnection(SqlConf.getUrl(), SqlConf.getUser(), SqlConf.getPassword());
+            con = SqlConfig.getCon();
 
             // Define SQL Statement
             String selectSQL = "SELECT * FROM sonnenbank";

@@ -7,6 +7,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.SQLException;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
@@ -114,7 +115,11 @@ public class EditTermin extends JFrame {
         ButtonAbort.setText("Abbrechen");
         ButtonAbort.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent evt) {
-                ButtonAbortActionPerformed(evt);
+                try {
+                    ButtonAbortActionPerformed(evt);
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
             }
         });
 
@@ -183,7 +188,7 @@ public class EditTermin extends JFrame {
 
     }
 
-    private void ButtonAbortActionPerformed(ActionEvent evt) {
+    private void ButtonAbortActionPerformed(ActionEvent evt) throws SQLException {
         int eingabe = JOptionPane.showConfirmDialog(null, "Möchten Sie wirklich abbrechen?", "Abbrechen", JOptionPane.YES_NO_OPTION);
         if (eingabe == 0) {
             OverviewTermin ot = new OverviewTermin();

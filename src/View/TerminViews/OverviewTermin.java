@@ -2,7 +2,6 @@ package View.TerminViews;
 
 
 import Controller.TerminController;
-import Model.Termin;
 import Model.TerminObject;
 import View.SonnenbankViews.OverviewSonnenbank;
 import View.UserViews.OverviewUser;
@@ -13,8 +12,7 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.SQLException;
-import java.time.LocalDate;
-import java.time.LocalTime;
+import java.util.Date;
 import java.util.LinkedList;
 
 /**
@@ -197,9 +195,9 @@ public class OverviewTermin extends JFrame {
 
         TerminObject to = new TerminObject(
                 Integer.parseInt((String) TableOverviewAppointment.getModel().getValueAt(row, 0)),
-                LocalDate.parse((String) TableOverviewAppointment.getModel().getValueAt(row, 1)),
-                LocalTime.parse((String) TableOverviewAppointment.getModel().getValueAt(row, 2)),
-                LocalTime.parse((String) TableOverviewAppointment.getModel().getValueAt(row, 3)),
+                Date.parse((String) TableOverviewAppointment.getModel().getValueAt(row, 1)),
+                Date.parse((String) TableOverviewAppointment.getModel().getValueAt(row, 2)),
+                Date.parse((String) TableOverviewAppointment.getModel().getValueAt(row, 3)),
                 (String) TableOverviewAppointment.getModel().getValueAt(row, 4),
                 (String) TableOverviewAppointment.getModel().getValueAt(row, 5));
 

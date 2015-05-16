@@ -4,8 +4,7 @@ import Model.ApplicationUser;
 import Model.ApplicationUserObject;
 
 import java.sql.SQLException;
-import java.time.LocalDate;
-import java.time.LocalDateTime;
+import java.util.Date;
 import java.util.LinkedList;
 
 /**
@@ -25,7 +24,7 @@ public class UserController {
 
     }
 
-    public boolean registerApplicationUser(String Vorname, String Nachname, LocalDate Geburtstag, String Mail, char[] Password) throws SQLException {
+    public boolean registerApplicationUser(String Vorname, String Nachname, Date Geburtstag, String Mail, char[] Password) throws SQLException {
 
         // Außen vor lassen! erst wenn wichtige sachen fertig sind weiter implementieren
         ApplicationUser userControler = new ApplicationUser();
@@ -35,7 +34,7 @@ public class UserController {
     }
 
     // Diese Methode liefert true zurück wenn das Model in der DB ein Update durchführen konnte
-    public boolean editApplicationUser(int ID, String Vorname, String Nachname, LocalDate Geburtstag, String EMail, char[] Password) throws SQLException {
+    public boolean editApplicationUser(int ID, String Vorname, String Nachname, Date Geburtstag, String EMail, char[] Password) throws SQLException {
 
         ApplicationUser userControler = new ApplicationUser();
         boolean UserCreated = userControler.editApplicationUser(ID, Vorname, Nachname, Geburtstag, EMail, new String(Password));

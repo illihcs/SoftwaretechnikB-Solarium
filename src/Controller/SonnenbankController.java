@@ -1,12 +1,10 @@
 package Controller;
 
-import Model.ApplicationUser;
-import Model.ApplicationUserObject;
 import Model.Sonnenbank;
 import Model.SonnenbankObject;
 
 import java.sql.SQLException;
-import java.time.LocalDate;
+import java.util.Date;
 import java.util.LinkedList;
 
 /**
@@ -14,14 +12,14 @@ import java.util.LinkedList;
  */
 public class SonnenbankController {
 
-    public boolean createSonnenbank(String Kabine, String Leistung, LocalDate Wartungstermin) throws SQLException {
+    public boolean createSonnenbank(String Kabine, String Leistung, Date Wartungstermin) throws SQLException {
         Sonnenbank sonnenControler = new Sonnenbank();
         boolean TerminCreated =  sonnenControler.createSonnenbank(Kabine, Leistung, Wartungstermin);
 
         return TerminCreated;
     }
 
-    public boolean editSonnenbank(int ID, String Kabine,  String Leistung,  LocalDate Wartungstermin) throws SQLException {
+    public boolean editSonnenbank(int ID, String Kabine, String Leistung, Date Wartungstermin) throws SQLException {
         Sonnenbank sonnenControler = new Sonnenbank();
         boolean TerminCreated =  sonnenControler.editSonnenbank(ID, Kabine, Leistung, Wartungstermin);
 

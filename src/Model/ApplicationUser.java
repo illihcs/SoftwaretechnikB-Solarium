@@ -1,7 +1,11 @@
 package Model;
 
-import java.sql.*;
-import java.time.LocalDate;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.Date;
 import java.util.LinkedList;
 
 
@@ -10,7 +14,7 @@ public class ApplicationUser implements IApplicationUser {
     private int ID = 0;
     private String Vorname;
     private String Nachname;
-    private LocalDate Geburtstag;
+    private Date Geburtstag;
     private String Email;
     private String Passwort;
 
@@ -27,7 +31,7 @@ public class ApplicationUser implements IApplicationUser {
     }
 
     // Edit application user datas in DB
-    public boolean editApplicationUser(int ID, String Vorname, String Nachname, LocalDate Geburtstag, String EMail, String Passwort) {
+    public boolean editApplicationUser(int ID, String Vorname, String Nachname, Date Geburtstag, String EMail, String Passwort) {
 
         try {
 
@@ -59,7 +63,7 @@ public class ApplicationUser implements IApplicationUser {
     }
 
     // Creates a new application user in DB
-    public boolean createApplicationUser(String Vorname, String Nachname, LocalDate Geburtstag, String EMail, String Passwort) {
+    public boolean createApplicationUser(String Vorname, String Nachname, Date Geburtstag, String EMail, String Passwort) {
 
         try {
 
@@ -178,7 +182,7 @@ public class ApplicationUser implements IApplicationUser {
                                 rs.getInt("ID"),
                                 rs.getString("Vorname"),
                                 rs.getString("Nachname"),
-                                rs.getDate("Geburtstag").toLocalDate(),
+                                rs.getDate("Geburtstag"),
                                 rs.getString("EMail"),
                                 rs.getString("Passwort")
                         )

@@ -1,7 +1,7 @@
 package Model;
 
-import java.time.LocalDate;
-import java.time.LocalTime;
+
+import java.util.Date;
 
 /**
  * Created by Win7-Dev on 03.05.2015.
@@ -9,13 +9,13 @@ import java.time.LocalTime;
 public class TerminObject {
 
     private int ID = 0;
-    private LocalDate Datum = null;
-    private LocalTime UhrzeitVon = null;
-    private LocalTime UhrzeitBis = null;
+    private Date Datum = null;
+    private Date UhrzeitVon = null;
+    private Date UhrzeitBis = null;
     private String Sonnenbank = null;
     private String Kunde;
 
-    public TerminObject(int ID, LocalDate Datum, LocalTime UhrzeitVon, LocalTime UhrzeitBis, String Sonnenbank, String Kunde) {
+    public TerminObject(int ID, Date Datum, Date UhrzeitVon, Date UhrzeitBis, String Sonnenbank, String Kunde) {
 
         this.ID = ID;
         this.Datum = Datum;
@@ -33,27 +33,27 @@ public class TerminObject {
         this.ID = ID;
     }
 
-    public LocalDate getDatum() {
+    public Date getDatum() {
         return Datum;
     }
 
-    public void setDatum(LocalDate datum) {
+    public void setDatum(Date datum) {
         Datum = datum;
     }
 
-    public LocalTime getUhrzeitVon() {
+    public Date getUhrzeitVon() {
         return UhrzeitVon;
     }
 
-    public void setUhrzeitVon(LocalTime uhrzeitVon) {
+    public void setUhrzeitVon(Date uhrzeitVon) {
         UhrzeitVon = uhrzeitVon;
     }
 
-    public LocalTime getUhrzeitBis() {
+    public Date getUhrzeitBis() {
         return UhrzeitBis;
     }
 
-    public void setUhrzeitBis(LocalTime uhrzeitBis) {
+    public void setUhrzeitBis(Date uhrzeitBis) {
         UhrzeitBis = uhrzeitBis;
     }
 

@@ -1,21 +1,19 @@
 package Model;
 
-import java.sql.*;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
-import java.time.*;
-import java.time.format.DateTimeFormatter;
-import java.util.GregorianCalendar;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.Date;
 import java.util.LinkedList;
-import  java.util.Date;
 
 
 public class Termin implements ITermin {
 
     int ID;
-    LocalDate Datum;
-    LocalDateTime UhrzeitVon;
-    LocalDateTime UhrzeitBis;
+    Date Datum;
+    Date UhrzeitVon;
+    Date UhrzeitBis;
     String Sonnenbank;
     String Kunde;
 
@@ -32,7 +30,7 @@ public class Termin implements ITermin {
     }
 
     // create an termin in the DB
-    public boolean createTermin(LocalDate Datum, LocalTime UhrzeitVon, LocalTime UhrzeitBis, String Sonnenbank, String KundenName) {
+    public boolean createTermin(Date Datum, Date UhrzeitVon, Date UhrzeitBis, String Sonnenbank, String KundenName) {
 
         try {
 
@@ -45,8 +43,8 @@ public class Termin implements ITermin {
             // Fill SQL Statement
             PreparedStatement preparedStatement = con.prepareStatement(insertTableSQL);
             preparedStatement.setDate(1, java.sql.Date.valueOf(Datum.toString()));
-            preparedStatement.setTime(2, Time.valueOf(UhrzeitVon.toString()));
-            preparedStatement.setTime(3, Time.valueOf(UhrzeitBis.toString()));
+            preparedStatement.setDate(2, (java.sql.Date) UhrzeitVon);
+            preparedStatement.setDate(3, (java.sql.Date) UhrzeitBis);
             preparedStatement.setString(4, Sonnenbank);
             preparedStatement.setString(5, KundenName);
 
@@ -62,7 +60,7 @@ public class Termin implements ITermin {
     }
 
     // edit an termin in the DB via a given ID
-    public boolean editTermin(int ID, LocalDate DateTime, LocalTime UhrzeitVon, LocalTime UhrzeitBis, String Sonnenbank, String KundenName) {
+    public boolean editTermin(int ID, Date Date, Date UhrzeitVon, Date UhrzeitBis, String Sonnenbank, String KundenName) {
         try {
 
             // Setup SQl connection
@@ -73,9 +71,9 @@ public class Termin implements ITermin {
 
             // Fill SQL Statement
             PreparedStatement preparedStatement = con.prepareStatement(insertTableSQL);
-            preparedStatement.setDate(1, java.sql.Date.valueOf(DateTime.toString()));
-            preparedStatement.setTime(2, Time.valueOf(UhrzeitVon.toString()));
-            preparedStatement.setTime(3, Time.valueOf(UhrzeitBis.toString()));
+            preparedStatement.setDate(1, java.sql.Date.valueOf(Date.toString()));
+            preparedStatement.setDate(2, (java.sql.Date) UhrzeitVon);
+            preparedStatement.setDate(3, (java.sql.Date) UhrzeitBis);
             preparedStatement.setString(4, Sonnenbank);
             preparedStatement.setString(5, KundenName);
             preparedStatement.setInt(6, ID);
@@ -141,9 +139,9 @@ public class Termin implements ITermin {
 
                 TerminObjectList.add(
                         new TerminObject(rs.getInt("ID"),
-                                rs.getDate("Datum").toLocalDate(),
-                                rs.getTime("UhrzeitVon").toLocalTime(),
-                                rs.getTime("UhrzeitBis").toLocalTime(),
+                                rs.getDate("Datum"),
+                                rs.getDate("UhrzeitVon"),
+                                rs.getDate("UhrzeitBis"),
                                 rs.getString("Sonnenbank"),
                                 rs.getString("Kunde"))
                 );

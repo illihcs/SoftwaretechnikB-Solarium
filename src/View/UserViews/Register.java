@@ -3,12 +3,13 @@ package View.UserViews;
 import Controller.UserController;
 
 import javax.swing.*;
+import javax.swing.text.DateFormatter;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.SQLException;
-import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
+import java.util.Date;
+
 
 /**
  * Created by admin on 03.05.2015.
@@ -170,11 +171,11 @@ public class Register extends JFrame {
             UserController controller = new UserController();
 
             // Define the 'Date' format to parse
-            DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern("dd.MM.yyyy");
+            DateFormatter dateFormatter = DateFormatter.ofPattern("dd.MM.yyyy");
 
             String Surname = TextFieldSurname.getText();
             String Givenname = TextFieldGivenname.getText();
-            LocalDate Birthday = LocalDate.parse(TextFieldBirthday.getText(), dateFormatter);
+            Date Birthday = Date.parse(TextFieldBirthday.getText(), dateFormatter);
             String Mail = TextFieldMail.getText();
             char[] Password = TextFieldPassword.getText().toCharArray();
 

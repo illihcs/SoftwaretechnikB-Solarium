@@ -11,7 +11,7 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.SQLException;
-import java.time.LocalDate;
+import java.util.Date;
 import java.util.LinkedList;
 
 /**
@@ -187,7 +187,7 @@ public class OverviewUser extends JFrame {
                 Integer.parseInt((String) TableOverviewUser.getModel().getValueAt(row, 0)),
                 (String) TableOverviewUser.getModel().getValueAt(row, 1),
                 (String) TableOverviewUser.getModel().getValueAt(row, 2),
-                LocalDate.parse((String) TableOverviewUser.getModel().getValueAt(row, 3)),
+                Date.parse((String) TableOverviewUser.getModel().getValueAt(row, 3)),
                 (String) TableOverviewUser.getModel().getValueAt(row, 4),
                 (String) TableOverviewUser.getModel().getValueAt(row, 5));
         Edit et = new Edit(to);

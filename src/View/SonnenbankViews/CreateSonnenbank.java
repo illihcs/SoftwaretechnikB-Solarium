@@ -7,8 +7,6 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.SQLException;
-import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
 import java.util.Date;
 
 /**
@@ -133,12 +131,12 @@ public class CreateSonnenbank extends JFrame {
             SonnenbankController controller = new SonnenbankController();
 
             // Define the 'Date' format to parse
-            DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern("dd.MM.yyyy");
+            // DateFormatter dateFormatter = DateFormatter.ofPattern("dd.MM.yyyy");
 
             // Get and save userInputs
             String Cabin = TextFieldCabin.getText();
             String Power = TextFieldPower.getText();
-            LocalDate ServiceAppointment = LocalDate.parse(TextFieldServiceAppointment.getText(), dateFormatter);
+            Date ServiceAppointment = Date.parse(TextFieldServiceAppointment.getText(), dateFormatter);
 
             boolean sonnenbankCreated = controller.createSonnenbank(Cabin, Power, ServiceAppointment);
 

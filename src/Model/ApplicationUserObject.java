@@ -1,20 +1,18 @@
 package Model;
 
-import java.time.LocalDate;
 
-/**
- * Created by Win7-Dev on 03.05.2015.
- */
+import java.util.Date;
+
 public class ApplicationUserObject {
 
     private int ID;
     private String Vorname;
     private String Nachname;
-    private LocalDate Geburtstag;
+    private Date Geburtstag;
     private String Email;
     private String Passwort;
 
-    public ApplicationUserObject(int ID, String Vorname, String Nachname, LocalDate Geburtstag, String Email, String Passwort) {
+    public ApplicationUserObject(int ID, String Vorname, String Nachname, Date Geburtstag, String Email, String Passwort) {
         this.ID = ID;
         this.Vorname = Vorname;
         this.Nachname = Nachname;
@@ -47,11 +45,11 @@ public class ApplicationUserObject {
         Nachname = nachname;
     }
 
-    public LocalDate getGeburtstag() {
+    public Date getGeburtstag() {
         return Geburtstag;
     }
 
-    public void setGeburtstag(LocalDate geburtstag) {
+    public void setGeburtstag(Date geburtstag) {
         Geburtstag = geburtstag;
     }
 

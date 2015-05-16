@@ -1,22 +1,20 @@
 package Model;
 
-import java.sql.*;
-import java.time.LocalDate;
-import java.time.LocalDateTime;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.Date;
 import java.util.LinkedList;
 
-
-/**
- * Created by Win7-Dev on 02.05.2015.
- */
-
-
+ 
 public class Sonnenbank implements ISonnenbank {
 
     private int ID;
     private String Kabine;
     private String Leistung;
-    private LocalDateTime Wartungstermin;
+    private Date Wartungstermin;
 
     // helper objects for operate with DB
     SqlConfig SqlConfigObj;
@@ -29,7 +27,7 @@ public class Sonnenbank implements ISonnenbank {
     }
 
     // create a sonnenbank in the DB
-    public boolean createSonnenbank(String Kabine, String Leistung, LocalDate Wartungstermin) {
+    public boolean createSonnenbank(String Kabine, String Leistung, Date Wartungstermin) {
 
         try {
 
@@ -57,7 +55,7 @@ public class Sonnenbank implements ISonnenbank {
     }
 
     // edit a sonnenbank in the DB via a given ID
-    public boolean editSonnenbank(int ID, String Kabine, String Leistung, LocalDate Wartungstermin) {
+    public boolean editSonnenbank(int ID, String Kabine, String Leistung, Date Wartungstermin) {
 
         try {
 
@@ -136,7 +134,7 @@ public class Sonnenbank implements ISonnenbank {
 
 
                 SonnenbankObjectList.add(
-                        new SonnenbankObject(rs.getInt("ID"), rs.getString("Kabine"), rs.getString("Leistung"), rs.getDate("Wartungstermin").toLocalDate())
+                        new SonnenbankObject(rs.getInt("ID"), rs.getString("Kabine"), rs.getString("Leistung"), rs.getDate("Wartungstermin"))
                 );
 
             }

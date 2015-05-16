@@ -8,12 +8,11 @@ import View.UserViews.OverviewUser;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
-import javax.swing.tree.ExpandVetoException;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.SQLException;
-import java.time.LocalDate;
+import java.util.Date;
 import java.util.LinkedList;
 
 /**
@@ -196,7 +195,7 @@ public class OverviewSonnenbank extends JFrame {
                 Integer.parseInt((String) TableOverviewSunbed.getModel().getValueAt(row, 0)),
                 (String) TableOverviewSunbed.getModel().getValueAt(row, 1),
                 (String) TableOverviewSunbed.getModel().getValueAt(row, 2),
-                LocalDate.parse((String) TableOverviewSunbed.getModel().getValueAt(row, 3)));
+                Date.parse((String) TableOverviewSunbed.getModel().getValueAt(row, 3)));
 
         EditSonnenbank editSonnenbank = new EditSonnenbank(sonnenbankObject);
 

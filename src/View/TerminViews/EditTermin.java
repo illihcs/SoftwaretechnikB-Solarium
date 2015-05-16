@@ -4,14 +4,13 @@ import Controller.TerminController;
 import Model.TerminObject;
 
 import javax.swing.*;
+import javax.swing.text.DateFormatter;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.SQLException;
-import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.time.LocalTime;
-import java.time.format.DateTimeFormatter;
+import java.util.Date;
+
 
 /**
  * Created by admin on 03.05.2015.
@@ -30,13 +29,13 @@ public class EditTermin extends JFrame {
     JLabel LabelTitle;
     JLabel LabelFailure;
     JLabel LabelDate;
-    JLabel LabelTimeFrom;
-    JLabel LabelTimeUntil;
+    JLabel LabelDateFrom;
+    JLabel LabelDateUntil;
     JLabel LabelSunbed;
     JLabel LabelClient;
     JTextField TextFieldDate;
-    JTextField TextFieldTimeFrom;
-    JTextField TextFieldTimeUntil;
+    JTextField TextFieldDateFrom;
+    JTextField TextFieldDateUntil;
     JTextField TextFieldSunbed;
     JTextField TextFieldClient;
     JButton ButtonBackToAppointmentOverview;
@@ -64,13 +63,13 @@ public class EditTermin extends JFrame {
         ButtonBackToAppointmentOverview = new JButton("Zurück zur Terminübersicht");
         LabelTitle = new JLabel("Bitte tragen Sie die Termininformationen ein, um den Termin zu erstellen.");
         LabelDate = new JLabel("Datum:");
-        LabelTimeFrom = new JLabel("Uhrzeit Von:");
-        LabelTimeUntil = new JLabel("Uhrezit Bis:");
+        LabelDateFrom = new JLabel("Uhrzeit Von:");
+        LabelDateUntil = new JLabel("Uhrezit Bis:");
         LabelSunbed = new JLabel("Sonnenbank:");
         LabelClient = new JLabel("Kundenname:");
         TextFieldDate = new JTextField(terminObject.getDatum().toString());
-        TextFieldTimeFrom = new JTextField(terminObject.getUhrzeitVon().toString());
-        TextFieldTimeUntil = new JTextField(terminObject.getUhrzeitBis().toString());
+        TextFieldDateFrom = new JTextField(terminObject.getUhrzeitVon().toString());
+        TextFieldDateUntil = new JTextField(terminObject.getUhrzeitBis().toString());
         TextFieldSunbed = new JTextField(terminObject.getSonnenbank());
         TextFieldClient = new JTextField(terminObject.getKunde());
 
@@ -87,13 +86,13 @@ public class EditTermin extends JFrame {
         center.add(LabelDate);
         center.add(TextFieldDate);
 
-        LabelTimeFrom.setText("Uhrzeit Von:");
-        center.add(LabelTimeFrom);
-        center.add(TextFieldTimeFrom);
+        LabelDateFrom.setText("Uhrzeit Von:");
+        center.add(LabelDateFrom);
+        center.add(TextFieldDateFrom);
 
-        LabelTimeUntil.setText("Uhrzeit Bis:");
-        center.add(LabelTimeUntil);
-        center.add(TextFieldTimeUntil);
+        LabelDateUntil.setText("Uhrzeit Bis:");
+        center.add(LabelDateUntil);
+        center.add(TextFieldDateUntil);
 
         LabelSunbed.setText("Sonnenbank:");
         center.add(LabelSunbed);
@@ -154,14 +153,14 @@ public class EditTermin extends JFrame {
             TerminController controller = new TerminController();
 
             // Define the 'Date' format to parse
-            DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+            DateFormatter dateFormatter = DateFormatter.ofPattern("yyyy-MM-dd");
             // Define the 'Date' format to parse
-            DateTimeFormatter timeFormatter = DateTimeFormatter.ofPattern("HH:mm:ss");
+            DateFormatter timeFormatter = DateFormatter.ofPattern("HH:mm:ss");
 
             // Get and save userInputs
-            LocalDate terminDate = LocalDate.parse(TextFieldDate.getText(), dateFormatter);
-            LocalTime terminFrom = LocalTime.parse(TextFieldTimeFrom.getText(), timeFormatter);
-            LocalTime terminUntil = LocalTime.parse(TextFieldTimeFrom.getText(), timeFormatter);
+            Date terminDate = Date.parse(TextFieldDate.getText(), dateFormatter);
+            Date terminFrom = Date.parse(TextFieldDateFrom.getText(), timeFormatter);
+            Date terminUntil = Date.parse(TextFieldDateFrom.getText(), timeFormatter);
             String Sunbed = TextFieldSunbed.getText();
             String Client = TextFieldClient.getText();
 

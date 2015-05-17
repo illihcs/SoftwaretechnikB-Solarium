@@ -161,14 +161,9 @@ public class CreateTermin extends JFrame{
 
             TerminController controller = new TerminController();
 
-            // Define the 'Date' format to parse
-            DateFormatter dateFormatter = DateFormatter.ofPattern("dd.MM.yyyy");
-            // Define the 'Date' format to parse
-            DateFormatter timeFormatter = DateFormatter.ofPattern("HH:mm:ss");
-
-            Date terminDate = Date.parse(TextFieldDate.getText(), dateFormatter);
-            Date terminFrom = Date.parse(TextFieldDateFrom.getText(), timeFormatter);
-            Date terminUntil = Date.parse(TextFieldDateUntil.getText(), timeFormatter);
+            String terminDate = TextFieldDate.getText();
+            String terminFrom = TextFieldDateFrom.getText();
+            String terminUntil = TextFieldDateUntil.getText();
 
             String Sunbed = TextFieldSunbed.getText();
             String Client =TextFieldClient.getText();

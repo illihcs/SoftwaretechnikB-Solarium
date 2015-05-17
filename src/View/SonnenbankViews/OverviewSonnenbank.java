@@ -195,7 +195,7 @@ public class OverviewSonnenbank extends JFrame {
                 Integer.parseInt((String) TableOverviewSunbed.getModel().getValueAt(row, 0)),
                 (String) TableOverviewSunbed.getModel().getValueAt(row, 1),
                 (String) TableOverviewSunbed.getModel().getValueAt(row, 2),
-                Date.parse((String) TableOverviewSunbed.getModel().getValueAt(row, 3)));
+                (Date) TableOverviewSunbed.getModel().getValueAt(row, 3));
 
         EditSonnenbank editSonnenbank = new EditSonnenbank(sonnenbankObject);
 

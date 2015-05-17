@@ -182,14 +182,17 @@ public class OverviewUser extends JFrame {
     }
 
     private void ButtonEditUserActionPerformed(ActionEvent evt) {
+
         int row = TableOverviewUser.getSelectedRow();
+
         ApplicationUserObject to = new ApplicationUserObject(
                 Integer.parseInt((String) TableOverviewUser.getModel().getValueAt(row, 0)),
                 (String) TableOverviewUser.getModel().getValueAt(row, 1),
                 (String) TableOverviewUser.getModel().getValueAt(row, 2),
-                Date.parse((String) TableOverviewUser.getModel().getValueAt(row, 3)),
+                (Date)  TableOverviewUser.getModel().getValueAt(row, 3),
                 (String) TableOverviewUser.getModel().getValueAt(row, 4),
                 (String) TableOverviewUser.getModel().getValueAt(row, 5));
+
         Edit et = new Edit(to);
         et.setVisible(true);
         this.dispose();

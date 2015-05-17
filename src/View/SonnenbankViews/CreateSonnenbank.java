@@ -136,7 +136,7 @@ public class CreateSonnenbank extends JFrame {
             // Get and save userInputs
             String Cabin = TextFieldCabin.getText();
             String Power = TextFieldPower.getText();
-            Date ServiceAppointment = Date.parse(TextFieldServiceAppointment.getText(), dateFormatter);
+            String ServiceAppointment = TextFieldServiceAppointment.getText();
 
             boolean sonnenbankCreated = controller.createSonnenbank(Cabin, Power, ServiceAppointment);
 

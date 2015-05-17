@@ -195,9 +195,9 @@ public class OverviewTermin extends JFrame {
 
         TerminObject to = new TerminObject(
                 Integer.parseInt((String) TableOverviewAppointment.getModel().getValueAt(row, 0)),
-                Date.parse((String) TableOverviewAppointment.getModel().getValueAt(row, 1)),
-                Date.parse((String) TableOverviewAppointment.getModel().getValueAt(row, 2)),
-                Date.parse((String) TableOverviewAppointment.getModel().getValueAt(row, 3)),
+                (Date) TableOverviewAppointment.getModel().getValueAt(row, 1),
+                (Date) TableOverviewAppointment.getModel().getValueAt(row, 2),
+                (Date) TableOverviewAppointment.getModel().getValueAt(row, 3),
                 (String) TableOverviewAppointment.getModel().getValueAt(row, 4),
                 (String) TableOverviewAppointment.getModel().getValueAt(row, 5));
 

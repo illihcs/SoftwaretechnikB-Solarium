@@ -171,13 +171,11 @@ public class Edit extends JFrame {
 
         try {
 
-            // Define the 'Date' format to parse
-            DateFormatter dateFormatter = DateFormatter.ofPattern("yyyy-MM-dd");
 
             int UserId = userObject.getID();
             String Givenname = TextFieldGivenname.getText();
             String Surname = TextFieldSurname.getText();
-            Date Birthday = Date.parse(TextFieldBirthday.getText(), dateFormatter);
+            String Birthday = TextFieldBirthday.getText();
             String Mail = TextFieldMail.getText();
             char[] Password = TextFieldPassword.getText().toCharArray();
 

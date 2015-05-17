@@ -170,12 +170,9 @@ public class Register extends JFrame {
 
             UserController controller = new UserController();
 
-            // Define the 'Date' format to parse
-            DateFormatter dateFormatter = DateFormatter.ofPattern("dd.MM.yyyy");
-
             String Surname = TextFieldSurname.getText();
             String Givenname = TextFieldGivenname.getText();
-            Date Birthday = Date.parse(TextFieldBirthday.getText(), dateFormatter);
+            String Birthday = TextFieldBirthday.getText();
             String Mail = TextFieldMail.getText();
             char[] Password = TextFieldPassword.getText().toCharArray();
 

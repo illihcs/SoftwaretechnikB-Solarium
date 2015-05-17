@@ -137,13 +137,11 @@ public class EditSonnenbank extends JFrame {
 
             SonnenbankController controller = new SonnenbankController();
 
-            // Define the 'Date' format to parse
-            DateFormatter dateFormatter = DateFormatter.ofPattern("yyyy-MM-dd");
 
             // Get and save userInputs
             String Cabin = TextFieldCabin.getText();
             String Power = TextFieldPower.getText();
-            Date ServiceAppointment = Date.parse(TextFieldServiceAppointment.getText(), dateFormatter);
+            String ServiceAppointment = TextFieldServiceAppointment.getText();
 
             // Execute changes
             boolean sonnenbankEdited = controller.editSonnenbank(sonnenbankObject.getID(), Cabin, Power, ServiceAppointment);

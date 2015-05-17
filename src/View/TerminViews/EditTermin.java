@@ -152,15 +152,11 @@ public class EditTermin extends JFrame {
 
             TerminController controller = new TerminController();
 
-            // Define the 'Date' format to parse
-            DateFormatter dateFormatter = DateFormatter.ofPattern("yyyy-MM-dd");
-            // Define the 'Date' format to parse
-            DateFormatter timeFormatter = DateFormatter.ofPattern("HH:mm:ss");
 
             // Get and save userInputs
-            Date terminDate = Date.parse(TextFieldDate.getText(), dateFormatter);
-            Date terminFrom = Date.parse(TextFieldDateFrom.getText(), timeFormatter);
-            Date terminUntil = Date.parse(TextFieldDateFrom.getText(), timeFormatter);
+            String terminDate = TextFieldDate.getText();
+            String terminFrom = TextFieldDateFrom.getText();
+            String terminUntil = TextFieldDateFrom.getText();
             String Sunbed = TextFieldSunbed.getText();
             String Client = TextFieldClient.getText();
 

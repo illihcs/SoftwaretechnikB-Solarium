@@ -4,22 +4,42 @@ import Model.Termin;
 import Model.TerminObject;
 
 import java.sql.SQLException;
+import java.text.DateFormat;
+import java.text.ParseException;
 import java.util.Date;
 import java.util.LinkedList;
 
 
 public class TerminController {
 
-    public boolean createTermin(Date Datum, Date UhrzeitVon, Date UhrzeitBis, String Sonnenbank, String KundenName) throws SQLException {
+    private DateFormat dateFormater;
+
+    public TerminController() {
+        dateFormater =   DateFormat.getDateInstance(DateFormat.MEDIUM );
+    }
+
+    public boolean createTermin(String Datum, String UhrzeitVon, String UhrzeitBis, String Sonnenbank, String KundenName) throws SQLException, ParseException {
+
         Termin terminModel = new Termin();
-        boolean TerminCreated =  terminModel.createTermin(Datum, UhrzeitVon, UhrzeitBis, Sonnenbank, KundenName);
+
+        Date DatumDate = dateFormater.parse(Datum);
+        Date UhrzeitVonDate = dateFormater.parse(UhrzeitVon);
+        Date UhrzeitBisDate = dateFormater.parse(UhrzeitBis);
+
+        boolean TerminCreated =  terminModel.createTermin(DatumDate, UhrzeitVonDate, UhrzeitBisDate, Sonnenbank, KundenName);
 
         return TerminCreated;
     }
 
-    public boolean editTermin(int ID, Date Datum, Date UhrzeitVon, Date UhrzeitBis, String Sonnenbank, String KundenName) throws SQLException {
+    public boolean editTermin(int ID, String Datum, String UhrzeitVon, String UhrzeitBis, String Sonnenbank, String KundenName) throws SQLException, ParseException {
+
         Termin terminControler = new Termin();
-        boolean TerminCreated =  terminControler.editTermin(ID, Datum, UhrzeitVon, UhrzeitBis, Sonnenbank, KundenName);
+
+        Date DatumDate = dateFormater.parse(Datum);
+        Date UhrzeitVonDate = dateFormater.parse(UhrzeitVon);
+        Date UhrzeitBisDate = dateFormater.parse(UhrzeitBis);
+
+        boolean TerminCreated =  terminControler.editTermin(ID, DatumDate, UhrzeitVonDate, UhrzeitBisDate, Sonnenbank, KundenName);
 
         return TerminCreated;
     }

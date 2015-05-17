@@ -2,82 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2845892d-f8d1-43a4-8212-6bce5ad31c63" name="Default" comment="">
-      <change type="DELETED" beforePath="C:\Users\Win7-Dev\Documents\GitHub\SoftwaretechnikB-Solarium\out\production\Solarium\Controller\MainController.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Win7-Dev\Documents\GitHub\SoftwaretechnikB-Solarium\out\production\Solarium\Controller\SonnenbankController.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Win7-Dev\Documents\GitHub\SoftwaretechnikB-Solarium\out\production\Solarium\Controller\TerminController.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Win7-Dev\Documents\GitHub\SoftwaretechnikB-Solarium\out\production\Solarium\Controller\UserController.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Win7-Dev\Documents\GitHub\SoftwaretechnikB-Solarium\out\production\Solarium\Model\ApplicationUser.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Win7-Dev\Documents\GitHub\SoftwaretechnikB-Solarium\out\production\Solarium\Model\ApplicationUserObject.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Win7-Dev\Documents\GitHub\SoftwaretechnikB-Solarium\out\production\Solarium\Model\IApplicationUser.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Win7-Dev\Documents\GitHub\SoftwaretechnikB-Solarium\out\production\Solarium\Model\ISonnenbank.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Win7-Dev\Documents\GitHub\SoftwaretechnikB-Solarium\out\production\Solarium\Model\ITermin.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Win7-Dev\Documents\GitHub\SoftwaretechnikB-Solarium\out\production\Solarium\Model\Sonnenbank.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Win7-Dev\Documents\GitHub\SoftwaretechnikB-Solarium\out\production\Solarium\Model\SonnenbankObject.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Win7-Dev\Documents\GitHub\SoftwaretechnikB-Solarium\out\production\Solarium\Model\SqlConfig.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Win7-Dev\Documents\GitHub\SoftwaretechnikB-Solarium\out\production\Solarium\Model\Termin.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Win7-Dev\Documents\GitHub\SoftwaretechnikB-Solarium\out\production\Solarium\Model\TerminObject.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Win7-Dev\Documents\GitHub\SoftwaretechnikB-Solarium\out\production\Solarium\View\SonnenbankViews\CreateSonnenbank$1.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Win7-Dev\Documents\GitHub\SoftwaretechnikB-Solarium\out\production\Solarium\View\SonnenbankViews\CreateSonnenbank$2.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Win7-Dev\Documents\GitHub\SoftwaretechnikB-Solarium\out\production\Solarium\View\SonnenbankViews\CreateSonnenbank$3.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Win7-Dev\Documents\GitHub\SoftwaretechnikB-Solarium\out\production\Solarium\View\SonnenbankViews\CreateSonnenbank.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Win7-Dev\Documents\GitHub\SoftwaretechnikB-Solarium\out\production\Solarium\View\SonnenbankViews\EditSonnenbank$1.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Win7-Dev\Documents\GitHub\SoftwaretechnikB-Solarium\out\production\Solarium\View\SonnenbankViews\EditSonnenbank$2.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Win7-Dev\Documents\GitHub\SoftwaretechnikB-Solarium\out\production\Solarium\View\SonnenbankViews\EditSonnenbank$3.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Win7-Dev\Documents\GitHub\SoftwaretechnikB-Solarium\out\production\Solarium\View\SonnenbankViews\EditSonnenbank.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Win7-Dev\Documents\GitHub\SoftwaretechnikB-Solarium\out\production\Solarium\View\SonnenbankViews\OverviewSonnenbank$1.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Win7-Dev\Documents\GitHub\SoftwaretechnikB-Solarium\out\production\Solarium\View\SonnenbankViews\OverviewSonnenbank$2.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Win7-Dev\Documents\GitHub\SoftwaretechnikB-Solarium\out\production\Solarium\View\SonnenbankViews\OverviewSonnenbank$3.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Win7-Dev\Documents\GitHub\SoftwaretechnikB-Solarium\out\production\Solarium\View\SonnenbankViews\OverviewSonnenbank$4.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Win7-Dev\Documents\GitHub\SoftwaretechnikB-Solarium\out\production\Solarium\View\SonnenbankViews\OverviewSonnenbank$5.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Win7-Dev\Documents\GitHub\SoftwaretechnikB-Solarium\out\production\Solarium\View\SonnenbankViews\OverviewSonnenbank.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Win7-Dev\Documents\GitHub\SoftwaretechnikB-Solarium\out\production\Solarium\View\TerminViews\CreateTermin$1.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Win7-Dev\Documents\GitHub\SoftwaretechnikB-Solarium\out\production\Solarium\View\TerminViews\CreateTermin$2.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Win7-Dev\Documents\GitHub\SoftwaretechnikB-Solarium\out\production\Solarium\View\TerminViews\CreateTermin$3.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Win7-Dev\Documents\GitHub\SoftwaretechnikB-Solarium\out\production\Solarium\View\TerminViews\CreateTermin.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Win7-Dev\Documents\GitHub\SoftwaretechnikB-Solarium\out\production\Solarium\View\TerminViews\EditTermin$1.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Win7-Dev\Documents\GitHub\SoftwaretechnikB-Solarium\out\production\Solarium\View\TerminViews\EditTermin$2.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Win7-Dev\Documents\GitHub\SoftwaretechnikB-Solarium\out\production\Solarium\View\TerminViews\EditTermin.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Win7-Dev\Documents\GitHub\SoftwaretechnikB-Solarium\out\production\Solarium\View\TerminViews\OverviewTermin$1.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Win7-Dev\Documents\GitHub\SoftwaretechnikB-Solarium\out\production\Solarium\View\TerminViews\OverviewTermin$2.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Win7-Dev\Documents\GitHub\SoftwaretechnikB-Solarium\out\production\Solarium\View\TerminViews\OverviewTermin$3.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Win7-Dev\Documents\GitHub\SoftwaretechnikB-Solarium\out\production\Solarium\View\TerminViews\OverviewTermin$4.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Win7-Dev\Documents\GitHub\SoftwaretechnikB-Solarium\out\production\Solarium\View\TerminViews\OverviewTermin$5.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Win7-Dev\Documents\GitHub\SoftwaretechnikB-Solarium\out\production\Solarium\View\TerminViews\OverviewTermin.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Win7-Dev\Documents\GitHub\SoftwaretechnikB-Solarium\out\production\Solarium\View\UserViews\Edit$1.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Win7-Dev\Documents\GitHub\SoftwaretechnikB-Solarium\out\production\Solarium\View\UserViews\Edit$2.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Win7-Dev\Documents\GitHub\SoftwaretechnikB-Solarium\out\production\Solarium\View\UserViews\Edit$3.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Win7-Dev\Documents\GitHub\SoftwaretechnikB-Solarium\out\production\Solarium\View\UserViews\Edit.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Win7-Dev\Documents\GitHub\SoftwaretechnikB-Solarium\out\production\Solarium\View\UserViews\Login.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Win7-Dev\Documents\GitHub\SoftwaretechnikB-Solarium\out\production\Solarium\View\UserViews\OverviewUser$1.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Win7-Dev\Documents\GitHub\SoftwaretechnikB-Solarium\out\production\Solarium\View\UserViews\OverviewUser$2.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Win7-Dev\Documents\GitHub\SoftwaretechnikB-Solarium\out\production\Solarium\View\UserViews\OverviewUser$3.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Win7-Dev\Documents\GitHub\SoftwaretechnikB-Solarium\out\production\Solarium\View\UserViews\OverviewUser$4.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Win7-Dev\Documents\GitHub\SoftwaretechnikB-Solarium\out\production\Solarium\View\UserViews\OverviewUser$5.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Win7-Dev\Documents\GitHub\SoftwaretechnikB-Solarium\out\production\Solarium\View\UserViews\OverviewUser.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Win7-Dev\Documents\GitHub\SoftwaretechnikB-Solarium\out\production\Solarium\View\UserViews\Register$1.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Win7-Dev\Documents\GitHub\SoftwaretechnikB-Solarium\out\production\Solarium\View\UserViews\Register$2.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Win7-Dev\Documents\GitHub\SoftwaretechnikB-Solarium\out\production\Solarium\View\UserViews\Register$3.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Win7-Dev\Documents\GitHub\SoftwaretechnikB-Solarium\out\production\Solarium\View\UserViews\Register.class" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Model/ApplicationUser.java" afterPath="$PROJECT_DIR$/src/Model/ApplicationUser.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Model/ApplicationUserObject.java" afterPath="$PROJECT_DIR$/src/Model/ApplicationUserObject.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/View/SonnenbankViews/CreateSonnenbank.java" afterPath="$PROJECT_DIR$/src/View/SonnenbankViews/CreateSonnenbank.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/View/TerminViews/CreateTermin.java" afterPath="$PROJECT_DIR$/src/View/TerminViews/CreateTermin.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/View/UserViews/Edit.java" afterPath="$PROJECT_DIR$/src/View/UserViews/Edit.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/View/SonnenbankViews/EditSonnenbank.java" afterPath="$PROJECT_DIR$/src/View/SonnenbankViews/EditSonnenbank.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/View/TerminViews/EditTermin.java" afterPath="$PROJECT_DIR$/src/View/TerminViews/EditTermin.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Model/IApplicationUser.java" afterPath="$PROJECT_DIR$/src/Model/IApplicationUser.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Model/ISonnenbank.java" afterPath="$PROJECT_DIR$/src/Model/ISonnenbank.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Model/ITermin.java" afterPath="$PROJECT_DIR$/src/Model/ITermin.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/View/SonnenbankViews/OverviewSonnenbank.java" afterPath="$PROJECT_DIR$/src/View/SonnenbankViews/OverviewSonnenbank.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/View/TerminViews/OverviewTermin.java" afterPath="$PROJECT_DIR$/src/View/TerminViews/OverviewTermin.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/View/UserViews/OverviewUser.java" afterPath="$PROJECT_DIR$/src/View/UserViews/OverviewUser.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/View/UserViews/Register.java" afterPath="$PROJECT_DIR$/src/View/UserViews/Register.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Model/Sonnenbank.java" afterPath="$PROJECT_DIR$/src/Model/Sonnenbank.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Controller/SonnenbankController.java" afterPath="$PROJECT_DIR$/src/Controller/SonnenbankController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Model/SonnenbankObject.java" afterPath="$PROJECT_DIR$/src/Model/SonnenbankObject.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Model/Termin.java" afterPath="$PROJECT_DIR$/src/Model/Termin.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Controller/TerminController.java" afterPath="$PROJECT_DIR$/src/Controller/TerminController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Model/TerminObject.java" afterPath="$PROJECT_DIR$/src/Model/TerminObject.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Controller/UserController.java" afterPath="$PROJECT_DIR$/src/Controller/UserController.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
@@ -137,24 +72,14 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="CreateTermin.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/View/TerminViews/CreateTermin.java">
+      <file leaf-file-name="TerminController.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Controller/TerminController.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="168" column="0" selection-start-line="168" selection-start-column="0" selection-end-line="168" selection-end-column="0" />
+              <caret line="14" column="36" selection-start-line="14" selection-start-column="4" selection-end-line="14" selection-end-column="36" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ISonnenbank.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Model/ISonnenbank.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="3" column="2" selection-start-line="3" selection-start-column="2" selection-end-line="3" selection-end-column="2" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -163,7 +88,7 @@
         <entry file="file://$PROJECT_DIR$/src/View/TerminViews/OverviewTermin.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="201" column="17" selection-start-line="201" selection-start-column="17" selection-end-line="201" selection-end-column="17" />
+              <caret line="196" column="0" selection-start-line="196" selection-start-column="0" selection-end-line="201" selection-end-column="81" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -175,7 +100,7 @@
         <entry file="file://$PROJECT_DIR$/src/View/UserViews/Edit.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="174" column="58" selection-start-line="174" selection-start-column="58" selection-end-line="174" selection-end-column="58" />
+              <caret line="181" column="64" selection-start-line="181" selection-start-column="64" selection-end-line="181" selection-end-column="64" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -183,12 +108,16 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ITermin.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Model/ITermin.java">
+      <file leaf-file-name="UserController.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/Controller/UserController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="16" column="0" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
-              <folding />
+            <state vertical-scroll-proportion="0.5754717">
+              <caret line="66" column="17" selection-start-line="66" selection-start-column="17" selection-end-line="66" selection-end-column="17" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#379#380#0" expanded="true" />
+                <element signature="e#461#462#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -197,7 +126,7 @@
         <entry file="file://$PROJECT_DIR$/src/View/UserViews/OverviewUser.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="190" column="17" selection-start-line="190" selection-start-column="17" selection-end-line="190" selection-end-column="17" />
+              <caret line="169" column="21" selection-start-line="166" selection-start-column="20" selection-end-line="169" selection-end-column="21" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -209,7 +138,7 @@
         <entry file="file://$PROJECT_DIR$/src/View/UserViews/Register.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="175" column="4" selection-start-line="175" selection-start-column="4" selection-end-line="175" selection-end-column="4" />
+              <caret line="178" column="66" selection-start-line="178" selection-start-column="66" selection-end-line="178" selection-end-column="66" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -217,37 +146,33 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Sonnenbank.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/Model/Sonnenbank.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.31986532">
-              <caret line="10" column="1" selection-start-line="10" selection-start-column="1" selection-end-line="10" selection-end-column="1" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <marker date="1431807270982" expanded="true" signature="847:920" placeholder="INSERT INTO ..." />
-                <marker date="1431807270982" expanded="true" signature="1772:1851" placeholder="UPDATE sonne..." />
-                <marker date="1431807270982" expanded="true" signature="2697:2732" placeholder="DELETE FROM ..." />
-                <marker date="1431807270982" expanded="true" signature="3484:3508" placeholder="SELECT * FRO..sonnenbank..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="SonnenbankObject.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Model/SonnenbankObject.java">
+      <file leaf-file-name="SonnenbankController.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Controller/SonnenbankController.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="3" column="0" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="22" />
+              <caret line="39" column="69" selection-start-line="39" selection-start-column="8" selection-end-line="39" selection-end-column="69" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="EditTermin.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/View/TerminViews/EditTermin.java">
+      <file leaf-file-name="EditSonnenbank.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/View/SonnenbankViews/EditSonnenbank.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="157" column="17" selection-start-line="157" selection-start-column="17" selection-end-line="157" selection-end-column="17" />
+              <caret line="146" column="55" selection-start-line="146" selection-start-column="54" selection-end-line="146" selection-end-column="55" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="OverviewSonnenbank.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/View/SonnenbankViews/OverviewSonnenbank.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="197" column="74" selection-start-line="194" selection-start-column="16" selection-end-line="197" selection-end-column="74" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -284,7 +209,6 @@
         <option value="$PROJECT_DIR$/src/Controller/MainController.java" />
         <option value="$APPLICATION_CONFIG_DIR$/consoles/db/8e89d1cb-41dc-4c84-92c6-a0096bb07105/console.sql" />
         <option value="$PROJECT_DIR$/src/Model/SqlConfig.java" />
-        <option value="$PROJECT_DIR$/src/Controller/SonnenbankController.java" />
         <option value="$PROJECT_DIR$/src/Model/Termin.java" />
         <option value="$PROJECT_DIR$/src/Model/ITermin.java" />
         <option value="$PROJECT_DIR$/src/Model/ISonnenbank.java" />
@@ -292,19 +216,20 @@
         <option value="$PROJECT_DIR$/src/Model/ApplicationUserObject.java" />
         <option value="$PROJECT_DIR$/src/Model/TerminObject.java" />
         <option value="$PROJECT_DIR$/src/Model/ApplicationUser.java" />
-        <option value="$PROJECT_DIR$/src/Controller/TerminController.java" />
-        <option value="$PROJECT_DIR$/src/View/UserViews/Edit.java" />
-        <option value="$PROJECT_DIR$/src/Controller/UserController.java" />
         <option value="$PROJECT_DIR$/src/Model/SonnenbankObject.java" />
+        <option value="$PROJECT_DIR$/src/Model/Sonnenbank.java" />
         <option value="$PROJECT_DIR$/src/View/SonnenbankViews/CreateSonnenbank.java" />
         <option value="$PROJECT_DIR$/src/View/SonnenbankViews/EditSonnenbank.java" />
+        <option value="$PROJECT_DIR$/src/Controller/SonnenbankController.java" />
         <option value="$PROJECT_DIR$/src/View/SonnenbankViews/OverviewSonnenbank.java" />
         <option value="$PROJECT_DIR$/src/View/TerminViews/CreateTermin.java" />
         <option value="$PROJECT_DIR$/src/View/TerminViews/EditTermin.java" />
+        <option value="$PROJECT_DIR$/src/Controller/TerminController.java" />
         <option value="$PROJECT_DIR$/src/View/TerminViews/OverviewTermin.java" />
+        <option value="$PROJECT_DIR$/src/View/UserViews/Edit.java" />
         <option value="$PROJECT_DIR$/src/View/UserViews/OverviewUser.java" />
         <option value="$PROJECT_DIR$/src/View/UserViews/Register.java" />
-        <option value="$PROJECT_DIR$/src/Model/Sonnenbank.java" />
+        <option value="$PROJECT_DIR$/src/Controller/UserController.java" />
       </list>
     </option>
   </component>
@@ -354,9 +279,7 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="Scratches" />
       <pane id="Scope" />
-      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -493,6 +416,8 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="PackagesPane" />
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -771,6 +696,9 @@
       <listeners />
       <method />
     </configuration>
+    <configuration default="true" type="Unknown" factoryName="Unknown">
+      <method />
+    </configuration>
     <configuration default="true" type="js.build_tools.gulp" factoryName="Gulp.js">
       <node-options />
       <gulpfile />
@@ -834,6 +762,7 @@
       <workItem from="1431802421754" duration="209000" />
       <workItem from="1431802676161" duration="1607000" />
       <workItem from="1431806618284" duration="654000" />
+      <workItem from="1431865871703" duration="3796000" />
     </task>
     <task id="LOCAL-00001" summary="SQL fix">
       <created>1430661178008</created>
@@ -893,7 +822,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="85487000" />
+    <option name="totallyTimeSpent" value="89283000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -910,9 +839,9 @@
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32987553" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32756758" sideWeight="0.37222573" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32756758" sideWeight="0.3665187" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32756758" sideWeight="0.62777424" order="11" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.28216216" sideWeight="0.39568803" order="11" side_tool="true" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32942432" sideWeight="0.4962162" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32876712" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
@@ -925,7 +854,7 @@
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.4962162" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.28270042" sideWeight="0.60729164" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.28216216" sideWeight="0.604312" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -1099,13 +1028,13 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/DB/DBscript">
-      <provider editor-type-id="com.intellij.database.editor.CsvTableFileEditorProvider">
-        <state />
-      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
+      </provider>
+      <provider editor-type-id="com.intellij.database.editor.CsvTableFileEditorProvider">
+        <state />
       </provider>
     </entry>
     <entry file="jar://C:/Program Files/Java/jdk1.8.0_40/src.zip!/java/time/LocalDate.java">
@@ -1130,14 +1059,14 @@
       </provider>
     </entry>
     <entry file="dbDummy://dbtable:/eae31a29/8e89d1cb-41dc-4c84-92c6-a0096bb07105/solardb..termin">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
       <provider editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
         </state>
       </provider>
     </entry>
@@ -1149,14 +1078,14 @@
       </provider>
     </entry>
     <entry file="dbDummy://dbtable:/eae31a29/8e89d1cb-41dc-4c84-92c6-a0096bb07105/solardb..applicationuser">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
       <provider editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
         </state>
       </provider>
     </entry>
@@ -1174,25 +1103,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controller/MainController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="19" column="0" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Model/SqlConfig.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="37" column="0" selection-start-line="37" selection-start-column="0" selection-end-line="37" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controller/SonnenbankController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="7" column="29" selection-start-line="7" selection-start-column="29" selection-end-line="7" selection-end-column="29" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1202,29 +1116,6 @@
           <caret line="143" column="0" selection-start-line="143" selection-start-column="0" selection-end-line="143" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <marker date="1431803474359" expanded="true" signature="-1:-1" placeholder="INSERT INTO ..." />
-            <marker date="1431803474359" expanded="true" signature="-1:-1" placeholder="UPDATE termi..." />
-            <marker date="1431803474359" expanded="true" signature="-1:-1" placeholder="DELETE FROM ..." />
-            <marker date="1431803474359" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..termin..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Model/TerminObject.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="11" column="12" selection-start-line="11" selection-start-column="12" selection-end-line="11" selection-end-column="12" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Model/ApplicationUserObject.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="2" column="0" selection-start-line="2" selection-start-column="0" selection-end-line="3" selection-end-column="22" />
-          <folding>
-            <element signature="e#703#704#0" expanded="true" />
-            <element signature="e#733#734#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1237,43 +1128,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Model/ApplicationUser.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="9" column="28" selection-start-line="9" selection-start-column="28" selection-end-line="9" selection-end-column="28" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#deleteApplicationUser#0;class#ApplicationUser#0" expanded="false" />
-            <element signature="method#loginApplicationUser#0;class#ApplicationUser#0" expanded="false" />
-            <marker date="1431803618707" expanded="true" signature="-1:-1" placeholder="UPDATE appli..." />
-            <marker date="1431803618707" expanded="true" signature="-1:-1" placeholder="INSERT INTO ..." />
-            <marker date="1431803618707" expanded="true" signature="-1:-1" placeholder="DELETE FROM ..." />
-            <marker date="1431803618707" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..applicationuser..." />
-            <marker date="1431803618707" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..applicationuser..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controller/TerminController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="19" column="0" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controller/UserController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="27" column="77" selection-start-line="27" selection-start-column="77" selection-end-line="27" selection-end-column="77" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://C:/Program Files/Java/jdk1.8.0_40/src.zip!/java/lang/String.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1282,108 +1136,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/View/SonnenbankViews/CreateSonnenbank.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="135" column="13" selection-start-line="135" selection-start-column="13" selection-end-line="135" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/View/SonnenbankViews/EditSonnenbank.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="140" column="15" selection-start-line="140" selection-start-column="15" selection-end-line="140" selection-end-column="15" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/View/SonnenbankViews/OverviewSonnenbank.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="199" column="17" selection-start-line="199" selection-start-column="17" selection-end-line="199" selection-end-column="17" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/View/TerminViews/CreateTermin.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="168" column="0" selection-start-line="168" selection-start-column="0" selection-end-line="168" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/View/TerminViews/EditTermin.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="157" column="17" selection-start-line="157" selection-start-column="17" selection-end-line="157" selection-end-column="17" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/View/TerminViews/OverviewTermin.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="201" column="17" selection-start-line="201" selection-start-column="17" selection-end-line="201" selection-end-column="17" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/View/UserViews/Edit.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="174" column="58" selection-start-line="174" selection-start-column="58" selection-end-line="174" selection-end-column="58" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/View/UserViews/OverviewUser.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="190" column="17" selection-start-line="190" selection-start-column="17" selection-end-line="190" selection-end-column="17" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/View/UserViews/Register.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="175" column="4" selection-start-line="175" selection-start-column="4" selection-end-line="175" selection-end-column="4" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Model/ISonnenbank.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="3" column="2" selection-start-line="3" selection-start-column="2" selection-end-line="3" selection-end-column="2" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Model/SonnenbankObject.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="3" column="0" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="22" />
           <folding />
         </state>
       </provider>
@@ -1398,14 +1154,183 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Model/Sonnenbank.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.31986532">
-          <caret line="10" column="1" selection-start-line="10" selection-start-column="1" selection-end-line="10" selection-end-column="1" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="31" column="13" selection-start-line="31" selection-start-column="13" selection-end-line="31" selection-end-column="13" />
           <folding>
             <element signature="imports" expanded="true" />
-            <marker date="1431807270982" expanded="true" signature="847:920" placeholder="INSERT INTO ..." />
-            <marker date="1431807270982" expanded="true" signature="1772:1851" placeholder="UPDATE sonne..." />
-            <marker date="1431807270982" expanded="true" signature="2697:2732" placeholder="DELETE FROM ..." />
-            <marker date="1431807270982" expanded="true" signature="3484:3508" placeholder="SELECT * FRO..sonnenbank..." />
+            <marker date="1431865865353" expanded="true" signature="-1:-1" placeholder="INSERT INTO ..." />
+            <marker date="1431865865353" expanded="true" signature="-1:-1" placeholder="UPDATE sonne..." />
+            <marker date="1431865865353" expanded="true" signature="-1:-1" placeholder="DELETE FROM ..." />
+            <marker date="1431865865353" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..sonnenbank..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Model/ApplicationUserObject.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="10" column="16" selection-start-line="10" selection-start-column="12" selection-end-line="10" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Controller/MainController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="19" column="0" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/View/SonnenbankViews/CreateSonnenbank.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="138" column="18" selection-start-line="138" selection-start-column="18" selection-end-line="138" selection-end-column="18" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Model/SonnenbankObject.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="13" column="16" selection-start-line="13" selection-start-column="12" selection-end-line="13" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/View/TerminViews/CreateTermin.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="170" column="54" selection-start-line="170" selection-start-column="54" selection-end-line="170" selection-end-column="54" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/View/TerminViews/EditTermin.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="163" column="50" selection-start-line="163" selection-start-column="50" selection-end-line="163" selection-end-column="50" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Model/TerminObject.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="13" column="35" selection-start-line="11" selection-start-column="12" selection-end-line="13" selection-end-column="35" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/View/SonnenbankViews/EditSonnenbank.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="146" column="55" selection-start-line="146" selection-start-column="54" selection-end-line="146" selection-end-column="55" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/View/SonnenbankViews/OverviewSonnenbank.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="197" column="74" selection-start-line="194" selection-start-column="16" selection-end-line="197" selection-end-column="74" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/View/TerminViews/OverviewTermin.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="196" column="0" selection-start-line="196" selection-start-column="0" selection-end-line="201" selection-end-column="81" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/View/UserViews/Edit.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="181" column="64" selection-start-line="181" selection-start-column="64" selection-end-line="181" selection-end-column="64" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Controller/TerminController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="14" column="36" selection-start-line="14" selection-start-column="4" selection-end-line="14" selection-end-column="36" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Controller/SonnenbankController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="39" column="69" selection-start-line="39" selection-start-column="8" selection-end-line="39" selection-end-column="69" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/View/UserViews/Register.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="178" column="66" selection-start-line="178" selection-start-column="66" selection-end-line="178" selection-end-column="66" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Model/ApplicationUser.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.14779875">
+          <caret line="164" column="0" selection-start-line="164" selection-start-column="0" selection-end-line="164" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#deleteApplicationUser#0;class#ApplicationUser#0" expanded="false" />
+            <element signature="method#loginApplicationUser#0;class#ApplicationUser#0" expanded="false" />
+            <marker date="1431865865348" expanded="true" signature="-1:-1" placeholder="UPDATE appli..." />
+            <marker date="1431865865348" expanded="true" signature="-1:-1" placeholder="INSERT INTO ..." />
+            <marker date="1431865865348" expanded="true" signature="-1:-1" placeholder="DELETE FROM ..." />
+            <marker date="1431865865348" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..applicationuser..." />
+            <marker date="1431865865348" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..applicationuser..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/View/UserViews/OverviewUser.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="169" column="21" selection-start-line="166" selection-start-column="20" selection-end-line="169" selection-end-column="21" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Controller/UserController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.5754717">
+          <caret line="66" column="17" selection-start-line="66" selection-start-column="17" selection-end-line="66" selection-end-column="17" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#379#380#0" expanded="true" />
+            <element signature="e#461#462#0" expanded="true" />
           </folding>
         </state>
       </provider>

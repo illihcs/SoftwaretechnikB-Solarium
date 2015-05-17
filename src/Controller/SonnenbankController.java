@@ -4,6 +4,8 @@ import Model.Sonnenbank;
 import Model.SonnenbankObject;
 
 import java.sql.SQLException;
+import java.text.DateFormat;
+import java.text.ParseException;
 import java.util.Date;
 import java.util.LinkedList;
 
@@ -12,16 +14,32 @@ import java.util.LinkedList;
  */
 public class SonnenbankController {
 
-    public boolean createSonnenbank(String Kabine, String Leistung, Date Wartungstermin) throws SQLException {
+
+    private DateFormat dateFormater;
+
+
+    public SonnenbankController() {
+
+        dateFormater = DateFormat.getDateInstance(DateFormat.MEDIUM );
+
+    }
+
+    public boolean createSonnenbank(String Kabine, String Leistung, String Wartungstermin) throws SQLException, ParseException {
+
         Sonnenbank sonnenControler = new Sonnenbank();
-        boolean TerminCreated =  sonnenControler.createSonnenbank(Kabine, Leistung, Wartungstermin);
+        Date wartungsterminDate = dateFormater.parse(Wartungstermin);
+
+        boolean TerminCreated =  sonnenControler.createSonnenbank(Kabine, Leistung, wartungsterminDate);
 
         return TerminCreated;
     }
 
-    public boolean editSonnenbank(int ID, String Kabine, String Leistung, Date Wartungstermin) throws SQLException {
+    public boolean editSonnenbank(int ID, String Kabine, String Leistung, String Wartungstermin) throws SQLException, ParseException {
+
         Sonnenbank sonnenControler = new Sonnenbank();
-        boolean TerminCreated =  sonnenControler.editSonnenbank(ID, Kabine, Leistung, Wartungstermin);
+        Date wartungsterminDate = dateFormater.parse(Wartungstermin);
+
+        boolean TerminCreated =  sonnenControler.editSonnenbank(ID, Kabine, Leistung, wartungsterminDate);
 
         return TerminCreated;
     }

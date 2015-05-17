@@ -2,18 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2845892d-f8d1-43a4-8212-6bce5ad31c63" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/View/SonnenbankViews/CreateSonnenbank.java" afterPath="$PROJECT_DIR$/src/View/SonnenbankViews/CreateSonnenbank.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/View/TerminViews/CreateTermin.java" afterPath="$PROJECT_DIR$/src/View/TerminViews/CreateTermin.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/View/UserViews/Edit.java" afterPath="$PROJECT_DIR$/src/View/UserViews/Edit.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/View/SonnenbankViews/EditSonnenbank.java" afterPath="$PROJECT_DIR$/src/View/SonnenbankViews/EditSonnenbank.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/View/TerminViews/EditTermin.java" afterPath="$PROJECT_DIR$/src/View/TerminViews/EditTermin.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/View/SonnenbankViews/OverviewSonnenbank.java" afterPath="$PROJECT_DIR$/src/View/SonnenbankViews/OverviewSonnenbank.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/View/TerminViews/OverviewTermin.java" afterPath="$PROJECT_DIR$/src/View/TerminViews/OverviewTermin.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/View/UserViews/OverviewUser.java" afterPath="$PROJECT_DIR$/src/View/UserViews/OverviewUser.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/View/UserViews/Register.java" afterPath="$PROJECT_DIR$/src/View/UserViews/Register.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Controller/SonnenbankController.java" afterPath="$PROJECT_DIR$/src/Controller/SonnenbankController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Controller/TerminController.java" afterPath="$PROJECT_DIR$/src/Controller/TerminController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Controller/UserController.java" afterPath="$PROJECT_DIR$/src/Controller/UserController.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="Solarium.iws" />
@@ -111,7 +99,7 @@
       <file leaf-file-name="UserController.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Controller/UserController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.5754717">
+            <state vertical-scroll-proportion="0.6172007">
               <caret line="66" column="17" selection-start-line="66" selection-start-column="17" selection-end-line="66" selection-end-column="17" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -762,7 +750,7 @@
       <workItem from="1431802421754" duration="209000" />
       <workItem from="1431802676161" duration="1607000" />
       <workItem from="1431806618284" duration="654000" />
-      <workItem from="1431865871703" duration="3796000" />
+      <workItem from="1431865871703" duration="3870000" />
     </task>
     <task id="LOCAL-00001" summary="SQL fix">
       <created>1430661178008</created>
@@ -818,11 +806,17 @@
       <option name="project" value="LOCAL" />
       <updated>1431199175833</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="change String, Date">
+      <created>1431892211103</created>
+      <option name="number" value="00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1431892211103</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="89283000" />
+    <option name="totallyTimeSpent" value="89357000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -835,16 +829,16 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32987553" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32756758" sideWeight="0.3665187" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.28216216" sideWeight="0.39568803" order="11" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32864866" sideWeight="0.5022194" order="11" side_tool="true" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32942432" sideWeight="0.4962162" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32876712" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32864866" sideWeight="0.4977806" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.15135135" sideWeight="0.45264986" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -854,7 +848,7 @@
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.4962162" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.28216216" sideWeight="0.604312" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.28216216" sideWeight="0.604312" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -882,7 +876,8 @@
     <MESSAGE value="Add SQL Update funktions to model" />
     <MESSAGE value="Login funktioniert" />
     <MESSAGE value="implement all missing stuff" />
-    <option name="LAST_COMMIT_MESSAGE" value="implement all missing stuff" />
+    <MESSAGE value="change String, Date" />
+    <option name="LAST_COMMIT_MESSAGE" value="change String, Date" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1325,7 +1320,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Controller/UserController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5754717">
+        <state vertical-scroll-proportion="0.6172007">
           <caret line="66" column="17" selection-start-line="66" selection-start-column="17" selection-end-line="66" selection-end-column="17" />
           <folding>
             <element signature="imports" expanded="true" />

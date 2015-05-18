@@ -2,6 +2,7 @@ package Model;
 
 
 import java.util.Date;
+import java.util.LinkedList;
 
 /**
  * Created by Win7-Dev on 02.05.2015.
@@ -22,6 +23,8 @@ public interface IApplicationUser {
     boolean deleteApplicationUser(int ID);
 
     boolean loginApplicationUser(String Email, String Password);
+
+	LinkedList<ApplicationUserObject> getAllApplicationUser();
 }
 
 

@@ -1,6 +1,7 @@
 package Model;
 
 import java.util.Date;
+import java.util.LinkedList;
 
 /**
  * Created by Win7-Dev on 02.05.2015.
@@ -12,5 +13,7 @@ public interface ITermin {
     boolean editTermin(int ID, Date Date, Date UhrzeitVon, Date UhrzeitBis, String Sonnenbank, String KundenName);
 
     boolean deleteTermin(int ID);
+
+	LinkedList<TerminObject> getAllTermin();
 
 }

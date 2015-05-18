@@ -2,6 +2,7 @@ package Model;
 
 
 import java.util.Date;
+import java.util.LinkedList;
 
 /**
  * Created by Win7-Dev on 02.05.2015.
@@ -19,6 +20,8 @@ public interface ISonnenbank {
     boolean editSonnenbank(int ID, String Kabine, String Leistung, Date Wartungstermin);
 
     boolean deleteSunbed(int ID);
+
+	LinkedList<SonnenbankObject> getAllSonnenbank();
 
 
 }

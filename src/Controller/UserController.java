@@ -2,6 +2,7 @@ package Controller;
 
 import Model.ApplicationUser;
 import Model.ApplicationUserObject;
+import Model.IApplicationUser;
 
 import java.sql.SQLException;
 import java.text.DateFormat;
@@ -23,7 +24,7 @@ public class UserController {
     // Diese Methode liefert true zurück wenn das Model in der DB ein passenden eintrag findet
     public boolean loginApplicationUser(String loginApplicationUserMail, char[] Password) throws SQLException {
 
-        ApplicationUser user = new ApplicationUser();
+        IApplicationUser user = new ApplicationUser();
 
         boolean UserAuthenticated = user.loginApplicationUser(loginApplicationUserMail, new String(Password));
 
@@ -34,7 +35,7 @@ public class UserController {
     public boolean registerApplicationUser(String Vorname, String Nachname, String Geburtstag, String Mail, char[] Password) throws SQLException, ParseException {
 
         // Außen vor lassen! erst wenn wichtige sachen fertig sind weiter implementieren
-        ApplicationUser userControler = new ApplicationUser();
+        IApplicationUser userControler = new ApplicationUser();
         Date geburtstagDate = dateFormater.parse(Geburtstag);
 
         return userControler.createApplicationUser(Vorname, Nachname, geburtstagDate, Mail, new String(Password));
@@ -44,7 +45,7 @@ public class UserController {
     // Diese Methode liefert true zurück wenn das Model in der DB ein Update durchführen konnte
     public boolean editApplicationUser(int ID, String Vorname, String Nachname, String Geburtstag, String EMail, char[] Password) throws SQLException, ParseException {
 
-        ApplicationUser userControler = new ApplicationUser();
+        IApplicationUser userControler = new ApplicationUser();
         Date geburtstagDate = dateFormater.parse(Geburtstag);
 
         boolean UserCreated = userControler.editApplicationUser(ID, Vorname, Nachname, geburtstagDate, EMail, new String(Password));
@@ -59,7 +60,7 @@ public class UserController {
 
     public LinkedList<String[]> getAllUser() throws SQLException {
 
-        ApplicationUser userController = new ApplicationUser();
+        IApplicationUser userController = new ApplicationUser();
         LinkedList<ApplicationUserObject> AllUser = userController.getAllApplicationUser();
         LinkedList<String[]> stringListWithArrays = new LinkedList<String[]>();
         

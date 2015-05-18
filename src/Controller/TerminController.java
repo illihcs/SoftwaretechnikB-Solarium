@@ -1,5 +1,6 @@
 package Controller;
 
+import Model.ITermin;
 import Model.Termin;
 import Model.TerminObject;
 
@@ -20,7 +21,7 @@ public class TerminController {
 
     public boolean createTermin(String Datum, String UhrzeitVon, String UhrzeitBis, String Sonnenbank, String KundenName) throws SQLException, ParseException {
 
-        Termin terminModel = new Termin();
+        ITermin terminModel = new Termin();
 
         Date DatumDate = dateFormater.parse(Datum);
         Date UhrzeitVonDate = dateFormater.parse(UhrzeitVon);
@@ -33,7 +34,7 @@ public class TerminController {
 
     public boolean editTermin(int ID, String Datum, String UhrzeitVon, String UhrzeitBis, String Sonnenbank, String KundenName) throws SQLException, ParseException {
 
-        Termin terminControler = new Termin();
+        ITermin terminControler = new Termin();
 
         Date DatumDate = dateFormater.parse(Datum);
         Date UhrzeitVonDate = dateFormater.parse(UhrzeitVon);
@@ -45,7 +46,7 @@ public class TerminController {
     }
 
     public boolean deleteTermin(int ID) throws SQLException {
-        Termin terminControler = new Termin();
+        ITermin terminControler = new Termin();
         boolean TerminCreated =  terminControler.deleteTermin(ID);
 
         return TerminCreated;
@@ -54,7 +55,7 @@ public class TerminController {
 
     public LinkedList<TerminObject> getAllTermin() throws SQLException {
 
-        Termin terminControler = new Termin();
+        ITermin terminControler = new Termin();
         LinkedList<TerminObject> allTermine =  terminControler.getAllTermin();
 
         return allTermine;

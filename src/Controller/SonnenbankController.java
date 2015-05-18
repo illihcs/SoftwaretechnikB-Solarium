@@ -1,5 +1,6 @@
 package Controller;
 
+import Model.ISonnenbank;
 import Model.Sonnenbank;
 import Model.SonnenbankObject;
 
@@ -26,7 +27,7 @@ public class SonnenbankController {
 
     public boolean createSonnenbank(String Kabine, String Leistung, String Wartungstermin) throws SQLException, ParseException {
 
-        Sonnenbank sonnenControler = new Sonnenbank();
+        ISonnenbank sonnenControler = new Sonnenbank();
         Date wartungsterminDate = dateFormater.parse(Wartungstermin);
 
         boolean TerminCreated =  sonnenControler.createSonnenbank(Kabine, Leistung, wartungsterminDate);
@@ -36,7 +37,7 @@ public class SonnenbankController {
 
     public boolean editSonnenbank(int ID, String Kabine, String Leistung, String Wartungstermin) throws SQLException, ParseException {
 
-        Sonnenbank sonnenControler = new Sonnenbank();
+        ISonnenbank sonnenControler = new Sonnenbank();
         Date wartungsterminDate = dateFormater.parse(Wartungstermin);
 
         boolean TerminCreated =  sonnenControler.editSonnenbank(ID, Kabine, Leistung, wartungsterminDate);
@@ -45,7 +46,7 @@ public class SonnenbankController {
     }
 
     public boolean deleteSunbed(int ID) throws SQLException {
-        Sonnenbank sonnenControler = new Sonnenbank();
+        ISonnenbank sonnenControler = new Sonnenbank();
         boolean TerminCreated =  sonnenControler.deleteSunbed(ID);
 
         return TerminCreated;
@@ -53,7 +54,7 @@ public class SonnenbankController {
 
     public LinkedList<SonnenbankObject> getAllSonnenbanken() throws SQLException {
 
-        Sonnenbank SonnenbankControler = new Sonnenbank();
+        ISonnenbank SonnenbankControler = new Sonnenbank();
         LinkedList<SonnenbankObject> AllSonnenbanken =   SonnenbankControler.getAllSonnenbank();
 
         return AllSonnenbanken;

@@ -57,14 +57,26 @@ public class UserController {
         return new ApplicationUser().deleteApplicationUser(i);
     }
 
-    public LinkedList<String> getAllUser() throws SQLException {
+    public LinkedList<String[]> getAllUser() throws SQLException {
 
-        ApplicationUser userControler = new ApplicationUser();
-        LinkedList<ApplicationUserObject> AllUser = userControler.getAllApplicationUser();
-
-        throw  new RuntimeException();
-
-       // return AllUser;
+        ApplicationUser userController = new ApplicationUser();
+        LinkedList<ApplicationUserObject> AllUser = userController.getAllApplicationUser();
+        LinkedList<String[]> stringListWithArrays = new LinkedList<String[]>();
+        
+        for(ApplicationUserObject user : AllUser)
+        {
+          	String[] array = {
+					String.valueOf(user.getID()),
+					user.getVorname(),
+					user.getNachname(),
+					user.getGeburtstag().toString(),
+					user.getEmail(),
+					user.getPasswort().toString()
+			};
+        	stringListWithArrays.add(array);
+        }
+        
+        return stringListWithArrays;
     }
 
 }

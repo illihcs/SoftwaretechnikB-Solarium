@@ -81,15 +81,15 @@ public class OverviewUser extends JFrame {
         center.setLayout(new GridLayout());
 
         DefaultTableModel dtm = new DefaultTableModel();
-        LinkedList<ApplicationUserObject> list = new UserController().getAllUser();
+        LinkedList<String[]> list = new UserController().getAllUser();
 
 
         String[] columnnames = new String[]{"ID", "Vorname", "Nachname", "Geburtstag", "E-Mail", "Passwort"};
         dtm.setColumnIdentifiers(columnnames);
 
-        for (ApplicationUserObject u : list) {
+        for (String[] u : list) {
 
-            String[] r = {u.getID() + "", u.getVorname() + "", u.getNachname() + "", u.getGeburtstag() + "", u.getEmail() + "", u.getPasswort() + ""};
+            String[] r = {u[0], u[1], u[2], u[3], u[4], u[5]};
             dtm.addRow(r);
         }
         dtm.setColumnIdentifiers(columnnames);
@@ -156,7 +156,7 @@ public class OverviewUser extends JFrame {
                     JOptionPane.showMessageDialog(null, "Löschen fertiggestellt!", "Löschen fertig!", JOptionPane.INFORMATION_MESSAGE);
 
                     DefaultTableModel d = new DefaultTableModel();
-                    LinkedList<ApplicationUserObject> list = new UserController().getAllUser();
+                    LinkedList<String[]> list = new UserController().getAllUser();
 
                     // Define Table cols
                     String[] columnnames = new String[]{"ID", "Vorname", "Nachname", "Geburtstag", "E-Mail", "Passwort"};
@@ -164,8 +164,8 @@ public class OverviewUser extends JFrame {
 
 
                     // fill table with rows
-                    for (ApplicationUserObject u : list) {
-                        String[] r = {u.getID() + "", u.getVorname() + "", u.getNachname() + "", u.getGeburtstag() + "", u.getEmail() + "", u.getPasswort() + ""};
+                    for (String[] u : list) {
+                        String[] r = {u[0], u[1], u[2], u[3], u[4], u[5]};
                         d.addRow(r);
                     }
 

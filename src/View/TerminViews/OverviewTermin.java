@@ -61,11 +61,9 @@ public class OverviewTermin extends JFrame {
         ButtonOverviewUser.setText("Wechsele zur Benutzerübersicht");
         ButtonOverviewUser.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent evt) {
-                try {
+               
                     ButtonOverviewUserActionPerformed(evt);
-                } catch (SQLException e) {
-                    e.printStackTrace();
-                }
+               
             }
         });
         top.add(ButtonOverviewUser);
@@ -73,11 +71,9 @@ public class OverviewTermin extends JFrame {
         ButtonOverviewSunbed.setText("Wechsele zur Sonnenbankübersicht");
         ButtonOverviewSunbed.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent evt) {
-                try {
+               
                     ButtonOverviewSunbedActionPerformed(evt);
-                } catch (SQLException e) {
-                    e.printStackTrace();
-                }
+  
             }
         });
         top.add(ButtonOverviewSunbed);
@@ -85,7 +81,7 @@ public class OverviewTermin extends JFrame {
 
         center.setLayout(new GridLayout());
         DefaultTableModel dtm = new DefaultTableModel();
-        LinkedList<TerminObject> list = new TerminController().getAllTermin();
+        LinkedList<TerminObject> list = TerminController.getInstance().getAllTermin();
         String[] columnnames = new String[]{"ID", "Datum", "Uhrzeit Von", "Uhrzeit Bis", "Sonnenbank", "Kundenname"};
         dtm.setColumnIdentifiers(columnnames);
 
@@ -150,7 +146,7 @@ public class OverviewTermin extends JFrame {
             // Clicked yes
             if (eingabe == 0) {
 
-                TerminController controller = new TerminController();
+                TerminController controller = TerminController.getInstance();
 
                 boolean terminDeleted = controller.deleteTermin(Integer.parseInt((String) TableOverviewAppointment.getModel().getValueAt(row, 0)));
 
@@ -162,7 +158,7 @@ public class OverviewTermin extends JFrame {
                             JOptionPane.INFORMATION_MESSAGE);
 
                     DefaultTableModel d = new DefaultTableModel();
-                    LinkedList<TerminObject> list = new TerminController().getAllTermin();
+                    LinkedList<TerminObject> list = TerminController.getInstance().getAllTermin();
 
                     String[] columnnames = new String[]{"ID", "Datum", "Uhrzeit Von", "Uhrzeit Bis", "Sonnenbank", "Kundenname"};
                     d.setColumnIdentifiers(columnnames);
@@ -201,26 +197,46 @@ public class OverviewTermin extends JFrame {
                 (String) TableOverviewAppointment.getModel().getValueAt(row, 4),
                 (String) TableOverviewAppointment.getModel().getValueAt(row, 5));
 
-        EditTermin et = new EditTermin(to);
+        EditTermin et = null;
+		try {
+			et = new EditTermin(to);
+		} catch (SQLException e) {
+			JOptionPane.showMessageDialog(null, e.getMessage(), "Etwas ist Fehlgeschlagen", JOptionPane.WARNING_MESSAGE);
+		}
 
         et.setVisible(true);
         this.dispose();
     }
 
     private void ButtonCreateAppointmentActionPerformed(ActionEvent evt) {
-        CreateTermin ct = new CreateTermin();
+        CreateTermin ct = null;
+		try {
+			ct = new CreateTermin();
+		} catch (SQLException e) {
+			JOptionPane.showMessageDialog(null, e.getMessage(), "Erstellen Fehlgeschlagen", JOptionPane.WARNING_MESSAGE);
+		}
         ct.setVisible(true);
         this.dispose();
     }
 
-    private void ButtonOverviewUserActionPerformed(ActionEvent evt) throws SQLException {
-        OverviewUser ou = new OverviewUser();
+    private void ButtonOverviewUserActionPerformed(ActionEvent evt){
+        OverviewUser ou = null;
+		try {
+			ou = new OverviewUser();
+		} catch (SQLException e) {
+			JOptionPane.showMessageDialog(null, e.getMessage(), "Etwas ist Fehlgeschlagen", JOptionPane.WARNING_MESSAGE);
+		}
         ou.setVisible(true);
         this.dispose();
     }
 
-    private void ButtonOverviewSunbedActionPerformed(ActionEvent evt) throws SQLException {
-        OverviewSonnenbank os = new OverviewSonnenbank();
+    private void ButtonOverviewSunbedActionPerformed(ActionEvent evt)  {
+        OverviewSonnenbank os = null;
+		try {
+			os = new OverviewSonnenbank();
+		} catch (SQLException e) {
+			JOptionPane.showMessageDialog(null, e.getMessage(), "Etwas ist Fehlgeschlagen", JOptionPane.WARNING_MESSAGE);
+		}
         os.setVisible(true);
         this.dispose();
     }

@@ -1,9 +1,12 @@
 package View.UserViews;
 
+import Controller.TerminController;
 import Controller.UserController;
+import View.ObserverViews.TerminHoursADay;
 import View.TerminViews.OverviewTermin;
 
 import javax.swing.*;
+
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -73,6 +76,10 @@ public class Login extends JFrame implements ActionListener {
                 if (applicationUserLogedin) {
                     OverviewTermin ot = new OverviewTermin();
                     ot.setVisible(true);
+                    
+                    TerminHoursADay thadV = new TerminHoursADay();
+                    TerminController.getInstance().addObserver(thadV);
+                    thadV.setVisible(true);
                     this.dispose();
 
                 } else {

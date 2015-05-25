@@ -41,18 +41,18 @@ public class EditTermin extends JFrame {
     JButton ButtonBackToAppointmentOverview;
 
     //Controller initialized
-    TerminController ControllerTermin = new TerminController();
+    TerminController ControllerTermin;
 
-    public EditTermin(TerminObject to) {
+    public EditTermin(TerminObject to) throws SQLException {
         initComponents(to);
     }
 
-    private void initComponents(TerminObject to) {
+    private void initComponents(TerminObject to) throws SQLException{
 
         terminObject = to;
 
         //create Controller
-        //ControllerTermin = new TerminController();
+        ControllerTermin = TerminController.getInstance();
 
         //create Components
         top = new JPanel();
@@ -150,7 +150,7 @@ public class EditTermin extends JFrame {
 
         try {
 
-            TerminController controller = new TerminController();
+            TerminController controller = TerminController.getInstance();
 
 
             // Get and save userInputs

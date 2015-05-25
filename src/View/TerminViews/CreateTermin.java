@@ -39,15 +39,15 @@ public class CreateTermin extends JFrame{
     JButton ButtonBackToAppointmentOverview;
 
     //Controller initialized
-    TerminController ControllerTermin = new TerminController();
+    TerminController ControllerTermin;
 
-    public CreateTermin() {
+    public CreateTermin() throws SQLException {
         initComponents();
     }
 
-    private void initComponents() {
+    private void initComponents() throws SQLException {
         //create Controller
-        //ControllerTermin = new TerminController();
+        ControllerTermin = TerminController.getInstance();
 
         //create Components
         top = new JPanel();
@@ -159,7 +159,7 @@ public class CreateTermin extends JFrame{
         try
         {
 
-            TerminController controller = new TerminController();
+            TerminController controller = TerminController.getInstance();
 
             String terminDate = TextFieldDate.getText();
             String terminFrom = TextFieldDateFrom.getText();

@@ -24,7 +24,7 @@ public class Sonnenbank implements ISonnenbank {
         try {
 
             // Setup SQl connection
-            con = SqlConfig.getCon();
+            con = SqlConfig.getInstance().getCon();
 
             // Define SQL Statement
             String insertTableSQL = "INSERT INTO sonnenbank ( Kabine, Leistung, Wartungstermin) VALUES (?,?,?)";
@@ -52,7 +52,7 @@ public class Sonnenbank implements ISonnenbank {
         try {
 
             // Setup SQl connection
-            con = SqlConfig.getCon();
+            con = SqlConfig.getInstance().getCon();
 
             // Define SQL Statement
             String insertTableSQL = "UPDATE sonnenbank SET Kabine = ?, Leistung =? , Wartungstermin =?  WHERE ID = ?";
@@ -81,7 +81,7 @@ public class Sonnenbank implements ISonnenbank {
         try {
 
             // Setup SQl connection
-            con = SqlConfig.getCon();
+            con = SqlConfig.getInstance().getCon();
 
 
             // Define SQL Statement
@@ -110,7 +110,7 @@ public class Sonnenbank implements ISonnenbank {
             LinkedList<SonnenbankObject> SonnenbankObjectList = new LinkedList<SonnenbankObject>();
 
             // Setup SQl connection
-            con = SqlConfig.getCon();
+            con = SqlConfig.getInstance().getCon();
 
             // Define SQL Statement
             String selectSQL = "SELECT * FROM sonnenbank";

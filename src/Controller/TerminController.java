@@ -108,43 +108,8 @@ public class TerminController extends Observable{
 
     public LinkedList<String[]> getTerminHoursADay() throws SQLException {
 		LinkedList<String[]> list = new LinkedList<>();
-        LinkedList<TerminObject> allTermine =  frontage.TerminGetAll();
-        LinkedList<TerminHoursADayObject> terminADay = new LinkedList<>();
+        LinkedList<TerminHoursADayObject> terminADay =  frontage.TerminGetTerminHoursADay();
         
-		for(TerminObject t : allTermine)
-		{
-			boolean dateExists = false;
-			for(TerminHoursADayObject th : terminADay)
-			{
-				if(th.getDatum().compareTo(t.getDatum())==0) //if date of TerminObject in TerminHoursADayObjectList --> update
-				{
-					Date d1 = t.getUhrzeitVon();
-					Date d2 = t.getUhrzeitBis();
-					long diff = Math.abs(d2.getTime() - d1.getTime());
-					long diffMinutes = diff/(1000);
-					
-					th.setAnzahl(th.getAnzahl()+1);
-					th.setDurchschnittsdauer(th.getGesamtdauer()/th.getAnzahl());
-					th.setGesamtdauer(th.getGesamtdauer()+(diffMinutes));
-					dateExists=true;
-				}
-			}
-			if(dateExists == false) //if date of TerminObject not in TerminHoursADayObjectList --> insert
-			{
-				Date d1 = t.getUhrzeitVon();
-				Date d2 = t.getUhrzeitBis();
-				long diff = Math.abs(d2.getTime() - d1.getTime());
-				long diffMinutes = diff/(1000);
-				
-				
-				TerminHoursADayObject thado = new TerminHoursADayObject();
-				thado.setDatum(t.getDatum());
-				thado.setAnzahl(1);
-				thado.setDurchschnittsdauer(diffMinutes);
-				thado.setGesamtdauer(diffMinutes);
-				terminADay.add(thado);
-			}
-		}
 		
 		//convert all attributes of TerminHoursADayList to strings
 		for(TerminHoursADayObject to : terminADay)

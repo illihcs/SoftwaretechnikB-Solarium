@@ -10,13 +10,6 @@ import java.util.LinkedList;
 
 public class Termin implements ITermin {
 
-    int ID;
-    Date Datum;
-    Date UhrzeitVon;
-    Date UhrzeitBis;
-    String Sonnenbank;
-    String Kunde;
-
     // helper objects for operate with DB
     SqlConfig SqlConfigObj;
     Connection con;
@@ -35,7 +28,7 @@ public class Termin implements ITermin {
         try {
 
             // Setup SQl connection
-            con = SqlConfig.getCon();
+            con = SqlConfig.getInstance().getCon();
 
             // Define SQL Statement
             String insertTableSQL = "INSERT INTO termin ( Datum, Uhrzeitvon, UhrzeitBis, Sonnenbank, Kunde) VALUES (?,?,?,?,?)";
@@ -64,7 +57,7 @@ public class Termin implements ITermin {
         try {
 
             // Setup SQl connection
-            con = SqlConfig.getCon();
+            con = SqlConfig.getInstance().getCon();
 
             // Define SQL Statement
             String insertTableSQL = "UPDATE termin SET Datum = ?, UhrzeitVon =? , UhrzeitBis =?, Sonnenbank =?, Kunde =?  WHERE ID = ?";
@@ -94,7 +87,7 @@ public class Termin implements ITermin {
         try {
 
             // Setup SQl connection
-            con = SqlConfig.getCon();
+            con = SqlConfig.getInstance().getCon();
 
             // Define SQL Statement
             String insertTableSQL = "DELETE FROM termin WHERE ID = ?";
@@ -122,7 +115,7 @@ public class Termin implements ITermin {
             LinkedList<TerminObject> TerminObjectList = new LinkedList<TerminObject>();
 
             // Setup SQl connection
-            con = SqlConfig.getCon();
+            con = SqlConfig.getInstance().getCon();
 
             // Define SQL Statement
             String selectSQL = "SELECT * FROM termin";
@@ -157,4 +150,46 @@ public class Termin implements ITermin {
 
 
     }
+
+	@Override
+	public LinkedList<TerminHoursADayObject> getTerminHoursADay() {
+		LinkedList<TerminObject> allTermine =  this.getAllTermin();
+        LinkedList<TerminHoursADayObject> terminADay = new LinkedList<>();
+        
+		for(TerminObject t : allTermine)
+		{
+			boolean dateExists = false;
+			for(TerminHoursADayObject th : terminADay)
+			{
+				if(th.getDatum().compareTo(t.getDatum())==0) //if date of TerminObject in TerminHoursADayObjectList --> update
+				{
+					Date d1 = t.getUhrzeitVon();
+					Date d2 = t.getUhrzeitBis();
+					long diff = Math.abs(d2.getTime() - d1.getTime());
+					long diffMinutes = diff/(1000);
+					
+					th.setAnzahl(th.getAnzahl()+1);
+					th.setDurchschnittsdauer(th.getGesamtdauer()/th.getAnzahl());
+					th.setGesamtdauer(th.getGesamtdauer()+(diffMinutes));
+					dateExists=true;
+				}
+			}
+			if(dateExists == false) //if date of TerminObject not in TerminHoursADayObjectList --> insert
+			{
+				Date d1 = t.getUhrzeitVon();
+				Date d2 = t.getUhrzeitBis();
+				long diff = Math.abs(d2.getTime() - d1.getTime());
+				long diffMinutes = diff/(1000);
+				
+				
+				TerminHoursADayObject thado = new TerminHoursADayObject();
+				thado.setDatum(t.getDatum());
+				thado.setAnzahl(1);
+				thado.setDurchschnittsdauer(diffMinutes);
+				thado.setGesamtdauer(diffMinutes);
+				terminADay.add(thado);
+			}
+		}
+		return terminADay;
+	}
 }

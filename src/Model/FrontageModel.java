@@ -81,8 +81,9 @@ public class FrontageModel {
 		return TerminController.getAllTermin();
 	}
 
-	
-	
+	public LinkedList<TerminHoursADayObject> TerminGetTerminHoursADay() {
+		return TerminController.getTerminHoursADay();
+	}
 	//end TerminMethods
 	
 }

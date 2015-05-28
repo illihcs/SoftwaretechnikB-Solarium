@@ -7,22 +7,22 @@ import java.sql.SQLException;
 
 public class SqlConfig {
 
-    private static String user = null;
-    private static String password = null;
-    private static SqlConfig instance = null;
-    private static String url = null;
-    private static Connection con = null;
+    private String user = null;
+    private String password = null;
+    private static SqlConfig _Instance = null;
+    private String url = null;
+    private Connection con = null;
 
-    public static String getUser() {
+    public String getUser() {
         return user;
     }
-    public static String getPassword() {
+    public String getPassword() {
         return password;
     }
-    public static String getUrl() {
+    public String getUrl() {
         return url;
     }
-    public static Connection getCon() {
+    public Connection getCon() {
         return con;
     }
 
@@ -40,11 +40,11 @@ public class SqlConfig {
 
     public static SqlConfig getInstance () throws SQLException {
 
-        if (SqlConfig.instance == null) {
-            SqlConfig.instance = new SqlConfig ();
+        if (_Instance == null) {
+        	_Instance = new SqlConfig ();
         }
 
-        return SqlConfig.instance;
+        return _Instance;
     }
 
 }

@@ -1,6 +1,7 @@
 package Model;
 
 
+import java.sql.Connection;
 import java.util.Date;
 import java.util.LinkedList;
 
@@ -9,11 +10,8 @@ import java.util.LinkedList;
  */
 public interface ISonnenbank {
 
-    int ID = 0;
-    String Kabine = null;
-    String Leistung = null;
-    Date Wartungstermin = null;
-
+	SqlConfig SqlConfigObj = null;
+    Connection con = null;
 
     boolean createSonnenbank(String Kabine, String Leistung, Date Wartungstermin);
 

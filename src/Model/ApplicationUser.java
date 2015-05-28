@@ -24,7 +24,7 @@ public class ApplicationUser implements IApplicationUser {
         try {
 
             // Setup SQl connection
-            con = SqlConfig.getCon();
+            con = SqlConfig.getInstance().getCon();
 
             // Define SQL Statement
             String insertTableSQL = "UPDATE applicationuser SET Vorname = ?, Nachname =? , Geburtstag =?, Email =?, Passwort =?  WHERE EMail = ?";
@@ -56,7 +56,7 @@ public class ApplicationUser implements IApplicationUser {
         try {
 
             // Setup SQl connection
-            con = SqlConfig.getCon();
+            con = SqlConfig.getInstance().getCon();
 
             // Define SQL Statement
             String insertTableSQL = "INSERT INTO applicationuser ( Vorname, Nachname, Geburtstag, Email, Passwort) VALUES (?,?,?,?,?)";
@@ -86,7 +86,7 @@ public class ApplicationUser implements IApplicationUser {
         try {
 
             // Setup SQl connection
-            con = SqlConfig.getCon();
+            con = SqlConfig.getInstance().getCon();
 
             // Define SQL Statement
             String insertTableSQL = "DELETE FROM applicationuser WHERE ID = ?";
@@ -111,7 +111,7 @@ public class ApplicationUser implements IApplicationUser {
         try {
 
             // Setup SQl connection
-            con = SqlConfig.getCon();
+            con = SqlConfig.getInstance().getCon();
 
             // Define SQL Statement
             String selectSQL = "SELECT * FROM applicationuser";
@@ -149,7 +149,7 @@ public class ApplicationUser implements IApplicationUser {
             LinkedList<ApplicationUserObject> ApplicationUserObjectList = new LinkedList<ApplicationUserObject>();
 
             // Setup SQl connection
-            con = SqlConfig.getCon();
+            con = SqlConfig.getInstance().getCon();
 
             // Define SQL Statement
             String selectSQL = "SELECT * FROM applicationuser";

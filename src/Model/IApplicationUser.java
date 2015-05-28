@@ -1,6 +1,7 @@
 package Model;
 
 
+import java.sql.Connection;
 import java.util.Date;
 import java.util.LinkedList;
 
@@ -8,13 +9,9 @@ import java.util.LinkedList;
  * Created by Win7-Dev on 02.05.2015.
  */
 public interface IApplicationUser {
-
-    int ID = 0;
-    String Vorname = null;
-    String Nachname = null;
-    Date Geburtstag = null;
-    String Email = null;
-    String Passwort = null;
+	
+	Connection con = null;
+    SqlConfig SqlConfigObj = null;
 
     boolean editApplicationUser(int ID, String Vorname, String Nachname, Date Geburtstag, String Mail, String Passwort);
 

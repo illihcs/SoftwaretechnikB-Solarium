@@ -1,5 +1,6 @@
 package Model;
 
+import java.sql.Connection;
 import java.util.Date;
 import java.util.LinkedList;
 
@@ -8,6 +9,9 @@ import java.util.LinkedList;
  */
 public interface ITermin {
 
+	SqlConfig SqlConfigObj = null;
+    Connection con = null;
+	
     boolean createTermin(Date Datum, Date UhrzeitVon, Date UhrzeitBis, String Sonnenbank, String KundenName);
 
     boolean editTermin(int ID, Date Date, Date UhrzeitVon, Date UhrzeitBis, String Sonnenbank, String KundenName);
@@ -15,5 +19,7 @@ public interface ITermin {
     boolean deleteTermin(int ID);
 
 	LinkedList<TerminObject> getAllTermin();
+
+	LinkedList<TerminHoursADayObject> getTerminHoursADay();
 
 }

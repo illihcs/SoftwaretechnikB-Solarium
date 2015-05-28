@@ -1,7 +1,6 @@
 package Controller;
 
-import Model.ISonnenbank;
-import Model.Sonnenbank;
+import Model.FrontageModel;
 import Model.SonnenbankObject;
 
 import java.sql.SQLException;
@@ -17,45 +16,39 @@ public class SonnenbankController {
 
 
     private DateFormat dateFormater;
+    private FrontageModel frontage;
 
-
-    public SonnenbankController() {
+    public SonnenbankController() throws SQLException {
 
         dateFormater = DateFormat.getDateInstance(DateFormat.MEDIUM );
-
+        frontage = new FrontageModel();
+        
     }
 
     public boolean createSonnenbank(String Kabine, String Leistung, String Wartungstermin) throws SQLException, ParseException {
-
-        ISonnenbank sonnenControler = new Sonnenbank();
         Date wartungsterminDate = dateFormater.parse(Wartungstermin);
-
-        boolean TerminCreated =  sonnenControler.createSonnenbank(Kabine, Leistung, wartungsterminDate);
+        
+        boolean TerminCreated = frontage.SonnenbankCreate(Kabine, Leistung, wartungsterminDate);
 
         return TerminCreated;
     }
 
     public boolean editSonnenbank(int ID, String Kabine, String Leistung, String Wartungstermin) throws SQLException, ParseException {
 
-        ISonnenbank sonnenControler = new Sonnenbank();
         Date wartungsterminDate = dateFormater.parse(Wartungstermin);
-
-        boolean TerminCreated =  sonnenControler.editSonnenbank(ID, Kabine, Leistung, wartungsterminDate);
-
-        return TerminCreated;
+       
+        boolean TerminEdited = frontage.SonnenbankEdit(ID, Kabine, Leistung, wartungsterminDate);
+        
+        return TerminEdited;
     }
 
     public boolean deleteSunbed(int ID) throws SQLException {
-        ISonnenbank sonnenControler = new Sonnenbank();
-        boolean TerminCreated =  sonnenControler.deleteSunbed(ID);
-
-        return TerminCreated;
+        boolean TerminDeleted = frontage.SonnenbankDelete(ID);
+        return TerminDeleted;
     }
 
     public LinkedList<SonnenbankObject> getAllSonnenbanken() throws SQLException {
-
-        ISonnenbank SonnenbankControler = new Sonnenbank();
-        LinkedList<SonnenbankObject> AllSonnenbanken =   SonnenbankControler.getAllSonnenbank();
+        LinkedList<SonnenbankObject> AllSonnenbanken =   frontage.SonnenbankGetAll();
 
         return AllSonnenbanken;
     }

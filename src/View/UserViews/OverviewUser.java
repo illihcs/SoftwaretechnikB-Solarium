@@ -7,6 +7,7 @@ import View.TerminViews.OverviewTermin;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
+
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -17,6 +18,7 @@ import java.util.LinkedList;
 /**
  * Created by admin on 03.05.2015.
  */
+@SuppressWarnings("serial")
 public class OverviewUser extends JFrame {
 
     // Variables declaration - do not modify

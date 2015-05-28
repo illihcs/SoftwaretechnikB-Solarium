@@ -15,9 +15,8 @@ import javax.swing.ListSelectionModel;
 import javax.swing.table.DefaultTableModel;
 
 import Controller.TerminController;
-import Controller.UserController;
-import Model.TerminObject;
 
+@SuppressWarnings("serial")
 public class TerminHoursADay extends JFrame implements Observer{
 
 	//Variables declaration
@@ -69,9 +68,10 @@ public class TerminHoursADay extends JFrame implements Observer{
 	@Override
 	public void update(Observable arg0, Object arg1) {
 		DefaultTableModel d = new DefaultTableModel();
+		@SuppressWarnings("unchecked")
 		LinkedList<String[]> list = (LinkedList<String[]>) arg1;
 
-        // Define Table cols
+        // Define Table col's
         String[] columnnames = new String[]{"ID", "Vorname", "Nachname", "Geburtstag", "E-Mail", "Passwort"};
         d.setColumnIdentifiers(columnnames);
 

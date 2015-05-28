@@ -14,6 +14,7 @@ import java.awt.event.ActionListener;
 /**
  * Created by Schillemans on 01.05.2015.
  */
+@SuppressWarnings("serial")
 public class Login extends JFrame implements ActionListener {
 
     JTextField TextFieldEmail;

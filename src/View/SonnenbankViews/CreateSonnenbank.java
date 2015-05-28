@@ -1,17 +1,27 @@
 package View.SonnenbankViews;
 
-import Controller.SonnenbankController;
-
-import javax.swing.*;
-import java.awt.*;
+import java.awt.BorderLayout;
+import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.SQLException;
-import java.util.Date;
+
+import javax.swing.GroupLayout;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
+import javax.swing.LayoutStyle;
+import javax.swing.SwingConstants;
+
+import Controller.SonnenbankController;
 
 /**
  * Created by admin on 03.05.2015.
  */
+@SuppressWarnings("serial")
 public class CreateSonnenbank extends JFrame {
 
     //Panels for Title and Create
@@ -19,7 +29,7 @@ public class CreateSonnenbank extends JFrame {
     JPanel center;
     JPanel bottom;
 
-    //Compnents
+    //Components
     JButton ButtonSave;
     JButton ButtonAbort;
     JLabel LabelCabin;

@@ -1,20 +1,29 @@
 package View.TerminViews;
 
-import Controller.TerminController;
-import Model.TerminObject;
-
-import javax.swing.*;
-import javax.swing.text.DateFormatter;
-import java.awt.*;
+import java.awt.BorderLayout;
+import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.SQLException;
-import java.util.Date;
+
+import javax.swing.GroupLayout;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
+import javax.swing.LayoutStyle;
+import javax.swing.SwingConstants;
+
+import Controller.TerminController;
+import Model.TerminObject;
 
 
 /**
  * Created by admin on 03.05.2015.
  */
+@SuppressWarnings("serial")
 public class EditTermin extends JFrame {
     TerminObject terminObject;
 
@@ -178,7 +187,7 @@ public class EditTermin extends JFrame {
             }
 
         } catch (Exception ex) {
-            JOptionPane.showMessageDialog(null, ex.getMessage(), "Ersetllen Fehlgeschlagen", JOptionPane.WARNING_MESSAGE);
+            JOptionPane.showMessageDialog(null, ex.getMessage(), "Bearbeiten Fehlgeschlagen", JOptionPane.WARNING_MESSAGE);
         }
 
     }

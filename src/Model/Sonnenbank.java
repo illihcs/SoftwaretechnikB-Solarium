@@ -10,20 +10,12 @@ import java.util.LinkedList;
 
  
 public class Sonnenbank implements ISonnenbank {
-
-    private int ID;
-    private String Kabine;
-    private String Leistung;
-    private Date Wartungstermin;
-
     // helper objects for operate with DB
     SqlConfig SqlConfigObj;
     private Connection con;
 
     public Sonnenbank() throws SQLException {
-
         SqlConfigObj =  SqlConfig.getInstance();
-
     }
 
     // create a sonnenbank in the DB
@@ -148,6 +140,4 @@ public class Sonnenbank implements ISonnenbank {
 
 
     }
-
-
 }

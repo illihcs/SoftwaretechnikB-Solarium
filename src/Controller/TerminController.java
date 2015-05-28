@@ -1,19 +1,17 @@
 package Controller;
 
-import Model.ITermin;
-import Model.Termin;
-import Model.TerminHoursADayObject;
-import Model.TerminObject;
-import View.ObserverViews.TerminHoursADay;
-
 import java.sql.SQLException;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.Formatter;
 import java.util.LinkedList;
 import java.util.Observable;
+
+import Model.FrontageModel;
+import Model.TerminHoursADayObject;
+import Model.TerminObject;
+import View.ObserverViews.TerminHoursADay;
 
 
 public class TerminController extends Observable{
@@ -21,9 +19,11 @@ public class TerminController extends Observable{
 	private static TerminController _Instance;
     private DateFormat dateFormater;
     private TerminHoursADay thadV;
+    private FrontageModel frontage;
 
     private TerminController() throws SQLException {
-        dateFormater =   DateFormat.getDateInstance(DateFormat.MEDIUM );      
+        dateFormater =   DateFormat.getDateInstance(DateFormat.MEDIUM );
+        frontage = new FrontageModel();
     }
 
     public static TerminController getInstance() throws SQLException
@@ -50,15 +50,17 @@ public class TerminController extends Observable{
 		this.thadV = thadV;
 	}
 
+	
+	
+	
+	
+	
 	public boolean createTermin(String Datum, String UhrzeitVon, String UhrzeitBis, String Sonnenbank, String KundenName) throws SQLException, ParseException {
-
-        ITermin terminModel = new Termin();
-
         Date DatumDate = dateFormater.parse(Datum);
         Date UhrzeitVonDate = dateFormater.parse(UhrzeitVon);
         Date UhrzeitBisDate = dateFormater.parse(UhrzeitBis);
 
-        boolean TerminCreated =  terminModel.createTermin(DatumDate, UhrzeitVonDate, UhrzeitBisDate, Sonnenbank, KundenName);
+        boolean TerminCreated =  frontage.TerminCreate(DatumDate, UhrzeitVonDate, UhrzeitBisDate, Sonnenbank, KundenName);
 
         //notify Observers
         if(TerminCreated == true)
@@ -70,14 +72,11 @@ public class TerminController extends Observable{
     }
 
     public boolean editTermin(int ID, String Datum, String UhrzeitVon, String UhrzeitBis, String Sonnenbank, String KundenName) throws SQLException, ParseException {
-
-        ITermin terminControler = new Termin();
-
         Date DatumDate = dateFormater.parse(Datum);
         Date UhrzeitVonDate = dateFormater.parse(UhrzeitVon);
         Date UhrzeitBisDate = dateFormater.parse(UhrzeitBis);
 
-        boolean TerminCreated =  terminControler.editTermin(ID, DatumDate, UhrzeitVonDate, UhrzeitBisDate, Sonnenbank, KundenName);
+        boolean TerminCreated =  frontage.TerminEdit(ID, DatumDate, UhrzeitVonDate, UhrzeitBisDate, Sonnenbank, KundenName);
 
         //notify Observers
         if(TerminCreated == true)
@@ -89,8 +88,7 @@ public class TerminController extends Observable{
     }
 
     public boolean deleteTermin(int ID) throws SQLException {
-        ITermin terminControler = new Termin();
-        boolean TerminCreated =  terminControler.deleteTermin(ID);
+        boolean TerminCreated =  frontage.TerminDelete(ID);
 
         //notify Observers
         if(TerminCreated == true)
@@ -103,17 +101,14 @@ public class TerminController extends Observable{
 
 
     public LinkedList<TerminObject> getAllTermin() throws SQLException {
-
-        ITermin terminControler = new Termin();
-        LinkedList<TerminObject> allTermine =  terminControler.getAllTermin();
+        LinkedList<TerminObject> allTermine =  frontage.TerminGetAll();
 
         return allTermine;
     }
 
     public LinkedList<String[]> getTerminHoursADay() throws SQLException {
 		LinkedList<String[]> list = new LinkedList<>();
-		ITermin terminControler = new Termin();
-        LinkedList<TerminObject> allTermine =  terminControler.getAllTermin();
+        LinkedList<TerminObject> allTermine =  frontage.TerminGetAll();
         LinkedList<TerminHoursADayObject> terminADay = new LinkedList<>();
         
 		for(TerminObject t : allTermine)

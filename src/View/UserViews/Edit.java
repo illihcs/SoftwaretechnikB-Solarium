@@ -1,19 +1,29 @@
 package View.UserViews;
 
-import Controller.UserController;
-import Model.ApplicationUserObject;
-
-import javax.swing.*;
-import javax.swing.text.DateFormatter;
-import java.awt.*;
+import java.awt.BorderLayout;
+import java.awt.CardLayout;
+import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.SQLException;
-import java.util.Date;
+
+import javax.swing.GroupLayout;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
+import javax.swing.LayoutStyle;
+import javax.swing.SwingConstants;
+
+import Controller.UserController;
+import Model.ApplicationUserObject;
 
 /**
  * Created by admin on 03.05.2015.
  */
+@SuppressWarnings("serial")
 public class Edit extends JFrame {
 
     ApplicationUserObject userObject;
@@ -167,10 +177,8 @@ public class Edit extends JFrame {
 
     private void ButtonSaveActionPerformed(java.awt.event.ActionEvent evt) {
 
-        UserController controller = new UserController();
-
-        try {
-
+    	try{
+    		UserController controller = new UserController();
 
             int UserId = userObject.getID();
             String Givenname = TextFieldGivenname.getText();
@@ -192,7 +200,7 @@ public class Edit extends JFrame {
 
         } catch (Exception ex) {
 
-            JOptionPane.showMessageDialog(null, ex.getMessage(), "Ersetllen Fehlgeschlagen", JOptionPane.WARNING_MESSAGE);
+            JOptionPane.showMessageDialog(null, ex.getMessage(), "Bearbeiten Fehlgeschlagen", JOptionPane.WARNING_MESSAGE);
         }
     }
 

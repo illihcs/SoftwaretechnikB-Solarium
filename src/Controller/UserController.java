@@ -1,14 +1,13 @@
 package Controller;
 
-import Model.ApplicationUser;
-import Model.ApplicationUserObject;
-import Model.IApplicationUser;
-
 import java.sql.SQLException;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.util.Date;
 import java.util.LinkedList;
+
+import Model.ApplicationUserObject;
+import Model.FrontageModel;
 
 /**
  * Created by Schillemans on 01.05.2015.
@@ -16,52 +15,44 @@ import java.util.LinkedList;
 public class UserController {
 
     private DateFormat dateFormater;
+    private FrontageModel frontage;
 
-    public UserController() {
+    public UserController() throws SQLException {
         this.dateFormater = DateFormat.getDateInstance(DateFormat.MEDIUM );
+        frontage = new FrontageModel();
     }
 
     // Diese Methode liefert true zurück wenn das Model in der DB ein passenden eintrag findet
     public boolean loginApplicationUser(String loginApplicationUserMail, char[] Password) throws SQLException {
-
-        IApplicationUser user = new ApplicationUser();
-
-        boolean UserAuthenticated = user.loginApplicationUser(loginApplicationUserMail, new String(Password));
-
-        return UserAuthenticated;
-
+    	boolean UserAuthenticated = frontage.UserLogin(loginApplicationUserMail, new String(Password));
+        
+    	return UserAuthenticated;
     }
 
     public boolean registerApplicationUser(String Vorname, String Nachname, String Geburtstag, String Mail, char[] Password) throws SQLException, ParseException {
-
         // Außen vor lassen! erst wenn wichtige sachen fertig sind weiter implementieren
-        IApplicationUser userControler = new ApplicationUser();
         Date geburtstagDate = dateFormater.parse(Geburtstag);
 
-        return userControler.createApplicationUser(Vorname, Nachname, geburtstagDate, Mail, new String(Password));
+        return frontage.UserCreate(Vorname, Nachname, geburtstagDate, Mail, new String(Password));
 
     }
 
     // Diese Methode liefert true zurück wenn das Model in der DB ein Update durchführen konnte
     public boolean editApplicationUser(int ID, String Vorname, String Nachname, String Geburtstag, String EMail, char[] Password) throws SQLException, ParseException {
-
-        IApplicationUser userControler = new ApplicationUser();
         Date geburtstagDate = dateFormater.parse(Geburtstag);
 
-        boolean UserCreated = userControler.editApplicationUser(ID, Vorname, Nachname, geburtstagDate, EMail, new String(Password));
+        boolean UserEdited = frontage.UserEdit(ID, Vorname, Nachname, geburtstagDate, EMail, new String(Password));
 
-        return UserCreated;
+        return UserEdited;
 
     }
 
-    public boolean deleteApplicationUser(int i) throws SQLException {
-        return new ApplicationUser().deleteApplicationUser(i);
+    public boolean deleteApplicationUser(int ID) throws SQLException {
+        return frontage.UserDelete(ID);
     }
 
     public LinkedList<String[]> getAllUser() throws SQLException {
-
-        IApplicationUser userController = new ApplicationUser();
-        LinkedList<ApplicationUserObject> AllUser = userController.getAllApplicationUser();
+        LinkedList<ApplicationUserObject> AllUser = frontage.UserGetAll();
         LinkedList<String[]> stringListWithArrays = new LinkedList<String[]>();
         
         for(ApplicationUserObject user : AllUser)

@@ -10,27 +10,15 @@ import java.util.LinkedList;
 
 
 public class ApplicationUser implements IApplicationUser {
-
-    private int ID = 0;
-    private String Vorname;
-    private String Nachname;
-    private Date Geburtstag;
-    private String Email;
-    private String Passwort;
-
     // helper objects for operate with DB
-     Connection con = null;
+    Connection con = null;
     SqlConfig SqlConfigObj;
 
     public ApplicationUser() throws SQLException {
-
         SqlConfigObj =  SqlConfig.getInstance();
-
-
-
     }
 
-    // Edit application user datas in DB
+    // Edit application user data's in DB
     public boolean editApplicationUser(int ID, String Vorname, String Nachname, Date Geburtstag, String EMail, String Passwort) {
 
         try {
@@ -93,7 +81,7 @@ public class ApplicationUser implements IApplicationUser {
 
     }
 
-    // delete an usere in the DB via a given ID
+    // delete an user in the DB via a given ID
     public boolean deleteApplicationUser(int ID) {
         try {
 
@@ -118,7 +106,7 @@ public class ApplicationUser implements IApplicationUser {
         }
     }
 
-    // Find and check usere credentials in DB
+    // Find and check user credentials in DB
     public boolean loginApplicationUser(String loginApplicationUserEMail, String loginApplicationUserPassword) {
         try {
 

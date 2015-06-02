@@ -5,6 +5,8 @@ import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.SQLException;
+import java.text.SimpleDateFormat;
+import java.util.Locale;
 
 import javax.swing.GroupLayout;
 import javax.swing.JButton;
@@ -51,6 +53,9 @@ public class EditTermin extends JFrame {
 
     //Controller initialized
     TerminController ControllerTermin;
+    
+    private SimpleDateFormat formatTime;
+    private SimpleDateFormat formatDate;
 
     public EditTermin(TerminObject to) throws SQLException {
         initComponents(to);
@@ -58,6 +63,8 @@ public class EditTermin extends JFrame {
 
     private void initComponents(TerminObject to) throws SQLException{
 
+    	formatTime = new SimpleDateFormat("hh:mm", Locale.GERMAN);
+    	formatDate = new SimpleDateFormat("dd.MM.yyyy", Locale.GERMAN);
         terminObject = to;
 
         //create Controller
@@ -69,16 +76,16 @@ public class EditTermin extends JFrame {
         bottom = new JPanel();
         ButtonSave = new JButton("Speichern");
         ButtonAbort = new JButton("Abbrechen");
-        ButtonBackToAppointmentOverview = new JButton("Zurück zur Terminübersicht");
+        ButtonBackToAppointmentOverview = new JButton("ZurÃ¼ck zur TerminÃ¼bersicht");
         LabelTitle = new JLabel("Bitte tragen Sie die Termininformationen ein, um den Termin zu erstellen.");
         LabelDate = new JLabel("Datum:");
         LabelDateFrom = new JLabel("Uhrzeit Von:");
         LabelDateUntil = new JLabel("Uhrezit Bis:");
         LabelSunbed = new JLabel("Sonnenbank:");
         LabelClient = new JLabel("Kundenname:");
-        TextFieldDate = new JTextField(terminObject.getDatum().toString());
-        TextFieldDateFrom = new JTextField(terminObject.getUhrzeitVon().toString());
-        TextFieldDateUntil = new JTextField(terminObject.getUhrzeitBis().toString());
+        TextFieldDate = new JTextField(formatDate.format(terminObject.getDatum()));
+        TextFieldDateFrom = new JTextField(formatTime.format(terminObject.getUhrzeitVon()));
+        TextFieldDateUntil = new JTextField(formatTime.format(terminObject.getUhrzeitBis()));
         TextFieldSunbed = new JTextField(terminObject.getSonnenbank());
         TextFieldClient = new JTextField(terminObject.getKunde());
 
@@ -152,7 +159,7 @@ public class EditTermin extends JFrame {
         //bottom.add(LabelFailure);
         setSize(800, 500);
         setLocationRelativeTo(null);
-        setTitle("Bearbeiten Sie die zu ändernden Werte.");
+        setTitle("Bearbeiten Sie die zu Ã¤ndernden Werte.");
     }
 
     private void ButtonSaveActionPerformed(ActionEvent evt) {
@@ -165,7 +172,7 @@ public class EditTermin extends JFrame {
             // Get and save userInputs
             String terminDate = TextFieldDate.getText();
             String terminFrom = TextFieldDateFrom.getText();
-            String terminUntil = TextFieldDateFrom.getText();
+            String terminUntil = TextFieldDateUntil.getText();
             String Sunbed = TextFieldSunbed.getText();
             String Client = TextFieldClient.getText();
 
@@ -183,7 +190,7 @@ public class EditTermin extends JFrame {
 
             } else {
 
-                throw new RuntimeException("Bearbeitung fehlgeschlagen! \n  Ein Feld wurde falsch eingegeben:\n Format Datum:yyyy-MM-dd");
+                throw new RuntimeException("Bearbeitung fehlgeschlagen! \n  Ein Feld wurde falsch eingegeben:\n Format Datum:dd.MM.yyyy");
             }
 
         } catch (Exception ex) {
@@ -193,7 +200,7 @@ public class EditTermin extends JFrame {
     }
 
     private void ButtonAbortActionPerformed(ActionEvent evt) throws SQLException {
-        int eingabe = JOptionPane.showConfirmDialog(null, "Möchten Sie wirklich abbrechen?", "Abbrechen", JOptionPane.YES_NO_OPTION);
+        int eingabe = JOptionPane.showConfirmDialog(null, "MÃ¶chten Sie wirklich abbrechen?", "Abbrechen", JOptionPane.YES_NO_OPTION);
         if (eingabe == 0) {
             OverviewTermin ot = new OverviewTermin();
             ot.setVisible(true);

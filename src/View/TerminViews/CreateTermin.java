@@ -188,7 +188,7 @@ public class CreateTermin extends JFrame{
 
             } else {
 
-                throw  new RuntimeException("Ersetllen fehlgeschlagen! \n  Ein Feld wurde falsch eingegeben:\n Format Datum:yyyy-MM-dd");
+                throw  new RuntimeException("Ersetllen fehlgeschlagen! \n  Ein Feld wurde falsch eingegeben:\n Format Datum:dd.MM.yyyy");
             }
 
         }catch (Exception ex)  {

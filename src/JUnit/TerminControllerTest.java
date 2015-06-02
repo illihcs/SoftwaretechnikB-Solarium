@@ -14,7 +14,7 @@ public class TerminControllerTest {
 	@Test
 	public void test() throws SQLException, ParseException {
 		
-		TerminController aaa = new TerminController();
+		TerminController aaa = TerminController.getInstance();
 		assertTrue(aaa.deleteTermin(15));
 		assertTrue(aaa.createTermin("2015-04-09", "2014-04-09", "2013-04-09", "1", "1"));
 	}

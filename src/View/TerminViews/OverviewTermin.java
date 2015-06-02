@@ -1,20 +1,31 @@
 package View.TerminViews;
 
 
+import java.awt.BorderLayout;
+import java.awt.GridLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.sql.SQLException;
+import java.sql.Timestamp;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.LinkedList;
+import java.util.Locale;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.JTable;
+import javax.swing.ListSelectionModel;
+import javax.swing.table.DefaultTableModel;
+
 import Controller.TerminController;
 import Model.TerminObject;
 import View.SonnenbankViews.OverviewSonnenbank;
 import View.UserViews.OverviewUser;
-
-import javax.swing.*;
-import javax.swing.table.DefaultTableModel;
-
-import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.sql.SQLException;
-import java.util.Date;
-import java.util.LinkedList;
 
 /**
  * Created by admin on 03.05.2015.
@@ -33,6 +44,9 @@ public class OverviewTermin extends JFrame {
     private JPanel bottom;
     private JScrollPane centerScrollPane;
     private JTable TableOverviewAppointment;
+    private DateFormat formatTime;
+    private SimpleDateFormat formatDate;
+	private SimpleDateFormat formatDateTime;
     // End of variables declaration
 
     /**
@@ -43,7 +57,10 @@ public class OverviewTermin extends JFrame {
     }
 
     private void initComponents() throws SQLException {
-
+    	formatTime = DateFormat.getTimeInstance(DateFormat.SHORT);
+    	formatDate = new SimpleDateFormat("dd.MM.yyyy", Locale.GERMAN);
+    	formatDateTime = new SimpleDateFormat("dd.MM.yyyy HH:mm");
+    	
         top = new JPanel();
         ButtonOverviewUser = new JButton();
         ButtonOverviewSunbed = new JButton();
@@ -58,9 +75,9 @@ public class OverviewTermin extends JFrame {
         ButtonDeleteAppointment = new JButton();
 
         setDefaultCloseOperation(DISPOSE_ON_CLOSE);
-        setTitle("Termin Übersicht");
+        setTitle("Termin Ãœbersicht");
 
-        ButtonOverviewUser.setText("Wechsele zur Benutzerübersicht");
+        ButtonOverviewUser.setText("Wechsele zur BenutzerÃ¼bersicht");
         ButtonOverviewUser.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent evt) {
                
@@ -70,7 +87,7 @@ public class OverviewTermin extends JFrame {
         });
         top.add(ButtonOverviewUser);
 
-        ButtonOverviewSunbed.setText("Wechsele zur Sonnenbankübersicht");
+        ButtonOverviewSunbed.setText("Wechsele zur SonnenbankÃ¼bersicht");
         ButtonOverviewSunbed.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent evt) {
                
@@ -89,7 +106,7 @@ public class OverviewTermin extends JFrame {
 
         for (TerminObject t : list) {
 
-            String[] row = {t.getID() + "", t.getDatum() + "", t.getUhrzeitVon() + "", t.getUhrzeitBis() + "", t.getSonnenbank() + "", t.getKunde() + ""};
+            String[] row = {t.getID() + "", formatDate.format(t.getDatum()), formatTime.format(t.getUhrzeitVon()), formatTime.format(t.getUhrzeitBis()), t.getSonnenbank() + "", t.getKunde() + ""};
             dtm.addRow(row);
 
         }
@@ -120,7 +137,7 @@ public class OverviewTermin extends JFrame {
 
         bottom.add(ButtonEditAppointment);
 
-        ButtonDeleteAppointment.setText("Lösche Termin");
+        ButtonDeleteAppointment.setText("LÃ¶sche Termin");
         ButtonDeleteAppointment.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent evt) {
                 ButtonDeleteAppointmentActionPerformed(evt);
@@ -141,9 +158,9 @@ public class OverviewTermin extends JFrame {
 
             int row = TableOverviewAppointment.getSelectedRow();
             // If user has no row selected break!
-            if (row == -1) throw new RuntimeException("Bitte zuerst eine Zeile auswählen!");
+            if (row == -1) throw new RuntimeException("Bitte zuerst eine Zeile auswahlen!");
 
-            int eingabe = JOptionPane.showConfirmDialog(null, "Möchten Sie den ausgewählten Termin löschen?", "Löschen bestätigen", JOptionPane.YES_NO_CANCEL_OPTION);
+            int eingabe = JOptionPane.showConfirmDialog(null, "MÃ¶chten Sie den ausgewÃ¤hlten Termin lÃ¶schchen?", "LÃ¶schen bestÃ¤tigen", JOptionPane.YES_NO_CANCEL_OPTION);
 
             // Clicked yes
             if (eingabe == 0) {
@@ -155,8 +172,8 @@ public class OverviewTermin extends JFrame {
 
                 if (terminDeleted) {
                     JOptionPane.showMessageDialog(null,
-                            "Löschen fertiggestellt!",
-                            "Löschen fertig!",
+                            "LÃ¶schen fertiggestellt!",
+                            "LÃ¶schen fertig!",
                             JOptionPane.INFORMATION_MESSAGE);
 
                     DefaultTableModel d = new DefaultTableModel();
@@ -167,7 +184,7 @@ public class OverviewTermin extends JFrame {
 
                     for (TerminObject t : list) {
 
-                        String[] r = {t.getID() + "", t.getDatum() + "", t.getUhrzeitVon() + "", t.getUhrzeitBis() + "", t.getSonnenbank() + "", t.getKunde() + ""};
+                    	String[] r = {t.getID() + "", formatDate.format(t.getDatum()), formatTime.format(t.getUhrzeitVon()), formatTime.format(t.getUhrzeitBis()), t.getSonnenbank() + "", t.getKunde() + ""};
                         d.addRow(r);
                     }
 
@@ -175,14 +192,14 @@ public class OverviewTermin extends JFrame {
                     TableOverviewAppointment.repaint();
                 } else {
 
-                    throw new RuntimeException("Eintrag konnte nicht gelöscht werden!");
+                    throw new RuntimeException("Eintrag konnte nicht gelÃ¶scht werden!");
 
                 }
             }
 
         } catch (Exception ex) {
 
-            JOptionPane.showMessageDialog(null, ex.getMessage(), "Löschen Fehlgeschlagen", JOptionPane.WARNING_MESSAGE);
+            JOptionPane.showMessageDialog(null, ex.getMessage(), "LÃ¶schen Fehlgeschlagen", JOptionPane.WARNING_MESSAGE);
 
         }
     }
@@ -190,19 +207,24 @@ public class OverviewTermin extends JFrame {
     private void ButtonEditAppointmentActionPerformed(ActionEvent evt) {
 
         int row = TableOverviewAppointment.getSelectedRow();
+        EditTermin et = null;
 
-        TerminObject to = new TerminObject(
+        try {
+        	TerminObject to = new TerminObject(
                 Integer.parseInt((String) TableOverviewAppointment.getModel().getValueAt(row, 0)),
-                (Date) TableOverviewAppointment.getModel().getValueAt(row, 1),
-                (Date) TableOverviewAppointment.getModel().getValueAt(row, 2),
-                (Date) TableOverviewAppointment.getModel().getValueAt(row, 3),
+                formatDateTime.parse(TableOverviewAppointment.getModel().getValueAt(row, 1) +" 00:00"),
+                new java.sql.Timestamp(formatDateTime.parse(TableOverviewAppointment.getModel().getValueAt(row, 1) + " " + TableOverviewAppointment.getModel().getValueAt(row, 2)).getTime()),
+                new java.sql.Timestamp(formatDateTime.parse(TableOverviewAppointment.getModel().getValueAt(row, 1) + " " + TableOverviewAppointment.getModel().getValueAt(row, 3)).getTime()),
                 (String) TableOverviewAppointment.getModel().getValueAt(row, 4),
                 (String) TableOverviewAppointment.getModel().getValueAt(row, 5));
 
-        EditTermin et = null;
-		try {
+		
 			et = new EditTermin(to);
 		} catch (SQLException e) {
+			JOptionPane.showMessageDialog(null, e.getMessage(), "Etwas ist Fehlgeschlagen", JOptionPane.WARNING_MESSAGE);
+		} catch (NumberFormatException e) {
+			JOptionPane.showMessageDialog(null, e.getMessage(), "Etwas ist Fehlgeschlagen", JOptionPane.WARNING_MESSAGE);
+		} catch (ParseException e) {
 			JOptionPane.showMessageDialog(null, e.getMessage(), "Etwas ist Fehlgeschlagen", JOptionPane.WARNING_MESSAGE);
 		}
 

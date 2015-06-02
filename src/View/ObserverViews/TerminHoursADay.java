@@ -31,7 +31,7 @@ public class TerminHoursADay extends JFrame implements Observer{
 	
 	private void initComponents() throws SQLException {
         setDefaultCloseOperation(DISPOSE_ON_CLOSE);
-        setTitle("Gesamtstunden der Termine über den Tag");
+        setTitle("Gesamtstunden der Termine ï¿½ber den Tag");
         setLayout(new BorderLayout());
         
         center = new JPanel();
@@ -72,7 +72,7 @@ public class TerminHoursADay extends JFrame implements Observer{
 		LinkedList<String[]> list = (LinkedList<String[]>) arg1;
 
         // Define Table col's
-        String[] columnnames = new String[]{"ID", "Vorname", "Nachname", "Geburtstag", "E-Mail", "Passwort"};
+        String[] columnnames = new String[]{"Datum", "Anzahl Termine", "Gesamtdauer", "Durchschnittsdauer"};
         d.setColumnIdentifiers(columnnames);
 
         // fill table with rows

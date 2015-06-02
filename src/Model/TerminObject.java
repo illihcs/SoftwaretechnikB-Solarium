@@ -1,6 +1,7 @@
 package Model;
 
 
+import java.sql.Timestamp;
 import java.util.Date;
 
 /**
@@ -10,12 +11,12 @@ public class TerminObject {
 
     private int ID = 0;
     private Date Datum = null;
-    private Date UhrzeitVon = null;
-    private Date UhrzeitBis = null;
+    private Timestamp UhrzeitVon = null;
+    private Timestamp UhrzeitBis = null;
     private String Sonnenbank = null;
     private String Kunde;
 
-    public TerminObject(int ID, Date Datum, Date UhrzeitVon, Date UhrzeitBis, String Sonnenbank, String Kunde) {
+    public TerminObject(int ID, Date Datum, Timestamp UhrzeitVon, Timestamp UhrzeitBis, String Sonnenbank, String Kunde) {
 
         this.ID = ID;
         this.Datum = Datum;
@@ -41,19 +42,19 @@ public class TerminObject {
         Datum = datum;
     }
 
-    public Date getUhrzeitVon() {
+    public Timestamp getUhrzeitVon() {
         return UhrzeitVon;
     }
 
-    public void setUhrzeitVon(Date uhrzeitVon) {
+    public void setUhrzeitVon(Timestamp uhrzeitVon) {
         UhrzeitVon = uhrzeitVon;
     }
 
-    public Date getUhrzeitBis() {
+    public Timestamp getUhrzeitBis() {
         return UhrzeitBis;
     }
 
-    public void setUhrzeitBis(Date uhrzeitBis) {
+    public void setUhrzeitBis(Timestamp uhrzeitBis) {
         UhrzeitBis = uhrzeitBis;
     }
 

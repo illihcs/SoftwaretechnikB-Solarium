@@ -6,6 +6,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.LinkedList;
+import java.util.Locale;
 import java.util.Observable;
 
 import Model.FrontageModel;
@@ -17,12 +18,12 @@ import View.ObserverViews.TerminHoursADay;
 public class TerminController extends Observable{
 
 	private static TerminController _Instance;
-    private DateFormat dateFormater;
+    private DateFormat format;
     private TerminHoursADay thadV;
     private FrontageModel frontage;
 
     private TerminController() throws SQLException {
-        dateFormater =   DateFormat.getDateInstance(DateFormat.MEDIUM );
+    	format = new SimpleDateFormat("dd.MM.yyyy hh:mm", Locale.GERMANY);
         frontage = new FrontageModel();
     }
 
@@ -52,13 +53,12 @@ public class TerminController extends Observable{
 
 	
 	
-	
-	
-	
 	public boolean createTermin(String Datum, String UhrzeitVon, String UhrzeitBis, String Sonnenbank, String KundenName) throws SQLException, ParseException {
-        Date DatumDate = dateFormater.parse(Datum);
-        Date UhrzeitVonDate = dateFormater.parse(UhrzeitVon);
-        Date UhrzeitBisDate = dateFormater.parse(UhrzeitBis);
+       
+		Date DatumDate = format.parse(Datum + " 00:00");
+		Date UhrzeitVonDate = format.parse(Datum + " " + UhrzeitVon);
+		Date UhrzeitBisDate = format.parse(Datum + " " + UhrzeitBis);
+		
 
         boolean TerminCreated =  frontage.TerminCreate(DatumDate, UhrzeitVonDate, UhrzeitBisDate, Sonnenbank, KundenName);
 
@@ -72,31 +72,33 @@ public class TerminController extends Observable{
     }
 
     public boolean editTermin(int ID, String Datum, String UhrzeitVon, String UhrzeitBis, String Sonnenbank, String KundenName) throws SQLException, ParseException {
-        Date DatumDate = dateFormater.parse(Datum);
-        Date UhrzeitVonDate = dateFormater.parse(UhrzeitVon);
-        Date UhrzeitBisDate = dateFormater.parse(UhrzeitBis);
+        Date DatumDate = format.parse(Datum + " 00:00");
+        Date UhrzeitVonDate = format.parse(Datum + " " + UhrzeitVon);
+        Date UhrzeitBisDate = format.parse(Datum + " " + UhrzeitBis);
 
-        boolean TerminCreated =  frontage.TerminEdit(ID, DatumDate, UhrzeitVonDate, UhrzeitBisDate, Sonnenbank, KundenName);
+        
+        
+        boolean TerminEdit =  frontage.TerminEdit(ID, DatumDate, UhrzeitVonDate, UhrzeitBisDate, Sonnenbank, KundenName);
 
         //notify Observers
-        if(TerminCreated == true)
+        if(TerminEdit == true)
         {
         	notifyAllObservers();
         }
         
-        return TerminCreated;
+        return TerminEdit;
     }
 
     public boolean deleteTermin(int ID) throws SQLException {
-        boolean TerminCreated =  frontage.TerminDelete(ID);
+        boolean TerminDeleted =  frontage.TerminDelete(ID);
 
         //notify Observers
-        if(TerminCreated == true)
+        if(TerminDeleted == true)
         {
         	notifyAllObservers();
         }        
         
-        return TerminCreated;
+        return TerminDeleted;
     }
 
 
@@ -122,7 +124,7 @@ public class TerminController extends Observable{
 			long minutes2 = to.getDurchschnittsdauer()%60;
 			String durchschnittsdauer = String.format("%d:%02d", hours2, minutes2);
 			
-			SimpleDateFormat dt = new SimpleDateFormat("yyyy-MM-dd");
+			SimpleDateFormat dt = new SimpleDateFormat("dd.MM.yyyy");
 			
 			String[] array = {dt.format(to.getDatum()), to.getAnzahl() + "", gesamtdauer, durchschnittsdauer};
 			list.add(array);

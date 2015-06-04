@@ -111,18 +111,22 @@ public class TerminController extends Observable{
     public LinkedList<String[]> getTerminHoursADay() throws SQLException {
 		LinkedList<String[]> list = new LinkedList<>();
         LinkedList<TerminHoursADayObject> terminADay =  frontage.TerminGetTerminHoursADay();
-        
 		
 		//convert all attributes of TerminHoursADayList to strings
 		for(TerminHoursADayObject to : terminADay)
 		{
-			long hours = to.getGesamtdauer()/60;
-			long minutes = to.getGesamtdauer()%60;
+//			long hours = to.getGesamtdauer()/60;
+//			long minutes = to.getGesamtdauer()%60;
+//			String gesamtdauer = String.format("%d:%02d", hours, minutes);
+			
+			long hours = to.getGesamtdauer()/3600;
+			long minutes = to.getGesamtdauer()%3600;
 			String gesamtdauer = String.format("%d:%02d", hours, minutes);
 			
-			long hours2 = to.getDurchschnittsdauer()/60;
-			long minutes2 = to.getDurchschnittsdauer()%60;
-			String durchschnittsdauer = String.format("%d:%02d", hours2, minutes2);
+			long hours2 = to.getDurchschnittsdauer()/3600;
+			long minutes2 = to.getDurchschnittsdauer()%3600;
+			String durchschnittsdauer_temp = String.format("%d:%02d", hours2, minutes2);
+			String durchschnittsdauer = durchschnittsdauer_temp.substring(0, durchschnittsdauer_temp.length()-2);
 			
 			SimpleDateFormat dt = new SimpleDateFormat("dd.MM.yyyy");
 			

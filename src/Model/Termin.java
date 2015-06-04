@@ -5,11 +5,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Timestamp;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.LinkedList;
-import java.util.Locale;
 
 
 public class Termin implements ITermin {
@@ -218,8 +215,8 @@ public class Termin implements ITermin {
 					long diffMinutes = diff/(1000);
 					
 					th.setAnzahl(th.getAnzahl()+1);
-					th.setDurchschnittsdauer(th.getGesamtdauer()/th.getAnzahl());
 					th.setGesamtdauer(th.getGesamtdauer()+(diffMinutes));
+					th.setDurchschnittsdauer(th.getGesamtdauer()/th.getAnzahl());
 					dateExists=true;
 				}
 			}

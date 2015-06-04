@@ -12,7 +12,8 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.SQLException;
-import java.util.Date;
+import java.text.DateFormat;
+import java.text.ParseException;
 import java.util.LinkedList;
 
 /**
@@ -53,7 +54,7 @@ public class OverviewUser extends JFrame {
         ButtonDeleteUser = new JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setTitle("Benutzer übersicht");
+        setTitle("Benutzer Übersicht");
 
         ButtonOverviewAppointment.setText("Wechsele zur Terminübersicht");
         ButtonOverviewAppointment.addActionListener(new ActionListener() {
@@ -186,16 +187,24 @@ public class OverviewUser extends JFrame {
     private void ButtonEditUserActionPerformed(ActionEvent evt) {
 
         int row = TableOverviewUser.getSelectedRow();
+        
+        Edit et = null;
+		try {
+			ApplicationUserObject to = new ApplicationUserObject(
+			        Integer.parseInt((String) TableOverviewUser.getModel().getValueAt(row, 0)),
+			        (String) TableOverviewUser.getModel().getValueAt(row, 1),
+			        (String) TableOverviewUser.getModel().getValueAt(row, 2),
+			        DateFormat.getDateInstance(DateFormat.MEDIUM).parse((String) TableOverviewUser.getModel().getValueAt(row, 3)),
+			        (String) TableOverviewUser.getModel().getValueAt(row, 4),
+			        (String) TableOverviewUser.getModel().getValueAt(row, 5));
+			
+			et = new Edit(to);
+		} catch (NumberFormatException e) {
+			JOptionPane.showMessageDialog(null, e.getMessage(), "Etwas ist Fehlgeschlagen", JOptionPane.WARNING_MESSAGE);
+		} catch (ParseException e) {
+			JOptionPane.showMessageDialog(null, e.getMessage(), "Etwas ist Fehlgeschlagen", JOptionPane.WARNING_MESSAGE);
+		}
 
-        ApplicationUserObject to = new ApplicationUserObject(
-                Integer.parseInt((String) TableOverviewUser.getModel().getValueAt(row, 0)),
-                (String) TableOverviewUser.getModel().getValueAt(row, 1),
-                (String) TableOverviewUser.getModel().getValueAt(row, 2),
-                (Date)  TableOverviewUser.getModel().getValueAt(row, 3),
-                (String) TableOverviewUser.getModel().getValueAt(row, 4),
-                (String) TableOverviewUser.getModel().getValueAt(row, 5));
-
-        Edit et = new Edit(to);
         et.setVisible(true);
         this.dispose();
     }

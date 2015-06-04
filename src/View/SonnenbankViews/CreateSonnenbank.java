@@ -57,7 +57,7 @@ public class CreateSonnenbank extends JFrame {
         TextFieldCabin = new JTextField();
         TextFieldPower = new JTextField();
         TextFieldServiceAppointment = new JTextField();
-        ButtonBackToSunbedOverview = new JButton("Zurück zur Sonnenbankübersicht");
+        ButtonBackToSunbedOverview = new JButton("ZurÃ¼ck zur SonnenbankÃ¼bersicht");
 
         //add Components
         setLayout(new BorderLayout());
@@ -130,7 +130,7 @@ public class CreateSonnenbank extends JFrame {
         //bottom.add(LabelFailure);
         setSize(800, 500);
         setLocationRelativeTo(null);
-        setTitle("Tragen Sie die Sonnenbankdaten für die Terminerstellung ein.");
+        setTitle("Tragen Sie die Sonnenbankdaten fï¿½r die Terminerstellung ein.");
     }
 
     // Creates with user given inputs a new sunbad
@@ -160,7 +160,7 @@ public class CreateSonnenbank extends JFrame {
 
             } else {
 
-                throw new RuntimeException("Erstellung fehlgeschlagen! \n  Ein Feld wurde falsch eingegeben:\n Format Datum:yyyy-MM-dd");
+                throw new RuntimeException("Erstellung fehlgeschlagen! \n  Ein Feld wurde falsch eingegeben:\n Format Datum:dd.MM.yyyy");
             }
 
         } catch (Exception ex) {
@@ -171,7 +171,7 @@ public class CreateSonnenbank extends JFrame {
     // abort new sunbad task
     private void ButtonAbortActionPerformed(java.awt.event.ActionEvent evt) throws SQLException {
 
-        int eingabe = JOptionPane.showConfirmDialog(null, "Möchten Sie wirklich abbrechen?", "Abbrechen", JOptionPane.YES_NO_OPTION);
+        int eingabe = JOptionPane.showConfirmDialog(null, "MÃ¶chten Sie wirklich abbrechen?", "Abbrechen", JOptionPane.YES_NO_OPTION);
 
         if (eingabe == 0) {
 

@@ -13,7 +13,8 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.SQLException;
-import java.util.Date;
+import java.text.DateFormat;
+import java.text.ParseException;
 import java.util.LinkedList;
 
 /**
@@ -58,9 +59,9 @@ public class OverviewSonnenbank extends JFrame {
         ButtonDeleteSunbed = new JButton();
 
         setDefaultCloseOperation(DISPOSE_ON_CLOSE);
-        setTitle("Sonnenbank Übersicht");
+        setTitle("Sonnenbank Ãœbersicht");
 
-        ButtonOverviewUser.setText("Wechsele zur Benutzerübersicht");
+        ButtonOverviewUser.setText("Wechsele zur BenutzerÃ¼bersicht");
         ButtonOverviewUser.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent evt) {
                 try {
@@ -72,7 +73,7 @@ public class OverviewSonnenbank extends JFrame {
         });
         top.add(ButtonOverviewUser);
 
-        ButtonOverviewAppointment.setText("Wechsele zur Terminübersicht");
+        ButtonOverviewAppointment.setText("Wechsele zur TerminÃ¼bersicht");
         ButtonOverviewAppointment.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent evt) {
                 try {
@@ -92,7 +93,7 @@ public class OverviewSonnenbank extends JFrame {
         dtm.setColumnIdentifiers(columnnames);
 
         for (SonnenbankObject so : list) {
-            String[] row = {so.getID() + "", so.getKabine() + "", so.getLeistung() + "", so.getWartungstermin() + ""};
+            String[] row = {so.getID() + "", so.getKabine() + "", so.getLeistung() + "", DateFormat.getDateInstance(DateFormat.MEDIUM).format(so.getWartungstermin())};
             dtm.addRow(row);
         }
 
@@ -122,7 +123,7 @@ public class OverviewSonnenbank extends JFrame {
 
         bottom.add(ButtonEditSunbed);
 
-        ButtonDeleteSunbed.setText("Lösche Sonnenbank");
+        ButtonDeleteSunbed.setText("LÃ¶sche Sonnenbank");
         ButtonDeleteSunbed.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent evt) {
                 ButtonDeleteSunbedActionPerformed(evt);
@@ -143,9 +144,9 @@ public class OverviewSonnenbank extends JFrame {
 
             int row = TableOverviewSunbed.getSelectedRow();
             // If user has no row selected break!
-            if (row == -1) throw new RuntimeException("Bitte zuerst eine Zeile auswählen!");
+            if (row == -1) throw new RuntimeException("Bitte zuerst eine Zeile auswÃ¤hlen!");
 
-            int eingabe = JOptionPane.showConfirmDialog(null, "Möchten Sie die ausgewählte Sonnenbank löschen?", "Löschen bestätigen", JOptionPane.YES_NO_CANCEL_OPTION);
+            int eingabe = JOptionPane.showConfirmDialog(null, "MÃ¶chten Sie die ausgewÃ¤hlte Sonnenbank lÃ¶schen?", "LÃ¶schen bestÃ¤tigen", JOptionPane.YES_NO_CANCEL_OPTION);
 
             // User clicked yes
             if (eingabe == 0) {
@@ -156,8 +157,8 @@ public class OverviewSonnenbank extends JFrame {
 
                 if (sunbedDeleted) {
                     JOptionPane.showMessageDialog(null,
-                            "Löschen fertiggestellt!",
-                            "Löschen fertig!",
+                            "LÃ¶schen fertiggestellt!",
+                            "LÃ¶schen fertig!",
                             JOptionPane.INFORMATION_MESSAGE);
 
                     DefaultTableModel d = new DefaultTableModel();
@@ -177,13 +178,13 @@ public class OverviewSonnenbank extends JFrame {
 
                 } else {
 
-                    throw new RuntimeException("Eintrag konnte nicht gelöscht werden!");
+                    throw new RuntimeException("Eintrag konnte nicht gelÃ¶scht werden!");
                 }
             }
 
         } catch (Exception ex) {
 
-            JOptionPane.showMessageDialog(null, ex.getMessage(), "Löschen Fehlgeschlagen", JOptionPane.WARNING_MESSAGE);
+            JOptionPane.showMessageDialog(null, ex.getMessage(), "LÃ¶schen Fehlgeschlagen", JOptionPane.WARNING_MESSAGE);
         }
 
     }
@@ -193,13 +194,22 @@ public class OverviewSonnenbank extends JFrame {
 
         int row = TableOverviewSunbed.getSelectedRow();
 
-        SonnenbankObject sonnenbankObject = new SonnenbankObject(
-                Integer.parseInt((String) TableOverviewSunbed.getModel().getValueAt(row, 0)),
-                (String) TableOverviewSunbed.getModel().getValueAt(row, 1),
-                (String) TableOverviewSunbed.getModel().getValueAt(row, 2),
-                (Date) TableOverviewSunbed.getModel().getValueAt(row, 3));
+        EditSonnenbank editSonnenbank = null;
+		try {
+			SonnenbankObject sonnenbankObject = new SonnenbankObject(
+			        Integer.parseInt((String) TableOverviewSunbed.getModel().getValueAt(row, 0)),
+			        (String) TableOverviewSunbed.getModel().getValueAt(row, 1),
+			        (String) TableOverviewSunbed.getModel().getValueAt(row, 2),
+			        DateFormat.getDateInstance(DateFormat.MEDIUM).parse((String)TableOverviewSunbed.getModel().getValueAt(row, 3))
+			        );
+			
+			editSonnenbank = new EditSonnenbank(sonnenbankObject);
+		} catch (NumberFormatException e) {
+			JOptionPane.showMessageDialog(null, e.getMessage(), "Etwas ist Fehlgeschlagen", JOptionPane.WARNING_MESSAGE);
+		} catch (ParseException e) {
+			JOptionPane.showMessageDialog(null, e.getMessage(), "Etwas ist Fehlgeschlagen", JOptionPane.WARNING_MESSAGE);
+		}
 
-        EditSonnenbank editSonnenbank = new EditSonnenbank(sonnenbankObject);
 
         editSonnenbank.setVisible(true);
 

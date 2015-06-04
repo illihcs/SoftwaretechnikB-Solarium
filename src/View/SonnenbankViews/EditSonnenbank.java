@@ -5,6 +5,7 @@ import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.SQLException;
+import java.text.DateFormat;
 
 import javax.swing.GroupLayout;
 import javax.swing.JButton;
@@ -62,8 +63,8 @@ public class EditSonnenbank extends JFrame {
         LabelServiceAppointment = new JLabel("Wartungstermin:");
         TextFieldCabin = new JTextField(so.getKabine());
         TextFieldPower = new JTextField(so.getLeistung());
-        TextFieldServiceAppointment = new JTextField(so.getWartungstermin().toString());
-        ButtonBackToSunbedOverview = new JButton("Zurück zur Sonnenbankübersicht");
+        TextFieldServiceAppointment = new JTextField(DateFormat.getDateInstance(DateFormat.MEDIUM).format(so.getWartungstermin()));
+        ButtonBackToSunbedOverview = new JButton("ZurÃ¼ck zur SonnenbankÃ¼bersicht");
 
         //add Components
         setLayout(new BorderLayout());
@@ -137,7 +138,7 @@ public class EditSonnenbank extends JFrame {
         setSize(800, 500);
         setLocationRelativeTo(null);
 
-        setTitle("Bearbeiten Sie die zu ändernden Werte der Sonnenbank.");
+        setTitle("Bearbeiten Sie die zu Ã¤ndernden Werte der Sonnenbank.");
     }
 
     private void ButtonSaveActionPerformed(java.awt.event.ActionEvent evt) {
@@ -167,7 +168,7 @@ public class EditSonnenbank extends JFrame {
                 this.dispose();
 
             } else {
-                throw new RuntimeException("Bearbeiten fehlgeschlagen! \n  Ein Feld wurde falsch eingegeben:\n Format Datum:yyyy-MM-dd");
+                throw new RuntimeException("Bearbeiten fehlgeschlagen! \n  Ein Feld wurde falsch eingegeben:\n Format Datum:dd.MM.yyyy");
             }
 
         } catch (Exception ex) {
@@ -176,7 +177,7 @@ public class EditSonnenbank extends JFrame {
     }
 
     private void ButtonAbortActionPerformed(java.awt.event.ActionEvent evt) throws SQLException {
-        int eingabe = JOptionPane.showConfirmDialog(null, "Möchten Sie wirklich abbrechen?", "Abbrechen", JOptionPane.YES_NO_OPTION);
+        int eingabe = JOptionPane.showConfirmDialog(null, "MÃ¶chten Sie wirklich abbrechen?", "Abbrechen", JOptionPane.YES_NO_OPTION);
         if (eingabe == 0) {
             OverviewSonnenbank overviewSonnenbank = new OverviewSonnenbank();
             overviewSonnenbank.setVisible(true);

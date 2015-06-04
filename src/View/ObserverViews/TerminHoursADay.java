@@ -31,7 +31,7 @@ public class TerminHoursADay extends JFrame implements Observer{
 	
 	private void initComponents() throws SQLException {
         setDefaultCloseOperation(DISPOSE_ON_CLOSE);
-        setTitle("Gesamtstunden der Termine �ber den Tag");
+        setTitle("Gesamtstunden der Termine über den Tag");
         setLayout(new BorderLayout());
         
         center = new JPanel();

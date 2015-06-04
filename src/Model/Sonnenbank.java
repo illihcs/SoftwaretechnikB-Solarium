@@ -31,9 +31,10 @@ public class Sonnenbank implements ISonnenbank {
 
             // Fill SQL Statement
             PreparedStatement preparedStatement = con.prepareStatement(insertTableSQL);
+            java.sql.Date wartday = new java.sql.Date(Wartungstermin.getTime());
             preparedStatement.setString(1, Kabine);
             preparedStatement.setString(2, Leistung);
-            preparedStatement.setDate(3, java.sql.Date.valueOf(Wartungstermin.toString()));
+            preparedStatement.setDate(3, wartday);
 
             // execute insert SQL stetement
             preparedStatement.executeUpdate();
@@ -59,9 +60,10 @@ public class Sonnenbank implements ISonnenbank {
 
             // Fill SQL Statement
             PreparedStatement preparedStatement = con.prepareStatement(insertTableSQL);
+            java.sql.Date wartday = new java.sql.Date(Wartungstermin.getTime());
             preparedStatement.setString(1, Kabine);
             preparedStatement.setString(2, Leistung);
-            preparedStatement.setDate(3, java.sql.Date.valueOf(Wartungstermin.toString()));
+            preparedStatement.setDate(3, wartday);
             preparedStatement.setInt(4, ID);
             // execute insert SQL stetement
             preparedStatement.executeUpdate();

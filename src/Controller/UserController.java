@@ -22,7 +22,7 @@ public class UserController {
         frontage = new FrontageModel();
     }
 
-    // Diese Methode liefert true zurück wenn das Model in der DB ein passenden eintrag findet
+    // Diese Methode liefert true zurï¿½ck wenn das Model in der DB ein passenden eintrag findet
     public boolean loginApplicationUser(String loginApplicationUserMail, char[] Password) throws SQLException {
     	boolean UserAuthenticated = frontage.UserLogin(loginApplicationUserMail, new String(Password));
         
@@ -30,16 +30,16 @@ public class UserController {
     }
 
     public boolean registerApplicationUser(String Vorname, String Nachname, String Geburtstag, String Mail, char[] Password) throws SQLException, ParseException {
-        // Außen vor lassen! erst wenn wichtige sachen fertig sind weiter implementieren
+        // Auï¿½en vor lassen! erst wenn wichtige sachen fertig sind weiter implementieren
         Date geburtstagDate = dateFormater.parse(Geburtstag);
 
         return frontage.UserCreate(Vorname, Nachname, geburtstagDate, Mail, new String(Password));
 
     }
 
-    // Diese Methode liefert true zurück wenn das Model in der DB ein Update durchführen konnte
+    // Diese Methode liefert true zurï¿½ck wenn das Model in der DB ein Update durchfï¿½hren konnte
     public boolean editApplicationUser(int ID, String Vorname, String Nachname, String Geburtstag, String EMail, char[] Password) throws SQLException, ParseException {
-        Date geburtstagDate = dateFormater.parse(Geburtstag);
+    		Date geburtstagDate = dateFormater.parse(Geburtstag);
 
         boolean UserEdited = frontage.UserEdit(ID, Vorname, Nachname, geburtstagDate, EMail, new String(Password));
 
@@ -61,7 +61,7 @@ public class UserController {
 					String.valueOf(user.getID()),
 					user.getVorname(),
 					user.getNachname(),
-					user.getGeburtstag().toString(),
+					DateFormat.getDateInstance(DateFormat.MEDIUM).format(user.getGeburtstag()),
 					user.getEmail(),
 					user.getPasswort().toString()
 			};

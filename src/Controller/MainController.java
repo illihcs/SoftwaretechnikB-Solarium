@@ -2,13 +2,10 @@ package Controller;
 
 import java.sql.SQLException;
 
-import javax.swing.JFrame;
-
 import org.junit.runners.model.InitializationError;
 
 import View.ObserverViews.TerminHoursADay;
 import View.TerminViews.OverviewTermin;
-import View.UserViews.Login;
 
 /**
  * Created by Schillemans on 01.05.2015.

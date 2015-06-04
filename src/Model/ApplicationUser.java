@@ -31,16 +31,17 @@ public class ApplicationUser implements IApplicationUser {
 
             // Fill SQL Statement
            PreparedStatement preparedStatement = con.prepareStatement(insertTableSQL);
+           java.sql.Date bday = new java.sql.Date(Geburtstag.getTime());
             preparedStatement.setString(1, Vorname);
             preparedStatement.setString(2, Nachname);
-            preparedStatement.setDate(3, java.sql.Date.valueOf(Geburtstag.toString()));
+            preparedStatement.setDate(3, bday);
             preparedStatement.setString(4, EMail);
             preparedStatement.setString(5, Passwort);
             preparedStatement.setString(6, EMail);
 
             // execute insert SQL stetement
             preparedStatement.executeUpdate();
-
+            
             return true;
 
         } catch (SQLException ex) {
@@ -63,9 +64,10 @@ public class ApplicationUser implements IApplicationUser {
 
             // Fill SQL Statement
             PreparedStatement preparedStatement = con.prepareStatement(insertTableSQL);
+            java.sql.Date bday = new java.sql.Date(Geburtstag.getTime());
             preparedStatement.setString(1, Vorname);
             preparedStatement.setString(2, Nachname);
-            preparedStatement.setDate(3, java.sql.Date.valueOf(Geburtstag.toString()));
+            preparedStatement.setDate(3, bday);
             preparedStatement.setString(4, EMail);
             preparedStatement.setString(5, Passwort);
 

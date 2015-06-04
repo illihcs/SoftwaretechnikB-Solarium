@@ -6,6 +6,7 @@ import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.SQLException;
+import java.text.DateFormat;
 
 import javax.swing.GroupLayout;
 import javax.swing.JButton;
@@ -72,13 +73,13 @@ public class Edit extends JFrame {
         ButtonAbort = new JButton();
 
         setDefaultCloseOperation(DISPOSE_ON_CLOSE);
-        setTitle("Bearbeiten Sie die zu ändernden Werte.");
+        setTitle("Bearbeiten Sie die zu Ã¤ndernden Werte.");
         setSize(800, 500);
 
         //init top
         top.setLayout(new CardLayout());
 
-        ButtonBackToUserOverview.setText("Zurück zur Übersicht");
+        ButtonBackToUserOverview.setText("ZurÃ¼ck zur Ãœbersicht");
         ButtonBackToUserOverview.setHorizontalAlignment(SwingConstants.LEFT);
         ButtonBackToUserOverview.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent evt) {
@@ -109,7 +110,7 @@ public class Edit extends JFrame {
 
         LabelBirthday.setText("Geburstag:");
         center.add(LabelBirthday);
-        TextFieldBirthday.setText(user.getGeburtstag().toString());
+        TextFieldBirthday.setText(DateFormat.getDateInstance(DateFormat.MEDIUM).format(user.getGeburtstag()));
         center.add(TextFieldBirthday);
 
         LabelMail.setText("E-Mail:");
@@ -205,7 +206,7 @@ public class Edit extends JFrame {
     }
 
     private void ButtonAbortActionPerformed(java.awt.event.ActionEvent evt) throws SQLException {
-        int eingabe = JOptionPane.showConfirmDialog(null, "Möchten Sie wirklich abbrechen?", "Abbrechen", JOptionPane.YES_NO_OPTION);
+        int eingabe = JOptionPane.showConfirmDialog(null, "MÃ¶chten Sie wirklich abbrechen?", "Abbrechen", JOptionPane.YES_NO_OPTION);
         if (eingabe == 0) {
             OverviewUser overviewUser = new OverviewUser();
             overviewUser.setVisible(true);

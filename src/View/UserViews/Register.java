@@ -77,7 +77,7 @@ public class Register extends JFrame {
         //init top
         top.setLayout(new CardLayout());
 
-        ButtonBackToUserOverview.setText("Zurück zur Übersicht");
+        ButtonBackToUserOverview.setText("ZurÃ¼ck zur Ãœbersicht");
         ButtonBackToUserOverview.setHorizontalAlignment(SwingConstants.LEFT);
         ButtonBackToUserOverview.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent evt) {
@@ -186,7 +186,7 @@ public class Register extends JFrame {
             String Mail = TextFieldMail.getText();
             char[] Password = TextFieldPassword.getText().toCharArray();
 
-            boolean applicationUserRegistered = controller.registerApplicationUser(Surname, Givenname, Birthday, Mail, Password);
+            boolean applicationUserRegistered = controller.registerApplicationUser(Givenname, Surname, Birthday, Mail, Password);
 
             if (applicationUserRegistered) {
 
@@ -207,7 +207,7 @@ public class Register extends JFrame {
     }
 
     private void ButtonAbortActionPerformed(java.awt.event.ActionEvent evt) throws SQLException {
-        int eingabe = JOptionPane.showConfirmDialog(null, "Möchten Sie wirklich abbrechen?", "Abbrechen", JOptionPane.YES_NO_OPTION);
+        int eingabe = JOptionPane.showConfirmDialog(null, "Mï¿½chten Sie wirklich abbrechen?", "Abbrechen", JOptionPane.YES_NO_OPTION);
         if (eingabe == 0) {
             OverviewUser overviewUser = new OverviewUser();
             overviewUser.setVisible(true);

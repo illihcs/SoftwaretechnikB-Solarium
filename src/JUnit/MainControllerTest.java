@@ -9,11 +9,11 @@ import View.UserViews.Login;
 public class MainControllerTest {
 
 	@Test
-	public void test() {
+	public void tetToCreateLoginView() {
 		
 		Login loginApplicationUser = new Login();
 		assertNotNull(loginApplicationUser);
-		
 	}
+	 
 
 }

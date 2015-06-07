@@ -22,7 +22,7 @@ public class UserController {
         frontage = new FrontageModel();
     }
 
-    // Diese Methode liefert true zur�ck wenn das Model in der DB ein passenden eintrag findet
+    // Diese Methode liefert true zurück wenn das Model in der DB ein passenden eintrag findet
     public boolean loginApplicationUser(String loginApplicationUserMail, char[] Password) throws SQLException {
     	boolean UserAuthenticated = frontage.UserLogin(loginApplicationUserMail, new String(Password));
         
@@ -30,14 +30,13 @@ public class UserController {
     }
 
     public boolean registerApplicationUser(String Vorname, String Nachname, String Geburtstag, String Mail, char[] Password) throws SQLException, ParseException {
-        // Au�en vor lassen! erst wenn wichtige sachen fertig sind weiter implementieren
-        Date geburtstagDate = dateFormater.parse(Geburtstag);
-
+        
+    	Date geburtstagDate = dateFormater.parse(Geburtstag);
         return frontage.UserCreate(Vorname, Nachname, geburtstagDate, Mail, new String(Password));
 
     }
 
-    // Diese Methode liefert true zur�ck wenn das Model in der DB ein Update durchf�hren konnte
+    // Diese Methode liefert true zurück wenn das Model in der DB ein Update durchführen konnte
     public boolean editApplicationUser(int ID, String Vorname, String Nachname, String Geburtstag, String EMail, char[] Password) throws SQLException, ParseException {
     		Date geburtstagDate = dateFormater.parse(Geburtstag);
 
@@ -52,7 +51,8 @@ public class UserController {
     }
 
     public LinkedList<String[]> getAllUser() throws SQLException {
-        LinkedList<ApplicationUserObject> AllUser = frontage.UserGetAll();
+        
+    	LinkedList<ApplicationUserObject> AllUser = frontage.UserGetAll();
         LinkedList<String[]> stringListWithArrays = new LinkedList<String[]>();
         
         for(ApplicationUserObject user : AllUser)

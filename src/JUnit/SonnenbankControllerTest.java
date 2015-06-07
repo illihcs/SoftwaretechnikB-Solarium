@@ -11,13 +11,21 @@ import Controller.SonnenbankController;
 
 public class SonnenbankControllerTest {
 
-	@Test
-	public void test() throws SQLException, ParseException {
+	@Test(expected = Exception.class)
+	public void testToCreateNewSonnenbank() throws SQLException, ParseException {
  
-		SonnenbankController aa = new SonnenbankController();
-		
-		assertTrue(aa.createSonnenbank("1a", "2500W", "2015-06-03"));
-		 
+		SonnenbankController SonnenbankObj = new SonnenbankController();
+		assertTrue(SonnenbankObj.createSonnenbank("1a", "2500W", "2015-06-03")); 
 	}
+	
+	@Test
+	public void testToDeleteSunbed() throws SQLException, ParseException {
+ 
+		SonnenbankController SonnenbankObj = new SonnenbankController();
+		assertTrue(SonnenbankObj.deleteSunbed(2)); 
+	}
+	
+	
+	
 
 }

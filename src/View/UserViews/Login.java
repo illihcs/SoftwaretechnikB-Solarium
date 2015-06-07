@@ -85,7 +85,7 @@ public class Login extends JFrame implements ActionListener {
 
                 } else {
 
-                    throw new RuntimeException("Login nicht möglich");
+                    throw new RuntimeException("Login nicht mÃ¶glich");
 
                 }
 
